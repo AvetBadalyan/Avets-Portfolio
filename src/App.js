@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Navbar from "./Components/Navbar/Navbar";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
 import Home from "./Pages/Home/Home";
@@ -16,7 +17,7 @@ function App() {
       {/* particles js */}
 
       {/* navbar components */}
-
+<Navbar />
       {/* main page content */}
 
       <Routes>
