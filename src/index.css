@@ -1,23 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+
+:root {
+  --selected-theme-background-color: var(--yellow-theme-background-color);
+  --selected-theme-main-color: var(--yellow-theme-main-color);
+  --selected-theme-sub-text-color: var(--yellow-theme-sub-text-color);
+  --selected-theme-nav-background-color: var(
+    --yellow-theme-nav-background-color
+  );
+
+  /* primary color yellow */
+
+  --yellow-theme-background-color: #1d1d1d;
+  --yellow-theme-main-color: #ffdd40;
+  --yellow-theme-sub-text-color: #ffffff;
+  --yellow-theme-nav-background-color: #181818;
+
+  --font-bas: "Roboto Slab", serif;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  font-size: 62.5%;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  background: var(--selected-theme-background-color);
+}
+
+#root {
+  height: 100%;
 }
