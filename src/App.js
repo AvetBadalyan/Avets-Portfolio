@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import "./App.css";
+import "./App.scss";
 import Navbar from "./Components/Navbar/Navbar";
 import { particles } from "./helpers/particlesConfig";
 import About from "./Pages/About/About";
@@ -22,23 +22,23 @@ function App() {
   return (
     <div className="App">
       {/* particles js */}
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={particles}
-      />
+      <Particles id="tsparticles" init={particlesInit} options={particles} />
       {/* navbar components */}
-      <Navbar />
+      <div className="app-navbar-wrapper">
+        <Navbar />
+      </div>
       {/* main page content */}
 
-      <Routes>
-        <Route path="/" index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <div className="app-main-content-wrapper">
+        <Routes>
+          <Route path="/" index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
     </div>
   );
 }
