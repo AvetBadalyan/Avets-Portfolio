@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: center;
 
+  flex-direction: column;
+
   .home-text-wrapper {
     display: flex;
     align-items: center;
@@ -22,6 +24,52 @@
       overflow: hidden;
       white-space: nowrap;
       animation: typingEffect 2s steps(180, end);
+    }
+  }
+
+  .contact-me {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+
+    .contact-me-buttons-wrapper {
+      display: flex;
+      gap: 10px;
+
+      button,
+      a {
+        cursor: pointer;
+        padding: 10px;
+        font-size: 2rem;
+        background: transparent;
+        color: var(--selected-theme-main-color);
+        border: 1.5px solid var(--selected-theme-main-color);
+        border-radius: 4px;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:hover {
+          color: black;
+          background: var(--selected-theme-main-color);
+        }
+      }
+    }
+
+    .contact-me-social-wrapper {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      svg,
+      span {
+        color: var(--selected-theme-main-color);
+        cursor: pointer;
+        font-size: 32px;
+      }
     }
   }
 }
