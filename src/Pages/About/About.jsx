@@ -2,6 +2,8 @@ import React from "react";
 import PageHeader from "../../Components/PageHeaderContent/PageHeader";
 import { personalData } from "./utils";
 import "./About.styles.scss";
+import { DiApple, DiAndroid } from "react-icons/di";
+import { FaDev, FaDatabase } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -21,7 +23,22 @@ export default function About() {
             ))}
           </div>
         </div>
-        <div className="about-content-serviceWrapper">service wrapper</div>
+        <div className="about-content-serviceWrapper">
+          <div className="about-content-serviceWrapper-innerContent">
+            <div>
+              <DiApple size={60} color="var(--selected-theme-main-color)" />
+            </div>
+            <div>
+              <FaDatabase size={60} color="var(--selected-theme-main-color)" />
+            </div>
+            <div>
+              <DiAndroid size={60} color="var(--selected-theme-main-color)" />
+            </div>
+            <div>
+              <FaDev size={60} color="var(--selected-theme-main-color)" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
