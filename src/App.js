@@ -3,6 +3,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./App.scss";
 import Navbar from "./Components/Navbar/Navbar";
+import Theme from "./Components/theme/Theme";
 import { particles } from "./helpers/particlesConfig";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
@@ -30,6 +31,7 @@ function App() {
       {/* main page content */}
 
       <div className="app-main-content-wrapper">
+        <Theme />
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/about" element={<About />} />

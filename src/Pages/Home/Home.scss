@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  gap: 20px;
   flex-direction: column;
 
   .home-text-wrapper {
@@ -30,9 +30,8 @@
   .contact-me {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
-    margin-top: 10px;
 
     .contact-me-buttons-wrapper {
       display: flex;
