@@ -117,3 +117,47 @@
     transform: rotate(0deg);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .about-content {
+    flex-direction: column;
+
+    .about-content-serviceWrapper {
+      margin: 20px auto;
+
+      .about-content-serviceWrapper-innerContent {
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          100px,
+          var(--selected-theme-main-color),
+          transparent 90%
+        );
+
+        div:nth-child(1) {
+          position: absolute;
+          top: -15%;
+          left: 38.5%;
+        }
+
+        div:nth-child(2) {
+          position: absolute;
+          top: 41%;
+          right: -11%;
+        }
+
+        div:nth-child(3) {
+          position: absolute;
+          bottom: -12%;
+          left: 39%;
+        }
+
+        div:nth-child(4) {
+          position: absolute;
+          top: 41.5%;
+          left: -12%;
+        }
+      }
+    }
+  }
+}
