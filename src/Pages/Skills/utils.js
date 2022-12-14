@@ -14,11 +14,11 @@ export const skillsData = [
   },
 
   {
-    label: "Web Development Platform.",
-    data: [{ skillName: "Firebase Auth & Hosting", percentage: "70" }],
+    label: "Platforms",
+    data: [{ skillName: "Firebase (Auth & Hosting)", percentage: "70" }],
   },
   {
     label: "DataBases",
-    data: [{ skillName: "Firebase Realtime DataBases", percentage: "50" }],
+    data: [{ skillName: "Firebase Realtime DataBase", percentage: "50" }],
   },
 ];
