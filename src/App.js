@@ -23,7 +23,12 @@ function App() {
   return (
     <div className="App">
       {/* particles js */}
-      <Particles id="tsparticles" init={particlesInit} options={particles} />
+      <Particles
+        
+        id="tsparticles"
+        init={particlesInit}
+        options={particles}
+      />
       {/* navbar components */}
       <div className="app-navbar-wrapper">
         <Navbar />
