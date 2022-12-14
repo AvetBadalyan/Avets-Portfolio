@@ -33,8 +33,6 @@
   --blue-theme-main-color: rgb(80, 120, 255);
   --blue-theme-sub-text-color: #ffffff;
   --blue-theme-nav-background-color: rgb(0, 0, 34);
-
-  --font-bas: "Roboto Slab", serif;
 }
 
 * {
@@ -43,6 +41,8 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   transition: all 0.5s ease;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Serif", serif;
 }
 
 html {

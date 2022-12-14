@@ -60,13 +60,13 @@
       justify-content: center;
 
       &-innerContent {
-        width: 350px;
-        height: 350px;
+        width: 40vmin;
+        height: 40vmin;
         position: relative;
         border-radius: 50%;
         border: 1.5px solid var(--selected-theme-main-color);
         background: radial-gradient(
-          180px,
+          150px,
           var(--selected-theme-main-color),
           transparent 90%
         );
@@ -115,6 +115,46 @@
 
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 930px) {
+  .about-content {
+    .about-content-serviceWrapper {
+      .about-content-serviceWrapper-innerContent {
+        width: 25vmin;
+        height: 25vmin;
+        background: radial-gradient(
+          100px,
+          var(--selected-theme-main-color),
+          transparent 90%
+        );
+
+        div:nth-child(1) {
+          position: absolute;
+          top: -20%;
+          left: 40%;
+        }
+
+        div:nth-child(2) {
+          position: absolute;
+          top: 30%;
+          right: -20%;
+        }
+
+        div:nth-child(3) {
+          position: absolute;
+          bottom: -15%;
+          left: 30%;
+        }
+
+        div:nth-child(4) {
+          position: absolute;
+          top: 30%;
+          left: -20%;
+        }
+      }
+    }
   }
 }
 
