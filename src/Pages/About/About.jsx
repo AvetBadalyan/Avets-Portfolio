@@ -5,6 +5,7 @@ import "./About.styles.scss";
 import { DiApple, DiAndroid } from "react-icons/di";
 import { FaDev, FaDatabase } from "react-icons/fa";
 import { Animate } from "react-simple-animate";
+import AboutMeText from "./AboutMeText";
 
 export default function About() {
   return (
@@ -13,35 +14,43 @@ export default function About() {
 
       <div className="about-content">
         <div className="about-content-personalWrapper">
-          <Animate
-            play
-            duration={1}
-            delay={0}
-            start={{ transform: " translateX(-800px)" }}
-            end={{ transform: " translateX(0px)" }}
-          >
-            <h3 className="developer-content">Front End Developer</h3>
-            <p>About Me section</p>
-          </Animate>
+          <div className="about-text-section">
+            <Animate
+              play
+              duration={1}
+              delay={0}
+              start={{ transform: " translateX(-800px)" }}
+              end={{ transform: " translateX(0px)" }}
+            >
+              <h3 className="developer-content">Front End Developer</h3>
+              <AboutMeText />
+            </Animate>
+          </div>
 
-          <Animate
-            play
-            duration={1}
-            delay={0}
-            start={{ transform: " translateX(500px)" }}
-            end={{ transform: " translateX(0px)" }}
-          >
-            <h3 className="personalContent">Personal Information</h3>
+          <div className="personal-data-section">
+            <Animate
+              play
+              duration={1}
+              delay={0}
+              start={{ transform: " translateX(500px)" }}
+              end={{ transform: " translateX(0px)" }}
+            >
+              <h3 className="personal-content">Personal Information</h3>
 
-            <div className="personal-data-container">
-              {personalData.map((item, key) => (
-                <div className="personal-data" key={key}>
-                  <span className="title">{item.label}</span>
-                  <span className="value">{item.value}</span>
-                </div>
-              ))}
-            </div>
-          </Animate>
+              <div className="personal-data-container">
+                {personalData.map((item, key) => (
+                  <div className="personal-data" key={key}>
+                    <p>
+                      <b style={{ color: "var(--selected-theme-main-color)", marginRight: "15", letterSpacing: "0.5px" }}>
+                        <u>{item.label}</u>
+                      </b>
+                      <span className="value"> {item.value}</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Animate>
+          </div>
         </div>
 
         <div className="about-content-serviceWrapper">
