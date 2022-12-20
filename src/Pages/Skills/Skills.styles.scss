@@ -12,13 +12,11 @@
 
       .skills-content-wrapper-inner-content-category-text {
         color: var(--selected-theme-sub-text-color);
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 600;
-        line-height: 1rem;
         letter-spacing: 0.5px;
         position: relative;
         text-transform: uppercase;
-        padding: 10px 0;
         border-bottom: 2px solid var(--selected-theme-main-color);
       }
 
@@ -31,9 +29,8 @@
         animation: fadeStart 5s 1;
 
         p {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
           font-weight: 500;
-          margin: 0 0 10px 0;
           text-transform: uppercase;
           color: var(--selected-theme-sub-text-color);
         }
@@ -48,13 +45,18 @@
       flex-direction: column;
 
       .skills-content-wrapper-inner-content {
-        margin: 20px 0;
+        margin: 10px 0;
+
         .skills-content-wrapper-inner-content-category-text {
-          font-size: 20px;
+          font-size: 24px;
         }
 
         .progressbar-wrapper {
           padding-top: 20px;
+
+          p {
+            font-size: 1.2rem;
+          }
         }
       }
     }
@@ -65,6 +67,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

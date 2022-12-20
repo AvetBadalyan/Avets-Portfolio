@@ -21,7 +21,7 @@ export default function Home() {
           }}
         >
           <div className="home-text-wrapper">
-            <h1>Discover My WebDev Space!</h1>
+            <h1>Welcome To My WebDev Space!</h1>
           </div>
           <div className="contact-me">
             <div className="contact-me-buttons-wrapper">

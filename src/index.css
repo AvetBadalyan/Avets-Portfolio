@@ -11,7 +11,8 @@
   /* primary color yellow */
 
   --yellow-theme-background-color: rgb(35, 39, 65);
-  --yellow-theme-main-color: #ffdd40;
+  --yellow-theme-main-color: #FFC107;
+  /* ffdd40 FFC107 */
   --yellow-theme-sub-text-color: #ffffff;
   --yellow-theme-nav-background-color: rgb(0, 0, 34);
 

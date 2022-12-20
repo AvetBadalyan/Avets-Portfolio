@@ -6,6 +6,7 @@ import "./Portfolio.styles.scss";
 
 export default function Portfolio() {
   const [data, setData] = useState([]);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const fetchData = useCallback(async () => {
     const response = await fetch(
@@ -25,37 +26,48 @@ export default function Portfolio() {
   return (
     <div className="portfolio-page">
       <PageHeader headerText="My Websites" />
-      <div className="websites-wrapper">
-        {data.map((singleSite) => {
-          const { siteName, description, image, webUrl, githubUrl, id } =
-            singleSite;
-          return (
-            <div key={id} className="single-site">
-              <img src={image} alt="screenshot" />
-              <div className="site-info">
-                <h1>{siteName}</h1>
-                <p className="site-description">
-                  <span className="site-description-span">Description: </span>
-                  {description}
-                </p>
-                <p>
-                  <span className="site-description-span">Website: </span>
-                  <a href={webUrl} target="_blank" rel="noreferrer">
-                    Click here
-                  </a>{" "}
-                  To go to Website {webUrl}
-                </p>
-                <p>
-                  <span className="site-description-span">GitHub: </span>
-                  <a href={githubUrl} target="_blank" rel="noreferrer">
-                    Here is
-                  </a>{" "}
-                  The source code in GitHub {githubUrl}
-                </p>
+      <div className="portfolio-content">
+        <div className="portfolio-content-cards">
+          {data.map((singleSite, index) => {
+            const { siteName, description, image, webUrl, githubUrl, id } =
+              singleSite;
+            return (
+              <div
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                key={id}
+                className="portfolio-content-cards-item"
+              >
+                <div className="portfolio-content-cards-item-img-wrapper">
+                  <a>
+                    <img src={image} alt="project" />
+                  </a>
+                </div>
+                <div className="overlay">
+                  {hoveredIndex === index && (
+                    <div className="site-info">
+                      <h1>{siteName}</h1>
+                      <p className="site-description">
+                        <span className="site-description-span">
+                          Description:{" "}
+                        </span>
+                        {description}
+                      </p>
+                      <div className="site-link-buttons">
+                        <a href={webUrl} target="_blank" rel="noreferrer">
+                          <button>Go to Website</button>
+                        </a>
+                        <a href={githubUrl} target="_blank" rel="noreferrer">
+                          <button>Code in GitHub</button>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
