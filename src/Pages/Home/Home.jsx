@@ -32,6 +32,8 @@ export default function Home() {
                 Explore Now
               </button>
               <a
+                target="_blank"
+                rel="noreferrer"
                 href="https://drive.google.com/file/d/1LX6gEuw1M6UEa1hgcjEkqglL6RDdntwP/view?usp=sharing"
                 download="AvetCV"
               >
@@ -40,11 +42,19 @@ export default function Home() {
             </div>
             <div className="contact-me-social-wrapper">
               <span>Find me on</span>
-              <a href="https://www.linkedin.com/in/avet-badalyan-17b767101/">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/avet-badalyan-17b767101/"
+              >
                 {" "}
                 <FaLinkedin size={32} />
               </a>
-              <a href="https://github.com/AvetBadalyan">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/AvetBadalyan"
+              >
                 <FaGithub size={32} />
               </a>
             </div>
