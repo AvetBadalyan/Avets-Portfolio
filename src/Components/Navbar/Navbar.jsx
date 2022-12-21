@@ -23,7 +23,11 @@ export default function Navbar() {
           }
         >
           {navMenus.map((item, key) => (
-            <div key={key} className="navbar-container-menu-item">
+            <div
+              onClick={() => setClick(false)}
+              key={key}
+              className="navbar-container-menu-item"
+            >
               <Link className="navbar-container-menu-item-links" to={item.to}>
                 {item.label}
               </Link>

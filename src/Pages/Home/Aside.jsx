@@ -12,7 +12,7 @@ export default function Aside() {
       <div className="aside-header">
         <img src={photo} alt="avet" />
         <h2>Avet Badalyan</h2>
-        <p>Front-end Developer</p>
+        <h3>Front-end Developer</h3>
       </div>
 
       <div className="aside-main">
@@ -70,7 +70,9 @@ export default function Aside() {
         </div>
         <div className="other-skills">
           <span>Other Skills: </span>
-          <span className="aside-info-text">Figma, SASS, Git/GitHub</span>
+          <span className="aside-info-text">
+            Figma, SASS, Git/GitHub, MS Office, Adobe Premiere Pro
+          </span>
         </div>
       </div>
     </aside>

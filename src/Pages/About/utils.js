@@ -16,7 +16,7 @@ export const personalData = [
     value: "avetbadalyan@gmail.com",
   },
   {
-    label: "Contact Number",
+    label: "Phone",
     value: "+374-55-280-444",
   },
 ];

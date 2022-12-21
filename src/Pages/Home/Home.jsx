@@ -1,10 +1,13 @@
 import React from "react";
 import "./Home.scss";
-import { FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Animate } from "react-simple-animate";
 import Aside from "./Aside";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <section className="home" id="home">
       <Aside />
@@ -25,7 +28,9 @@ export default function Home() {
           </div>
           <div className="contact-me">
             <div className="contact-me-buttons-wrapper">
-              <button>Explore Now</button>
+              <button onClick={() => navigate("/portfolio")}>
+                Explore Now
+              </button>
               <a
                 href="https://drive.google.com/file/d/1LX6gEuw1M6UEa1hgcjEkqglL6RDdntwP/view?usp=sharing"
                 download="AvetCV"
@@ -34,9 +39,14 @@ export default function Home() {
               </a>
             </div>
             <div className="contact-me-social-wrapper">
-              <span>Social Media Links</span>
-              <FaLinkedin size={32} />
-              <FaFacebook size={32} />
+              <span>Find me on</span>
+              <a href="https://www.linkedin.com/in/avet-badalyan-17b767101/">
+                {" "}
+                <FaLinkedin size={32} />
+              </a>
+              <a href="https://github.com/AvetBadalyan">
+                <FaGithub size={32} />
+              </a>
             </div>
           </div>
         </Animate>

@@ -39,6 +39,24 @@
   }
 }
 
+@media only screen and (min-width: 769px) and (max-width: 1020px) {
+  .skills {
+    .skills-content-wrapper {
+      .skills-content-wrapper-inner-content {
+        .skills-content-wrapper-inner-content-category-text {
+          font-size: 24px;
+        }
+        .progressbar-wrapper {
+          padding-top: 20px;
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .skills {
     .skills-content-wrapper {

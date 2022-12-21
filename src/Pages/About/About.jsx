@@ -35,16 +35,14 @@ export default function About() {
               start={{ transform: " translateX(500px)" }}
               end={{ transform: " translateX(0px)" }}
             >
-              <h3 className="personal-content">Personal Information</h3>
+              <h3 className="personal-content">Personal Info</h3>
 
               <div className="personal-data-container">
                 {personalData.map((item, key) => (
                   <div className="personal-data" key={key}>
                     <p>
-                      <b style={{ color: "var(--selected-theme-main-color)", marginRight: "15", letterSpacing: "0.5px" }}>
-                        <u>{item.label}</u>
-                      </b>
-                      <span className="value"> {item.value}</span>
+                      <div className="underlined-bold-text"> {item.label}</div>
+                      <div className="value"> {item.value}</div>
                     </p>
                   </div>
                 ))}

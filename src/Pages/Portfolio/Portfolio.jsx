@@ -39,9 +39,7 @@ export default function Portfolio() {
                 className="portfolio-content-cards-item"
               >
                 <div className="portfolio-content-cards-item-img-wrapper">
-                  <a>
-                    <img src={image} alt="project" />
-                  </a>
+                  <img src={image} alt="project" />
                 </div>
                 <div className="overlay">
                   {hoveredIndex === index && (
