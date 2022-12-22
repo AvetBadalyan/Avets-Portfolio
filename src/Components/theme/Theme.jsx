@@ -37,11 +37,11 @@ export default function Theme() {
 
   return (
     <div className={`theme-wrapper ${toggle ? "active" : ""} `}>
-      <div className="theme-wrapper-toggle-icon">
-        <FaPalette onClick={() => setToggle(!toggle)} size={30} />
-        <p style={{ color: "var( --selected-theme-nav-background-color)" }}>
-          Color Pick
-        </p>
+      <div
+        onClick={() => setToggle(!toggle)}
+        className="theme-wrapper-toggle-icon"
+      >
+        <FaPalette size={40} />
       </div>
       <div className="theme-wrapper-menu">
         <h4>Choose Theme</h4>
