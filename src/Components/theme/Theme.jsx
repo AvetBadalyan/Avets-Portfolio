@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ImCog } from "react-icons/im";
+import { FaPalette } from "react-icons/fa";
 import setTheme from "../../helpers/themeHelper";
 import "./Theme.scss";
 
@@ -38,7 +38,10 @@ export default function Theme() {
   return (
     <div className={`theme-wrapper ${toggle ? "active" : ""} `}>
       <div className="theme-wrapper-toggle-icon">
-        <ImCog onClick={() => setToggle(!toggle)} size={40} />
+        <FaPalette onClick={() => setToggle(!toggle)} size={30} />
+        <p style={{ color: "var( --selected-theme-nav-background-color)" }}>
+          Color Pick
+        </p>
       </div>
       <div className="theme-wrapper-menu">
         <h4>Choose Theme</h4>

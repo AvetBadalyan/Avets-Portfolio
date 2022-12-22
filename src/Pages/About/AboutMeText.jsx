@@ -10,8 +10,8 @@ export default function AboutMeText() {
         target="_blank"
         rel="noreferrer"
       >
-        <span className="underlined-bold-text">Microsoft IC Armenia</span>{" "}
-      </a>
+        <span className="underlined-bold-text">Microsoft IC Armenia</span>
+      </a>{" "}
       (in 2021) and{" "}
       <a
         href="https://www.linkedin.com/posts/avet-badalyan-17b767101_aca-certificate-activity-6947997990619901952-7owg/?utm_source=linkedin_share&utm_medium=member_desktop_web"
