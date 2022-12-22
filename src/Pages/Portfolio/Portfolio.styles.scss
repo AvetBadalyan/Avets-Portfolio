@@ -64,11 +64,14 @@
             p {
               font-weight: 500;
               font-size: 20px;
-              color: var(--selected-theme-sub-text-color);
+              color: var(--selected-theme-nav-background-color);
               position: relative;
 
               .site-description-span {
                 color: var(--selected-theme-nav-background-color);
+                text-decoration: underline;
+                font-weight: bold;
+                font-style: italic;
               }
             }
 
@@ -87,18 +90,21 @@
                 cursor: pointer;
                 padding: 8px;
                 font-size: 1.2rem;
-                background: transparent;
-                color: var(--selected-theme-sub-text-color);
-                border: 2px solid var(--selected-theme-sub-text-color);
-                border-radius: 4px;
+                // background: transparent;
+                color: var(--selected-theme-nav-background-color);
+                border: 2px solid var(--selected-theme-nav-background-color);
+                border-radius: 12px;
                 text-decoration: none;
                 text-align: center;
                 transition: all 0.7s ease-in-out;
+                background: var(--selected-theme-sub-text-color);
+                font-family: "Roboto", sans-serif;
+                font-weight: bold;
 
                 &:hover {
-                  color: var(--selected-theme-nav-background-color);
-                  border: 2px solid var(--selected-theme-nav-background-color);
-                  background: var(--selected-theme-main-color);
+                  color: var(--selected-theme-main-color);
+
+                  background: var(--selected-theme-nav-background-color);
                 }
               }
             }

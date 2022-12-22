@@ -47,8 +47,8 @@ export default function Portfolio() {
                       <h1>{siteName}</h1>
                       <p className="site-description">
                         <span className="site-description-span">
-                          Description:{" "}
-                        </span>
+                          Description:
+                        </span>{" "}
                         {description}
                       </p>
                       <div className="site-link-buttons">
