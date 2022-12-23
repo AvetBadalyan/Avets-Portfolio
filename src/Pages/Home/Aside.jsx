@@ -49,6 +49,7 @@ export default function Aside() {
         <div className="aside-program-languages">
           {skillsData[0].data.map((item, index) => (
             <Animate
+              key={index}
               play
               duration={1}
               delay={0.4}
