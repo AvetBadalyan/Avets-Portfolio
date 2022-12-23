@@ -71,9 +71,7 @@ export default function Aside() {
         </div>
         <div className="other-skills">
           <span>Other Skills: </span>
-          <span className="aside-info-text">
-            Figma, SASS, Git/GitHub, MS Office, Adobe Premiere Pro
-          </span>
+          <span className="aside-info-text">Figma, SASS, Git/GitHub</span>
         </div>
       </div>
     </aside>
