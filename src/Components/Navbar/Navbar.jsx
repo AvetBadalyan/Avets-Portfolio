@@ -17,6 +17,7 @@ export default function Navbar() {
         <Link to={"/"} className="navbar-container-logo">
           <FaReact size={30} />
         </Link>
+
         <div
           className={
             click ? "navbar-container-menu active" : "navbar-container-menu"

@@ -5,10 +5,20 @@ import { languages } from "./languages";
 import photo from "./../../assets/IMG_6344.JPG";
 import { skillsData } from "../Skills/utils";
 import { Animate } from "react-simple-animate";
+import NewYear from "./NewYear";
 
 export default function Aside() {
   return (
     <aside>
+      <div
+        className="new-year-container"
+        style={{
+          background: "url(https://cdn.wallpapersafari.com/74/68/xdkzXw.jpeg)",
+        }}
+      >
+        <h1>🎄Happy New Year 2023 in🎅</h1>
+        <NewYear />
+      </div>
       <div className="aside-header">
         <img src={photo} alt="avet" />
         <h2>Avet Badalyan</h2>
