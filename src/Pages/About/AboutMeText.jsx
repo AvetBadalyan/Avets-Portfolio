@@ -19,10 +19,9 @@ export default function AboutMeText() {
         rel="noreferrer"
       >
         <span className="underlined-bold-text">Armenian Code Academy</span>
-      </a>
-      (in 2022), I am in Programming and
+      </a>{" "}
+      (in 2022), I have been studying{" "}
       <span style={{ color: "var(--selected-theme-main-color)" }}>
-        {" "}
         FRONT END DEVELOPMENT
       </span>{" "}
       <i>since 2021</i>. <br /> Periodically I update my portfolio with small or
@@ -49,9 +48,9 @@ export default function AboutMeText() {
       Now I build interactive apps with React JS, Redux and a little bit
       backend.
       <br />
-      <br /> Before I worked as{" "}
+      <br /> Earlier I have worked as a{" "}
       <b>
-        <i>financial analyst, accountant and external auditor</i>
+        <i>financial analyst, an accountant and an external auditor</i>
       </b>{" "}
       for 3 years. <br /> My main education is{" "}
       <b>

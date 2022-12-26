@@ -6,7 +6,7 @@ import "./Theme.scss";
 const colorsArray = [
   {
     id: "yellow",
-    bgColor: "rgb(255, 221, 64)",
+    bgColor: "rgb(244, 180, 0)",
   },
   {
     id: "red",
@@ -18,7 +18,7 @@ const colorsArray = [
   },
   {
     id: "blue",
-    bgColor: "rgb(80, 120, 255)",
+    bgColor: "rgb(66, 133, 244)",
   },
 ];
 
