@@ -1,9 +1,11 @@
 .countdown {
     display: flex;
-    color: white;
+    color: var(--selected-theme-main-color);
     justify-content: center;
     align-items: center;
     gap: 2px;
     text-align: center;
     width: 100%;
+    border: none;
+    outline: none;
 }
