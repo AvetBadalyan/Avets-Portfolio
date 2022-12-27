@@ -28,7 +28,7 @@ export default function Aside() {
       <div className="aside-main">
         <div className="aside-info">
           <div>
-            <span>Residence: </span>
+            <span>Country: </span>
             <span className="aside-info-text">Armenia</span>
           </div>
           <div>

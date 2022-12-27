@@ -24,9 +24,9 @@ export default function AboutMeText() {
       <span style={{ color: "var(--selected-theme-main-color)" }}>
         FRONT END DEVELOPMENT
       </span>{" "}
-      <i>since 2021</i>. <br /> Periodically I update my portfolio with small or
-      average interesting apps mastering my skills. All started from translating
-      little books from w3schools{" "}
+      <i>since 2021</i>. <br /> I regularly update my portfolio via diverse
+      interesting apps mastering my skills. All started from translating little
+      books from w3schools{" "}
       <a
         style={{ color: "var(--selected-theme-main-color)" }}
         target="_blank"
@@ -45,14 +45,14 @@ export default function AboutMeText() {
         about CSS
       </a>
       . <br />
-      Now I build interactive apps with React JS, Redux and a little bit
+      Currently I build interactive apps with React JS, Redux and a little bit
       backend.
       <br />
-      <br /> Earlier I have worked as a{" "}
+      <br /> I have a total of 3 years' work experience as a{" "}
       <b>
         <i>financial analyst, an accountant and an external auditor</i>
-      </b>{" "}
-      for 3 years. <br /> My main education is{" "}
+      </b>
+      . <br /> My major education background is in{" "}
       <b>
         <i>Finance and Management</i>
       </b>
@@ -66,7 +66,8 @@ export default function AboutMeText() {
           French University in Armenia 2012-2016
         </span>
       </a>{" "}
-      (Lyon 3, France, internship in Valence City) and{" "}
+      Bachelor's Degree in Management, 2012-2016 (License 3, Université Jean
+      Moulin Lyon 3, France, internship in Valence City) and{" "}
       <a
         href="https://drive.google.com/file/d/1l6ogOVUpgbhn7B9ij8cT5KDvFo2GjTfj/view"
         target="_blank"
@@ -76,7 +77,8 @@ export default function AboutMeText() {
           Public Administration Academy of Armenia 2016-2018
         </span>
       </a>{" "}
-      (internship in central Bank of RA) .
+      (Master's Degree in Public Finance Management, 2016-2018, internship at
+      Central Bank of RA).
     </p>
   );
 }
