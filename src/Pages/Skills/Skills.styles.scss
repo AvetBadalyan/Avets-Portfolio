@@ -1,14 +1,45 @@
 .skills {
   .skills-content-wrapper {
     display: flex;
-    padding: 20px;
-    gap: 20px;
+    flex-direction: column;
+    padding: 12px 20px;
+    gap: 12px;
 
     .skills-content-wrapper-inner-content {
       display: flex;
-      flex: 1;
       flex-direction: column;
-      align-items: center;
+      gap: 12px;
+      padding: 4px 0;
+
+      .skills-content-wrapper-logos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        text-align: center;
+        padding-top: 12px;
+
+        .skill-logo-wrapper {
+          animation: fadeStart 5s 1;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 180px;
+
+          p {
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--selected-theme-main-color);
+          }
+
+          img {
+            width: auto;
+            height: 170px;
+          }
+        }
+      }
 
       .skills-content-wrapper-inner-content-category-text {
         color: var(--selected-theme-sub-text-color);
@@ -20,21 +51,6 @@
         border-bottom: 2px solid var(--selected-theme-main-color);
       }
 
-      div {
-        width: 100%;
-      }
-
-      .progressbar-wrapper {
-        padding-top: 50px;
-        animation: fadeStart 5s 1;
-
-        p {
-          font-size: 1.4rem;
-          font-weight: 500;
-          text-transform: uppercase;
-          color: var(--selected-theme-sub-text-color);
-        }
-      }
     }
   }
 }
@@ -43,11 +59,14 @@
   .skills {
     .skills-content-wrapper {
       .skills-content-wrapper-inner-content {
+
         .skills-content-wrapper-inner-content-category-text {
           font-size: 24px;
         }
-        .progressbar-wrapper {
+
+        .skill-logo-wrapper {
           padding-top: 20px;
+
           p {
             font-size: 1rem;
           }
@@ -65,15 +84,43 @@
       .skills-content-wrapper-inner-content {
         margin: 10px 0;
 
+        .skills-content-wrapper-logos {
+          justify-content: space-between;
+          gap: 12px;
+
+          .skill-logo-wrapper {
+            padding-top: 20px;
+            max-width: 100%;
+
+            p {
+              font-size: 1.2rem;
+            }
+          }
+        }
+
         .skills-content-wrapper-inner-content-category-text {
           font-size: 24px;
         }
+      }
+    }
+  }
+}
 
-        .progressbar-wrapper {
-          padding-top: 20px;
+@media only screen and (max-width: 600px) {
+  .skills {
+    .skills-content-wrapper {
+      flex-direction: column;
 
-          p {
-            font-size: 1.2rem;
+      .skills-content-wrapper-inner-content {
+        .skills-content-wrapper-logos {
+          flex-direction: column;
+
+          .skill-logo-wrapper {
+            width: 250px;
+
+            img {
+              height: 250px;
+            }
           }
         }
       }
