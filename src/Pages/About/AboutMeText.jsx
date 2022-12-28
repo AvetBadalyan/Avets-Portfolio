@@ -66,7 +66,7 @@ export default function AboutMeText() {
           French University in Armenia 2012-2016
         </span>
       </a>{" "}
-      Bachelor's Degree in Management, 2012-2016 (License 3, Université Jean
+      Bachelor's Degree in Management, 2012-2016 (Licence 3, Université Jean
       Moulin Lyon 3, France, internship in Valence City) and{" "}
       <a
         href="https://drive.google.com/file/d/1l6ogOVUpgbhn7B9ij8cT5KDvFo2GjTfj/view"
