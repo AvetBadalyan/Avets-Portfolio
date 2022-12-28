@@ -1,10 +1,8 @@
-import { Circle, Line } from "rc-progress";
+import { Circle } from "rc-progress";
 import React from "react";
 import "./Aside.scss";
 import { languages } from "./languages";
 import photo from "./../../assets/IMG_6344.JPG";
-import { skillsData } from "../Skills/utils";
-import { Animate } from "react-simple-animate";
 import NewYear from "./NewYear";
 
 export default function Aside() {
@@ -54,34 +52,6 @@ export default function Aside() {
               <p>{item.languageName}</p>
             </div>
           ))}
-        </div>
-
-        <div className="aside-program-languages">
-          {skillsData[0].data.map((item, index) => (
-            <Animate
-              key={index}
-              play
-              duration={1}
-              delay={0.4}
-              start={{ transform: "translateX(-250px)" }}
-              end={{ transform: "translateX(0px)" }}
-            >
-              <div className="progressbar-wrapper" key={index}>
-                <p>{item.skillName}</p>
-                <Line
-                  percent={item.percentage}
-                  strokeWidth="2"
-                  strokeColor="var(--selected-theme-main-color)"
-                  strokeLinecap="square"
-                  trailWidth="2"
-                />
-              </div>
-            </Animate>
-          ))}
-        </div>
-        <div className="other-skills">
-          <span>Other Skills: </span>
-          <span className="aside-info-text">Figma, SASS, Git/GitHub</span>
         </div>
       </div>
     </aside>
