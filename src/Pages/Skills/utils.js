@@ -4,25 +4,25 @@ export const skillsData = [
     data: [
       {
         skillName: "HTML",
-        logo: "https://cdn.worldvectorlogo.com/logos/html-1.svg",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2Fhtml-1.svg?alt=media&token=9a5ca828-e7af-416c-9cce-a5656366c938",
       },
       {
         skillName: "CSS",
-        logo: "https://cdn.worldvectorlogo.com/logos/css-3.svg",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2Fcss-3.svg?alt=media&token=bd7f1b83-4d84-4519-b7c7-dbc04bf9315b",
       },
 
       {
         skillName: "JavaScript",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2FJavaScript-logo.png?alt=media&token=483d5fe7-dab1-455e-ab92-9a73fad64919",
       },
       {
         skillName: "React JS",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2FReact-icon.svg?alt=media&token=0f84ca7e-fe95-44af-921f-24eb0dd3d13b",
       },
 
       {
         skillName: "Redux",
-        logo: "https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2Fredux.png?alt=media&token=061045d2-7daa-4408-8fec-9c6b8547337c",
       },
     ],
   },
@@ -32,16 +32,16 @@ export const skillsData = [
     data: [
       {
         skillName: "Git",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2FGit_icon.svg.png?alt=media&token=2ea1b7b1-de86-48b6-8bc9-1954d2b52204",
       },
       {
         skillName: "GitHub",
-        logo: " https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+        logo: " https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2FOcticons-mark-github.svg?alt=media&token=fd5bfc6b-b999-43e1-8340-ebc6a50ba601",
       },
 
       {
         skillName: "Firebase",
-        logo: "https://png2.cleanpng.com/sh/9dfb3fd3d054d6891f805510bdf4a0d5/L0KzQYm3VMI3N5RBfZH0aYP2gLBuTfZqepZneeVuLXPvf8brTf1me6Rmf9t3Zz3qf7FujPUubJZ7fd54cHX1g376jBZ1f5J3RadqZUHnSbfrgcQ6PGEARqkCMEm0SYmAUcUzPGg6SKo9NUa6RIK1kP5o/kisspng-firebase-cloud-messaging-google-developers-softwar-5ae1d9fda49409.7709198715247508456741.png",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2Ffirebase-1.svg?alt=media&token=dbf3c029-364d-4979-a279-fa1b39fc9579",
       },
     ],
   },

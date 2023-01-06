@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaReact } from "react-icons/fa";
+import { FaBars, FaBriefcase } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 import { navMenus } from "./config";
 import "./Navbar.scss";
@@ -15,7 +15,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to={"/"} className="navbar-container-logo">
-          <FaReact size={30} />
+          <FaBriefcase size={30} />
         </Link>
 
         <div

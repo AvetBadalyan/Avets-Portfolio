@@ -11,8 +11,9 @@
     align-items: center;
     justify-content: center;
     width: 70%;
-    height: 80%;
+    height: 90%;
     position: relative;
+    margin: 0 auto;
 
     .home-text-wrapper {
       display: flex;
@@ -57,7 +58,7 @@
           text-align: center;
 
           &:hover {
-        
+
             background: var(--selected-theme-main-color);
           }
         }
