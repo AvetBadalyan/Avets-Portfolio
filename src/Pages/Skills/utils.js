@@ -31,6 +31,10 @@ export const skillsData = [
     label: "Other",
     data: [
       {
+        skillName: "Responsive WD",
+        logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2Fresponsive.png?alt=media&token=ad9c9cdb-2988-4939-ba5d-c49f986706a7",
+      },
+      {
         skillName: "Git",
         logo: "https://firebasestorage.googleapis.com/v0/b/my-portfolio-f61ed.appspot.com/o/skills%2FGit_icon.svg.png?alt=media&token=2ea1b7b1-de86-48b6-8bc9-1954d2b52204",
       },
