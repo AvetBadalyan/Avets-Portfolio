@@ -12,7 +12,7 @@ export default function Portfolio() {
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     const response = await fetch(
-      "https://my-portfolio-f61ed-default-rtdb.firebaseio.com/websites.json"
+      "https://avets-portfolio-default-rtdb.firebaseio.com/websites.json"
     );
 
     const result = await response.json();
