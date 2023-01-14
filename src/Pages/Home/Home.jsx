@@ -33,7 +33,7 @@ export default function Home() {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href="https://drive.google.com/file/d/1b2UYrut4m3DIpJ9Fn8HCqB1n4hEqow97/view?usp=sharing"
+                href="https://drive.google.com/file/d/1AP7Z16T7eFec4Yk2rreuV5y_z-B1tuCh/view?usp=sharing"
                 download="AvetCV"
               >
                 Download Resume
