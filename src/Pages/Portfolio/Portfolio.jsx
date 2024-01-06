@@ -14,7 +14,6 @@ export default function Portfolio() {
     const response = await fetch(
       "https://avets-portfolio-default-rtdb.firebaseio.com/websites.json"
     );
-
     const result = await response.json();
 
     setData(result);
@@ -29,10 +28,10 @@ export default function Portfolio() {
     <div className="portfolio-page">
       <PageHeader headerText="My Websites" />
       <div className="portfolio-content">
-        {isLoading && <div class="loader"></div>}
+        {isLoading && <div className="loader"></div>}
         {!isLoading && (
           <div className="portfolio-content-cards">
-            {data.map((singleSite, index) => {
+            {data?.map((singleSite, index) => {
               const { siteName, description, image, webUrl, githubUrl, id } =
                 singleSite;
               return (

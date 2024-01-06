@@ -1,22 +1,25 @@
 import { Circle } from "rc-progress";
-import React from "react";
+import React, { useMemo } from "react";
 import "./Aside.scss";
 import { languages } from "./languages";
 import photo from "./../../assets/IMG_6344.JPG";
 
 export default function Aside() {
+  const today = useMemo(() => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  }, []);
+
+  const birthDate = useMemo(() => new Date("1995-04-28"), []);
+  const ageInDays = useMemo(
+    () => Math.floor((today - birthDate) / (24 * 60 * 60 * 1000)),
+    [birthDate, today]
+  );
+
+  const ageInYears = useMemo(() => Math.floor(ageInDays / 365.25), [ageInDays]);
+
   return (
     <aside>
-      {/* <div
-        className="new-year-container"
-        style={{
-          background: "url(https://cdn.wallpapersafari.com/74/68/xdkzXw.jpeg)",
-        }}
-      >
-        <h1>🎄Happy New Year 2023 in🎅</h1>
-        <NewYear />
-      </div> */}
-
       <div className="aside-header">
         <img src={photo} alt="avet" />
         <h2>Avet Badalyan</h2>
@@ -34,7 +37,7 @@ export default function Aside() {
         </div>
         <div>
           <span>Age: </span>
-          <span className="aside-info-text">27</span>
+          <span className="aside-info-text">{ageInYears}</span>
         </div>
       </div>
 

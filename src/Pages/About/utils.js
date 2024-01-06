@@ -5,7 +5,7 @@ export const personalData = [
   },
   {
     label: "Age",
-    value: "27",
+    value: "28",
   },
   {
     label: "Address",
