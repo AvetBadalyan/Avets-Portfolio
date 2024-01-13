@@ -28,7 +28,11 @@ export default function Portfolio() {
     <div className="portfolio-page">
       <PageHeader headerText="My Websites" />
       <div className="portfolio-content">
-        {isLoading && <div className="loader"></div>}
+        {isLoading && (
+          <div className="loader-container">
+            <div className="loader"></div>
+          </div>
+        )}
         {!isLoading && (
           <div className="portfolio-content-cards">
             {data?.map((singleSite, index) => {

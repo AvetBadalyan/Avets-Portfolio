@@ -3,6 +3,7 @@
   .portfolio-content {
     padding: 20px;
     width: 100%;
+    height: 100%;
 
     .portfolio-content-cards {
       display: grid;
@@ -152,18 +153,25 @@
 }
 
 // Loader spinning
+.loader-container {
+  height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid var(--selected-theme-main-color);
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  /* Safari */
-  animation: spin 2s linear infinite;
-  margin: 0 auto;
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid var(--selected-theme-main-color);
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+  }
 }
+
 
 /* Safari */
 @-webkit-keyframes spin {

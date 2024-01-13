@@ -10,6 +10,7 @@ import Home from "./Pages/Home/Home";
 import Portfolio from "./Pages/Portfolio/Portfolio";
 import Skills from "./Pages/Skills/Skills";
 import NotFoundPage from "./Pages/NotFound/NotFoundPage";
+import Experience from "./Pages/Experience/Experience";
 
 /* npm install react-router-dom sass react-vertical-timeline-component rc-progress react-tsparticles tsparticles react-simple-animate
  */
@@ -36,6 +37,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/experience" element={<Experience />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

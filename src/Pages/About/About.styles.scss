@@ -1,7 +1,11 @@
 .about {
-  height: 80%;
+  height: 85%;
   max-width: 100vw;
   width: 100%;
+  font-size: 1.2rem;
+  font-weight: normal;
+  line-height: normal;
+  font-family: "Roboto Serif", serif;
 
   .about-content {
     display: flex;
@@ -9,55 +13,30 @@
     padding: 20px;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
 
-    .about-content-personalWrapper {
+    .about-text-section {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 8px;
 
       h3 {
-        margin-bottom: 2px;
+        margin: 10px 0;
         font-size: 1.6rem;
         color: var(--selected-theme-main-color);
-        font-weight: 700;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--selected-theme-sub-text-color);
       }
 
       p {
         color: var(--selected-theme-sub-text-color);
-        font-size: 1.2rem;
-        padding: 4px 0;
-        line-height: 1.4rem;
-        border-bottom: 1px solid var(--selected-theme-main-color);
       }
 
-      .about-text-section {
-        margin-bottom: 5px;
-      }
-
-      .personal-data-section {
-        width: 55%;
-        height: 100%;
-        margin-top: 5px;
-
-        .personal-data-container {
-          .personal-data {
-
-            p {
-              display: flex;
-              justify-content: space-between;
-              font-family: "Open Sans", sans-serif;
-
-              .underlined-bold-text {
-                letter-spacing: 0.5px;
-                text-decoration: underline;
-                font-weight: bold;
-                color: var(--selected-theme-main-color);
-              }
-            }
-          }
-        }
-      }
     }
 
     &-serviceWrapper {
@@ -108,9 +87,7 @@
 }
 
 .underlined-bold-text {
-  letter-spacing: 0.5px;
   text-decoration: underline;
-  font-weight: bold;
   color: var(--selected-theme-main-color);
 }
 
@@ -133,35 +110,16 @@
 }
 
 @media only screen and (max-width: 1020px) {
-
   .about {
     .about-content {
-      .about-content-personalWrapper {
+      .about-text-section {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
         gap: 40px;
-
-
-
-        .about-text-section,
-        .personal-data-section {
-          flex: 1;
-          height: 100%;
-        }
-
-        .personal-data-section {
-          width: 60%;
-          max-width: 350px;
-        }
-
-        .about-text-section {
-          p {
-            line-height: 2rem;
-
-          }
-        }
+        flex: 1;
+        height: 100%;
       }
 
       .about-content-serviceWrapper {
@@ -176,43 +134,19 @@
     .about-content {
       flex-direction: column;
 
-      .about-content-personalWrapper {
+      .about-text-section {
         flex-direction: column;
         gap: 20px;
 
         h3 {
-          margin-bottom: 10px;
-          font-size: 1.6rem;
+          font-size: 1.3rem;
           color: var(--selected-theme-main-color);
-          font-weight: 700;
         }
 
         p {
           color: var(--selected-theme-sub-text-color);
-          font-size: 1.2rem;
-          padding-bottom: 4px;
+          padding-bottom: 10px;
           border-bottom: 1px solid var(--selected-theme-main-color);
-        }
-
-        .personal-data-section {
-          flex: 1;
-          height: 100%;
-          width: 60%;
-
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .about {
-    .about-content {
-      .about-content-personalWrapper {
-        .personal-data-section {
-          height: 100%;
-          width: 100%;
-
         }
       }
     }

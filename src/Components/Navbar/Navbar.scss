@@ -30,6 +30,7 @@
       .navbar-container-menu-item {
         line-height: 40px;
         font-size: 1.2rem;
+        margin: 4px;
 
         &::after {
           content: "";
@@ -48,7 +49,15 @@
         .navbar-container-menu-item-links {
           color: var(--selected-theme-main-color);
           text-decoration: none;
-          padding: 0.5rem;
+          padding: 6px 8px;
+
+          &.active {
+            font-weight: bold;
+            background-color: var(--selected-theme-main-color);
+            border-radius: 8px;
+            border: none;
+            color: var(--selected-theme-nav-background-color);
+          }
         }
       }
     }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaBriefcase } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 import { navMenus } from "./config";
@@ -29,9 +29,12 @@ export default function Navbar() {
               key={key}
               className="navbar-container-menu-item"
             >
-              <Link className="navbar-container-menu-item-links" to={item.to}>
+              <NavLink
+                className="navbar-container-menu-item-links"
+                to={item.to}
+              >
                 {item.label}
-              </Link>
+              </NavLink>
             </div>
           ))}
         </div>

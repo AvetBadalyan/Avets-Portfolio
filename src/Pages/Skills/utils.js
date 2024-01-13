@@ -32,6 +32,11 @@ export const skillsData = [
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fsass-1.svg?alt=media&token=9a2363a4-e9ff-4227-8c40-33a74de73ca6",
       },
       {
+        skillName: "Bootstrap",
+        logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fbootstrap-4.svg?alt=media&token=3dd2efb5-de65-4cbc-a958-4f1ca0b8bca3",
+      },
+
+      {
         skillName: "Material UI",
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fmaterial-ui-1.svg?alt=media&token=7e104321-016d-4379-8b1f-f09639028477",
       },
@@ -48,6 +53,10 @@ export const skillsData = [
       {
         skillName: "NodeJS",
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fnodejs-1.svg?alt=media&token=8eb2fb68-fe05-42d7-82a6-0ce11579fa53",
+      },
+      {
+        skillName: "Postman",
+        logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fpostman.svg?alt=media&token=ab8ea31b-53c2-44d4-867a-893f5b4996a7",
       },
       {
         skillName: "Firebase",

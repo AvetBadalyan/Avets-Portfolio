@@ -12,8 +12,11 @@ export const navMenus = [
     to: "/skills",
   },
   {
+    label: "EXPERIENCE",
+    to: "/experience",
+  },
+  {
     label: "PORTFOLIO",
     to: "/portfolio",
   },
 ];
-   
