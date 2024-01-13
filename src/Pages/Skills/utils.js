@@ -11,7 +11,7 @@ export const skillsData = [
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Ftypescript.svg?alt=media&token=b200b082-1ee4-4474-b894-38d6815bde1b",
       },
       {
-        skillName: "React JS",
+        skillName: "React.JS",
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2FReact-icon.svg?alt=media&token=729f9108-e7a3-422e-9007-f56a629cc543",
       },
 
@@ -51,7 +51,7 @@ export const skillsData = [
     label: "Backend and technologies",
     data: [
       {
-        skillName: "NodeJS",
+        skillName: "Node.JS",
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fnodejs-1.svg?alt=media&token=8eb2fb68-fe05-42d7-82a6-0ce11579fa53",
       },
       {

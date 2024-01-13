@@ -26,6 +26,7 @@ export default function Home() {
             <div className="home-text-wrapper">
               <h1>Welcome To My Portfolio Website!</h1>
             </div>
+
             <p className="home-main-text">
               I have acquired fundamental knowledge in{" "}
               <strong>Front-End Development</strong> at{" "}
@@ -33,15 +34,15 @@ export default function Home() {
               <br />
               <span>
                 {" "}
-                Then I honed my skills as a{" "}
+                Then, I honed my skills as a{" "}
                 <strong>Junior Software Engineer</strong> at{" "}
-                <strong>"Cognaize" LLC</strong>, from adding new features and
-                debugging to redesigning elements.
+                <strong>"Cognaize" LLC</strong>, working on tasks ranging from
+                redesigning elements and debugging to adding new features.
               </span>
               <br />
               <span>
                 {" "}
-                And now, with a year of hands-on experience, I'm ready to
+                And now, with a year of hands-on experience, I am ready to
                 embrace new challenges and contribute to innovative projects.
               </span>
             </p>
@@ -52,7 +53,7 @@ export default function Home() {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href="https://drive.google.com/file/d/1AP7Z16T7eFec4Yk2rreuV5y_z-B1tuCh/view?usp=sharing"
+                href="https://drive.google.com/file/d/1xStw3qlqbCNOnL5Pv2q9BrtuKvhbjqmm/view?usp=sharing"
                 download="AvetCV"
               >
                 Download Resume
@@ -76,7 +77,6 @@ export default function Home() {
                 <FaGithub size={32} />
               </a>
             </div>
-
             <div className="contact-me-wrapper">
               <span>Contact me via: </span>
               <p>
