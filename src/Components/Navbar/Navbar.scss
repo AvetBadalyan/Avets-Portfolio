@@ -32,27 +32,20 @@
         font-size: 1.2rem;
         margin: 4px;
 
-        &::after {
-          content: "";
-          display: block;
-          height: 3px;
-          width: 0px;
-          background: transparent;
-          transition: all 0.5s ease-in-out;
-        }
-
-        &:hover::after {
-          width: 100%;
-          background: var(--selected-theme-main-color);
-        }
-
         .navbar-container-menu-item-links {
           color: var(--selected-theme-main-color);
           text-decoration: none;
           padding: 6px 8px;
+          font-weight: bold;
+
+          &:hover {
+            background-color: var(--selected-theme-main-color);
+            border-radius: 8px;
+            border: none;
+            color: var(--selected-theme-nav-background-color);
+          }
 
           &.active {
-            font-weight: bold;
             background-color: var(--selected-theme-main-color);
             border-radius: 8px;
             border: none;

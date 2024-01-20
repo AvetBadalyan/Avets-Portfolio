@@ -55,20 +55,32 @@ export const skillsData = [
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fnodejs-1.svg?alt=media&token=8eb2fb68-fe05-42d7-82a6-0ce11579fa53",
       },
       {
+        skillName: "Express JS",
+        logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fexpressjs.jpg?alt=media&token=83bec0f1-9712-4d95-bfe2-f592e9ef85e5",
+      },
+      {
         skillName: "Postman",
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fpostman.svg?alt=media&token=ab8ea31b-53c2-44d4-867a-893f5b4996a7",
+      },
+      {
+        skillName: "Mongo DB",
+        logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fmongodb-icon-2.svg?alt=media&token=1780345e-7bdc-4a0b-a78d-e16656bb4056",
       },
       {
         skillName: "Firebase",
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Ffirebase-1.svg?alt=media&token=39612fa5-4de2-4f64-b89d-b435e331e5c5",
       },
       {
+        skillName: "GitHub",
+        logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2FOcticons-mark-github.svg?alt=media&token=70b35d25-a83d-4143-85f8-21af131824e4",
+      },
+      {
         skillName: "Git",
         logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2FGit_icon.svg.png?alt=media&token=0bfc1aff-e47b-41f4-a4ee-26d9f9ffba14",
       },
       {
-        skillName: "GitHub",
-        logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2FOcticons-mark-github.svg?alt=media&token=70b35d25-a83d-4143-85f8-21af131824e4",
+        skillName: "Jira",
+        logo: "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/skills%2Fjira-1%20(1).svg?alt=media&token=ee898c1f-92c5-497e-a454-6fc8b867d123",
       },
     ],
   },
