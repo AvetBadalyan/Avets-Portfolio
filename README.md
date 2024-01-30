@@ -9,7 +9,7 @@ You can change also the theme of the page by selecting one of 4 colors from the 
 
 Link to the Website - [https://avets-portfolio.web.app/](https://avets-portfolio.web.app/).
 
-![screenshot]("https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fportfolio%20screen.jpg?alt=media&token=29ec7356-d863-46d5-a5ac-81cf99d06921")
+![screenshot](https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fportfolio%20screen.jpg?alt=media&token=29ec7356-d863-46d5-a5ac-81cf99d06921)
 ![screenshot](./screenshots/portfolio2.jpg)
 ![screenshot](./screenshots/portfolio3.jpg)
 ![screenshot](./screenshots/portfolio4.jpg)
