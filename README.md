@@ -7,9 +7,9 @@
 Besides the Home page with main info and links you can find here the "About me" page, "Skills" and the main "Portfolio" page where I regularly add the web apps I build and deploy.
 You can change also the theme of the page by selecting one of 4 colors from the palette.
 
-Link to the Website - [https://my-portfolio-f61ed.web.app/](https://my-portfolio-f61ed.web.app/).
+Link to the Website - [https://avets-portfolio.web.app/](https://avets-portfolio.web.app/).
 
-![screenshot](./screenshots/portfolio1.jpg)
+![screenshot]("https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fportfolio%20screen.jpg?alt=media&token=29ec7356-d863-46d5-a5ac-81cf99d06921")
 ![screenshot](./screenshots/portfolio2.jpg)
 ![screenshot](./screenshots/portfolio3.jpg)
 ![screenshot](./screenshots/portfolio4.jpg)
