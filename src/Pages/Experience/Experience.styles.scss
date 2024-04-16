@@ -52,11 +52,24 @@
     ul {
       margin: 0;
       margin-bottom: 20px;
+      list-style: none;
     }
 
     p {
       color: var(--selected-theme-sub-text-color);
       padding: 4px 0;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--selected-theme-main-color);
     }
 
   }

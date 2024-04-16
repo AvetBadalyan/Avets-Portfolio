@@ -3,6 +3,7 @@ import "./Home.scss";
 import { FaLinkedin, FaGithub, FaMailBulk, FaPhone } from "react-icons/fa";
 import { Animate } from "react-simple-animate";
 import Aside from "./Aside";
+import { ReactTyped } from "react-typed";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -27,25 +28,27 @@ export default function Home() {
               <h1>Welcome To My Portfolio Website!</h1>
             </div>
 
-            <p className="home-main-text">
-              I have acquired fundamental knowledge in{" "}
-              <strong>Front-End Development</strong> at{" "}
-              <strong>Armenian Code Academy's "Front-End Bootcamp"</strong>.
-              <br />
-              <span>
-                {" "}
-                Then, I honed my skills as a{" "}
-                <strong>Junior Software Engineer</strong> at{" "}
-                <strong>"Cognaize" LLC</strong>, working on tasks ranging from
-                redesigning elements and debugging to adding new features.
-              </span>
-              <br />
-              <span>
-                {" "}
-                And now, with a year of hands-on experience, I am ready to
-                embrace new challenges and contribute to innovative projects.
-              </span>
-            </p>
+            <ReactTyped
+              className="home-main-text"
+              strings={[
+                `I have acquired fundamental knowledge in 
+          <strong>Front-End Development</strong> at 
+          <strong>Armenian Code Academy's "Front-End Bootcamp"</strong>.<br />
+          <span>
+            Then, I honed my skills as a 
+            <strong>Junior Software Engineer</strong> at 
+            <strong>"Cognaize" LLC</strong>, working on tasks ranging from
+            redesigning elements and debugging to adding new features.
+          </span><br />
+          <span>
+            And now, with a year of hands-on experience, I am ready to
+            embrace new challenges and contribute to innovative projects.</span>`,
+              ]}
+              typeSpeed={70}
+              contentType={"html"}
+              loop={false}
+            />
+
             <div className="home-buttons-wrapper">
               <button onClick={() => navigate("/portfolio")}>
                 Explore Projects

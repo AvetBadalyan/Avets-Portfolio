@@ -20,7 +20,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 20px;
+      gap: 30px;
       padding: 16px;
 
       .home-text-wrapper {
@@ -42,12 +42,16 @@
 
       .home-main-text {
         color: var(--selected-theme-sub-text-color);
-        font-size: 1.2rem;
-        line-height: 1.4rem;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
 
         span {
           text-indent: 25px;
           margin-left: 25px;
+        }
+
+        :last-child {
+          margin: 0;
         }
       }
 
@@ -167,6 +171,7 @@
       }
 
       .contact-me-social-wrapper {
+
         svg,
         span {
           color: var(--selected-theme-main-color);
