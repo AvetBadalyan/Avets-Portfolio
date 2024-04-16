@@ -1,34 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
 
 :root {
-  --selected-theme-background-color: var(--yellow-theme-background-color);
-  --selected-theme-main-color: var(--yellow-theme-main-color);
-  --selected-theme-sub-text-color: var(--yellow-theme-sub-text-color);
-  --selected-theme-nav-background-color: var(
-    --yellow-theme-nav-background-color
-  );
-
-  /* primary color yellow */
-
-  --yellow-theme-background-color: rgb(35, 39, 65);
-  --yellow-theme-main-color: rgb(244, 180, 0);
-  /* ffdd40 FFC107 */
-  --yellow-theme-sub-text-color: rgba(255, 255, 255, 0.9);
-  --yellow-theme-nav-background-color: rgb(0, 0, 34);
-
-  /* primary color red */
-
-  --red-theme-background-color: rgb(35, 39, 65);
-  --red-theme-main-color: rgb(232, 42, 42);
-  --red-theme-sub-text-color: rgb(255, 255, 255);
-  --red-theme-nav-background-color: rgb(0, 0, 34);
-
-  /* primary color green */
-
-  --green-theme-background-color: rgb(35, 39, 65);
-  --green-theme-main-color: rgb(106, 192, 69);
-  --green-theme-sub-text-color: rgba(255, 255, 255, 0.9);
-  --green-theme-nav-background-color: rgb(0, 0, 34);
+  --selected-theme-background-color: var(--blue-theme-background-color);
+  --selected-theme-main-color: var(--blue-theme-main-color);
+  --selected-theme-sub-text-color: var(--blue-theme-sub-text-color);
+  --selected-theme-nav-background-color: var(--blue-theme-nav-background-color);
 
   /* primary color blue */
 
@@ -37,6 +13,7 @@
   --blue-theme-sub-text-color: rgba(255, 255, 255, 0.9);
   --blue-theme-nav-background-color: rgb(0, 0, 34);
 }
+
 
 * {
   padding: 0;

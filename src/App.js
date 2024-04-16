@@ -3,7 +3,6 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./App.scss";
 import Navbar from "./Components/Navbar/Navbar";
-import Theme from "./Components/theme/Theme";
 import { particles } from "./helpers/particlesConfig";
 import About from "./Pages/About/About";
 import Home from "./Pages/Home/Home";
@@ -11,11 +10,18 @@ import Portfolio from "./Pages/Portfolio/Portfolio";
 import Skills from "./Pages/Skills/Skills";
 import NotFoundPage from "./Pages/NotFound/NotFoundPage";
 import Experience from "./Pages/Experience/Experience";
+import { useState } from "react";
 
 /* npm install react-router-dom sass react-vertical-timeline-component rc-progress react-tsparticles tsparticles react-simple-animate
  */
 
 function App() {
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
+
+  const toggleTheme = () => {
+    setIsDarkTheme((prevTheme) => !prevTheme);
+  };
+
   const particlesInit = async (main) => {
     await loadFull(main);
   };
@@ -26,12 +32,15 @@ function App() {
       <Particles id="tsparticles" init={particlesInit} options={particles} />
       {/* navbar components */}
       <div className="app-navbar-wrapper">
-        <Navbar />
+        <Navbar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
       </div>
       {/* main page content */}
 
-      <div className="app-main-content-wrapper">
-        <Theme />
+      <div
+        className={`app-main-content-wrapper ${
+          isDarkTheme ? "dark-theme" : "light-theme"
+        }`}
+      >
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/about" element={<About />} />
