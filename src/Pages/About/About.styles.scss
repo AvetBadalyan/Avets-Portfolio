@@ -36,8 +36,6 @@
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.3rem var(--color-primary);
-  /* Adjust shadow properties */
-  font-family: "Segoe UI Emoji", sans-serif;
 }
 
 .progress {
@@ -47,7 +45,6 @@
 }
 
 .language-flag {
-  font-family: "Noto Color Emoji", sans-serif;
   font-weight: 400;
   font-style: normal;
 }

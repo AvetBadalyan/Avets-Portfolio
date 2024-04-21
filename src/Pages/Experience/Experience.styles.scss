@@ -43,6 +43,7 @@
 
         a {
           color: var(--color-primary);
+          transition: text-decoration 0.3s ease;
 
           &:hover {
             text-decoration: underline;
@@ -77,7 +78,6 @@
     &:hover {
       transform: translateY(-5px);
       background-color: var(--color-white);
-
     }
 
     .experience-card__icon {
