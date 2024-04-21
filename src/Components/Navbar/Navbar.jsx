@@ -1,47 +1,35 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { FaBars, FaBriefcase } from "react-icons/fa";
-import { HiX } from "react-icons/hi";
+import React from "react";
+import { FaBriefcase } from "react-icons/fa";
 import { navMenus } from "./config";
 import "./Navbar.scss";
 
-export default function Navbar() {
-  const [click, setClick] = useState(false);
-  const handleClick = (e) => {
-    setClick(!click);
-  };
+import data from "./data";
+import { IoIosColorPalette } from "react-icons/io";
+import { useModalContext } from "./../../context/modal-context";
+
+const Navbar = () => {
+  const { showModalHandler } = useModalContext();
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <Link to={"/"} className="navbar-container-logo">
+    <nav>
+      <div className="container nav__container">
+        <a href="index.html" className="nav__logo">
           <FaBriefcase size={30} />
-        </Link>
+        </a>
 
-        <div
-          className={
-            click ? "navbar-container-menu active" : "navbar-container-menu"
-          }
-        >
-          {navMenus.map((item, key) => (
-            <div
-              onClick={() => setClick(false)}
-              key={key}
-              className="navbar-container-menu-item"
-            >
-              <NavLink
-                className="navbar-container-menu-item-links"
-                to={item.to}
-              >
-                {item.label}
-              </NavLink>
-            </div>
+        <ul className="nav__menu">
+          {data.map((item) => (
+            <li key={item.id}>
+              <a href={item.link}>{item.title}</a>
+            </li>
           ))}
-        </div>
-        <div className="nav-icon" onClick={handleClick}>
-          {click ? <HiX size={30} /> : <FaBars size={30} />}
-        </div>
+        </ul>
+        <button id="theme__icon" onClick={showModalHandler}>
+          <IoIosColorPalette />
+        </button>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

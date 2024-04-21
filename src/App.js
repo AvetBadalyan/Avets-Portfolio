@@ -1,57 +1,32 @@
-import { Route, Routes } from "react-router-dom";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import "./App.scss";
+import Theme from "./theme/Theme.jsx";
+import { useThemeContext } from "./context/theme-context.js";
 import Navbar from "./Components/Navbar/Navbar";
-import { particles } from "./helpers/particlesConfig";
+import Header from "./Pages/Header/Header";
 import About from "./Pages/About/About";
-import Home from "./Pages/Home/Home";
-import Portfolio from "./Pages/Portfolio/Portfolio";
+import Education from "./Pages/Education/Education";
 import Skills from "./Pages/Skills/Skills";
-import NotFoundPage from "./Pages/NotFound/NotFoundPage";
 import Experience from "./Pages/Experience/Experience";
-import { useState } from "react";
+import Portfolio from "./Pages/Portfolio/Portfolio";
+import Contact from "./Components/contact/Contact";
+import Footer from "./Components/footer/Footer";
 
-/* npm install react-router-dom sass react-vertical-timeline-component rc-progress react-tsparticles tsparticles react-simple-animate
- */
-
-function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
-
-  const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme);
-  };
-
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+const App = () => {
+  const { themeState } = useThemeContext();
 
   return (
-    <div className="App">
-      {/* particles js */}
-      <Particles id="tsparticles" init={particlesInit} options={particles} />
-      {/* navbar components */}
-      <div className="app-navbar-wrapper">
-        <Navbar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
-      </div>
-      {/* main page content */}
-
-      <div
-        className={`app-main-content-wrapper ${
-          isDarkTheme ? "dark-theme" : "light-theme"
-        }`}
-      >
-        <Routes>
-          <Route path="/" index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </div>
-    </div>
+    <main className={`${themeState.primary} ${themeState.background}`}>
+      <Navbar />
+      <Header />
+      <About />
+      <Education />
+      <Skills />
+      <Experience />
+      <Portfolio />
+      <Contact />
+      <Footer />
+      <Theme />
+    </main>
   );
-}
+};
 
 export default App;

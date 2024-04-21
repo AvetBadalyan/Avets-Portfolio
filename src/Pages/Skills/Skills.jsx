@@ -1,40 +1,47 @@
-import React from "react";
-import PageHeader from "./../../Components/PageHeaderContent/PageHeader";
-import { skillsData } from "./utils";
+import React, { useEffect, useState } from "react";
+import { frontendSkills, backendSkills } from "./utils"; // Importing separate arrays for frontend and backend skills
 import "./Skills.styles.scss";
-import { Animate } from "react-simple-animate";
 
 export default function Skills() {
-  return (
-    <div>
-      <div id="skills" className="skills">
-        <PageHeader headerText="My Skills" />
-        <div className="skills-content-wrapper">
-          {skillsData.map((item, key) => (
-            <div key={key} className="skills-content-wrapper-inner-content">
-              <h3 className="skills-content-wrapper-inner-content-category-text">
-                {item.label}
-              </h3>
-              <div className="skills-content-wrapper-logos">
-                {item.data.map((dataItem, index) => (
-                  <Animate
-                    play
-                    duration={1}
-                    delay={0.4}
-                    start={{ transform: "translateX(-250px)" }}
-                    end={{ transform: "translateX(0px)" }}
-                  >
-                    <div className="skill-logo-wrapper" key={index}>
-                      <p>{dataItem.skillName}</p>
-                      <img src={dataItem.logo} alt="logo" />
-                    </div>
-                  </Animate>
-                ))}
-              </div>
-            </div>
-          ))}
+  const [animationStarted, setAnimationStarted] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation only once when component mounts
+    setAnimationStarted(true);
+  }, []);
+
+  const renderSkills = (skills) => {
+    return skills.map((skill, index) => (
+      <div key={index} className="skill-item">
+        <div className="skill-info">
+          <img src={skill.logo} alt={skill.skillName} />
+          <p>{skill.skillName}</p>
+        </div>
+        <div className="progress-bar">
+          <div
+            className="progress"
+            style={{
+              width: animationStarted ? `${skill.percentage}%` : "0%",
+              transition: animationStarted ? "width 2s ease-in-out" : "none",
+            }}
+          ></div>
         </div>
       </div>
-    </div>
+    ));
+  };
+
+  return (
+    <section id="skills" className="skills" data-aos="fade-up">
+      <div className="skills-content-wrapper">
+        <div className="skills-category">
+          <h3 className="skills-category-title">Frontend Skills</h3>
+          <div className="skills-list">{renderSkills(frontendSkills)}</div>
+        </div>
+        <div className="skills-category">
+          <h3 className="skills-category-title">Backend and Technologies</h3>
+          <div className="skills-list">{renderSkills(backendSkills)}</div>
+        </div>
+      </div>
+    </section>
   );
 }

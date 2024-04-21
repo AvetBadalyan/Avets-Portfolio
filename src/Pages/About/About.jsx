@@ -1,47 +1,63 @@
-import React from "react";
-import PageHeader from "../../Components/PageHeaderContent/PageHeader";
+import React, { useEffect, useState } from "react";
 import "./About.styles.scss";
-import { DiApple, DiAndroid } from "react-icons/di";
-import { FaDev, FaDatabase } from "react-icons/fa";
-import { Animate } from "react-simple-animate";
 import AboutMeText from "./AboutMeText";
 
-export default function About() {
+import CV from "../../assets/cv.pdf";
+import { HiDownload } from "react-icons/hi";
+import { languageSkills } from "./languages";
+import ReactCountryFlag from "react-country-flag";
+
+const About = () => {
+  const [animationStarted, setAnimationStarted] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation only once when component mounts
+    setAnimationStarted(true);
+  }, []);
+
   return (
-    <div className="about" id="about">
-      <PageHeader headerText="About me" />
-
-      <div className="about-content">
-        <div className="about-text-section">
-          <Animate
-            play
-            duration={1}
-            delay={0}
-            start={{ transform: " translateX(-800px)" }}
-            end={{ transform: " translateX(0px)" }}
-          >
-            
-            <AboutMeText />
-          </Animate>
-        </div>
-
-        <div className="about-content-serviceWrapper">
-          <div className="about-content-serviceWrapper-innerContent">
-            <div>
-              <DiApple size={60} color="var(--selected-theme-main-color)" />
-            </div>
-            <div>
-              <FaDatabase size={60} color="var(--selected-theme-main-color)" />
-            </div>
-            <div>
-              <DiAndroid size={60} color="var(--selected-theme-main-color)" />
-            </div>
-            <div>
-              <FaDev size={60} color="var(--selected-theme-main-color)" />
-            </div>
+    <section id="about" data-aos="fade-in">
+      <div className="container about__container">
+        <div className="about__left">
+          <div className="language-skills">
+            {languageSkills.map((language) => (
+              <div className="language-skill" key={language.language}>
+                <div className="language-name">
+                  <span>{language.language}</span>
+                  <ReactCountryFlag
+                    countryCode={language.flagEmoji}
+                    svg
+                    style={{ fontSize: "1em", width: "1.5rem" }}
+                  />
+                </div>
+                <div className="progress-bar">
+                  <div
+                    className="progress"
+                    style={{
+                      width: animationStarted
+                        ? `${language.proficiency}%`
+                        : "0%",
+                      transition: animationStarted
+                        ? "width 1s ease-in-out"
+                        : "none",
+                    }}
+                  ></div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+        <div className="about__right">
+          <h2>About Me</h2>
+
+          <AboutMeText />
+          <a href={CV} download className="btn primary">
+            Download CV <HiDownload />
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default About;

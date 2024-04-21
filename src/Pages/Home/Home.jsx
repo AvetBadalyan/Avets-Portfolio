@@ -4,10 +4,10 @@ import { FaLinkedin, FaGithub, FaMailBulk, FaPhone } from "react-icons/fa";
 import { Animate } from "react-simple-animate";
 import Aside from "./Aside";
 import { ReactTyped } from "react-typed";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <section className="home" id="home">
       <Aside />
@@ -31,18 +31,13 @@ export default function Home() {
             <ReactTyped
               className="home-main-text"
               strings={[
-                `I have acquired fundamental knowledge in 
-          <strong>Front-End Development</strong> at 
-          <strong>Armenian Code Academy's "Front-End Bootcamp"</strong>.<br />
-          <span>
-            Then, I honed my skills as a 
-            <strong>Junior Software Engineer</strong> at 
-            <strong>"Cognaize" LLC</strong>, working on tasks ranging from
-            redesigning elements and debugging to adding new features.
-          </span><br />
-          <span>
-            And now, with a year of hands-on experience, I am ready to
-            embrace new challenges and contribute to innovative projects.</span>`,
+                `I acquired fundamental Front-End Development knowledge through a bootcamp
+at <strong>Armenian Code Academy</strong> and courses at <strong>Microsoft IC Armenia</strong>. <br/>
+Then, at <strong>Cognaize Engineering LLC</strong>, I continued to improve my skills by working on a variety
+of tasks, including redesigning elements, debugging, and implementing new
+features. <br/>Alongside this, I worked on personal projects and freelancing.<br/>
+And now, with 2 years of hands-on experience, I'm excited to take on
+new challenges and contribute to innovative projects!`,
               ]}
               typeSpeed={70}
               contentType={"html"}
@@ -50,9 +45,7 @@ export default function Home() {
             />
 
             <div className="home-buttons-wrapper">
-              <button onClick={() => navigate("/portfolio")}>
-                Explore Projects
-              </button>
+              <button onClick={() => {}}>Explore Projects</button>
               <a
                 target="_blank"
                 rel="noreferrer"

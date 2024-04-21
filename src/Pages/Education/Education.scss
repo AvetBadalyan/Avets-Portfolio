@@ -1,0 +1,60 @@
+// Education.scss
+.education__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.university-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-2);
+  overflow: hidden;
+  box-shadow: 3px 3px 10px var(--color-primary);
+  transition: all 0.3s ease-in-out;
+}
+
+.university-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--color-light);
+}
+
+.university-card__icon img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius-2);
+  box-shadow: 1px 1px 8px var(--color-primary);
+}
+
+.university-card__details {
+  padding: 1.5rem;
+}
+
+.university-card__details h4 {
+  margin-bottom: 0.5rem;
+  color: var(--color-black);
+}
+
+.university-card__details p {
+  margin: 0.5rem 0;
+  color: var(--color-dark);
+}
+
+.university-card__details a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.university-card__details a:hover {
+  color: var(--color-primary);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .education__container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}

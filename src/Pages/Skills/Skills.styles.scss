@@ -2,139 +2,88 @@
   .skills-content-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 10px 20px;
-    gap: 12px;
+    gap: 40px;
+    padding: 0 20px;
 
-    .skills-content-wrapper-inner-content {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 4px 0;
-
-      .skills-content-wrapper-logos {
-        display: flex;
-        justify-content: space-between;
-        gap: 80px;
-        align-items: center;
-        flex-wrap: wrap;
-        width: 100%;
-        text-align: center;
-        padding-top: 12px;
-
-        .skill-logo-wrapper {
-          animation: fadeStart 5s 1;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          width: 185px;
-
-          p {
-            font-size: 1.4rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            color: var(--selected-theme-main-color);
-          }
-
-          img {
-            width: auto;
-            height: 170px;
-          }
-        }
-      }
-
-      .skills-content-wrapper-inner-content-category-text {
-        color: var(--selected-theme-sub-text-color);
+    .skills-category {
+      .skills-category-title {
+        color: var(--color-dark);
         font-size: 24px;
         font-weight: 600;
         letter-spacing: 0.5px;
-        position: relative;
         text-transform: uppercase;
-        border-bottom: 2px solid var(--selected-theme-main-color);
+        margin-bottom: 12px;
       }
 
-    }
-  }
-}
+      .skills-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
 
-@media only screen and (min-width: 769px) and (max-width: 1020px) {
-  .skills {
-    .skills-content-wrapper {
-      .skills-content-wrapper-inner-content {
-
-        .skills-content-wrapper-inner-content-category-text {
-          font-size: 24px;
-        }
-
-        .skill-logo-wrapper {
-          padding-top: 20px;
-
-          p {
-            font-size: 1rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .skills {
-    .skills-content-wrapper {
-      flex-direction: column;
-
-      .skills-content-wrapper-inner-content {
-        margin: 10px 0;
-
-        .skills-content-wrapper-logos {
-          justify-content: space-between;
-          gap: 12px;
-
-          .skill-logo-wrapper {
-            padding-top: 20px;
-            max-width: 100%;
-
-            p {
-              font-size: 1.2rem;
-            }
-          }
-        }
-
-        .skills-content-wrapper-inner-content-category-text {
-          font-size: 24px;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .skills {
-    .skills-content-wrapper {
-      flex-direction: column;
-
-      .skills-content-wrapper-inner-content {
-        .skills-content-wrapper-logos {
+        .skill-item {
+          background-color: var(--color-white);
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
           flex-direction: column;
+          transition: all 0.3s ease;
+          box-shadow: 3px 3px 10px var(--color-primary);
+          padding: 15px;
 
-          .skill-logo-wrapper {
-            width: 250px;
+          .skill-info {
+
+            display: flex;
+            align-items: center;
 
             img {
-              height: 250px;
+              width: fit-content;
+              height: 60px;
+              object-fit: cover;
+              margin-right: 10px;
+            }
+
+            p {
+              font-size: 18px;
+              font-weight: 600;
+              color: var(--color-dark);
+              margin: 0;
+            }
+          }
+
+          .progress-bar {
+            height: 20px;
+            background-color: var(--color-light);
+            margin-top: 14px;
+            display: flex;
+
+            .progress {
+              background-color: var(--color-primary);
+              transition: width 2s ease-in-out;
+              height: 100%;
+            }
+          }
+
+          &:hover {
+            transform: translateY(-5px);
+            background-color: var(--color-primary);
+            box-shadow: 3px 3px 10px var(--color-light);
+
+            p {
+              color: white;
+            }
+
+            .progress-bar {
+              box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+              /* Equal box-shadow on all sides */
+              background-color: var(--color-white);
+
+              .progress {
+                background: var(--color-dark);
+              }
             }
           }
         }
       }
     }
-  }
-}
-
-@keyframes fadeStart {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
   }
 }

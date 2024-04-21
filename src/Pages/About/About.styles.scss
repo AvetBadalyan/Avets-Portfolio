@@ -1,154 +1,89 @@
-.about {
-  height: 85%;
-  max-width: 100vw;
+.about__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+
+.language-skills {
+  margin-top: 2rem;
+}
+
+.language-skill {
+  margin-bottom: 1rem;
+}
+
+.language-skill {
+  background: var(--color-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px var(--color-primary);
+  padding: 8px;
+  margin: 20px 0;
+}
+
+.language-name {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress-bar {
   width: 100%;
-  font-size: 1.2rem;
-  font-weight: normal;
-  line-height: normal;
-  font-family: "Roboto Serif", serif;
+  background-color: var(--color-light);
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.3rem var(--color-primary);
+  /* Adjust shadow properties */
+  font-family: "Segoe UI Emoji", sans-serif;
+}
 
-  .about-content {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+.progress {
+  background-color: var(--color-primary);
+  height: 100%;
+  transition: width 1s ease-in-out;
+}
 
-    .about-text-section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+.language-flag {
+  font-family: "Noto Color Emoji", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-      h3 {
-        margin: 10px 0;
-        font-size: 1.6rem;
-        color: var(--selected-theme-main-color);
-      }
+.about__right h2,
+h3 {
+  text-align: center;
+  margin: 1rem auto;
+}
 
-      a {
-        text-decoration: none;
-        color: var(--selected-theme-sub-text-color);
-      }
+.about__right p {
+  margin-bottom: 0.8rem;
+}
 
-      p {
-        color: var(--selected-theme-sub-text-color);
-      }
+.about__right .btn {
+  margin: 2.5rem auto 0;
+}
 
-    }
+/* MEDIA QUERIES (tablets) */
+@media screen and (max-width: 1024px) {
+  .about__container {
+    grid-template-columns: 1fr;
+  }
 
-    &-serviceWrapper {
-      height: 100%;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      &-innerContent {
-        width: 40vmin;
-        height: 40vmin;
-        position: relative;
-        border-radius: 50%;
-        border: 2px solid var(--selected-theme-main-color);
-        background: radial-gradient(150px,
-            var(--selected-theme-main-color),
-            transparent 90%);
-        animation: rotation 20s linear 1s infinite;
-
-        div:nth-child(1) {
-          position: absolute;
-          top: -11%;
-          left: 41.5%;
-        }
-
-        div:nth-child(2) {
-          position: absolute;
-          top: 41.5%;
-          right: -8%;
-        }
-
-        div:nth-child(3) {
-          position: absolute;
-          bottom: -11%;
-          left: 41.5%;
-        }
-
-        div:nth-child(4) {
-          position: absolute;
-          top: 41.5%;
-          left: -8%;
-        }
-      }
-    }
+  .about__right h2 {
+    text-align: center;
   }
 }
 
-.underlined-bold-text {
-  text-decoration: underline;
-  color: var(--selected-theme-main-color);
-}
-
-@keyframes rotation {
-  25% {
-    transform: rotate(360deg);
+/* MEDIA QUERIES (phones) */
+@media screen and (max-width: 600px) {
+  .language-skills {
+    margin-top: 1.5rem;
   }
 
-  50% {
-    transform: rotate(0deg);
-  }
-
-  75% {
-    transform: rotate(180deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-@media only screen and (max-width: 1020px) {
-  .about {
-    .about-content {
-      .about-text-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 40px;
-        flex: 1;
-        height: 100%;
-      }
-
-      .about-content-serviceWrapper {
-        display: none;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .about {
-    .about-content {
-      flex-direction: column;
-
-      .about-text-section {
-        flex-direction: column;
-        gap: 20px;
-
-        h3 {
-          font-size: 1.3rem;
-          color: var(--selected-theme-main-color);
-        }
-
-        p {
-          color: var(--selected-theme-sub-text-color);
-          padding-bottom: 10px;
-          border-bottom: 1px solid var(--selected-theme-main-color);
-        }
-      }
-    }
+  .about__right .btn {
+    margin-top: 1.5rem;
   }
 }
