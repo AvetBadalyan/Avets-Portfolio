@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "../../Components/Card/Card";
 
 const Project = ({ project }) => {
@@ -21,9 +22,9 @@ const Project = ({ project }) => {
           href={project.githubUrl}
           className="btn sm primary"
           target="_blank"
-          rel="noopner noreferrer"
+          rel="noopener noreferrer"
         >
-          Gitbub
+          GitHub
         </a>
       </div>
     </Card>

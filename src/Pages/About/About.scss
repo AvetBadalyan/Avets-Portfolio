@@ -1,9 +1,8 @@
+// About.scss
 .about__container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
   justify-content: space-between;
   gap: 2rem;
-  padding: 20px;
   color: var(--color-dark);
 
   h2 {
@@ -11,33 +10,31 @@
     margin: 1rem auto;
   }
 
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: 1fr;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 }
 
 .language-skills {
-  @media screen and (max-width: 600px) {
-    margin-top: 1.5rem;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.language-skills-container {
+  margin-top: 0;
 }
 
 .about-info {
-  @media screen and (max-width: 1024px) {
-    max-width: 100%;
-  }
-
-
+  max-width: 100%;
 
   p {
     margin-bottom: 0.8rem;
   }
 
   .btn {
-    margin: 2.5rem auto 0;
-
-    @media screen and (max-width: 600px) {
-      margin-top: 1.5rem;
-    }
+    text-align: center;
+    margin: 0 auto;
   }
 }

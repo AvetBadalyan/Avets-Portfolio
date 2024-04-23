@@ -9,7 +9,7 @@ export default function Experience() {
       <div data-aos="zoom-in-up" className="experience-header section-heading">
         Experience
       </div>
-      <div className="experience-content" data-aos="fade-up">
+      <div className="container experience-content" data-aos="fade-up">
         <div className="company-info">
           <div className="company-info__logo">
             <img src={CognaizeLogo} alt="Cognaize Logo" />

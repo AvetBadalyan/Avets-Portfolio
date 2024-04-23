@@ -15,7 +15,7 @@
   --color-dark: hsl(var(--primary-hue), 5%, var(--dark-lightness));
 
   /* GENERAL CONTAINER VARIABLES */
-  --container-width-lg: 76%;
+  --container-width-lg: 85%;
   --container-width-md: 90%;
 
   /* BORDER RADIUS VARIABLES */
@@ -98,7 +98,7 @@ main {
 
 /* GENERAL SECTION STYLES */
 section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--color-light);
   transition: var(--transition);
 }
@@ -220,10 +220,6 @@ img {
 
   .container {
     width: var(--container-width-md);
-  }
-
-  section {
-    padding: 8rem 0;
   }
 
   section>p {

@@ -38,7 +38,7 @@ const data = [
     logo: PAARA,
     duration: "2016 - 2018",
     faculty: "Faculty of Finances",
-    degree: "Master's Degree Diploma",
+    degree: "Master's Degree",
     link: "https://drive.google.com/file/d/1l6ogOVUpgbhn7B9ij8cT5KDvFo2GjTfj/view",
   },
   {
@@ -56,7 +56,7 @@ const data = [
     logo: UFAR,
     duration: "2012 - 2016",
     faculty: "Faculty of Management",
-    degree: "Bachelor's degree Diploma",
+    degree: "Bachelor's degree",
     link: "https://drive.google.com/file/d/15DRtrupp8a-ZaCcSjdOinl_9x1_3scjE/view",
   },
 ];

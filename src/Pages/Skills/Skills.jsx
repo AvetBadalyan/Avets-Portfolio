@@ -21,7 +21,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="skills" data-aos="fade-up">
-      <div className="skills-content-wrapper">
+      <div className="container skills-content-wrapper">
         <h2 data-aos="zoom-in-up" className="section-heading">
           Skills
         </h2>

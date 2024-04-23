@@ -31,7 +31,7 @@
 
             &:hover {
                 border-color: var(--color-primary);
-                color: var(--color-primary);
+                color: var(--color-black);
                 transform: translateY(-0.2rem);
             }
 
@@ -44,8 +44,12 @@
             }
         }
     }
+}
 
-    @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
+    .contact {
+        flex-direction: column;
+
         .contact__container {
             flex-direction: column;
             gap: 1.5rem;
