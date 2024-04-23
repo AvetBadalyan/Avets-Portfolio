@@ -1,18 +1,14 @@
-import React from "react";
-import "./Experience.styles.scss";
-import {
-  RiCodeSSlashLine,
-  RiBugLine,
-  RiLayoutLine,
-  RiTeamLine,
-} from "react-icons/ri";
+import "./Experience.scss";
 import ExperienceCard from "./ExperienceCard";
 import CognaizeLogo from "./../../assets/pics/cognaize-armenia.jpg";
+import { EXPERIENCE_DATA } from "./experienceData";
 
 export default function Experience() {
   return (
     <section className="experience" id="experience">
-      <div className="experience-header">Experience</div>
+      <div data-aos="zoom-in-up" className="experience-header section-heading">
+        Experience
+      </div>
       <div className="experience-content" data-aos="fade-up">
         <div className="company-info">
           <div className="company-info__logo">
@@ -47,38 +43,9 @@ export default function Experience() {
         </p>
 
         <div className="experience-card-container">
-          <ExperienceCard
-            title="Feature Development"
-            icon={<RiCodeSSlashLine />}
-            description={[
-              "Implemented new features to enhance application functionality and user experience.",
-              "Collaborated with senior developers for integrated solutions.",
-            ]}
-          />
-          <ExperienceCard
-            title="Debugging and Issue Resolution"
-            icon={<RiBugLine />}
-            description={[
-              "Diagnosed and resolved bugs to ensure smooth application operation.",
-              "Engaged in code refactoring to improve maintainability and performance.",
-            ]}
-          />
-          <ExperienceCard
-            title="Design Implementation"
-            icon={<RiLayoutLine />}
-            description={[
-              "Executed design changes to align applications with UI/UX best practices.",
-              "Translated design mockups into responsive web elements.",
-            ]}
-          />
-          <ExperienceCard
-            title="Collaboration, Communication and Learning"
-            icon={<RiTeamLine />}
-            description={[
-              "Participated in team meetings, providing insights and updates on project progress.",
-              "Engaged in continuous learning to stay current with industry trends and technologies.",
-            ]}
-          />
+          {EXPERIENCE_DATA.map((experience, index) => (
+            <ExperienceCard key={index} {...experience} />
+          ))}
         </div>
       </div>
     </section>

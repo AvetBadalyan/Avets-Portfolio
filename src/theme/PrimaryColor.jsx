@@ -1,7 +1,7 @@
-import { useThemeContext } from "../context/theme-context";
+import { useTheme } from "../context/theme-context";
 
 const PrimaryColor = ({ className }) => {
-  const { themeHandler } = useThemeContext();
+  const { themeHandler } = useTheme();
   return (
     <button
       className={className}

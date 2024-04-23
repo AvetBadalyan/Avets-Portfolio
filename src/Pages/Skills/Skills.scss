@@ -5,6 +5,10 @@
     gap: 40px;
     padding: 0 20px;
 
+    h2 {
+      text-align: center;
+    }
+
     .skills-category {
       .skills-category-title {
         color: var(--color-dark);
@@ -55,11 +59,15 @@
             background-color: var(--color-light);
             margin-top: 14px;
             display: flex;
+            border-radius: 0.5rem;
+            overflow: hidden;
 
             .progress {
               background-color: var(--color-primary);
               transition: width 2s ease-in-out;
               height: 100%;
+              border-radius: 0.5rem;
+              overflow: hidden;
             }
           }
 

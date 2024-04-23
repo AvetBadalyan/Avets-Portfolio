@@ -21,7 +21,11 @@ export const ThemeProvider = ({ children }) => {
 
   // save theme settings to local storage
   useEffect(() => {
-    localStorage.setItem("themeSettings", JSON.stringify(themeState));
+    const timeoutId = setTimeout(() => {
+      localStorage.setItem("themeSettings", JSON.stringify(themeState));
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
   }, [themeState.primary, themeState.background]);
 
   return (
@@ -32,6 +36,6 @@ export const ThemeProvider = ({ children }) => {
 };
 
 // custom hook to use our theme context wherever we want in our project
-export const useThemeContext = () => {
+export const useTheme = () => {
   return useContext(ThemeContext);
 };

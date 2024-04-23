@@ -262,3 +262,10 @@ img {
     width: var(--container-width-md);
   }
 }
+
+.section-heading {
+  text-shadow: 2px 2px 4px var(--color-primary);
+  text-transform: uppercase;
+  font-family: serif;
+  font-family: "Headland One", serif;
+}

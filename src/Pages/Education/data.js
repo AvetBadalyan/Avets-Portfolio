@@ -1,4 +1,3 @@
-// data.js
 import UFAR from "./../../assets/education/UFAR.png";
 import ACA from "./../../assets/education/ACA.jpg";
 import JML3 from "./../../assets/education/JML3.jpg";

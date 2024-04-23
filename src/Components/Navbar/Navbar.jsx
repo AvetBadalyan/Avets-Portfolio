@@ -1,14 +1,12 @@
 import React from "react";
 import { FaBriefcase } from "react-icons/fa";
-import { navMenus } from "./config";
+import { IoIosColorPalette } from "react-icons/io";
+import { navLinks } from "./data";
+import { useModal } from "./../../context/modal-context";
 import "./Navbar.scss";
 
-import data from "./data";
-import { IoIosColorPalette } from "react-icons/io";
-import { useModalContext } from "./../../context/modal-context";
-
 const Navbar = () => {
-  const { showModalHandler } = useModalContext();
+  const { showModalHandler } = useModal();
 
   return (
     <nav>
@@ -18,7 +16,7 @@ const Navbar = () => {
         </a>
 
         <ul className="nav__menu">
-          {data.map((item) => (
+          {navLinks.map((item) => (
             <li key={item.id}>
               <a href={item.link}>{item.title}</a>
             </li>

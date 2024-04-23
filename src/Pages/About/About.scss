@@ -1,0 +1,43 @@
+.about__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 20px;
+  color: var(--color-dark);
+
+  h2 {
+    text-align: center;
+    margin: 1rem auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.language-skills {
+  @media screen and (max-width: 600px) {
+    margin-top: 1.5rem;
+  }
+}
+
+.about-info {
+  @media screen and (max-width: 1024px) {
+    max-width: 100%;
+  }
+
+
+
+  p {
+    margin-bottom: 0.8rem;
+  }
+
+  .btn {
+    margin: 2.5rem auto 0;
+
+    @media screen and (max-width: 600px) {
+      margin-top: 1.5rem;
+    }
+  }
+}

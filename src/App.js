@@ -1,5 +1,5 @@
 import Theme from "./theme/Theme.jsx";
-import { useThemeContext } from "./context/theme-context.js";
+import { useTheme } from "./context/theme-context.js";
 import Navbar from "./Components/Navbar/Navbar";
 import Header from "./Pages/Header/Header";
 import About from "./Pages/About/About";
@@ -11,7 +11,7 @@ import Contact from "./Components/contact/Contact";
 import Footer from "./Components/footer/Footer";
 
 const App = () => {
-  const { themeState } = useThemeContext();
+  const { themeState } = useTheme();
 
   return (
     <main className={`${themeState.primary} ${themeState.background}`}>

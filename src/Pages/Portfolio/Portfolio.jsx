@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Portfolio.styles.scss";
-import Projects from "./Projects";
+import "./Portfolio.scss";
 import ProjectsCategories from "./ProjectsCategories";
 
 const Portfolio = () => {
@@ -30,7 +29,9 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio">
-      <h2>Recent Projects</h2>
+      <h2 data-aos="zoom-in-up" className="section-heading">
+        Recent Projects
+      </h2>
       {isLoading && (
         <div className="loader-container">
           <div className="loader"></div>

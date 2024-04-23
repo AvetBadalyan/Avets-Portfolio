@@ -1,25 +1,22 @@
 .contact {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
 
     h2 {
         margin-bottom: 1rem;
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    span {
-        font-size: 1.2rem;
     }
 
     .contact__container {
         display: flex;
         justify-content: center;
-        gap: 3rem;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        width: 100%;
 
-        a {
+        .contact__link {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,7 +50,7 @@
             flex-direction: column;
             gap: 1.5rem;
 
-            a {
+            .contact__link {
                 width: 100%;
             }
         }

@@ -5,8 +5,12 @@ import "./Education.scss";
 const Education = () => {
   return (
     <section id="education">
-      <h2>My Education</h2>
-      <p>I'm excited to share my educational experiences below.</p>
+      <h2 data-aos="zoom-in-up" className="section-heading">
+        My Education
+      </h2>
+      <h4 data-aos="fade-right">
+        I'm excited to share my educational experiences below!
+      </h4>
       <div className="container education__container" data-aos="fade-up">
         {data.map((item) => (
           <Card key={item.id} className="university-card">

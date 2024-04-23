@@ -1,5 +1,4 @@
-import React from "react";
-import "./Experience.styles.scss";
+import "./Experience.scss";
 
 export default function ExperienceCard({ title, icon, description }) {
   return (
