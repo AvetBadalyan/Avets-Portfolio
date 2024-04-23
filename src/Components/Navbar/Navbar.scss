@@ -1,8 +1,9 @@
-nav {
+.nav {
   width: 100vw;
   height: 5rem;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--color-primary);
   position: fixed;
   top: 0;
@@ -11,34 +12,130 @@ nav {
   box-shadow: 0 1rem 1.5rem hsla(var(--primary-hue), 68%, 42%, 20%);
   transition: var(--transition);
 
+
+
   .nav__container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2rem;
 
     .nav__logo {
       width: 2.5rem;
       color: white;
     }
 
-    .nav__menu {
+    .nav__links {
       display: flex;
-      gap: 3.5rem;
-
-      @media screen and (max-width: 1024px) {
-        display: none;
-      }
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
 
       a {
         color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+        letter-spacing: 2px;
+        list-style: none;
+        padding: 12px 16px;
+        margin: 0 8px;
+        cursor: pointer;
+        white-space: nowrap;
+
+        &:hover {
+          color: var(--color-light);
+        }
+      }
+
+
+      @media screen and (max-width: 1024px) {
+        display: none; // Hide on small screens
       }
     }
 
     #theme__icon {
-      background: transparent;
       color: white;
       font-size: 2rem;
       cursor: pointer;
     }
+
+    .burger-menu {
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+
+    .nav__menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      width: 100%;
+      background-color: var(--color-primary);
+      height: calc(100vh - 5rem);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+
+      &.open {
+        opacity: 1;
+        visibility: visible;
+        animation: slideIn 0.5s forwards;
+      }
+
+      .nav__link {
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          font-weight: bold;
+          transition: all 0.3s ease-in-out;
+          letter-spacing: 2px;
+          list-style: none;
+          padding: 12px 16px;
+          margin: 0 8px;
+          cursor: pointer;
+          white-space: nowrap;
+
+          &:hover {
+            color: var(--color-light);
+          }
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
   }
 }

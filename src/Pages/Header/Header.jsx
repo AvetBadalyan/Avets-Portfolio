@@ -27,13 +27,13 @@ const Header = () => {
           <p className="home-main-text">
             I acquired fundamental Front-End Development knowledge through a
             bootcamp at <strong>Armenian Code Academy</strong> and courses at{" "}
-            <strong>Microsoft IC Armenia</strong>. <br />
+            <strong>Microsoft IC Armenia</strong>. <br /> <br />
             Then, at <strong>Cognaize Engineering LLC</strong>, I continued to
             improve my skills by working on a variety of tasks, including
             redesigning elements, debugging, and implementing new features.{" "}
             <br />
             Alongside this, I worked on personal projects and freelancing.
-            <br />
+            <br /> <br />
             And now, with 2 years of hands-on experience, I'm excited to take on
             new challenges and contribute to innovative projects!
           </p>

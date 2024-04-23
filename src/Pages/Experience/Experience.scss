@@ -29,6 +29,7 @@
 
       .company-info__details {
         flex: 1;
+        font-size: 1.2rem;
 
         p {
           margin-bottom: 1rem;
@@ -74,6 +75,7 @@
     overflow: hidden;
     box-shadow: 0 4px 10px var(--color-primary);
     transition: transform 0.3s ease-in-out;
+    font-size: 1.2rem;
 
     &:hover {
       transform: translateY(-5px);
@@ -113,7 +115,6 @@
           color: var(--color-dark);
           position: relative;
           padding-left: 20px;
-          font-size: 14px;
           font-weight: bold;
 
           &::before {
