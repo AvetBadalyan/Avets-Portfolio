@@ -87,6 +87,8 @@ main.bg-2 {
 main {
   color: var(--color-dark);
   --color-primary: hsl(var(--primary-hue), 89%, 41%);
+  // max-width: 100vw;
+  // overflow: hidden;
 }
 
 /* GENERAL CONTAINER CLASS */

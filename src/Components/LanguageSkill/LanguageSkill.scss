@@ -4,6 +4,7 @@
     box-shadow: 0 4px 6px var(--color-primary);
     padding: 8px;
     margin-bottom: 1rem;
+    overflow: hidden;
 
     .language-info {
         display: flex;
@@ -17,17 +18,14 @@
         background-color: var(--color-light);
         height: 1.5rem;
         border-radius: 0.5rem;
-        overflow: hidden;
         box-shadow: 0 0 0.3rem var(--color-primary);
         border-radius: 0.5rem;
-        overflow: hidden;
 
         .progress {
             background-color: var(--color-primary);
             height: 100%;
             transition: width 1s ease-in-out;
             border-radius: 0.5rem;
-            overflow: hidden;
         }
     }
 }

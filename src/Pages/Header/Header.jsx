@@ -8,23 +8,23 @@ import CV from "../../assets/cv.pdf";
 
 const Header = () => {
   useEffect(() => {
-    AOS.init({ duration: 1500 });
+    AOS.init({ duration: 2000 });
   }, []);
 
   return (
     <header id="header" className="header">
-      <h1 data-aos="flip-right" className="welcome-heading">
+      <h2 data-aos="flip-right" className="welcome-heading">
         Welcome To My Portfolio Website!
-      </h1>
+      </h2>
       <div className="container welcome-container">
         <div className="header__profile" data-aos="fade-in">
           <img src={HeaderImage} alt="Header Portrait" />
         </div>
-        <div data-aos="fade-up" className="welcome-text">
+        <div data-aos="zoom-in-up" className="welcome-text">
           <h1 data-aos="zoom-in-up">Avet Badalyan</h1>
           <h2 data-aos="zoom-in-up">Frontend Developer</h2>
 
-          <p className="home-main-text">
+          <p className="home-main-text" data-aos="zoom-in-up">
             I acquired fundamental Front-End Development knowledge through a
             bootcamp at <strong>Armenian Code Academy</strong> and courses at{" "}
             <strong>Microsoft IC Armenia</strong>. <br /> <br />

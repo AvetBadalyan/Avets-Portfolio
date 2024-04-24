@@ -14,7 +14,7 @@ export default function Experience() {
           <div className="company-info__logo">
             <img src={CognaizeLogo} alt="Cognaize Logo" />
           </div>
-          <div className="company-info__details">
+          <div className="company-info__details" data-aos="fade-down">
             <p>
               <span>Company: </span>
               Cognaize automates unstructured data with Hybrid Intelligence.
