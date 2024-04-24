@@ -40,7 +40,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="header__cta" data-aos="fade-up">
+      <div className="header__cta">
         <a href="#contact" className="btn primary">
           Let's Talk
         </a>
