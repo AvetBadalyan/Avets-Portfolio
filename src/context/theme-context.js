@@ -5,7 +5,7 @@ export const ThemeContext = createContext();
 
 // get theme settings from local storage, or use default theme
 const initialThemeState = JSON.parse(localStorage.getItem("themeSettings")) || {
-  primary: "color-1",
+  primary: "color-3",
   background: "bg-1",
 };
 

@@ -21,7 +21,7 @@ const Header = () => {
           <div className="header__profile" data-aos="fade-in">
             <img src={HeaderImage} alt="Header Portrait" />
           </div>
-          <h1 data-aos="zoom-in-up">Avet Badalyan</h1>
+          <h1 data-aos="zoom-in-up">AVET BADALYAN</h1>
         </div>
 
         <div className=" welcome-container">
@@ -30,7 +30,7 @@ const Header = () => {
             <p className="home-main-text" data-aos="zoom-in-up">
               I acquired fundamental Front-End Development knowledge through a
               bootcamp at <strong>Armenian Code Academy</strong> and courses at
-              <strong>Microsoft IC Armenia</strong>. <br /> <br />
+              <strong> Microsoft IC Armenia</strong>. <br /> <br />
               Then, at <strong>Cognaize Engineering LLC</strong>, I continued to
               improve my skills by working on a variety of tasks, including
               redesigning elements, debugging, and implementing new features.

@@ -61,9 +61,9 @@ main.color-2 {
 }
 
 main.color-3 {
-  --primary-hue: 240;
-  --color-primary-saturation: 70%;
-  --color-primary-lightness: 46%;
+  --primary-hue: 231;
+  --color-primary-saturation: 58%;
+  --color-primary-lightness: 14%;
 }
 
 main.color-4 {
@@ -143,6 +143,7 @@ h5,
 h6 {
   line-height: 1.1;
   color: var(--color-black);
+  font-family: "Headland One", serif;
 }
 
 h1 {

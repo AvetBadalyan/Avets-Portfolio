@@ -12,7 +12,7 @@ const Project = ({ project }) => {
       <div className="portfolio__project-cta">
         <a
           href={project.webUrl}
-          className="btn sm"
+          className="btn sm primary"
           target="_blank"
           rel="noopener noreferrer"
         >
