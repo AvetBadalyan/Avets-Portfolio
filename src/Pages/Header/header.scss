@@ -5,6 +5,10 @@
   background: var(--color-white);
   transition: var(--transition);
   padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
 
   .welcome-heading {
@@ -12,6 +16,7 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-top: 1.5rem;
   }
 
   .header-main-content {
@@ -19,7 +24,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    height: 90%;
+    height: 80%;
 
     .header-left-part {
       display: flex;
@@ -48,6 +53,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
 
     .welcome-text {
@@ -74,6 +80,7 @@
       a {
         justify-content: center;
         align-items: center;
+        padding: 6px 12px;
 
         &:hover {
           background: white;
@@ -90,6 +97,16 @@
 
 }
 
+@media screen and (max-width: 1200px) {
+  p {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .header {
     height: auto;
@@ -97,7 +114,6 @@
     .header-main-content {
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
 
       .header-left-part {
         .header__profile {
