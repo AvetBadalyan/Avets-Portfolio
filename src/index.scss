@@ -8,7 +8,11 @@
   --white-lightness: 100%;
   --color-primary-saturation: 89%;
   --color-primary-lightness: 41%;
-  --color-primary: hsl(var(--primary-hue), var(--color-primary-saturation), var(--color-primary-lightness));
+  --color-primary: hsl(
+    var(--primary-hue),
+    var(--color-primary-saturation),
+    var(--color-primary-lightness)
+  );
   --color-white: hsl(0, 5%, var(--white-lightness));
   --color-light: hsl(var(--primary-hue), 5%, var(--light-lightness));
   --color-black: hsl(var(--primary-hue), 5%, var(--black-lightness));
@@ -42,8 +46,8 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
   font-size: 0.9rem;
 }
 
@@ -78,7 +82,6 @@ main.color-5 {
   --color-primary-lightness: 41%;
 }
 
-
 main.color-6 {
   --primary-hue: 45;
   --color-primary-saturation: 97%;
@@ -98,7 +101,11 @@ main.bg-2 {
 
 main {
   color: var(--color-dark);
-  --color-primary: hsl(var(--primary-hue), var(--color-primary-saturation), var(--color-primary-lightness));
+  --color-primary: hsl(
+    var(--primary-hue),
+    var(--color-primary-saturation),
+    var(--color-primary-lightness)
+  );
 }
 
 /* GENERAL CONTAINER CLASS */
@@ -119,11 +126,11 @@ section:nth-child(even) {
   background: var(--color-white);
 }
 
-section>h2 {
+section > h2 {
   text-align: center;
 }
 
-section>p {
+section > p {
   text-align: center;
   margin: 0.5rem auto 4rem;
   width: 40%;
@@ -143,7 +150,7 @@ h5,
 h6 {
   line-height: 1.1;
   color: var(--color-black);
-  font-family: "Headland One", serif;
+  font-family: 'Headland One', serif;
 }
 
 h1 {
@@ -232,7 +239,7 @@ img {
     width: var(--container-width-md);
   }
 
-  section>p {
+  section > p {
     width: 72%;
     margin-bottom: 3rem;
   }
@@ -264,7 +271,7 @@ img {
     padding: 0.6rem 1.5rem;
   }
 
-  section>p {
+  section > p {
     width: var(--container-width-md);
   }
 }
@@ -272,5 +279,5 @@ img {
 .section-heading {
   text-transform: uppercase;
   font-family: serif;
-  font-family: "Headland One", serif;
+  font-family: 'Headland One', serif;
 }
