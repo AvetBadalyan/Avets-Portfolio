@@ -6,6 +6,8 @@
     font-size: 2rem;
     font-weight: bold;
     color: var(--color-black);
+    margin-top: 20px;
+    padding: 0 20px
   }
 
   .experience-content {
@@ -63,7 +65,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 16px;
+      gap: 20px 16px;
     }
   }
 
