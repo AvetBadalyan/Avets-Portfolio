@@ -30,7 +30,7 @@ export default function Skills() {
           <div className="skills-list">{renderSkills(frontendSkills)}</div>
         </div>
         <div className="skills-category">
-          <h3 className="skills-category-title">Backend and Technologies</h3>
+          <h3 className="skills-category-title">Backend, DB and Technologies</h3>
           <div className="skills-list">{renderSkills(backendSkills)}</div>
         </div>
       </div>
