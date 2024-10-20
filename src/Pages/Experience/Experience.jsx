@@ -1,13 +1,17 @@
 import "./Experience.scss";
 import ExperienceCard from "./ExperienceCard";
 import CognaizeLogo from "./../../assets/pics/cognaize-armenia.jpg";
+import ashstone from "./../../assets/pics/ashtone.jpg";
 import { EXPERIENCE_DATA } from "./experienceData";
 
 export default function Experience() {
   return (
     <section className="experience" id="experience">
       <div data-aos="zoom-in-up" className="experience-header section-heading">
-        Experience
+        Experience in development
+      </div>
+      <div data-aos="zoom-in-up" className="experience-header section-heading">
+        Cognaize
       </div>
       <div className="container experience-content" data-aos="fade-up">
         <div className="company-info">
@@ -26,7 +30,7 @@ export default function Experience() {
               <span>Position: </span>Junior Software Engineer
             </p>
             <p>
-              <span>Duration: </span>February 2023 - Present
+              <span>Duration: </span>February 2023 - March 2024
             </p>
             <a
               href="https://www.cognaize.com/"
@@ -47,6 +51,40 @@ export default function Experience() {
             <ExperienceCard key={index} {...experience} />
           ))}
         </div>
+      </div>
+
+
+      <div data-aos="zoom-in-up" className="experience-header section-heading">
+        Ashstone Studios
+      </div>
+      <div className="container experience-content" data-aos="fade-up">
+        <div className="company-info">
+          <div className="company-info__logo">
+            <img src={ashstone} alt="Cognaize Logo" />
+          </div>
+          <div className="company-info__details" data-aos="fade-up">
+            <p>
+              <span>Company: </span>
+              Ashstone Studios is a Professional Website Design & Development Agency developing High-End and Premium Shopify Themes for Modern Commerce With Maximized Functionality. 
+            </p>
+            <p>
+              <span>Position: </span>Frontend (Shopify) Developer
+            </p>
+            <p>
+              <span>Duration: </span>May 2024 - Present
+            </p>
+            <a
+              href="https://ashstonestudios.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>Link to Ashstone Studios official website🔗</span>
+            </a>
+          </div>
+        </div>
+
+   
+
       </div>
     </section>
   );

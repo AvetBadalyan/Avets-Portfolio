@@ -1,6 +1,6 @@
-import Card from "../../Components/Card/Card";
-import data from "./data";
-import "./Education.scss";
+import Card from '../../Components/Card/Card';
+import data from './data';
+import './Education.scss';
 
 const Education = () => {
   return (
@@ -12,7 +12,7 @@ const Education = () => {
         I'm excited to share my educational experiences below!
       </h4>
       <div className="container education__container" data-aos="fade-up">
-        {data.map((item) => (
+        {data.map(item => (
           <Card key={item.id} className="university-card">
             <div className="university-card__icon">
               <img src={item.logo} alt={item.title} />
@@ -25,14 +25,21 @@ const Education = () => {
               <p>
                 <strong>Faculty:</strong> {item.faculty}
               </p>
-              <a
-                href={item.link}
-                className="btn sm primary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.degree}
-              </a>
+              {item.description && (
+                <p>
+                  <strong>Description:</strong> {item.description}
+                </p>
+              )}
+              {item.link && (
+                <a
+                  href={item.link}
+                  className="btn sm primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.degree}
+                </a>
+              )}
             </div>
           </Card>
         ))}

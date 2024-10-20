@@ -41,6 +41,10 @@
 
 .university-card__details {
   padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
 
   h4 {
     margin-bottom: 0.5rem;
