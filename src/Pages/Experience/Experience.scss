@@ -7,7 +7,7 @@
     font-weight: bold;
     color: var(--color-black);
     margin-top: 20px;
-    padding: 0 20px
+    padding: 0 20px;
   }
 
   .experience-content {
@@ -43,11 +43,10 @@
         }
 
         a {
-          color: var(--color-primary);
-          transition: text-decoration 0.3s ease;
+          // transition: text-decoration 0.3s ease;
 
           &:hover {
-            text-decoration: underline;
+            // text-decoration: underline;
           }
         }
       }
@@ -119,7 +118,7 @@
           font-weight: bold;
 
           &::before {
-            content: "\2713";
+            content: '\2713';
             position: absolute;
             left: 0;
             color: var(--color-primary);

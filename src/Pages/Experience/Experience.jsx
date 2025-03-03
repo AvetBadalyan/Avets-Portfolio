@@ -1,8 +1,8 @@
-import "./Experience.scss";
-import ExperienceCard from "./ExperienceCard";
-import CognaizeLogo from "./../../assets/pics/cognaize-armenia.jpg";
-import ashstone from "./../../assets/pics/ashtone.jpg";
-import { EXPERIENCE_DATA } from "./experienceData";
+import './Experience.scss';
+import ExperienceCard from './ExperienceCard';
+import CognaizeLogo from './../../assets/pics/cognaize-armenia.jpg';
+import ashstone from './../../assets/pics/ashtone.jpg';
+import { EXPERIENCE_DATA } from './experienceData';
 
 export default function Experience() {
   return (
@@ -36,8 +36,9 @@ export default function Experience() {
               href="https://www.cognaize.com/"
               target="_blank"
               rel="noreferrer"
+              className="btn cat__btn white"
             >
-              <span>Link to Cognaize official website🔗</span>
+              <span>Cognaize official website 🔗</span>
             </a>
           </div>
         </div>
@@ -53,7 +54,6 @@ export default function Experience() {
         </div>
       </div>
 
-
       <div data-aos="zoom-in-up" className="experience-header section-heading">
         Ashstone Studios
       </div>
@@ -65,7 +65,9 @@ export default function Experience() {
           <div className="company-info__details" data-aos="fade-up">
             <p>
               <span>Company: </span>
-              Ashstone Studios is a Professional Website Design & Development Agency developing High-End and Premium Shopify Themes for Modern Commerce With Maximized Functionality. 
+              Ashstone Studios is a Professional Website Design & Development
+              Agency developing High-End and Premium Shopify Themes for Modern
+              Commerce With Maximized Functionality.
             </p>
             <p>
               <span>Position: </span>Frontend (Shopify) Developer
@@ -74,17 +76,15 @@ export default function Experience() {
               <span>Duration: </span>May 2024 - Present
             </p>
             <a
-              href="https://ashstonestudios.com/"
+              href="https://themes.shopify.com/themes/motto/styles/connect"
               target="_blank"
               rel="noreferrer"
+              className="btn cat__btn white"
             >
-              <span>Link to Ashstone Studios official website🔗</span>
+              <span>Motto theme developed by me 🔗</span>
             </a>
           </div>
         </div>
-
-   
-
       </div>
     </section>
   );

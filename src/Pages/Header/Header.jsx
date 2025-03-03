@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import HeaderImage from "./../../assets/IMG_6344.JPG";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "./header.scss";
-import { FaDownload } from "react-icons/fa";
-import CV from "../../assets/cv.pdf";
+import { useEffect } from 'react';
+import HeaderImage from './../../assets/1731479126421~5.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import './header.scss';
+import { FaDownload } from 'react-icons/fa';
+import CV from '../../assets/cv.pdf';
 
 const Header = () => {
   useEffect(() => {
