@@ -34,11 +34,14 @@ const Header = () => {
               Then, at <strong>Cognaize Engineering LLC</strong>, I continued to
               improve my skills by working on a variety of tasks, including
               redesigning elements, debugging, and implementing new features.
-              <br />
-              Alongside this, I worked on personal projects and freelancing.
+              <br />I also develop <strong>Shopify themes</strong> for online
+              stores, enhancing my Frontend expertise.
               <br /> <br />
-              And now, with 2 years of hands-on experience, I'm excited to take
-              on new challenges and contribute to innovative projects!
+              Currently, I'm learning Node.js/Express.js, Next.js, TypeScript, SQL/PostgreSQL
+              and AWS at <strong>EPAM</strong> to become a Fullstack Developer.{' '}
+              <br />
+              And now, with 2+ years of hands-on experience, I'm excited to take
+              on new challenges!
             </p>
           </div>
           <div className="header__buttons">

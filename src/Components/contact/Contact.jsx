@@ -22,7 +22,7 @@ const Contact = () => {
       </div>
 
       <div data-aos="zoom-in-up">
-        <h2>Find me on</h2>
+        <h2>Find me on:</h2>
         <div className="container contact__container">
           <ContactLink
             icon={<FaLinkedin size={32} />}

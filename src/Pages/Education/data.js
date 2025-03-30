@@ -10,9 +10,9 @@ const data = [
     id: 7,
     title: 'EPAM Armenia',
     logo: EPAM,
-    duration: 'June - October 2024',
-    faculty: 'Node.JS training course',
-    description: 'Node.JS, Express.JS,Typescript, Docker, DBs, SQL, PostgreSQL',
+    duration: 'Since July 2024',
+    faculty: 'Fullstack Development',
+    description: 'Node.JS, Express.JS,Typescript, Next.js, SQL, PostgreSQL, AWS',
   },
   {
     id: 6,

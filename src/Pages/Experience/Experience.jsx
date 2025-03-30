@@ -10,6 +10,40 @@ export default function Experience() {
       <div data-aos="zoom-in-up" className="experience-header section-heading">
         Experience in development
       </div>
+
+      <div data-aos="zoom-in-up" className="experience-header section-heading">
+        Ashstone Studios
+      </div>
+      <div className="container experience-content" data-aos="fade-up">
+        <div className="company-info">
+          <div className="company-info__logo">
+            <img src={ashstone} alt="Cognaize Logo" />
+          </div>
+          <div className="company-info__details" data-aos="fade-up">
+            <p>
+              <span>Company: </span>
+              Ashstone Studios is a Professional Website Design & Development
+              Agency developing High-End and Premium Shopify Themes for Modern
+              Commerce With Maximized Functionality.
+            </p>
+            <p>
+              <span>Position: </span>Frontend (Shopify) Developer
+            </p>
+            <p>
+              <span>Duration: </span>May 2024 - Present
+            </p>
+            <a
+              href="https://themes.shopify.com/themes/motto/styles/connect"
+              target="_blank"
+              rel="noreferrer"
+              className="btn cat__btn white"
+            >
+              <span>Motto theme developed by me 🔗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div data-aos="zoom-in-up" className="experience-header section-heading">
         Cognaize
       </div>
@@ -51,39 +85,6 @@ export default function Experience() {
           {EXPERIENCE_DATA.map((experience, index) => (
             <ExperienceCard key={index} {...experience} />
           ))}
-        </div>
-      </div>
-
-      <div data-aos="zoom-in-up" className="experience-header section-heading">
-        Ashstone Studios
-      </div>
-      <div className="container experience-content" data-aos="fade-up">
-        <div className="company-info">
-          <div className="company-info__logo">
-            <img src={ashstone} alt="Cognaize Logo" />
-          </div>
-          <div className="company-info__details" data-aos="fade-up">
-            <p>
-              <span>Company: </span>
-              Ashstone Studios is a Professional Website Design & Development
-              Agency developing High-End and Premium Shopify Themes for Modern
-              Commerce With Maximized Functionality.
-            </p>
-            <p>
-              <span>Position: </span>Frontend (Shopify) Developer
-            </p>
-            <p>
-              <span>Duration: </span>May 2024 - Present
-            </p>
-            <a
-              href="https://themes.shopify.com/themes/motto/styles/connect"
-              target="_blank"
-              rel="noreferrer"
-              className="btn cat__btn white"
-            >
-              <span>Motto theme developed by me 🔗</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>

@@ -26,7 +26,7 @@ export const ThemeProvider = ({ children }) => {
     }, 500);
 
     return () => clearTimeout(timeoutId);
-  }, [themeState.primary, themeState.background]);
+  }, [themeState.primary, themeState.background, themeState]);
 
   return (
     <ThemeContext.Provider value={{ themeState, themeHandler }}>
