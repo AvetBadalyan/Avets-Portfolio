@@ -2,7 +2,7 @@
   "websites": [
     {
       "category": "MERN",
-      "description": "Full-stack realtime chat app using MERN, Socket.io, JWT auth, online status, Cloudinary uploads, Zustand global state, and TailwindCSS/Daisy UI with error handling for a smooth user experience.",
+      "description": "Realtime MERN chat app with Socket.io, JWT authentication, Cloudinary uploads, and Zustand state management. Users can send messages, share media, view online status, and enjoy a clean, responsive interface.",
       "githubUrl": "https://github.com/AvetBadalyan/avetbook-chat-app",
       "id": "WS01",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fchat%20app%20screenshot0.jpg?alt=media&token=9e1b9f7e-eb0a-4ee7-a8f6-61f73bba65f6",
@@ -20,7 +20,7 @@
     },
     {
       "category": "MERN",
-      "description": "Online store app featuring a full shopping cart, product reviews, search functionality, user profiles with orders, admin controls, checkout process with shipping and payment options including PayPal integration.",
+      "description": "E-commerce MERN app with full cart, product search, and PayPal checkout. Users can browse items, add to cart, leave reviews, and manage orders through a modern, responsive interface.",
       "githubUrl": "https://github.com/AvetBadalyan/TechShop-MERN-practice.git",
       "id": "WS03",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Ftechshop.jpg?alt=media&token=e33a9fe2-3ce9-4c08-a9fc-09429cc5d00b",
@@ -29,7 +29,7 @@
     },
     {
       "category": "MERN",
-      "description": "Practice MERN app where users can sign up and add places with descriptions and addresses. Focused on MongoDB, Express, React, and Node.js skills development for junior fullstack development.",
+      "description": "Practice MERN app where users can register, add places with descriptions, and view details. Built to strengthen fullstack skills with MongoDB, Express, React, and Node.js in a simple interface.",
       "githubUrl": "https://github.com/AvetBadalyan/MERN-practice-backend.git",
       "id": "WS04",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2FUntitled.jpg?alt=media&token=2d9bc606-4888-4c43-90c4-d2bb17da1561",
@@ -38,7 +38,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Online food store with appealing design to browse meals with price and description, add meals to cart, manage item amounts, sign up/login, place orders, and receive feedback for a complete user experience.",
+      "description": "React food store app where users can browse meals, add to cart, and place orders. Features account login, quantity control, and responsive design for a smooth shopping experience.",
       "githubUrl": "https://github.com/AvetBadalyan/Online-Food-Store",
       "id": "WS05",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2FfoodStoreScreen2.jpg?alt=media&token=13fef5ba-a5c6-4683-ac30-98748a662228",
@@ -47,7 +47,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Online clothes store showcasing items with prices and descriptions, allowing users to add products to cart, adjust quantities, and sign up/login for a smooth shopping experience.",
+      "description": "React clothes store where users can browse products, view details, and add to cart. Includes account login, quantity adjustment, and responsive design for a seamless shopping experience.",
       "githubUrl": "https://github.com/AvetBadalyan/Avet-Clothes-shop-with-Redux",
       "id": "WS06",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fcart.jpg?alt=media&token=6a10ebb7-58a5-4d8f-a2e0-e6474403a9b0",
@@ -56,7 +56,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Task manager app to add tasks with deadlines, view daily tasks, edit, delete, mark as completed with line-through, and clear completed tasks using Redux toolkit for state management.",
+      "description": "React task manager where users can add, edit, and delete tasks with deadlines. Features completion tracking, daily task view, and Redux Toolkit for efficient state management.",
       "githubUrl": "https://github.com/AvetBadalyan/Todo-list-with-date-redux-toolkit",
       "id": "WS07",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Ftodo-task-page.jpg?alt=media&token=b6e5640f-ba4a-4763-8662-131047150ba0",
@@ -65,7 +65,7 @@
     },
     {
       "category": "React.JS",
-      "description": "iTunes music search clone allowing users to search songs, view artist images and names, click for detailed info including price and duration, all built with React.js.",
+      "description": "Music search app that lets users find songs, view artist info, and see prices. Built with React.js to deliver a clean, responsive, and interactive listening discovery experience.",
       "githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
       "id": "WS08",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fitunes.jpg?alt=media&token=9ce7acf3-6f01-4b64-9a7c-a12b67b2b462",
@@ -74,7 +74,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Cocktails app where users can browse the full collection, search specific drinks, and view detailed info on each cocktail. Designed responsively with mobile adaptation.",
+      "description": "Cocktail recipe app where users can browse drinks, search by name, and view details. Designed with responsive layouts for easy access on mobile and desktop devices alike.",
       "githubUrl": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
       "id": "WS09",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fcocktails.jpg?alt=media&token=be1187f6-fa6c-4378-94d6-4ebfc79a8514",
@@ -83,7 +83,7 @@
     },
     {
       "category": "Pure JS",
-      "description": "Simple app that tells jokes with button click, featuring subtitles and JavaScript text-to-speech engine integration, optimized for mobile devices.",
+      "description": "Simple JavaScript joke app where users click a button to hear jokes via text-to-speech. Optimized for mobile devices with a minimal and engaging design.",
       "githubUrl": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
       "id": "WS10",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Frobot.jpg?alt=media&token=167d1ebd-dd44-4c7e-ad54-192e405d9817",
@@ -92,7 +92,7 @@
     },
     {
       "category": "Pure JS",
-      "description": "Static travel agency website featuring tours, customer stories, and contact info, built with HTML, CSS, and JavaScript. Fully responsive with smooth animations for engaging user experience.",
+      "description": "Static travel site showcasing tours, customer stories, and contact info. Built with HTML, CSS, and JS for a fully responsive design with smooth, engaging animations.",
       "githubUrl": "https://github.com/AvetBadalyan/The-Road-Tour-aggency-website-Pure-JS",
       "id": "WS12",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Ftravel-screenshot2.jpg?alt=media&token=3184b5ef-8d77-4058-a19c-4132f1c3ef19",
