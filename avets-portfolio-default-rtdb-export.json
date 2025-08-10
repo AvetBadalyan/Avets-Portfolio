@@ -3,7 +3,7 @@
     {
       "category": "MERN",
       "description": "Realtime MERN chat app with Socket.io, JWT authentication, Cloudinary uploads, and Zustand state management. Users can send messages, share media, view online status, and enjoy a clean, responsive interface.",
-      "githubUrl": "https://github.com/AvetBadalyan/avetbook-chat-app",
+      "githubUrl": "https://github.com/AvetBadalyan/Chat-app",
       "id": "WS01",
       "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fchat%20app%20screenshot0.jpg?alt=media&token=9e1b9f7e-eb0a-4ee7-a8f6-61f73bba65f6",
       "siteName": "Avetbook Chat App",
