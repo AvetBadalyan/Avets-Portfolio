@@ -1,0 +1,94 @@
+{
+  "websites": [
+    {
+      "category": "MERN",
+      "description": "Real Estate MERN App is a  web app where users can discover, search, and list properties for rent or sale. The application allows users to create and manage their own property listings, view detailed information and log in.",
+      "githubUrl": "https://github.com/AvetBadalyan/MERN-Real-Estate-Project.git",
+      "id": "WS01",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fscreenshot1.jpg?alt=media&token=4be0aa95-90c3-4bce-a01b-05b80d64636f",
+      "siteName": "Avet's Real Estate MERN App",
+      "webUrl": "https://mern-real-estate-project-8jqd.onrender.com/"
+    },
+    {
+      "category": "MERN",
+      "description": "This is an online store app with full featured shopping cart, Product reviews and ratings, Product search feature, User profile with orders, Admin management, Checkout process (shipping, payment method, etc), PayPal / credit card integration",
+      "githubUrl": "https://github.com/AvetBadalyan/TechShop-MERN-practice.git",
+      "id": "WS02",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Ftechshop.jpg?alt=media&token=e33a9fe2-3ce9-4c08-a9fc-09429cc5d00b",
+      "siteName": "Avet's TechShop",
+      "webUrl": "https://avets-techshop.onrender.com/"
+    },
+    {
+      "category": "MERN",
+      "description": "This is an app where users can sign up and add places with description and address - the main purpose of this app is to practice MERN - MongoDB, Express JS, React JS and Node JS as a Junior Fullstack Developer",
+      "githubUrl": "https://github.com/AvetBadalyan/MERN-practice-backend.git",
+      "id": "WS03",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2FUntitled.jpg?alt=media&token=2d9bc606-4888-4c43-90c4-d2bb17da1561",
+      "siteName": "MERN project practice",
+      "webUrl": "https://mern-project-front.web.app/"
+    },
+    {
+      "category": "React.JS",
+      "description": "This is an online food store with a nice styling where you can browse meals with price and description, add the meal to the cart, control the amount of items in the cart, also Sign up/ login, make an order and get feedback.",
+      "githubUrl": "https://github.com/AvetBadalyan/Online-Food-Store",
+      "id": "WS04",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2FfoodStoreScreen2.jpg?alt=media&token=13fef5ba-a5c6-4683-ac30-98748a662228",
+      "siteName": "AVET'S ONLINE FOOD STORE",
+      "webUrl": "https://online-foodstore.web.app/"
+    },
+    {
+      "category": "React.JS",
+      "description": "This is an online clothes store where you can see items with price and description, add the product to the cart, control the amount of chosen item, Sign up/login",
+      "githubUrl": "https://github.com/AvetBadalyan/Avet-Clothes-shop-with-Redux",
+      "id": "WS05",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fcart.jpg?alt=media&token=6a10ebb7-58a5-4d8f-a2e0-e6474403a9b0",
+      "siteName": "ONLINE CLOTHES SHOP",
+      "webUrl": "https://avet-clothes-shop-f8267.web.app/"
+    },
+    {
+      "category": "React.JS",
+      "description": "Here you can add your tasks to complete with a special day, look them daily, edit written task, delete some or all of them, check and strike with line-through the completed ones, clear all completed ones and so on.",
+      "githubUrl": "https://github.com/AvetBadalyan/Todo-list-with-date-redux-toolkit",
+      "id": "WS06",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Ftodo-task-page.jpg?alt=media&token=b6e5640f-ba4a-4763-8662-131047150ba0",
+      "siteName": "Todo list with Redux toolkit",
+      "webUrl": "https://todo-list-with-redux-toolkit.web.app/"
+    },
+    {
+      "category": "React.JS",
+      "description": "This is a little copy of apple music website where you can search songs, see the singer's name and image, click on the details link and see the song details, see the price, duration and other details about the song.",
+      "githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
+      "id": "WS07",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fitunes.jpg?alt=media&token=9ce7acf3-6f01-4b64-9a7c-a12b67b2b462",
+      "siteName": "ITUNES MUSIC SEARCHER",
+      "webUrl": "https://itunes-simple-clone-a7486.web.app/"
+    },
+    {
+      "category": "React.JS",
+      "description": "You can see the whole collection of cocktails, search a single one, see details of a specific cocktail in another page. With Mobile Adaptation and Responsive design.",
+      "githubUrl": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
+      "id": "WS08",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Fcocktails.jpg?alt=media&token=be1187f6-fa6c-4378-94d6-4ebfc79a8514",
+      "siteName": "Tales of Cocktails with Redux Toolkit",
+      "webUrl": "https://tales-of-cocktails.web.app/"
+    },
+    {
+      "category": "Pure JS",
+      "description": "This is a little app to click on the button and listen to a joke with subtitles. (used Text to speech engine with JavaScript DK) With Mobile adaptation",
+      "githubUrl": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
+      "id": "WS09",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Frobot.jpg?alt=media&token=167d1ebd-dd44-4c7e-ad54-192e405d9817",
+      "siteName": "Joke Teller (Pure HTML/CSS, JS)",
+      "webUrl": "https://get-joke-f9568.web.app/"
+    },
+    {
+      "category": "Pure JS",
+      "description": "This project is a static travel agency website showcasing tours, customer stories, and a contact section. It is built using HTML, CSS, and JavaScript with a responsive design and smooth animations.",
+      "githubUrl": "https://github.com/AvetBadalyan/The-Road-Tour-aggency-website-Pure-JS",
+      "id": "WS11",
+      "image": "https://firebasestorage.googleapis.com/v0/b/avets-portfolio.appspot.com/o/portfolio%2Ftravel-screenshot2.jpg?alt=media&token=3184b5ef-8d77-4058-a19c-4132f1c3ef19",
+      "siteName": "The Road to Armenia",
+      "webUrl": "https://theroad-9bc32.web.app/"
+    }
+  ]
+}
