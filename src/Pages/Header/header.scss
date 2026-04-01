@@ -3,32 +3,32 @@
   min-height: calc(100vh - 5rem);
   background: var(--color-white);
   transition: var(--transition);
-  padding: 20px 0;
+  padding: var(--space-lg) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: var(--space-lg);
 
   .welcome-heading {
     color: var(--color-black);
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 1.5rem;
+    letter-spacing: var(--tracking-wide);
+    margin-top: var(--space-xl);
   }
 
   .header-main-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: var(--space-lg);
 
     .header-left-part {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 20px;
+      gap: var(--space-lg);
 
       .header__profile {
         width: 16rem;
@@ -50,26 +50,27 @@
   }
 
   .welcome-container {
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: var(--border-radius-2);
+    padding: var(--panel-padding);
     background: var(--color-white);
-    box-shadow: 10px 10px 20px var(--color-primary);
+    box-shadow: var(--shadow-elevated);
     width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: var(--panel-gap);
 
     .welcome-text {
-      font-size: 1rem;
+      font-size: var(--font-size-body);
+      line-height: var(--line-height-body);
     }
 
     .header__buttons {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.2rem;
+      gap: var(--space-lg);
       animation: fadeIn 2s forwards;
 
       @keyframes fadeIn {
@@ -85,7 +86,7 @@
       a {
         justify-content: center;
         align-items: center;
-        padding: 6px 12px;
+        padding: var(--space-xs) var(--space-sm);
 
         &:hover {
           background: white;
@@ -101,56 +102,122 @@
 }
 
 @media screen and (max-width: 1200px) {
-  p {
-    font-size: 0.9rem;
-  }
+  .header {
+    .welcome-text {
+      font-size: var(--font-size-body-sm);
+    }
 
-  h1 {
-    font-size: 2rem;
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 }
 
 @media screen and (max-width: 1024px) {
   .header {
     height: auto;
+    min-height: auto;
+    padding: var(--space-md) 0 var(--space-xl);
+    gap: var(--space-md);
 
     .header-main-content {
       flex-direction: column;
       align-items: center;
+      gap: var(--space-md);
 
       .header-left-part {
+        gap: var(--space-md);
+
         .header__profile {
-          border-radius: 0;
+          width: 14rem;
+          height: 18rem;
+          border-radius: 2rem;
+
+          img {
+            transform: scale(1.18) translateY(16px);
+          }
         }
       }
 
       .welcome-container {
         width: 100%;
+        padding: var(--panel-padding-compact);
+        gap: var(--panel-gap-compact);
+        box-shadow: var(--shadow-card);
       }
+    }
+
+    .welcome-heading {
+      margin-top: var(--space-md);
+      letter-spacing: var(--tracking-base);
+      max-width: 14ch;
+    }
+
+    .welcome-text {
+      font-size: var(--font-size-body-sm);
     }
 
     .header__buttons {
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: var(--space-md);
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .header {
+    padding: var(--space-md) 0 var(--space-lg);
+
     .header-main-content {
       width: 90%;
+      gap: var(--space-md);
 
       .header-left-part {
+        gap: var(--space-sm);
+
         .header__profile {
-          border-radius: 0;
+          width: 12rem;
+          height: 15rem;
+          border-radius: 2rem;
+
+          img {
+            transform: scale(1.12) translateY(12px);
+          }
+        }
+      }
+
+      .welcome-container {
+        padding: var(--panel-padding-compact);
+        gap: var(--panel-gap-compact);
+
+        .welcome-text {
+          font-size: var(--font-size-body-sm);
+        }
+
+        .header__buttons {
+          width: 100%;
+          gap: var(--space-sm);
+
+          a {
+            width: 100%;
+            justify-content: center;
+          }
         }
       }
     }
 
+    .welcome-heading {
+      max-width: 12ch;
+      margin-top: var(--space-sm);
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
     .header__buttons {
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: var(--space-sm);
     }
   }
 }

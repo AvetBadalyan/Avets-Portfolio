@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
   z-index: 9;
-  box-shadow: 0 1rem 1.5rem hsla(var(--primary-hue), 68%, 42%, 20%);
+  box-shadow: var(--shadow-nav);
   transition: var(--transition);
 
 
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+    padding: var(--space-2xl);
 
     .nav__logo {
       width: 2.5rem;
@@ -30,21 +30,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
+      gap: var(--space-md);
 
       a {
         color: white;
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: var(--font-size-nav);
         text-transform: uppercase;
         font-weight: bold;
         transition: all 0.3s ease-in;
-        letter-spacing: 1px;
+        letter-spacing: var(--tracking-base);
         list-style: none;
-        padding: 2px 12px;
+        padding: var(--space-2xs) var(--space-sm);
         cursor: pointer;
         white-space: nowrap;
-        border-radius: 1rem;
+        border-radius: var(--border-radius-2);
 
         &:hover {
           color: var(--color-primary);
@@ -80,7 +80,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 1rem;
+      gap: var(--space-md);
       position: absolute;
       top: 5rem;
       left: 0;
@@ -99,7 +99,7 @@
 
       .nav__link {
         width: 100%;
-        padding: 1rem 0;
+        padding: var(--space-md) 0;
         border-bottom: 1px solid white;
         display: flex;
         justify-content: center;
@@ -108,14 +108,14 @@
         a {
           color: white;
           text-decoration: none;
-          font-size: 1.5rem;
+          font-size: var(--font-size-nav-mobile);
           text-transform: uppercase;
           font-weight: bold;
           transition: all 0.3s ease-in-out;
-          letter-spacing: 2px;
+          letter-spacing: var(--tracking-wide);
           list-style: none;
-          padding: 12px 16px;
-          margin: 0 8px;
+          padding: var(--space-sm) var(--space-md);
+          margin: 0 var(--space-xs);
           cursor: pointer;
           white-space: nowrap;
 
