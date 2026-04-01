@@ -4,30 +4,42 @@ import './About.scss';
 export default function AboutMeText() {
   return (
     <div>
-      <h3>Front End Developer</h3>
+      <h3>Frontend Engineer</h3>
       <p>
-        Since 2021, I've built my expertise in Frontend Development, starting
-        with foundations at <b>Microsoft IC Armenia</b> and{' '}
-        <b>Armenian Code Academy</b>. At <b>Cognaize Engineering LLC</b>, I
-        evolved as a Software Engineer, mastering <b>React JS, Redux</b> and
-        various modern development tools. I specialize in developing custom
-        Shopify themes for e-commerce businesses, creating responsive and
-        conversion-focused online stores. <br />
-        While maintaining strong frontend skills, I'm continuously expanding
-        into fullstack development with
-        <b>Node.js, TypeScript, and AWS technologies</b>. With a passion for
-        clean code and innovative solutions, I build interactive applications
-        that deliver exceptional user experiences while staying current with
-        industry best practices.
+        My frontend journey started in 2021 with JavaScript and React training
+        at <b>Microsoft Innovation Center Armenia</b> and the Front-End
+        Bootcamp at <b>Armenian Code Academy</b>. I then joined
+        <b> Cognaize Engineering LLC</b>, where I contributed to an
+        AI-powered financial data platform by implementing 50+ features,
+        resolving 50+ bugs, and improving code maintainability in close
+        collaboration with engineers and designers. <br /> <br /> From May
+        2024 to December 2025, I worked as a
+        <b> Shopify Frontend Developer</b> at <b>Ashstone Studios</b>,
+        delivering and maintaining 5 custom e-commerce projects. Since July
+        2025, I have also been working at <b>EPAM Systems</b>, contributing to
+        the company's corporate web ecosystem built on
+        <b> Adobe Experience Manager (AEM)</b>, where I improve UI
+        consistency, implement enhancements, and write unit tests to maintain
+        quality and reliability. <br /> <br /> My day-to-day work has centered on
+        <b>
+          {' '}
+          React.js, Redux, JavaScript, TypeScript, HTML, CSS, SCSS, and
+          Shopify
+        </b>
+        , along with hands-on experience working with <b>AEM</b> and a strong
+        focus on clean implementation, maintainability, and user experience.
       </p>
 
       <h3>Former Financial Analyst</h3>
       <p>
-        From October 2017 to June 2021, I worked as a{' '}
-        <b>financial analyst, accountant, and external auditor</b> at
-        Parvanyan Consulting LLC, then at Crowe & Asatryans LLC and AN Audit CJSC.
-        Additionally, I interned at "Ariane Sud" bureau of expert-accountants in
-        Valence city, France in March 2016.
+        From October 2017 to June 2021, I worked as a
+        <b> financial analyst, accountant, and external auditor</b> across
+        Parvanyan Consulting LLC, Crowe & Asatryans LLC, and AN Audit CJSC.
+        Across nearly 40 client organizations in different industries, I
+        maintained accounting records, analyzed financial statements, and
+        supported compliance-focused reporting. Earlier, in March 2016, I
+        completed an internship at the <b>Ariane Sud</b> bureau of
+        expert-accountants in Valence, France.
       </p>
     </div>
   );
