@@ -7,35 +7,35 @@ import {
 
 export const EXPERIENCE_DATA = [
   {
-    title: "Feature Development",
+    title: "Feature Execution",
     icon: <RiCodeSSlashLine />,
     description: [
-      "Implementing new features to enhance application functionality and user experience.",
-      "Collaborating with senior developers for integrated solutions.",
+      "Delivered 50+ features that expanded platform capability and improved user experience.",
+      "Partnered with senior engineers to ship integrated, production-ready solutions.",
     ],
   },
   {
-    title: "Debugging",
+    title: "Stability & Maintainability",
     icon: <RiBugLine />,
     description: [
-      "Diagnosing and resolving bugs to ensure smooth application operation.",
-      "Engaging in code refactoring to improve maintainability and performance.",
+      "Resolved 50+ bugs to improve platform stability and day-to-day reliability.",
+      "Refactored legacy code to strengthen readability, maintainability, and long-term support.",
     ],
   },
   {
-    title: "Design Implementation",
+    title: "UI Quality",
     icon: <RiLayoutLine />,
     description: [
-      "Executing design changes to align applications with UI/UX best practices.",
-      "Translating design mockups into responsive web elements.",
+      "Implemented UI improvements aligned with design requirements and modern UX expectations.",
+      "Improved code quality and performance to better support scalability.",
     ],
   },
   {
-    title: "Collaboration & Learning",
+    title: "Cross-Functional Collaboration",
     icon: <RiTeamLine />,
     description: [
-      "Participating in team meetings, providing insights and updates on project progress.",
-      "Engaging in continuous learning to stay current with industry trends and technologies.",
+      "Worked closely with backend developers and designers to deliver cohesive product updates.",
+      "Contributed to sprint planning, code reviews, and technical discussions across the team.",
     ],
   },
 ];

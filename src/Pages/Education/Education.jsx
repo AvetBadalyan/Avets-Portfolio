@@ -6,10 +6,11 @@ const Education = () => {
   return (
     <section id="education">
       <h2 data-aos="zoom-in-up" className="section-heading">
-        My Education
+        Education & Training
       </h2>
       <h4 data-aos="fade-right">
-        I'm excited to share my educational experiences below!
+        Academic background and professional training that supported my
+        transition from finance into software engineering.
       </h4>
       <div className="container education__container" data-aos="fade-up">
         {data.map(item => (
