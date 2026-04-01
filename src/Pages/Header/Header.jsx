@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import HeaderImage from './../../assets/IMG_0861.jpeg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import HeaderImage from './../../assets/IMG_0861.jpeg';
 import './header.scss';
 import { FaDownload } from 'react-icons/fa';
 import CV from '../../assets/cv.pdf';
@@ -28,14 +28,14 @@ const Header = () => {
           <h2 data-aos="zoom-in-up">Frontend Engineer</h2>
           <div data-aos="zoom-in-up" className="welcome-text">
             <p className="home-main-text" data-aos="zoom-in-up">
-              Frontend Engineer with 3+ years of professional experience
+              3+ years of professional experience
               building scalable, user-focused web applications across fintech,
-              e-commerce, and enterprise platforms. <br /> <br /> I have
+              e-commerce, and enterprise platforms. <br />  I have
               contributed to AI-powered financial products at
               <strong> Cognaize Engineering LLC</strong>, built custom Shopify
               solutions at <strong>Ashstone Studios</strong>, and now support
               <strong> EPAM Systems</strong> on its corporate web ecosystem
-              built on <strong>AEM</strong>. <br /> <br /> My focus is frontend
+              built on <strong>AEM</strong>. <br /> My focus is frontend
               engineering with <strong>React.js</strong>, <strong>Redux</strong>,
               <strong> Shopify</strong>, and modern UI development, while I
                 continue growing toward fullstack development with 

@@ -2,12 +2,12 @@
 .about__container {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: var(--space-2xl);
   color: var(--color-dark);
 
   h2 {
     text-align: center;
-    margin: 1rem auto;
+    margin: var(--section-heading-gap) auto;
   }
 
   @media screen and (max-width: 768px) {
@@ -29,11 +29,11 @@
   max-width: 100%;
 
   p {
-    margin-bottom: 0.8rem;
+    margin-bottom: var(--space-sm);
   }
 
   h3 {
-    margin-bottom: 16px;
+    margin-bottom: var(--section-heading-gap);
   }
 
   .btn {
