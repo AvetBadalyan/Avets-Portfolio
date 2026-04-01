@@ -6,7 +6,13 @@
 
   .footer__copyright {
     color: white;
-    border-top: 2px solid rgba(0, 0, 0, 0.2);
-    padding: 0.5rem 0;
+    padding: var(--space-xs) 0;
+
+    small {
+      display: inline-block;
+      font-size: 0.75rem;
+      line-height: 1.2;
+      letter-spacing: var(--tracking-tight);
+    }
   }
 }

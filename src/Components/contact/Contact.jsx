@@ -5,7 +5,7 @@ import "./Contact.scss";
 const Contact = () => {
   return (
     <section id="contact" className="contact">
-      <div data-aos="zoom-in-up">
+      <div>
         <h2>Contact me via:</h2>
         <div className="container contact__container">
           <ContactLink
@@ -21,7 +21,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div data-aos="zoom-in-up">
+      <div>
         <h2>Find me on:</h2>
         <div className="container contact__container">
           <ContactLink

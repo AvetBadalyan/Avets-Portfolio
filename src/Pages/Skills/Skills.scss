@@ -2,7 +2,7 @@
   .skills-content-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: var(--space-3xl);
 
     h2 {
       text-align: center;
@@ -11,28 +11,28 @@
     .skills-category {
       .skills-category-title {
         color: var(--color-dark);
-        font-size: 24px;
+        font-size: var(--font-size-title-md);
         font-weight: 600;
-        letter-spacing: 0.5px;
+        letter-spacing: var(--tracking-wide);
         text-transform: uppercase;
-        margin: 12px auto;
+        margin: var(--space-sm) auto;
         text-align: center;
       }
 
       .skills-list {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        gap: var(--space-lg);
 
         .skill-item {
           background-color: var(--color-white);
-          border-radius: 8px;
+          border-radius: var(--border-radius-2);
           overflow: hidden;
           display: flex;
           flex-direction: column;
-          transition: all 0.3s ease;
-          box-shadow: 3px 3px 10px var(--color-primary);
-          padding: 15px;
+          transition: var(--transition);
+          box-shadow: var(--shadow-card);
+          padding: var(--space-md);
           overflow: hidden;
 
           .skill-info {
@@ -43,31 +43,32 @@
               width: fit-content;
               height: 60px;
               object-fit: cover;
-              margin-right: 10px;
+              margin-right: var(--space-sm);
               border-radius: 20%;
             }
 
             p {
-              font-size: 18px;
+              font-size: var(--font-size-card-title);
               font-weight: 600;
               color: var(--color-dark);
               margin: 0;
+              line-height: 1.2;
             }
           }
 
           .progress-bar {
             height: 20px;
             background-color: var(--color-light);
-            margin-top: 14px;
+            margin-top: var(--space-sm);
             display: flex;
-            border-radius: 0.5rem;
+            border-radius: var(--border-radius-3);
             overflow: hidden;
 
             .progress {
               background-color: var(--color-primary);
               transition: width 2s ease-in-out;
               height: 100%;
-              border-radius: 0.5rem;
+              border-radius: var(--border-radius-3);
               overflow: hidden;
             }
           }
@@ -75,14 +76,14 @@
           &:hover {
             transform: translateY(-5px);
             background-color: var(--color-primary);
-            box-shadow: 3px 3px 10px var(--color-light);
+            box-shadow: var(--shadow-card);
 
             p {
               color: white;
             }
 
             .progress-bar {
-              box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+              box-shadow: var(--shadow-soft);
               background-color: var(--color-white);
 
               .progress {
@@ -98,11 +99,11 @@
   // Media query for smaller screens
   @media screen and (max-width: 768px) {
     .skills-content-wrapper {
-      padding: 12px;
+      padding: var(--space-sm);
     }
 
     .skills-category .skills-list .skill-item {
-      padding: 10px;
+      padding: var(--space-sm);
     }
 
     .skills-category .skills-list .skill-item .skill-info img {

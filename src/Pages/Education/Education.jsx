@@ -6,11 +6,12 @@ const Education = () => {
   return (
     <section id="education">
       <h2 data-aos="zoom-in-up" className="section-heading">
-        My Education
+        Education & Training
       </h2>
-      <h4 data-aos="fade-right">
-        I'm excited to share my educational experiences below!
-      </h4>
+      <p data-aos="fade-right" className="education__intro">
+        Academic background and professional training that supported my
+        transition from finance into software engineering.
+      </p>
       <div className="container education__container" data-aos="fade-up">
         {data.map(item => (
           <Card key={item.id} className="university-card">
@@ -18,22 +19,22 @@ const Education = () => {
               <img src={item.logo} alt={item.title} />
             </div>
             <div className="university-card__details">
-              <h4>{item.title}</h4>
-              <p>
+              <h4 className="university-card__title">{item.title}</h4>
+              <p className="university-card__meta">
                 <strong>Duration:</strong> {item.duration}
               </p>
-              <p>
+              <p className="university-card__meta">
                 <strong>Faculty:</strong> {item.faculty}
               </p>
               {item.description && (
-                <p>
+                <p className="university-card__meta">
                   <strong>Description:</strong> {item.description}
                 </p>
               )}
               {item.link && (
                 <a
                   href={item.link}
-                  className="btn sm primary"
+                  className="btn sm primary university-card__link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

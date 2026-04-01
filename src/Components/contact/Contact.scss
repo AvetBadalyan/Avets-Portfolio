@@ -3,16 +3,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: var(--space-4xl);
 
     h2 {
-        margin-bottom: 1rem;
+        margin-bottom: var(--section-heading-gap);
     }
 
     .contact__container {
         display: flex;
         justify-content: center;
-        gap: 1.5rem;
+        gap: var(--control-cluster-gap);
         flex-wrap: wrap;
         width: 100%;
 
@@ -20,14 +20,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: var(--control-gap);
             text-decoration: none;
             color: var(--color-dark);
             transition: all 0.3s ease;
             border: 2px solid transparent;
-            border-radius: var(--border-radius-2);
-            padding: 1rem;
-            box-shadow: 3px 3px 10px var(--color-primary);
+            border-radius: var(--control-radius);
+            padding: var(--control-padding);
+            box-shadow: var(--shadow-card);
 
             &:hover {
                 border-color: var(--color-primary);
@@ -40,7 +40,9 @@
             }
 
             span {
-                font-size: 1.2rem;
+                font-size: var(--font-size-subtitle);
+                font-weight: 600;
+                line-height: 1.2;
             }
         }
     }
@@ -52,7 +54,7 @@
 
         .contact__container {
             flex-direction: column;
-            gap: 1.5rem;
+            gap: var(--control-cluster-gap);
 
             .contact__link {
                 width: 100%;
