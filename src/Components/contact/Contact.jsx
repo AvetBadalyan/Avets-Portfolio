@@ -5,34 +5,38 @@ import "./Contact.scss";
 const Contact = () => {
   return (
     <section id="contact" className="contact">
-      <div>
+      <div data-aos="fade-up" data-aos-delay="100">
         <h2>Contact me via:</h2>
         <div className="container contact__container">
           <ContactLink
             icon={<FaMailBulk size={32} />}
             text="avetbadalyan@gmail.com"
             href="mailto:avetbadalyan@gmail.com"
+            delay={200}
           />
           <ContactLink
             icon={<FaPhone size={32} />}
             text="+374-55-280-444"
             href="tel:+374-55-280-444"
+            delay={300}
           />
         </div>
       </div>
 
-      <div>
+      <div data-aos="fade-up" data-aos-delay="250">
         <h2>Find me on:</h2>
         <div className="container contact__container">
           <ContactLink
             icon={<FaLinkedin size={32} />}
             text="LinkedIn"
             href="https://www.linkedin.com/in/avet-badalyan-17b767101/"
+            delay={350}
           />
           <ContactLink
             icon={<FaGithub size={32} />}
             text="GitHub"
             href="https://github.com/AvetBadalyan"
+            delay={450}
           />
         </div>
       </div>
@@ -40,9 +44,16 @@ const Contact = () => {
   );
 };
 
-const ContactLink = ({ icon, text, href }) => {
+const ContactLink = ({ icon, text, href, delay }) => {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className="contact__link">
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="contact__link"
+      data-aos="zoom-in-up"
+      data-aos-delay={delay}
+    >
       {icon}
       <span>{text}</span>
     </a>

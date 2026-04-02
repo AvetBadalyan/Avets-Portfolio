@@ -18,7 +18,7 @@
 
 .education__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(18.75rem, 100%), 1fr));
   gap: var(--space-2xl);
 }
 
@@ -75,7 +75,7 @@
     margin: auto auto 0;
 
     &:hover {
-      color: var(--color-primary);
+      color: var(--color-accent);
     }
   }
 }

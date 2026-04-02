@@ -8,10 +8,18 @@
   --white-lightness: 100%;
   --color-primary-saturation: 89%;
   --color-primary-lightness: 41%;
+  --color-accent-saturation: var(--color-primary-saturation);
+  --color-accent-lightness: var(--color-primary-lightness);
+  --color-on-primary: #fff;
   --color-primary: hsl(
     var(--primary-hue),
     var(--color-primary-saturation),
     var(--color-primary-lightness)
+  );
+  --color-accent: hsl(
+    var(--primary-hue),
+    var(--color-accent-saturation),
+    var(--color-accent-lightness)
   );
   --color-white: hsl(0, 5%, var(--white-lightness));
   --color-light: hsl(var(--primary-hue), 5%, var(--light-lightness));
@@ -44,17 +52,17 @@
   --font-size-card-title: 1.25rem;
   --font-size-nav: 1.25rem;
   --font-size-nav-mobile: 1.35rem;
-  --font-size-h1: 3rem;
-  --font-size-h1-tablet: 2.5rem;
-  --font-size-h1-mobile: 2.2rem;
-  --font-size-h2: 2rem;
-  --font-size-h2-mobile: 1.8rem;
-  --font-size-h3: 1.6rem;
-  --font-size-h3-mobile: 1.4rem;
-  --font-size-h4: 1.1rem;
-  --font-size-h4-mobile: 1rem;
-  --font-size-h5: 0.95rem;
-  --font-size-h6: 0.8rem;
+  --font-size-h1: 2.75rem;
+  --font-size-h1-tablet: 2.35rem;
+  --font-size-h1-mobile: 2rem;
+  --font-size-h2: 2.15rem;
+  --font-size-h2-mobile: 1.85rem;
+  --font-size-h3: 1.7rem;
+  --font-size-h3-mobile: 1.45rem;
+  --font-size-h4: 1.2rem;
+  --font-size-h4-mobile: 1.05rem;
+  --font-size-h5: 1rem;
+  --font-size-h6: 0.875rem;
   --tracking-tight: 0.01em;
   --tracking-base: 0.03em;
   --tracking-wide: 0.08em;
@@ -129,12 +137,6 @@ p {
 }
 
 /* THEME change using react */
-main.color-1 {
-  --primary-hue: 270;
-  --color-primary-saturation: 70%;
-  --color-primary-lightness: 46%;
-}
-
 main.color-2 {
   --primary-hue: 132;
   --color-primary-saturation: 59%;
@@ -153,27 +155,31 @@ main.color-4 {
   --color-primary-lightness: 61%;
 }
 
-main.color-5 {
-  --primary-hue: 0;
-  --color-primary-saturation: 89%;
-  --color-primary-lightness: 41%;
-}
-
-main.color-6 {
-  --primary-hue: 45;
-  --color-primary-saturation: 97%;
-  --color-primary-lightness: 50%;
+main.bg-1 {
+  --color-accent: var(--color-primary);
+  --color-accent-saturation: var(--color-primary-saturation);
+  --color-accent-lightness: var(--color-primary-lightness);
 }
 
 main.bg-2 {
   --black-lightness: 96%;
-  --dark-lightness: 60%;
+  --dark-lightness: 68%;
   --light-lightness: 12%;
-  --white-lightness: 6%;
+  --white-lightness: 8%;
   --color-white: hsl(0, 5%, var(--white-lightness));
   --color-light: hsl(var(--primary-hue), 5%, var(--light-lightness));
   --color-black: hsl(var(--primary-hue), 5%, var(--black-lightness));
   --color-dark: hsl(var(--primary-hue), 5%, var(--dark-lightness));
+}
+
+main.color-2.bg-2 {
+  --color-accent-lightness: 46%;
+}
+
+main.color-3.bg-2 {
+  --color-primary-lightness: 22%;
+  --color-accent-saturation: 74%;
+  --color-accent-lightness: 64%;
 }
 
 main {
@@ -183,10 +189,35 @@ main {
     var(--color-primary-saturation),
     var(--color-primary-lightness)
   );
-  --shadow-soft: 1px 1px 8px var(--color-primary);
-  --shadow-card: 3px 3px 10px var(--color-primary);
-  --shadow-floating: 0 4px 10px var(--color-primary);
-  --shadow-elevated: 10px 10px 20px var(--color-primary);
+  --color-accent: hsl(
+    var(--primary-hue),
+    var(--color-accent-saturation),
+    var(--color-accent-lightness)
+  );
+  --shadow-soft: 0 0.35rem 0.8rem hsla(
+    var(--primary-hue),
+    var(--color-accent-saturation),
+    var(--color-accent-lightness),
+    0.18
+  );
+  --shadow-card: 0 0.5rem 1rem hsla(
+    var(--primary-hue),
+    var(--color-accent-saturation),
+    var(--color-accent-lightness),
+    0.2
+  );
+  --shadow-floating: 0 0.6rem 1.1rem hsla(
+    var(--primary-hue),
+    var(--color-accent-saturation),
+    var(--color-accent-lightness),
+    0.22
+  );
+  --shadow-elevated: 0 0.9rem 1.6rem hsla(
+    var(--primary-hue),
+    var(--color-accent-saturation),
+    var(--color-accent-lightness),
+    0.24
+  );
   --shadow-nav: 0 1rem 1.5rem hsla(var(--primary-hue), 68%, 42%, 20%);
 }
 
@@ -302,13 +333,13 @@ img {
 
 .btn.primary {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-on-primary);
 }
 
 .btn.primary:hover {
   background: transparent;
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .btn.sm {

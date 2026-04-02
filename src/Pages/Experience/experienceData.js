@@ -23,7 +23,7 @@ export const EXPERIENCE_DATA = [
     ],
   },
   {
-    title: "Design Implementation",
+    title: "UI Implementation",
     icon: <RiLayoutLine />,
     description: [
       "Implemented UI improvements aligned with design requirements and modern UX expectations.",

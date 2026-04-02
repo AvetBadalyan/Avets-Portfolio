@@ -21,7 +21,7 @@
 
       .skills-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
         gap: var(--space-lg);
 
         .skill-item {
@@ -30,6 +30,7 @@
           overflow: hidden;
           display: flex;
           flex-direction: column;
+          height: 100%;
           transition: var(--transition);
           box-shadow: var(--shadow-card);
           padding: var(--space-md);

@@ -30,7 +30,7 @@
             box-shadow: var(--shadow-card);
 
             &:hover {
-                border-color: var(--color-primary);
+                border-color: var(--color-accent);
                 color: var(--color-black);
                 transform: translateY(-0.2rem);
             }
