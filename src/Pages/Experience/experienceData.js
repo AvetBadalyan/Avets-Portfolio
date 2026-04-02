@@ -7,7 +7,7 @@ import {
 
 export const EXPERIENCE_DATA = [
   {
-    title: "Feature Execution",
+    title: "Feature Development",
     icon: <RiCodeSSlashLine />,
     description: [
       "Delivered 50+ features that expanded platform capability and improved user experience.",
@@ -15,15 +15,15 @@ export const EXPERIENCE_DATA = [
     ],
   },
   {
-    title: "Stability & Maintainability",
+    title: "Debugging",
     icon: <RiBugLine />,
     description: [
       "Resolved 50+ bugs to improve platform stability and day-to-day reliability.",
-      "Refactored legacy code to strengthen readability, maintainability, and long-term support.",
+      "Refactored legacy code to strengthen readability and maintainability",
     ],
   },
   {
-    title: "UI Quality",
+    title: "Design Implementation",
     icon: <RiLayoutLine />,
     description: [
       "Implemented UI improvements aligned with design requirements and modern UX expectations.",
@@ -31,10 +31,10 @@ export const EXPERIENCE_DATA = [
     ],
   },
   {
-    title: "Cross-Functional Collaboration",
+    title: "Collaboration",
     icon: <RiTeamLine />,
     description: [
-      "Worked closely with backend developers and designers to deliver cohesive product updates.",
+      "Worked closely with backend and designers to deliver correct updates.",
       "Contributed to sprint planning, code reviews, and technical discussions across the team.",
     ],
   },
