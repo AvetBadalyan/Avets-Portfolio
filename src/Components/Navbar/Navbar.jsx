@@ -17,7 +17,7 @@ const Navbar = () => {
     <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
       <div className="container nav__container">
         <a href="index.html" className="nav__logo">
-          <FaBriefcase size={30} />
+          <FaBriefcase />
         </a>
 
         <div className={`nav__links ${isMenuOpen ? "hidden" : ""}`}>

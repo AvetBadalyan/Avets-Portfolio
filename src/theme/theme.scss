@@ -63,7 +63,7 @@
     margin-top: var(--space-md);
 
     button {
-        width: 2.25rem;
+        width: var(--theme-swatch-size);
         aspect-ratio: 1/1;
         border-radius: 50%;
         cursor: pointer;
@@ -91,8 +91,8 @@
     flex-wrap: wrap;
 
     button {
-        width: 7rem;
-        height: 2.5rem;
+        width: var(--theme-background-preview-width);
+        height: var(--theme-background-preview-height);
         background: linear-gradient(180deg, #ffffff 0%, #f5f7fb 100%);
         border-radius: var(--border-radius-3);
         cursor: pointer;
