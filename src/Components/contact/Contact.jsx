@@ -9,13 +9,13 @@ const Contact = () => {
         <h2>Contact me via:</h2>
         <div className="container contact__container">
           <ContactLink
-            icon={<FaMailBulk size={32} />}
+            icon={<FaMailBulk />}
             text="avetbadalyan@gmail.com"
             href="mailto:avetbadalyan@gmail.com"
             delay={200}
           />
           <ContactLink
-            icon={<FaPhone size={32} />}
+            icon={<FaPhone />}
             text="+374-55-280-444"
             href="tel:+374-55-280-444"
             delay={300}
@@ -27,13 +27,13 @@ const Contact = () => {
         <h2>Find me on:</h2>
         <div className="container contact__container">
           <ContactLink
-            icon={<FaLinkedin size={32} />}
+            icon={<FaLinkedin />}
             text="LinkedIn"
             href="https://www.linkedin.com/in/avet-badalyan-17b767101/"
             delay={350}
           />
           <ContactLink
-            icon={<FaGithub size={32} />}
+            icon={<FaGithub />}
             text="GitHub"
             href="https://github.com/AvetBadalyan"
             delay={450}

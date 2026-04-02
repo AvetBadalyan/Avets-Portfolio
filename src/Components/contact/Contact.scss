@@ -36,7 +36,9 @@
             }
 
             svg {
-                font-size: 3rem;
+                font-size: var(--font-size-contact-icon);
+                line-height: 1;
+                flex-shrink: 0;
             }
 
             span {

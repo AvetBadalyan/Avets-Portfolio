@@ -16,7 +16,7 @@
     .progress-bar {
         width: 100%;
         background-color: var(--color-light);
-        height: 1.5rem;
+        height: var(--language-progress-height);
         border-radius: var(--border-radius-3);
         box-shadow: var(--shadow-soft);
 

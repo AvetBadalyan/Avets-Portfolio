@@ -10,7 +10,7 @@
 
     small {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: var(--font-size-h6);
       line-height: 1.2;
       letter-spacing: var(--tracking-tight);
     }

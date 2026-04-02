@@ -52,6 +52,9 @@
   --font-size-card-title: 1.25rem;
   --font-size-nav: 1.25rem;
   --font-size-nav-mobile: 1.35rem;
+  --font-size-nav-icon: 2.15rem;
+  --font-size-nav-burger: 2rem;
+  --font-size-contact-icon: 2rem;
   --font-size-h1: 2.75rem;
   --font-size-h1-tablet: 2.35rem;
   --font-size-h1-mobile: 2rem;
@@ -98,24 +101,69 @@
   --card-padding-mobile: var(--space-lg);
   --card-radius: var(--border-radius-1);
   --hero-media-radius: var(--border-radius-1);
+  --grid-min-card-compact: 16rem;
+  --grid-min-card-default: 18rem;
+  --grid-min-card-wide: 19.5rem;
+  --grid-min-card-mobile: 14rem;
   --control-padding: var(--space-md);
   --control-gap: var(--space-md);
   --control-cluster-gap: var(--space-xl);
   --control-radius: var(--border-radius-2);
 
+  /* MEDIA DIMENSION VARIABLES */
+  --hero-profile-width: 16rem;
+  --hero-profile-height: 21.5rem;
+  --hero-profile-tablet-width: 14rem;
+  --hero-profile-tablet-height: 18rem;
+  --hero-profile-mobile-width: 12rem;
+  --hero-profile-mobile-height: 15rem;
+  --experience-logo-size: 200px;
+  --experience-logo-size-mobile: 160px;
+  --skill-logo-size: 60px;
+  --skill-logo-size-mobile: 50px;
+  --education-card-image-height: 11.5rem;
+  --education-card-image-height-mobile: 10rem;
+  --portfolio-card-image-height: 9rem;
+  --language-progress-height: 1.5rem;
+  --navbar-logo-size: 2rem;
+  --theme-swatch-size: 2.25rem;
+  --theme-background-preview-width: 7rem;
+  --theme-background-preview-height: 2.5rem;
+
   /* GENERAL TRANSITION VARIABLE */
   --transition: all 500ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
   margin: 0;
   padding: 0;
-  border: 0;
-  outline: 0;
+}
+
+ul,
+ol {
   list-style: none;
+}
+
+a {
   text-decoration: none;
-  box-sizing: border-box;
-  transition: all 0.5s ease-in-out;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
 }
 
 [data-aos] {
@@ -124,9 +172,11 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   line-height: var(--line-height-body);
   font-size: var(--font-size-body);
@@ -299,10 +349,10 @@ img {
 
 /* GENERAL BUTTON STYLES */
 .btn {
-  display: inline-block;
+  display: inline-flex;
   width: fit-content;
-  display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--button-gap);
   background: var(--color-light);
   color: var(--color-black);
@@ -314,6 +364,11 @@ img {
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: var(--tracking-tight);
+}
+
+.btn svg {
+  font-size: 1em;
+  flex-shrink: 0;
 }
 
 .btn:hover {

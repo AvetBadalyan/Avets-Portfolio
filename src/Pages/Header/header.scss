@@ -31,8 +31,8 @@
       gap: var(--space-lg);
 
       .header__profile {
-        width: 16rem;
-        height: 21.5rem;
+        width: var(--hero-profile-width);
+        height: var(--hero-profile-height);
         border-radius: var(--hero-media-radius);
         overflow: hidden;
         display: flex;
@@ -88,10 +88,6 @@
         justify-content: center;
         align-items: center;
         padding: var(--space-xs) var(--space-sm);
-
-        &:hover {
-          background: white;
-        }
       }
     }
   }
@@ -109,7 +105,7 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: var(--font-size-h1-tablet);
     }
   }
 }
@@ -130,8 +126,8 @@
         gap: var(--space-md);
 
         .header__profile {
-          width: 14rem;
-          height: 18rem;
+          width: var(--hero-profile-tablet-width);
+          height: var(--hero-profile-tablet-height);
           border-radius: var(--hero-media-radius);
 
           img {
@@ -176,8 +172,8 @@
         gap: var(--space-sm);
 
         .header__profile {
-          width: 12rem;
-          height: 15rem;
+          width: var(--hero-profile-mobile-width);
+          height: var(--hero-profile-mobile-height);
           border-radius: var(--hero-media-radius);
 
           img {
@@ -211,7 +207,7 @@
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: var(--font-size-h1-mobile);
     }
 
     .header__buttons {
