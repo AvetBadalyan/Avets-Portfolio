@@ -16,7 +16,7 @@ const data = [
   },
   {
     id: 6,
-    title: 'Microsoft Innovation Center Armenia',
+    title: 'Microsoft IC Armenia',
     logo: MIC,
     duration: 'February 2023 - April 2023',
     faculty: 'React.js',
@@ -35,7 +35,7 @@ const data = [
   },
   {
     id: 1,
-    title: 'Microsoft Innovation Center Armenia',
+    title: 'Microsoft IC Armenia',
     logo: MIC,
     duration: 'July 2021 - September 2021',
     faculty: 'JavaScript',
