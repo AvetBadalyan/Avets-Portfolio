@@ -1,13 +1,32 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import themeReducer from "./themeReducer";
+import {
+  backgroundColorClassNames,
+  defaultThemeState,
+  primaryColorClassNames,
+} from "../theme/data";
 
 export const ThemeContext = createContext();
 
-// get theme settings from local storage, or use default theme
-const initialThemeState = JSON.parse(localStorage.getItem("themeSettings")) || {
-  primary: "color-3",
-  background: "bg-1",
+const sanitizeThemeState = (themeState) => ({
+  primary: primaryColorClassNames.includes(themeState?.primary)
+    ? themeState.primary
+    : defaultThemeState.primary,
+  background: backgroundColorClassNames.includes(themeState?.background)
+    ? themeState.background
+    : defaultThemeState.background,
+});
+
+const getStoredThemeState = () => {
+  try {
+    return JSON.parse(localStorage.getItem("themeSettings"));
+  } catch {
+    return null;
+  }
 };
+
+// get theme settings from local storage, or use the curated default theme
+const initialThemeState = sanitizeThemeState(getStoredThemeState());
 
 export const ThemeProvider = ({ children }) => {
   const [themeState, dispatchTheme] = useReducer(

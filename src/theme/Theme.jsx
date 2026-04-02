@@ -8,9 +8,9 @@ const Theme = () => {
   return (
     <Modal className="theme__modal">
       <h3>Customize Your Theme</h3>
-      <small>Change the primary and background color to your preference.</small>
+      <small>Switch between light and dark mode, then pick a curated accent color.</small>
       <div className="theme__primary-wrapper">
-        <h5>Primary Color</h5>
+        <h5>Accent Color</h5>
         <div className="theme__primary-colors">
           {primaryColors.map((pColor) => (
             <PrimaryColor key={pColor.className} className={pColor.className} />
@@ -18,7 +18,7 @@ const Theme = () => {
         </div>
       </div>
       <div className="theme__background-wrapper">
-        <h5>Background Color</h5>
+        <h5>Background Mode</h5>
         <div className="theme__background-colors">
           {backgroundColors.map((bColor) => (
             <BackgroundColor

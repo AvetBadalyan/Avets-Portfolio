@@ -20,7 +20,7 @@
   .header-main-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: var(--space-lg);
 
     .header-left-part {
@@ -57,12 +57,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--panel-gap);
 
     .welcome-text {
       font-size: var(--font-size-body);
       line-height: var(--line-height-body);
+      flex: 1;
     }
 
     .header__buttons {
@@ -70,6 +71,7 @@
       align-items: center;
       justify-content: center;
       gap: var(--space-lg);
+      margin-top: auto;
       animation: fadeIn 2s forwards;
 
       @keyframes fadeIn {
@@ -149,7 +151,6 @@
     .welcome-heading {
       margin-top: var(--space-md);
       letter-spacing: var(--tracking-base);
-      max-width: 14ch;
     }
 
     .welcome-text {
@@ -206,7 +207,6 @@
     }
 
     .welcome-heading {
-      max-width: 12ch;
       margin-top: var(--space-sm);
     }
 

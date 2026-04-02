@@ -33,7 +33,7 @@
       "githubUrl": "https://github.com/AvetBadalyan/MERN-practice-backend.git",
       "id": "WS04",
       "imageFile": "Untitled.jpg",
-      "siteName": "MERN project practice",
+      "siteName": "MERN Project Practice",
       "webUrl": "https://mern-project-front.web.app/"
     },
     {
@@ -42,7 +42,7 @@
       "githubUrl": "https://github.com/AvetBadalyan/Online-Food-Store",
       "id": "WS05",
       "imageFile": "foodStoreScreen2.jpg",
-      "siteName": "AVET'S ONLINE FOOD STORE",
+      "siteName": "Avet's Online Food Store",
       "webUrl": "https://online-foodstore.web.app/"
     },
     {
@@ -51,7 +51,7 @@
       "githubUrl": "https://github.com/AvetBadalyan/Avet-Clothes-shop-with-Redux",
       "id": "WS06",
       "imageFile": "cart.jpg",
-      "siteName": "ONLINE CLOTHES SHOP",
+      "siteName": "Online Clothes Shop",
       "webUrl": "https://avet-clothes-shop-f8267.web.app/"
     },
     {
@@ -60,7 +60,7 @@
       "githubUrl": "https://github.com/AvetBadalyan/Todo-list-with-date-redux-toolkit",
       "id": "WS07",
       "imageFile": "todo-task-page.jpg",
-      "siteName": "Todo list with Redux toolkit",
+      "siteName": "Todo List with Redux Toolkit",
       "webUrl": "https://todo-list-with-redux-toolkit.web.app/"
     },
     {
@@ -69,7 +69,7 @@
       "githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
       "id": "WS08",
       "imageFile": "itunes.jpg",
-      "siteName": "ITUNES MUSIC SEARCHER",
+      "siteName": "iTunes Music Search",
       "webUrl": "https://itunes-simple-clone-a7486.web.app/"
     },
     {
@@ -78,7 +78,7 @@
       "githubUrl": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
       "id": "WS09",
       "imageFile": "cocktails.jpg",
-      "siteName": "Tales of Cocktails with Redux Toolkit",
+      "siteName": "Tales of Cocktails (RTK)",
       "webUrl": "https://tales-of-cocktails.web.app/"
     },
     {
@@ -87,7 +87,7 @@
       "githubUrl": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
       "id": "WS10",
       "imageFile": "robot.jpg",
-      "siteName": "Joke Teller (Pure HTML/CSS, JS)",
+      "siteName": "Joke Teller (HTML/CSS, JS)",
       "webUrl": "https://get-joke-f9568.web.app/"
     },
     {
