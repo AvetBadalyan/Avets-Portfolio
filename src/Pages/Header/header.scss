@@ -1,6 +1,6 @@
 .header {
-  margin-top: 5rem;
-  min-height: calc(100vh - 5rem);
+  margin-top: 8rem;
+  min-height: calc(100vh - 8rem);
   background: var(--color-white);
   transition: var(--transition);
   padding: var(--space-lg) 0;
@@ -10,11 +10,30 @@
   gap: var(--space-lg);
 
   .welcome-heading {
-    color: var(--color-black);
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
     margin-top: var(--space-xl);
+
+    .welcome-heading__end {
+      white-space: nowrap;
+    }
+
+    .wave {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      animation: wave 2.4s ease-in-out infinite;
+      margin-left: var(--space-xs);
+    }
+  }
+
+  @keyframes wave {
+    0%   { transform: rotate(0deg); }
+    10%  { transform: rotate(14deg); }
+    20%  { transform: rotate(-8deg); }
+    30%  { transform: rotate(14deg); }
+    40%  { transform: rotate(-4deg); }
+    50%  { transform: rotate(10deg); }
+    60%  { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
   }
 
   .header-main-content {
@@ -24,8 +43,10 @@
     gap: var(--space-lg);
 
     .header-left-part {
+      flex: 1;
+      align-self: stretch;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-direction: column;
       gap: var(--space-lg);
@@ -50,7 +71,7 @@
 
   .welcome-container {
     border-radius: var(--border-radius-2);
-    padding: var(--panel-padding);
+    padding: var(--panel-padding-spacious);
     background: var(--color-white);
     box-shadow: var(--shadow-elevated);
     width: 60%;
@@ -64,6 +85,13 @@
       font-size: var(--font-size-body);
       line-height: var(--line-height-body);
       flex: 1;
+      max-width: 60ch;
+      display: grid;
+      gap: var(--space-md);
+
+      p {
+        margin: 0;
+      }
     }
 
     .header__buttons {
@@ -96,14 +124,14 @@
   h2 {
     text-align: center;
   }
+
+  h1 {
+    letter-spacing: var(--tracking-display);
+  }
 }
 
 @media screen and (max-width: 1200px) {
   .header {
-    .welcome-text {
-      font-size: var(--font-size-body-sm);
-    }
-
     h1 {
       font-size: var(--font-size-h1-tablet);
     }
@@ -146,11 +174,7 @@
 
     .welcome-heading {
       margin-top: var(--space-md);
-      letter-spacing: var(--tracking-base);
-    }
-
-    .welcome-text {
-      font-size: var(--font-size-body-sm);
+      letter-spacing: 0.1em;
     }
 
     .header__buttons {
@@ -165,7 +189,6 @@
     padding: var(--space-md) 0 var(--space-lg);
 
     .header-main-content {
-      width: 90%;
       gap: var(--space-md);
 
       .header-left-part {
@@ -185,10 +208,6 @@
       .welcome-container {
         padding: var(--panel-padding-compact);
         gap: var(--panel-gap-compact);
-
-        .welcome-text {
-          font-size: var(--font-size-body-sm);
-        }
 
         .header__buttons {
           width: 100%;

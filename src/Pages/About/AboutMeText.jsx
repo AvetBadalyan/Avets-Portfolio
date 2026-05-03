@@ -12,15 +12,20 @@ export default function AboutMeText() {
         <b> Cognaize Engineering LLC</b>, where I contributed to an
         AI-powered financial data platform by implementing 50+ features,
         resolving 50+ bugs, and improving code maintainability in close
-        collaboration with engineers and designers. <br /> From May
-        2024 to December 2025, I worked as a
+        collaboration with engineers and designers.
+      </p>
+      <p>
+        From May 2024 to December 2025, I worked as a
         <b> Shopify Frontend Developer</b> at <b>Ashstone Studios</b>,
         delivering and maintaining 5 custom e-commerce projects. Since July
         2025, I have also been working at <b>EPAM Systems</b>, contributing to
         the company's corporate web ecosystem built on
         <b> Adobe Experience Manager (AEM)</b>, where I improve UI
         consistency, implement enhancements, and write unit tests to maintain
-        quality and reliability. <br /> My day-to-day work has centered on
+        quality and reliability.
+      </p>
+      <p>
+        My day-to-day work has centered on
         <b>
           {' '}
           React.js, Redux, JavaScript, TypeScript, HTML, CSS, SCSS, and

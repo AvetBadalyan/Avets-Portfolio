@@ -29,11 +29,12 @@
   max-width: 100%;
 
   p {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 
   h3 {
     margin-bottom: var(--section-heading-gap);
+    text-align: center;
   }
 
   .btn {
