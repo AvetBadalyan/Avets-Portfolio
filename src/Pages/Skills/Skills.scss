@@ -11,7 +11,6 @@
     .skills-category {
       .skills-category-title {
         color: var(--color-dark);
-        font-weight: 600;
         letter-spacing: var(--tracking-base);
         margin: var(--space-sm) auto;
         text-align: center;
@@ -59,7 +58,7 @@
           }
 
           .progress-bar {
-            height: 20px;
+            height: var(--language-progress-height);
             background-color: var(--color-light);
             margin-top: var(--space-sm);
             display: flex;
@@ -76,7 +75,7 @@
           }
 
           &:hover {
-            transform: translateY(-5px);
+            transform: translateY(-0.4rem);
             background-color: var(--color-primary);
             box-shadow: var(--shadow-card);
 
@@ -100,12 +99,8 @@
 
   // Media query for smaller screens
   @media screen and (max-width: 768px) {
-    .skills-content-wrapper {
-      padding: var(--space-sm);
-    }
-
     .skills-category .skills-list .skill-item {
-      padding: var(--space-sm);
+      padding: var(--space-md);
     }
 
     .skills-category .skills-list .skill-item .skill-info img {

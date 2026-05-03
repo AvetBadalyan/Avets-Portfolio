@@ -100,7 +100,7 @@
       justify-content: center;
       gap: var(--space-lg);
       margin-top: auto;
-      animation: fadeIn 2s forwards;
+      animation: fadeIn 500ms forwards;
 
       @keyframes fadeIn {
         from {
@@ -127,14 +127,6 @@
 
   h1 {
     letter-spacing: var(--tracking-display);
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .header {
-    h1 {
-      font-size: var(--font-size-h1-tablet);
-    }
   }
 }
 

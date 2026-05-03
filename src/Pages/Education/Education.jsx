@@ -5,10 +5,10 @@ import './Education.scss';
 const Education = () => {
   return (
     <section id="education">
-      <h2 data-aos="zoom-in-up" className="section-heading">
+      <h2 data-aos="zoom-in-up" className="container section-heading">
         Education & Training
       </h2>
-      <p data-aos="fade-right" className="education__intro">
+      <p data-aos="fade-right" className="container education__intro">
         Academic background and professional training that supported my
         transition from finance into software engineering.
       </p>
