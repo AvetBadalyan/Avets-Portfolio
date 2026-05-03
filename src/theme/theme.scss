@@ -114,7 +114,7 @@
 /* MEDIA QUERIES (phones) */
 @media screen and (max-width: 600px) {
     .card.theme__modal {
-        width: calc(100vw - var(--container-gutter) * 2);
+        width: calc(100vw - var(--container-padding) * 2);
         padding: var(--space-3xl) var(--space-xl);
     }
 

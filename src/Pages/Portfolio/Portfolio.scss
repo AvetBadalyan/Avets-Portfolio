@@ -32,7 +32,7 @@
   gap: var(--space-xl);
 
   .card.portfolio__project {
-    animation: animateProject 800ms ease-in forwards;
+    animation: animateProject 500ms ease-in forwards;
   }
 
   .portfolio__project {
@@ -43,7 +43,6 @@
 
     h4 {
       margin: 0;
-      font-size: var(--font-size-card-title);
       line-height: 1.2;
     }
   }

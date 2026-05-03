@@ -36,7 +36,7 @@
   height: 100%;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-0.4rem);
     background-color: var(--color-light);
   }
 }
@@ -83,10 +83,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  #education {
-    padding: var(--space-6xl) var(--space-sm);
-  }
-
   .education__intro {
     margin: var(--space-lg) auto var(--space-xl);
   }

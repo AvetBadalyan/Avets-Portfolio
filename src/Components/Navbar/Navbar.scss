@@ -109,7 +109,7 @@
       &.open {
         opacity: 1;
         visibility: visible;
-        animation: slideIn 0.5s forwards;
+        animation: slideIn 500ms forwards;
       }
 
       .nav__link {
