@@ -7,7 +7,7 @@ const Contact = () => {
     <section id="contact" className="contact">
       <div data-aos="fade-up" data-aos-delay="100">
         <h2>Contact me via:</h2>
-        <div className="container contact__container">
+        <div className="contact__container">
           <ContactLink
             icon={<FaMailBulk />}
             text="avetbadalyan@gmail.com"
@@ -25,7 +25,7 @@ const Contact = () => {
 
       <div data-aos="fade-up" data-aos-delay="250">
         <h2>Find me on:</h2>
-        <div className="container contact__container">
+        <div className="contact__container">
           <ContactLink
             icon={<FaLinkedin />}
             text="LinkedIn"

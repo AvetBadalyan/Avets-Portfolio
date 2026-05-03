@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
   --primary-hue: 270;
@@ -26,65 +26,71 @@
   --color-black: hsl(var(--primary-hue), 5%, var(--black-lightness));
   --color-dark: hsl(var(--primary-hue), 5%, var(--dark-lightness));
 
-  /* GENERAL CONTAINER VARIABLES */
-  --container-width-lg: 85%;
-  --container-width-md: 90%;
+  /* CONTAINER (best-practice: full width + max-width + padding gutter) */
+  --container-max: 136rem;
+  --container-gutter: 2rem;
 
-  /* SPACING SCALE */
-  --space-2xs: 0.25rem;
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1rem;
-  --space-lg: 1.25rem;
-  --space-xl: 1.5rem;
-  --space-2xl: 2rem;
-  --space-3xl: 2.5rem;
-  --space-4xl: 3rem;
-  --space-5xl: 4rem;
-  --space-6xl: 5rem;
+  /* SPACING SCALE (1rem = 10px) */
+  --space-2xs: 0.4rem;
+  --space-xs:  0.8rem;
+  --space-sm:  1.2rem;
+  --space-md:  1.6rem;
+  --space-lg:  2rem;
+  --space-xl:  2.4rem;
+  --space-2xl: 3.2rem;
+  --space-3xl: 4rem;
+  --space-4xl: 4.8rem;
+  --space-5xl: 6.4rem;
+  --space-6xl: 8rem;
+
+  /* FONT FAMILIES */
+  --font-family-body: 'Roboto', sans-serif;
+  --font-family-display: 'Inter', sans-serif;
 
   /* TYPOGRAPHY SCALE */
-  --font-size-body: 1rem;
-  --font-size-body-sm: 0.95rem;
-  --font-size-label: 1rem;
-  --font-size-subtitle: 1.2rem;
-  --font-size-title-md: 1.5rem;
-  --font-size-card-title: 1.25rem;
-  --font-size-nav: 1.25rem;
-  --font-size-nav-mobile: 1.35rem;
-  --font-size-nav-icon: 2.15rem;
-  --font-size-nav-burger: 2rem;
-  --font-size-icon: 2rem;
-  --font-size-h1: 2.75rem;
-  --font-size-h1-tablet: 2.35rem;
-  --font-size-h1-mobile: 2rem;
-  --font-size-h2: 2.15rem;
-  --font-size-h2-mobile: 1.85rem;
-  --font-size-h3: 1.7rem;
-  --font-size-h3-mobile: 1.45rem;
-  --font-size-h4: 1.2rem;
-  --font-size-h4-mobile: 1.05rem;
-  --font-size-h5: 1rem;
-  --font-size-h6: 0.875rem;
-  --tracking-tight: 0.01em;
-  --tracking-base: 0.03em;
-  --tracking-wide: 0.08em;
+  --font-size-body:        1.6rem;
+  --font-size-body-sm:     1.4rem;
+  --font-size-label:       1.6rem;
+  --font-size-subtitle:    1.8rem;
+  --font-size-title-md:    2rem;
+  --font-size-card-title:  1.8rem;
+  --font-size-nav:         1.6rem;
+  --font-size-nav-mobile:  1.6rem;
+  --font-size-nav-icon:    3.2rem;
+  --font-size-nav-burger:  3rem;
+  --font-size-icon:        3rem;
+  --font-size-h1:          4rem;
+  --font-size-h1-tablet:   3.4rem;
+  --font-size-h1-mobile:   3.4rem;
+  --font-size-h2:          3rem;
+  --font-size-h2-mobile:   2.6rem;
+  --font-size-h3:          2.4rem;
+  --font-size-h3-mobile:   2rem;
+  --font-size-h4:          1.8rem;
+  --font-size-h4-mobile:   1.6rem;
+  --font-size-h5:          1.6rem;
+  --font-size-h6:          1.4rem;
+  --tracking-tight: 0;
+  --tracking-base: 0.015em;
+  --tracking-wide: 0.06em;
+  --tracking-display: -0.02em;
+  --tracking-nav: 0.02em;
   --line-height-body: 1.7;
   --line-height-heading: 1.15;
 
   /* BUTTON PRIMITIVES */
   --button-gap: var(--space-md);
-  --button-padding-y: 0.6rem;
+  --button-padding-y: 1rem;
   --button-padding-x: var(--space-2xl);
   --button-padding-y-mobile: var(--space-sm);
   --button-padding-x-mobile: var(--space-xl);
   --button-padding-y-sm: var(--space-xs);
   --button-padding-x-sm: var(--space-lg);
 
-  /* BORDER RADIUS VARIABLES */
-  --border-radius-1: 1.2rem;
-  --border-radius-2: 0.8rem;
-  --border-radius-3: 0.5rem;
+  /* BORDER RADIUS */
+  --border-radius-1: 2rem;
+  --border-radius-2: 1.2rem;
+  --border-radius-3: 0.8rem;
 
   /* SEMANTIC LAYOUT TOKENS */
   --section-padding-block: var(--space-6xl);
@@ -93,7 +99,7 @@
   --section-copy-margin-bottom: var(--space-5xl);
   --section-copy-margin-bottom-tablet: var(--space-4xl);
   --panel-padding: var(--space-lg);
-  --panel-padding-compact: var(--space-md);
+  --panel-padding-compact: var(--space-lg);
   --panel-padding-spacious: var(--space-xl);
   --panel-gap: var(--space-lg);
   --panel-gap-compact: var(--space-md);
@@ -101,34 +107,34 @@
   --card-padding-mobile: var(--space-lg);
   --card-radius: var(--border-radius-1);
   --hero-media-radius: var(--border-radius-1);
-  --grid-min-card-compact: 16rem;
-  --grid-min-card-default: 18rem;
-  --grid-min-card-wide: 19.5rem;
-  --grid-min-card-mobile: 14rem;
-  --control-padding: var(--space-md);
+  --grid-min-card-compact: 26rem;
+  --grid-min-card-default: 29rem;
+  --grid-min-card-wide:    31rem;
+  --grid-min-card-mobile:  22rem;
+  --control-padding: var(--space-lg);
   --control-gap: var(--space-md);
   --control-cluster-gap: var(--space-xl);
   --control-radius: var(--border-radius-2);
 
   /* MEDIA DIMENSION VARIABLES */
-  --hero-profile-width: 16rem;
-  --hero-profile-height: 21.5rem;
-  --hero-profile-tablet-width: 14rem;
-  --hero-profile-tablet-height: 18rem;
-  --hero-profile-mobile-width: 12rem;
-  --hero-profile-mobile-height: 15rem;
+  --hero-profile-width:         26rem;
+  --hero-profile-height:        34rem;
+  --hero-profile-tablet-width:  22rem;
+  --hero-profile-tablet-height: 29rem;
+  --hero-profile-mobile-width:  19rem;
+  --hero-profile-mobile-height: 24rem;
   --experience-logo-size: 200px;
   --experience-logo-size-mobile: 160px;
   --skill-logo-size: 60px;
   --skill-logo-size-mobile: 50px;
-  --education-card-image-height: 11.5rem;
-  --education-card-image-height-mobile: 10rem;
-  --portfolio-card-image-height: 9rem;
-  --language-progress-height: 1.5rem;
-  --navbar-logo-size: 2rem;
-  --theme-swatch-size: 2.25rem;
-  --theme-background-preview-width: 7rem;
-  --theme-background-preview-height: 2.5rem;
+  --education-card-image-height:        18rem;
+  --education-card-image-height-mobile: 16rem;
+  --portfolio-card-image-height:        14rem;
+  --language-progress-height:           2.4rem;
+  --navbar-logo-size:                   3rem;
+  --theme-swatch-size:                  3.6rem;
+  --theme-background-preview-width:     11rem;
+  --theme-background-preview-height:    4rem;
 
   /* GENERAL TRANSITION VARIABLE */
   --transition: all 500ms ease;
@@ -171,15 +177,19 @@ button {
 }
 
 html {
+  /* 1rem = 10px */
+  font-size: 62.5%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family-body);
+  font-weight: 400;
   line-height: var(--line-height-body);
   font-size: var(--font-size-body);
+  text-rendering: optimizeLegibility;
 }
 
 p {
@@ -244,38 +254,39 @@ main {
     var(--color-accent-saturation),
     var(--color-accent-lightness)
   );
-  --shadow-soft: 0 0.35rem 0.8rem hsla(
+  --shadow-soft: 0 0.6rem 1.2rem hsla(
     var(--primary-hue),
     var(--color-accent-saturation),
     var(--color-accent-lightness),
     0.18
   );
-  --shadow-card: 0 0.5rem 1rem hsla(
+  --shadow-card: 0 0.8rem 1.6rem hsla(
     var(--primary-hue),
     var(--color-accent-saturation),
     var(--color-accent-lightness),
     0.2
   );
-  --shadow-floating: 0 0.6rem 1.1rem hsla(
+  --shadow-floating: 0 1rem 1.8rem hsla(
     var(--primary-hue),
     var(--color-accent-saturation),
     var(--color-accent-lightness),
     0.22
   );
-  --shadow-elevated: 0 0.9rem 1.6rem hsla(
+  --shadow-elevated: 0 1.4rem 2.6rem hsla(
     var(--primary-hue),
     var(--color-accent-saturation),
     var(--color-accent-lightness),
     0.24
   );
-  --shadow-nav: 0 1rem 1.5rem hsla(var(--primary-hue), 68%, 42%, 20%);
+  --shadow-nav: 0 1.6rem 2.4rem hsla(var(--primary-hue), 68%, 42%, 20%);
 }
 
-/* GENERAL CONTAINER CLASS */
+/* GENERAL CONTAINER CLASS (desktop default) */
 .container {
-  width: var(--container-width-lg);
+  width: 100%;
+  max-width: var(--container-max);
   margin-inline: auto;
-  max-width: 1920px;
+  padding-inline: var(--space-2xl);
 }
 
 /* GENERAL SECTION STYLES */
@@ -313,15 +324,21 @@ h5,
 h6 {
   line-height: var(--line-height-heading);
   color: var(--color-black);
-  font-family: 'Headland One', serif;
+  font-family: var(--font-family-display);
+  font-weight: 600;
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
 }
 
 h1 {
   font-size: var(--font-size-h1);
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 h2 {
   font-size: var(--font-size-h2);
+  text-transform: capitalize;
 }
 
 h3 {
@@ -361,9 +378,9 @@ img {
   border-radius: var(--border-radius-2);
   cursor: pointer;
   font-size: var(--font-size-label);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: var(--tracking-tight);
+  letter-spacing: var(--tracking-base);
 }
 
 .btn svg {
@@ -374,7 +391,7 @@ img {
 .btn:hover {
   background-color: transparent;
   border-color: var(--color-light);
-  transform: translateY(-0.2rem);
+  transform: translateY(-0.4rem);
 }
 
 .btn.white {
@@ -405,7 +422,7 @@ img {
 /* MEDIA QUERIES (tablets) */
 @media screen and (max-width: 1024px) {
   .container {
-    width: var(--container-width-md);
+    padding-inline: var(--space-xl);
   }
 
   section > p {
@@ -420,6 +437,10 @@ img {
 
 /* MEDIA QUERIES (phones) */
 @media screen and (max-width: 600px) {
+  .container {
+    padding-inline: var(--container-gutter);
+  }
+
   h1 {
     font-size: var(--font-size-h1-mobile);
   }
@@ -441,12 +462,12 @@ img {
   }
 
   section > p {
-    width: var(--container-width-md);
+    width: 100%;
   }
 }
 
 .section-heading {
-  text-transform: uppercase;
-  font-family: 'Headland One', serif;
-  letter-spacing: var(--tracking-base);
+  font-family: var(--font-family-display);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
 }

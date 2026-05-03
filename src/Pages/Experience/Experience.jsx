@@ -8,13 +8,13 @@ import { EXPERIENCE_DATA } from './experienceData';
 export default function Experience() {
   return (
     <section className="experience" id="experience">
-      <div data-aos="zoom-in-up" className="experience-header section-heading">
+      <h2 data-aos="zoom-in-up" className="container experience-header section-heading">
         Professional Experience
-      </div>
+      </h2>
 
-      <div data-aos="zoom-in-up" className="experience-header section-heading">
+      <h3 data-aos="zoom-in-up" className="container experience-header section-heading">
         EPAM Systems
-      </div>
+      </h3>
       <div className="container experience-content" data-aos="fade-up">
         <div className="company-info">
           <div className="company-info__logo">
@@ -55,9 +55,9 @@ export default function Experience() {
         </div>
       </div>
 
-      <div data-aos="zoom-in-up" className="experience-header section-heading">
+      <h3 data-aos="zoom-in-up" className="container experience-header section-heading">
         Ashstone Studios
-      </div>
+      </h3>
       <div className="container experience-content" data-aos="fade-up">
         <div className="company-info">
           <div className="company-info__logo">
@@ -122,9 +122,9 @@ export default function Experience() {
         </div>
       </div>
 
-      <div data-aos="zoom-in-up" className="experience-header section-heading">
+      <h3 data-aos="zoom-in-up" className="container experience-header section-heading">
         Cognaize
-      </div>
+      </h3>
       <div className="container experience-content" data-aos="fade-up">
         <div className="company-info">
           <div className="company-info__logo">
@@ -165,9 +165,9 @@ export default function Experience() {
           </div>
         </div>
 
-        <p className="job-responsibilities">
+        <h3 className="job-responsibilities">
           Key contributions at Cognaize
-        </p>
+        </h3>
 
         <div className="experience-card-container">
           {EXPERIENCE_DATA.map((experience, index) => (

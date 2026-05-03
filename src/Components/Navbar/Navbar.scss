@@ -1,6 +1,6 @@
 .nav {
   width: 100vw;
-  height: 5rem;
+  height: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,11 +15,9 @@
 
 
   .nav__container {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-2xl);
 
     .nav__logo {
       width: var(--navbar-logo-size);
@@ -46,11 +44,12 @@
       a {
         color: white;
         text-decoration: none;
+        font-family: var(--font-family-body);
         font-size: var(--font-size-nav);
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 500;
         transition: all 0.3s ease-in;
-        letter-spacing: var(--tracking-base);
+        letter-spacing: var(--tracking-nav);
         list-style: none;
         padding: var(--space-2xs) var(--space-sm);
         cursor: pointer;
@@ -84,9 +83,10 @@
       line-height: 1;
       flex-shrink: 0;
       cursor: pointer;
+      display: none;
 
-      @media screen and (min-width: 1024px) {
-        display: none;
+      @media screen and (max-width: 1024px) {
+        display: block;
       }
     }
 
@@ -97,11 +97,11 @@
       align-items: center;
       gap: var(--space-md);
       position: absolute;
-      top: 5rem;
+      top: 8rem;
       left: 0;
       width: 100%;
       background-color: var(--color-primary);
-      height: calc(100vh - 5rem);
+      height: calc(100vh - 8rem);
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -123,11 +123,12 @@
         a {
           color: white;
           text-decoration: none;
+          font-family: var(--font-family-body);
           font-size: var(--font-size-nav-mobile);
           text-transform: uppercase;
-          font-weight: bold;
+          font-weight: 500;
           transition: all 0.3s ease-in-out;
-          letter-spacing: var(--tracking-wide);
+          letter-spacing: var(--tracking-base);
           list-style: none;
           padding: var(--space-sm) var(--space-md);
           margin: 0 var(--space-xs);
