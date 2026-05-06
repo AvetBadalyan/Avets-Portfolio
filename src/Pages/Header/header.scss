@@ -6,12 +6,13 @@
   padding: var(--space-lg) 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+
   gap: var(--space-lg);
 
   .welcome-heading {
     text-align: center;
-    margin-top: var(--space-xl);
 
     .welcome-heading__end {
       white-space: nowrap;
