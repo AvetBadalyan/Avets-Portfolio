@@ -4,9 +4,17 @@
 
 .portfolio__categories {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.portfolio__category-controls {
+  display: flex;
   justify-content: center;
   gap: var(--control-cluster-gap);
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .btn.cat__btn {
@@ -24,11 +32,13 @@
 }
 
 .portfolio__projects {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(var(--grid-min-card-wide), 100%), 1fr)
+    minmax(min(var(--grid-min-card-wide), 100%), 42rem)
   );
+  justify-content: center;
   gap: var(--space-xl);
 
   .card.portfolio__project {
@@ -82,7 +92,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .portfolio__categories {
+  .portfolio__category-controls {
     gap: var(--space-xs);
   }
 
@@ -91,6 +101,7 @@
   }
 
   .portfolio__projects {
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-sm);
   }
 }
