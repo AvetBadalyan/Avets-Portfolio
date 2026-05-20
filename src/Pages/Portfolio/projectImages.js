@@ -1,3 +1,4 @@
+import musicAppScreenshot from '../../assets/portfolio/music app.png';
 import chatAppScreenshot from '../../assets/portfolio/chat app screenshot0.jpg';
 import realEstateScreenshot from '../../assets/portfolio/screenshot1.jpg';
 import techshopScreenshot from '../../assets/portfolio/techshop.jpg';
@@ -11,6 +12,7 @@ import jokeTellerScreenshot from '../../assets/portfolio/robot.jpg';
 import travelScreenshot from '../../assets/portfolio/travel-screenshot2.jpg';
 
 const projectImages = {
+  'music app.png': musicAppScreenshot,
   'chat app screenshot0.jpg': chatAppScreenshot,
   'screenshot1.jpg': realEstateScreenshot,
   'techshop.jpg': techshopScreenshot,
