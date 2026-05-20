@@ -16,16 +16,18 @@ const ProjectsCategories = ({ categories, projects }) => {
 
   return (
     <div className="portfolio__categories">
-      {categories.map((category) => (
-        <CategoryButton
-          key={category}
-          category={category}
-          onChangeCategory={() => filterProjectsHandler(category)}
-          className={`btn cat__btn ${
-            activeCategory === category ? "primary" : "white"
-          }`}
-        />
-      ))}
+      <div className="portfolio__category-controls">
+        {categories.map((category) => (
+          <CategoryButton
+            key={category}
+            category={category}
+            onChangeCategory={() => filterProjectsHandler(category)}
+            className={`btn cat__btn ${
+              activeCategory === category ? "primary" : "white"
+            }`}
+          />
+        ))}
+      </div>
       <Projects projects={filteredProjects} />
     </div>
   );
