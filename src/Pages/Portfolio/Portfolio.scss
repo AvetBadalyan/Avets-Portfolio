@@ -36,7 +36,7 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(var(--grid-min-card-wide), 100%), 42rem)
+    minmax(min(var(--grid-min-card-wide), 100%), 35rem)
   );
   justify-content: center;
   gap: var(--space-xl);
