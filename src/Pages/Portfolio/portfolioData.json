@@ -56,15 +56,6 @@
     },
     {
       "category": "React.JS",
-      "description": "React clothes shop with product browsing, detail views, cart with quantity control, login flow, and a fully responsive design for a smooth shopping experience.",
-      "githubUrl": "https://github.com/AvetBadalyan/Avet-Clothes-shop-with-Redux",
-      "id": "WS06",
-      "imageFile": "cart.jpg",
-      "siteName": "Online Clothes Shop",
-      "webUrl": "https://avet-clothes-shop-f8267.web.app/"
-    },
-    {
-      "category": "React.JS",
       "description": "React task manager where users add, edit, and delete tasks with deadlines. Features completion tracking, daily task view, and Redux Toolkit for state management.",
       "githubUrl": "https://github.com/AvetBadalyan/Todo-list-with-date-redux-toolkit",
       "id": "WS07",
