@@ -7,5 +7,5 @@ export const languageSkills = [
     flagEmoji: "GB",
   },
   { language: "French", level: "B1", proficiency: 60, flagEmoji: "FR" },
-  { language: "Russian", level: "A2", proficiency: 50, flagEmoji: "RU" },
+  { language: "Russian", level: "pre-intermediate", proficiency: 50, flagEmoji: "RU" },
 ];

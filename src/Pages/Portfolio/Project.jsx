@@ -5,7 +5,7 @@ const Project = ({ project }) => {
   return (
     <Card className="portfolio__project">
       <div className="portfolio__project-image">
-        <img src={project.image} alt="Portfolio Project" />
+        <img src={project.image} alt={project.siteName} />
       </div>
       <h4>{project.siteName}</h4>
       <p>{project.description}</p>

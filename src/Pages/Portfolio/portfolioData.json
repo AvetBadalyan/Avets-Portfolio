@@ -2,12 +2,12 @@
   "websites": [
     {
       "category": "Full Stack",
-      "description": "Full stack music library app with React, TypeScript, Express, PostgreSQL, Supabase Auth, and storage. Browse songs, artists, albums, genres, and manage content as admin.",
+      "description": "Full-stack music library with React, Node.js, Express, PostgreSQL, and Supabase. Browse songs, artists, and albums with a global audio player. Deployed on AWS Amplify.",
       "githubUrl": "https://github.com/AvetBadalyan/Music-app-fullstack-practice.git",
       "id": "WS00",
       "imageFile": "music app.png",
       "siteName": "Music App",
-      "webUrl": "https://music-app-fullstack-practice.vercel.app/"
+      "webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/"
     },
     {
       "category": "MERN",

@@ -5,12 +5,13 @@ import './Education.scss';
 const Education = () => {
   return (
     <section id="education">
-      <h2 data-aos="zoom-in-up" className="container section-heading">
-        Education & Training
-      </h2>
+      <div className="container">
+        <h2 data-aos="zoom-in-up" className="section-heading">
+          Education & Training
+        </h2>
+      </div>
       <p data-aos="fade-right" className="container education__intro">
-        Academic background and professional training that supported my
-        transition from finance into software engineering.
+        Professional trainings, certifications, and academic studies
       </p>
       <div className="container education__container" data-aos="fade-up">
         {data.map(item => (
@@ -21,14 +22,14 @@ const Education = () => {
             <div className="university-card__details">
               <h4 className="university-card__title">{item.title}</h4>
               <p className="university-card__meta">
-                <strong>Duration:</strong> {item.duration}
+                <span className="text-highlight">Duration:</span> {item.duration}
               </p>
               <p className="university-card__meta">
-                <strong>Faculty:</strong> {item.faculty}
+                <span className="text-highlight">Faculty:</span> {item.faculty}
               </p>
               {item.description && (
                 <p className="university-card__meta">
-                  <strong>Description:</strong> {item.description}
+                  <span className="text-highlight">Description:</span> {item.description}
                 </p>
               )}
               {item.link && (

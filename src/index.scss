@@ -85,7 +85,7 @@
   --button-padding-y-mobile: var(--space-sm);
   --button-padding-x-mobile: var(--space-xl);
   --button-padding-y-sm: var(--space-xs);
-  --button-padding-x-sm: var(--space-lg);
+  --button-padding-x-sm: 1rem;
 
   /* BORDER RADIUS */
   --border-radius-1: 2rem;
@@ -194,6 +194,11 @@ body {
 
 p {
   line-height: var(--line-height-body);
+}
+
+.text-highlight {
+  color: var(--color-black);
+  font-weight: 700;
 }
 
 /* THEME change using react */
@@ -315,6 +320,18 @@ a {
   transition: var(--transition);
 }
 
+.inline-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
 /* GENERAL HEADING STYLES */
 h1,
 h2,
@@ -381,42 +398,42 @@ img {
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: var(--tracking-base);
-}
 
-.btn svg {
-  font-size: 1em;
-  flex-shrink: 0;
-}
+  svg {
+    font-size: 1em;
+    flex-shrink: 0;
+  }
 
-.btn:hover {
-  background-color: transparent;
-  border-color: var(--color-light);
-  transform: translateY(-0.4rem);
-}
+  &:hover {
+    background-color: transparent;
+    border-color: var(--color-light);
+    transform: translateY(-0.4rem);
+  }
 
-.btn.white {
-  background: var(--color-white);
-}
+  &.white {
+    background: var(--color-white);
 
-.btn.white:hover {
-  background: transparent;
-  border-color: var(--color-white);
-}
+    &:hover {
+      background: transparent;
+      border-color: var(--color-white);
+    }
+  }
 
-.btn.primary {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-}
+  &.primary {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
 
-.btn.primary:hover {
-  background: transparent;
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
+    &:hover {
+      background: transparent;
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+  }
 
-.btn.sm {
-  padding: var(--button-padding-y-sm) var(--button-padding-x-sm);
-  font-size: var(--font-size-body-sm);
+  &.sm {
+    padding: var(--button-padding-y-sm) var(--button-padding-x-sm);
+    font-size: var(--font-size-body-sm);
+  }
 }
 
 /* MEDIA QUERIES (tablets) */

@@ -5,40 +5,32 @@ import "./Contact.scss";
 const Contact = () => {
   return (
     <section id="contact" className="contact">
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h2>Contact me via:</h2>
-        <div className="contact__container">
-          <ContactLink
-            icon={<FaMailBulk />}
-            text="avetbadalyan@gmail.com"
-            href="mailto:avetbadalyan@gmail.com"
-            delay={200}
-          />
-          <ContactLink
-            icon={<FaPhone />}
-            text="+374-55-280-444"
-            href="tel:+374-55-280-444"
-            delay={300}
-          />
-        </div>
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="250">
-        <h2>Find me on:</h2>
-        <div className="contact__container">
-          <ContactLink
-            icon={<FaLinkedin />}
-            text="LinkedIn"
-            href="https://www.linkedin.com/in/avet-badalyan-17b767101/"
-            delay={350}
-          />
-          <ContactLink
-            icon={<FaGithub />}
-            text="GitHub"
-            href="https://github.com/AvetBadalyan"
-            delay={450}
-          />
-        </div>
+      <h2 data-aos="zoom-in-up">Get In Touch</h2>
+      <div className="contact__container" data-aos="fade-up">
+        <ContactLink
+          icon={<FaMailBulk />}
+          text="avetbadalyan@gmail.com"
+          href="mailto:avetbadalyan@gmail.com"
+          delay={100}
+        />
+        <ContactLink
+          icon={<FaPhone />}
+          text="+374-55-280-444"
+          href="tel:+374-55-280-444"
+          delay={200}
+        />
+        <ContactLink
+          icon={<FaLinkedin />}
+          text="LinkedIn"
+          href="https://www.linkedin.com/in/avet-badalyan-17b767101/"
+          delay={300}
+        />
+        <ContactLink
+          icon={<FaGithub />}
+          text="GitHub"
+          href="https://github.com/AvetBadalyan"
+          delay={400}
+        />
       </div>
     </section>
   );

@@ -36,7 +36,7 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(var(--grid-min-card-wide), 100%), 35rem)
+    minmax(min(var(--grid-min-card-wide), 100%), 41.6rem)
   );
   justify-content: center;
   gap: var(--space-xl);
@@ -85,12 +85,6 @@
 }
 
 // Media Queries
-@media screen and (max-width: 1024px) {
-  .portfolio__projects {
-    gap: var(--space-xl);
-  }
-}
-
 @media screen and (max-width: 600px) {
   .portfolio__category-controls {
     gap: var(--space-xs);
