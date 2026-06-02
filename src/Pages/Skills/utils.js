@@ -17,6 +17,8 @@ import gitLogo from '../../assets/skills/Git_icon.svg.png';
 import nodeLogo from '../../assets/skills/nodejs-1.svg';
 import expressLogo from '../../assets/skills/expressjs.jpg';
 import mongoLogo from '../../assets/skills/mongodb-icon-2.svg';
+import postgresLogo from '../../assets/skills/postgresql.svg';
+import awsLogo from '../../assets/skills/aws.svg';
 
 export const frontendSkills = [
   {
@@ -106,17 +108,26 @@ export const backendSkills = [
   {
     skillName: 'Node.JS',
     logo: nodeLogo,
-    percentage: 40,
+    percentage: 65,
   },
   {
     skillName: 'Express JS',
     logo: expressLogo,
-    percentage: 40,
+    percentage: 65,
   },
-
+  {
+    skillName: 'PostgreSQL',
+    logo: postgresLogo,
+    percentage: 55,
+  },
   {
     skillName: 'Mongo DB',
     logo: mongoLogo,
+    percentage: 50,
+  },
+  {
+    skillName: 'AWS',
+    logo: awsLogo,
     percentage: 40,
   },
 ];

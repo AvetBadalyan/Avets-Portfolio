@@ -86,7 +86,7 @@
       font-size: var(--font-size-body);
       line-height: var(--line-height-body);
       flex: 1;
-      max-width: 60ch;
+      width: 100%;
       display: grid;
       gap: var(--space-md);
 
@@ -113,21 +113,12 @@
         }
       }
 
-      a {
-        justify-content: center;
-        align-items: center;
-        padding: var(--space-xs) var(--space-sm);
-      }
     }
   }
 
   h1,
   h2 {
     text-align: center;
-  }
-
-  h1 {
-    letter-spacing: var(--tracking-display);
   }
 }
 
@@ -199,9 +190,6 @@
       }
 
       .welcome-container {
-        padding: var(--panel-padding-compact);
-        gap: var(--panel-gap-compact);
-
         .header__buttons {
           width: 100%;
           gap: var(--space-sm);
@@ -220,11 +208,6 @@
 
     h1 {
       font-size: var(--font-size-h1-mobile);
-    }
-
-    .header__buttons {
-      flex-wrap: wrap;
-      gap: var(--space-sm);
     }
   }
 }

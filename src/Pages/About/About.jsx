@@ -12,9 +12,9 @@ const About = () => {
     <section id="about" data-aos="fade-in">
       <div className="container about__container">
         <div className="language-skills">
-          <h2 data-aos="zoom-in-up" className="section-heading">
+          <h3 data-aos="zoom-in-up" className="section-heading">
             Languages
-          </h2>
+          </h3>
           <div className="language-skills-container">
             {languageSkills.map((language) => (
               <LanguageSkill key={language.language} {...language} />

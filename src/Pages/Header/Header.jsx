@@ -32,28 +32,28 @@ const Header = () => {
           <h1 data-aos="zoom-in-up">Avet Badalyan</h1>
         </div>
 
-        <div className=" welcome-container">
+        <div className="welcome-container">
           <h2 data-aos="zoom-in-up">Frontend Engineer</h2>
           <div data-aos="zoom-in-up" className="welcome-text">
-            <p className="home-main-text" data-aos="zoom-in-up">
+            <p className="home-main-text">
               3+ years of professional experience building scalable,
               user-focused web applications across fintech, e-commerce, and
               enterprise platforms.
             </p>
-            <p data-aos="zoom-in-up" data-aos-delay="100">
-              I have contributed to AI-powered financial products at
-              <strong> Cognaize Engineering LLC</strong>, built custom Shopify
-              solutions at <strong>Ashstone Studios</strong>, and now support
-              <strong> EPAM Systems</strong> on its corporate web ecosystem
-              built on <strong> AEM</strong>.
+            <p>
+              I have contributed to AI-powered financial products at 
+              <span className="text-highlight"> Cognaize Engineering LLC</span>, built custom Shopify
+              solutions at <span className="text-highlight">Ashstone Studios</span>, and now support{' '}
+              <span className="text-highlight">EPAM Systems</span> on its corporate web ecosystem
+              built on <span className="text-highlight">AEM</span>.
             </p>
-            <p data-aos="zoom-in-up" data-aos-delay="200">
-              My focus is frontend engineering with <strong>React.js</strong>,
-              <strong> Redux</strong>, <strong> Shopify</strong>, and modern UI
+            <p>
+              My focus is frontend engineering with <span className="text-highlight">React.js</span>,{' '}
+              <span className="text-highlight">Redux</span>, <span className="text-highlight">Shopify</span>, and modern UI
               development, while I continue growing toward fullstack
-              development with <strong>Node.js</strong>,
-              <strong> Express.js</strong>, <strong> TypeScript</strong>,
-              <strong> SQL/PostgreSQL</strong>, and <strong>AWS</strong>.
+              development with <span className="text-highlight">Node.js</span>,{' '}
+              <span className="text-highlight">Express.js</span>, <span className="text-highlight">TypeScript</span>,{' '}
+              <span className="text-highlight">SQL/PostgreSQL</span>, and <span className="text-highlight">AWS</span>.
             </p>
           </div>
           <div className="header__buttons">

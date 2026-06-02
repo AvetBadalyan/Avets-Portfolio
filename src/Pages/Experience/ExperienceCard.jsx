@@ -9,7 +9,7 @@ export default function ExperienceCard({ title, icon, description, index }) {
     >
       <div className="experience-card__icon">{icon}</div>
       <div className="experience-card__details">
-        <h3>{title}</h3>
+        <h4>{title}</h4>
         <ul>
           {description.map((desc, index) => (
             <li key={index}>{desc}</li>

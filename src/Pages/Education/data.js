@@ -27,7 +27,7 @@ const data = [
     id: 2,
     title: 'Armenian Code Academy',
     logo: ACA,
-    duration: 'November 2021 - July 2022',
+    duration: 'November 2021 - June 2022',
     faculty: 'Frontend Bootcamp',
     description: 'JavaScript, HTML/CSS, Git, GitHub, React.js',
     degree: 'Certificate',

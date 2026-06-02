@@ -50,7 +50,6 @@
         font-weight: 500;
         transition: all 0.3s ease-in;
         letter-spacing: var(--tracking-nav);
-        list-style: none;
         padding: var(--space-2xs) var(--space-sm);
         cursor: pointer;
         white-space: nowrap;
@@ -129,7 +128,6 @@
           font-weight: 500;
           transition: all 0.3s ease-in-out;
           letter-spacing: var(--tracking-base);
-          list-style: none;
           padding: var(--space-sm) var(--space-md);
           margin: 0 var(--space-xs);
           cursor: pointer;

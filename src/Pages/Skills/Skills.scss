@@ -34,7 +34,6 @@
           transition: var(--transition);
           box-shadow: var(--shadow-card);
           padding: var(--space-md);
-          overflow: hidden;
 
           .skill-info {
             display: flex;
@@ -70,7 +69,6 @@
               transition: width 2s ease-in-out;
               height: 100%;
               border-radius: var(--border-radius-3);
-              overflow: hidden;
             }
           }
 
@@ -99,10 +97,6 @@
 
   // Media query for smaller screens
   @media screen and (max-width: 768px) {
-    .skills-category .skills-list .skill-item {
-      padding: var(--space-md);
-    }
-
     .skills-category .skills-list .skill-item .skill-info img {
       width: var(--skill-logo-size-mobile);
       height: var(--skill-logo-size-mobile);

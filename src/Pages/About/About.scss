@@ -16,13 +16,21 @@
 }
 
 .language-skills {
-  width: 100%;
+  flex: 0 0 32rem;
   display: flex;
   flex-direction: column;
+
+  h3 {
+    text-align: center;
+    margin: var(--section-heading-gap) auto;
+  }
 }
 
 .language-skills-container {
   margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
 .about-info {
