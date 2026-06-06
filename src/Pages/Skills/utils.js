@@ -22,6 +22,26 @@ import awsLogo from '../../assets/skills/aws.svg';
 
 export const frontendSkills = [
   {
+    skillName: 'JavaScript',
+    logo: javascriptLogo,
+    percentage: 80,
+  },
+  {
+    skillName: 'TypeScript',
+    logo: typescriptLogo,
+    percentage: 60,
+  },
+  {
+    skillName: 'React.JS',
+    logo: reactLogo,
+    percentage: 80,
+  },
+  {
+    skillName: 'Redux',
+    logo: reduxLogo,
+    percentage: 60,
+  },
+  {
     skillName: 'HTML',
     logo: htmlLogo,
     percentage: 90,
@@ -37,32 +57,6 @@ export const frontendSkills = [
     percentage: 80,
   },
   {
-    skillName: 'JavaScript',
-    logo: javascriptLogo,
-    percentage: 80,
-  },
-  {
-    skillName: 'React.JS',
-    logo: reactLogo,
-    percentage: 80,
-  },
-  {
-    skillName: 'TypeScript',
-    logo: typescriptLogo,
-    percentage: 60,
-  },
-  {
-    skillName: 'Redux',
-    logo: reduxLogo,
-    percentage: 60,
-  },
-  {
-    skillName: 'Bootstrap',
-    logo: bootstrapLogo,
-    percentage: 60,
-  },
-
-  {
     skillName: 'Responsive WD',
     logo: responsiveLogo,
     percentage: 70,
@@ -73,6 +67,11 @@ export const frontendSkills = [
     percentage: 60,
   },
   {
+    skillName: 'Bootstrap',
+    logo: bootstrapLogo,
+    percentage: 60,
+  },
+  {
     skillName: 'Material UI',
     logo: materialUiLogo,
     percentage: 20,
@@ -80,31 +79,6 @@ export const frontendSkills = [
 ];
 
 export const backendSkills = [
-  {
-    skillName: 'Jira',
-    logo: jiraLogo,
-    percentage: 70,
-  },
-  {
-    skillName: 'Postman',
-    logo: postmanLogo,
-    percentage: 60,
-  },
-  {
-    skillName: 'Firebase',
-    logo: firebaseLogo,
-    percentage: 50,
-  },
-  {
-    skillName: 'GitHub',
-    logo: githubLogo,
-    percentage: 70,
-  },
-  {
-    skillName: 'Git',
-    logo: gitLogo,
-    percentage: 40,
-  },
   {
     skillName: 'Node.JS',
     logo: nodeLogo,
@@ -129,5 +103,30 @@ export const backendSkills = [
     skillName: 'AWS',
     logo: awsLogo,
     percentage: 40,
+  },
+  {
+    skillName: 'Firebase',
+    logo: firebaseLogo,
+    percentage: 50,
+  },
+  {
+    skillName: 'GitHub',
+    logo: githubLogo,
+    percentage: 70,
+  },
+  {
+    skillName: 'Git',
+    logo: gitLogo,
+    percentage: 40,
+  },
+  {
+    skillName: 'Postman',
+    logo: postmanLogo,
+    percentage: 60,
+  },
+  {
+    skillName: 'Jira',
+    logo: jiraLogo,
+    percentage: 70,
   },
 ];
