@@ -5,6 +5,7 @@ import javascriptLogo from '../../assets/skills/logo-javascript.svg';
 import reactLogo from '../../assets/skills/React-icon.svg';
 import typescriptLogo from '../../assets/skills/typescript.svg';
 import reduxLogo from '../../assets/skills/redux.png';
+import styledComponentsLogo from '../../assets/skills/styled-components.svg';
 import bootstrapLogo from '../../assets/skills/bootstrap-4.svg';
 import responsiveLogo from '../../assets/skills/responsive.png';
 import shopifyLogo from '../../assets/skills/shopify-logo-png-transparent.png';
@@ -70,6 +71,11 @@ export const frontendSkills = [
     skillName: 'Bootstrap',
     logo: bootstrapLogo,
     percentage: 60,
+  },
+  {
+    skillName: 'Styled-Components',
+    logo: styledComponentsLogo,
+    percentage: 40,
   },
   {
     skillName: 'Material UI',
