@@ -10,6 +10,7 @@ import itunesScreenshot from '../../assets/portfolio/itunes.jpg';
 import cocktailsScreenshot from '../../assets/portfolio/cocktails.jpg';
 import jokeTellerScreenshot from '../../assets/portfolio/robot.jpg';
 import travelScreenshot from '../../assets/portfolio/travel-screenshot2.jpg';
+import jobTestPrepScreenshot from '../../assets/portfolio/jobTestPrep.png';
 
 const projectImages = {
   'music app.png': musicAppScreenshot,
@@ -24,6 +25,7 @@ const projectImages = {
   'cocktails.jpg': cocktailsScreenshot,
   'robot.jpg': jokeTellerScreenshot,
   'travel-screenshot2.jpg': travelScreenshot,
+  'jobTestPrep.png': jobTestPrepScreenshot,
 };
 
 export default projectImages;
