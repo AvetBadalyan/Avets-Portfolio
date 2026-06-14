@@ -10,6 +10,15 @@
       "webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/"
     },
     {
+      "category": "React.JS",
+      "description": "React + TypeScript demo built with React Hook Form, Yup, styled-components, TanStack Query, and Axios. Submit a validated registration form and fetch live API data with caching.",
+      "githubUrl": "https://github.com/AvetBadalyan/React-hook-form-demo",
+      "id": "WS13",
+      "imageFile": "jobTestPrep.png",
+      "siteName": "React Hook Form Demo",
+      "webUrl": "https://jobtestprep-demo.web.app"
+    },
+    {
       "category": "MERN",
       "description": "Realtime MERN chat app built with Socket.io, JWT auth, Cloudinary, and Zustand. Send messages and photos, view online status, all in a clean responsive UI.",
       "githubUrl": "https://github.com/AvetBadalyan/Chat-app",
