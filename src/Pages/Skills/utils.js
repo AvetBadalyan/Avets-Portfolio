@@ -20,6 +20,10 @@ import expressLogo from '../../assets/skills/expressjs.jpg';
 import mongoLogo from '../../assets/skills/mongodb-icon-2.svg';
 import postgresLogo from '../../assets/skills/postgresql.svg';
 import awsLogo from '../../assets/skills/aws.svg';
+import sinonLogo from '../../assets/skills/sinon.svg';
+import figmaLogo from '../../assets/skills/figma.svg';
+import githubCopilotLogo from '../../assets/skills/github-copilot.svg';
+import claudeAiLogo from '../../assets/skills/claude-ai.svg';
 
 export const frontendSkills = [
   {
@@ -134,5 +138,28 @@ export const backendSkills = [
     skillName: 'Jira',
     logo: jiraLogo,
     percentage: 70,
+  },
+  {
+    skillName: 'Figma',
+    logo: figmaLogo,
+    percentage: 50,
+  },
+  {
+    skillName: 'Sinon.js',
+    logo: sinonLogo,
+    percentage: 40,
+  },
+];
+
+export const aiToolsSkills = [
+  {
+    skillName: 'GitHub Copilot',
+    logo: githubCopilotLogo,
+    percentage: 85,
+  },
+  {
+    skillName: 'Claude AI',
+    logo: claudeAiLogo,
+    percentage: 85,
   },
 ];

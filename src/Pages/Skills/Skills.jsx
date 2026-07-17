@@ -1,4 +1,4 @@
-import { frontendSkills, backendSkills } from "./utils";
+import { frontendSkills, backendSkills, aiToolsSkills } from "./utils";
 import "./Skills.scss";
 
 export default function Skills() {
@@ -32,6 +32,10 @@ export default function Skills() {
         <div className="skills-category">
           <h3 className="skills-category-title">Backend, DB and Technologies</h3>
           <div className="skills-list">{renderSkills(backendSkills)}</div>
+        </div>
+        <div className="skills-category">
+          <h3 className="skills-category-title">AI Tools</h3>
+          <div className="skills-list">{renderSkills(aiToolsSkills)}</div>
         </div>
       </div>
     </section>
