@@ -65,12 +65,12 @@
     },
     {
       "category": "React.JS",
-      "description": "React task manager where users add, edit, and delete tasks with deadlines. Features completion tracking, daily task view, and Redux Toolkit for state management.",
-      "githubUrl": "https://github.com/AvetBadalyan/Todo-list-with-date-redux-toolkit",
+      "description": "Day planner that turns plain text like \"90m next tuesday\" into a task, then warns when the day is overbooked against its set capacity. Built with React, Redux Toolkit.",
+      "githubUrl": "https://github.com/AvetBadalyan/Avetime_Day_Planner",
       "id": "WS07",
       "imageFile": "todo-task-page.jpg",
-      "siteName": "Todo List (Redux RTK)",
-      "webUrl": "https://todo-list-with-redux-toolkit.web.app/"
+      "siteName": "Avetime — Day Planner",
+      "webUrl": "https://avetime-planner.web.app/"
     },
     {
       "category": "React.JS",
