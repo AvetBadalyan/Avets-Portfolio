@@ -2,7 +2,7 @@ import musicAppScreenshot from '../../assets/portfolio/music app.png';
 import chatAppScreenshot from '../../assets/portfolio/chat app screenshot0.jpg';
 import realEstateScreenshot from '../../assets/portfolio/screenshot1.jpg';
 import techshopScreenshot from '../../assets/portfolio/techshop.jpg';
-import streetCanvasScreenshot from '../../assets/portfolio/streetcanvas.jpg';
+import wanderArmeniaScreenshot from '../../assets/portfolio/wanderarmenia.jpg';
 import foodStoreScreenshot from '../../assets/portfolio/foodStoreScreen2.jpg';
 import todoScreenshot from '../../assets/portfolio/todo-task-page.jpg';
 import itunesScreenshot from '../../assets/portfolio/itunes.jpg';
@@ -16,7 +16,7 @@ const projectImages = {
   'chat app screenshot0.jpg': chatAppScreenshot,
   'screenshot1.jpg': realEstateScreenshot,
   'techshop.jpg': techshopScreenshot,
-  'streetcanvas.jpg': streetCanvasScreenshot,
+  'wanderarmenia.jpg': wanderArmeniaScreenshot,
   'foodStoreScreen2.jpg': foodStoreScreenshot,
   'todo-task-page.jpg': todoScreenshot,
   'itunes.jpg': itunesScreenshot,

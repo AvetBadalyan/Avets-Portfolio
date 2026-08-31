@@ -47,12 +47,12 @@
     },
     {
       "category": "MERN",
-      "description": "Atlas of public art built on real open data: ~90 sculptures, murals and monuments imported from Wikidata via SPARQL. Search by artist, city or material, filter by art form, and browse on an interactive map. React, Node, Express, MongoDB with transactions, deployed serverless on Vercel.",
-      "githubUrl": "https://github.com/AvetBadalyan/StreetCanvas",
+      "description": "Travel atlas of Armenia built on real open data: 461 monasteries, fortresses, museums and mountains imported from Wikidata via SPARQL. Search by name, region or tag, find what is nearby with geospatial queries, save places, and plan a day around them on an interactive map. React, Node, Express, MongoDB with transactions, deployed serverless on Vercel.",
+      "githubUrl": "https://github.com/AvetBadalyan/wander-armenia",
       "id": "WS04",
-      "imageFile": "streetcanvas.jpg",
-      "siteName": "StreetCanvas",
-      "webUrl": "https://streetcanvas.vercel.app"
+      "imageFile": "wanderarmenia.jpg",
+      "siteName": "Wander Armenia",
+      "webUrl": "https://wanderarmenia.vercel.app"
     },
     {
       "category": "React.JS",
