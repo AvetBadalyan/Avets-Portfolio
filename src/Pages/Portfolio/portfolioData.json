@@ -47,12 +47,12 @@
     },
     {
       "category": "MERN",
-      "description": "Practice MERN app where users sign in, add places, and view details. Strengthens fullstack skills with MongoDB, Express, React, and Node.js in a simple UI.",
-      "githubUrl": "https://github.com/AvetBadalyan/MERN-practice-backend.git",
+      "description": "Atlas of public art built on real open data: ~90 sculptures, murals and monuments imported from Wikidata via SPARQL. Search by artist, city or material, filter by art form, and browse on an interactive map. React, Node, Express, MongoDB with transactions, deployed serverless on Vercel.",
+      "githubUrl": "https://github.com/AvetBadalyan/StreetCanvas",
       "id": "WS04",
-      "imageFile": "Untitled.jpg",
-      "siteName": "MERN Project Practice",
-      "webUrl": "https://mern-project-front.web.app/"
+      "imageFile": "streetcanvas.png",
+      "siteName": "StreetCanvas",
+      "webUrl": "https://streetcanvas.vercel.app"
     },
     {
       "category": "React.JS",
