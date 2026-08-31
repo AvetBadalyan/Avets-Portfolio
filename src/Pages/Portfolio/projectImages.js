@@ -11,6 +11,7 @@ import cocktailsScreenshot from '../../assets/portfolio/cocktails.jpg';
 import jokeTellerScreenshot from '../../assets/portfolio/robot.jpg';
 import travelScreenshot from '../../assets/portfolio/travel-screenshot2.jpg';
 import jobTestPrepScreenshot from '../../assets/portfolio/jobTestPrep.png';
+import StreetCanvas from '../../assets/portfolio/screenshot-filtered.png';
 
 const projectImages = {
   'music app.png': musicAppScreenshot,
@@ -26,6 +27,7 @@ const projectImages = {
   'robot.jpg': jokeTellerScreenshot,
   'travel-screenshot2.jpg': travelScreenshot,
   'jobTestPrep.png': jobTestPrepScreenshot,
+  'screenshot-filtered.png': StreetCanvas
 };
 
 export default projectImages;
