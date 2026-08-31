@@ -50,7 +50,7 @@
       "description": "Atlas of public art built on real open data: ~90 sculptures, murals and monuments imported from Wikidata via SPARQL. Search by artist, city or material, filter by art form, and browse on an interactive map. React, Node, Express, MongoDB with transactions, deployed serverless on Vercel.",
       "githubUrl": "https://github.com/AvetBadalyan/StreetCanvas",
       "id": "WS04",
-      "imageFile": "screenshot-filtered.png",
+      "imageFile": "streetcanvas.jpg",
       "siteName": "StreetCanvas",
       "webUrl": "https://streetcanvas.vercel.app"
     },
