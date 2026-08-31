@@ -47,7 +47,7 @@
     },
     {
       "category": "MERN",
-      "description": "Travel atlas of Armenia built on real open data: 461 monasteries, fortresses, museums and mountains imported from Wikidata via SPARQL. Search by name, region or tag, find what is nearby with geospatial queries, save places, and plan a day around them on an interactive map. React, Node, Express, MongoDB with transactions, deployed serverless on Vercel.",
+      "description": "Travel atlas of Armenia: 461 monasteries, fortresses and mountains from Wikidata. Search by region, find what's nearby, and plan a day on the map. MERN, serverless.",
       "githubUrl": "https://github.com/AvetBadalyan/wander-armenia",
       "id": "WS04",
       "imageFile": "wanderarmenia.jpg",
