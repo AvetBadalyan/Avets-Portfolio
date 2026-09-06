@@ -1,112 +1,112 @@
 {
-  "websites": [
-    {
-      "category": "Full Stack",
-      "description": "Full-stack music library with React, Node.js, Express, PostgreSQL, and Supabase. Browse songs, artists, and albums with a global audio player. Deployed on AWS Amplify.",
-      "githubUrl": "https://github.com/AvetBadalyan/Music-app-fullstack-practice.git",
-      "id": "WS00",
-      "imageFile": "music app.png",
-      "siteName": "Music App",
-      "webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/"
-    },
-    {
-      "category": "React.JS",
-      "description": "React + TypeScript demo built with React Hook Form, Yup, styled-components, TanStack Query, and Axios. Submit a validated registration form and fetch live API data with caching.",
-      "githubUrl": "https://github.com/AvetBadalyan/React-hook-form-demo",
-      "id": "WS13",
-      "imageFile": "jobTestPrep.png",
-      "siteName": "React Hook Form Demo",
-      "webUrl": "https://jobtestprep-demo.web.app"
-    },
-    {
-      "category": "MERN",
-      "description": "Realtime MERN chat app built with Socket.io, JWT auth, Cloudinary, and Zustand. Send messages and photos, view online status, all in a clean responsive UI.",
-      "githubUrl": "https://github.com/AvetBadalyan/Chat-app",
-      "id": "WS01",
-      "imageFile": "chat app screenshot0.jpg",
-      "siteName": "Avetbook Chat App",
-      "webUrl": "https://avetbook-chat-app.onrender.com"
-    },
-    {
-      "category": "MERN",
-      "description": "MERN real estate app where users discover, search, and list properties for rent or sale. Manage listings, view detailed info, and log in through a clean UI.",
-      "githubUrl": "https://github.com/AvetBadalyan/MERN-Real-Estate-Project.git",
-      "id": "WS02",
-      "imageFile": "screenshot1.jpg",
-      "siteName": "Real Estate MERN App",
-      "webUrl": "https://mern-real-estate-project-8jqd.onrender.com/"
-    },
-    {
-      "category": "MERN",
-      "description": "MERN e-commerce app with full cart, product search, and PayPal checkout. Browse items, add to cart, leave reviews, and manage orders in a responsive UI.",
-      "githubUrl": "https://github.com/AvetBadalyan/TechShop-MERN-practice.git",
-      "id": "WS03",
-      "imageFile": "techshop.jpg",
-      "siteName": "Avet's TechShop",
-      "webUrl": "https://avets-techshop.onrender.com/"
-    },
-    {
-      "category": "MERN",
-      "description": "Travel atlas of Armenia: 461 monasteries, fortresses and mountains from Wikidata. Search by region, find what's nearby, and plan a day on the map. MERN, serverless.",
-      "githubUrl": "https://github.com/AvetBadalyan/wander-armenia",
-      "id": "WS04",
-      "imageFile": "wanderarmenia.jpg",
-      "siteName": "Wander Armenia",
-      "webUrl": "https://wanderarmenia.vercel.app"
-    },
-    {
-      "category": "React.JS",
-      "description": "React food store where users browse meals, add to cart, and place orders. Includes account login, quantity control, and responsive design for smooth shopping.",
-      "githubUrl": "https://github.com/AvetBadalyan/Online-Food-Store",
-      "id": "WS05",
-      "imageFile": "foodStoreScreen2.jpg",
-      "siteName": "Online Food Store",
-      "webUrl": "https://online-foodstore.web.app/"
-    },
-    {
-      "category": "React.JS",
-      "description": "Day planner that turns plain text like \"90m next tuesday\" into a task, then warns when the day is overbooked against its set capacity. Built with React, Redux Toolkit.",
-      "githubUrl": "https://github.com/AvetBadalyan/Avetime_Day_Planner",
-      "id": "WS07",
-      "imageFile": "todo-task-page.jpg",
-      "siteName": "Avetime — Day Planner",
-      "webUrl": "https://avetime-planner.web.app/"
-    },
-    {
-      "category": "React.JS",
-      "description": "Music search app where users find songs, view artist info, and check prices. Built with React.js for a clean, responsive, and interactive listening experience.",
-      "githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
-      "id": "WS08",
-      "imageFile": "itunes.jpg",
-      "siteName": "iTunes Music Search",
-      "webUrl": "https://itunes-simple-clone-a7486.web.app/"
-    },
-    {
-      "category": "React.JS",
-      "description": "Cocktail recipe app where users browse drinks, search by name, and view details. Designed with responsive layouts for easy access on mobile and desktop devices.",
-      "githubUrl": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
-      "id": "WS09",
-      "imageFile": "cocktails.jpg",
-      "siteName": "Tales of Cocktails",
-      "webUrl": "https://tales-of-cocktails.web.app/"
-    },
-    {
-      "category": "Pure JS",
-      "description": "Pure JavaScript joke app where users click a button to hear jokes via text-to-speech. Optimized for mobile devices with a minimal, engaging, playful design.",
-      "githubUrl": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
-      "id": "WS10",
-      "imageFile": "robot.jpg",
-      "siteName": "Joke Teller (Pure JS)",
-      "webUrl": "https://get-joke-f9568.web.app/"
-    },
-    {
-      "category": "Pure JS",
-      "description": "Static travel site showcasing tours, customer stories, and contact info. Built with HTML, CSS, and JS for a responsive design with smooth, engaging animations.",
-      "githubUrl": "https://github.com/AvetBadalyan/The-Road-Tour-aggency-website-Pure-JS",
-      "id": "WS12",
-      "imageFile": "travel-screenshot2.jpg",
-      "siteName": "The Road to Armenia",
-      "webUrl": "https://theroad-9bc32.web.app/"
-    }
-  ]
+	"websites": [
+		{
+			"category": "Full Stack",
+			"description": "Full-stack music library with React, Node.js, Express, PostgreSQL, and Supabase. Browse songs, artists, and albums with a global audio player. Deployed on AWS Amplify.",
+			"githubUrl": "https://github.com/AvetBadalyan/Music-app-fullstack-practice.git",
+			"id": "WS00",
+			"imageFile": "music app.png",
+			"siteName": "Music App",
+			"webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/"
+		},
+		{
+			"category": "React.JS",
+			"description": "React + TypeScript demo built with React Hook Form, Yup, styled-components, TanStack Query, and Axios. Submit a validated registration form and fetch live API data with caching.",
+			"githubUrl": "https://github.com/AvetBadalyan/React-hook-form-demo",
+			"id": "WS13",
+			"imageFile": "jobTestPrep.png",
+			"siteName": "React Hook Form Demo",
+			"webUrl": "https://jobtestprep-demo.web.app"
+		},
+		{
+			"category": "MERN",
+			"description": "Realtime MERN chat app built with Socket.io, JWT auth, Cloudinary, and Zustand. Send messages and photos, view online status, all in a clean responsive UI.",
+			"githubUrl": "https://github.com/AvetBadalyan/Chat-app",
+			"id": "WS01",
+			"imageFile": "chat app screenshot0.jpg",
+			"siteName": "Avetbook Chat App",
+			"webUrl": "https://avetbook-chat-app.onrender.com"
+		},
+		{
+			"category": "MERN",
+			"description": "MERN real estate app where users discover, search, and list properties for rent or sale. Manage listings, view detailed info, and log in through a clean UI.",
+			"githubUrl": "https://github.com/AvetBadalyan/MERN-Real-Estate-Project.git",
+			"id": "WS02",
+			"imageFile": "screenshot1.jpg",
+			"siteName": "Real Estate MERN App",
+			"webUrl": "https://mern-real-estate-project-8jqd.onrender.com/"
+		},
+		{
+			"category": "MERN",
+			"description": "MERN e-commerce store with product search, cart, reviews, and server-verified PayPal checkout. React 19 + RTK Query front end, Express 5 API with JWT auth, Zod validation, and Cloudinary uploads. Serverless on Vercel.",
+			"githubUrl": "https://github.com/AvetBadalyan/TechShop-MERN-practice.git",
+			"id": "WS03",
+			"imageFile": "techshop.jpg",
+			"siteName": "Avet's TechShop",
+			"webUrl": "https://avets-techshop.vercel.app/"
+		},
+		{
+			"category": "MERN",
+			"description": "Travel atlas of Armenia: 461 monasteries, fortresses and mountains from Wikidata. Search by region, find what's nearby, and plan a day on the map. MERN, serverless.",
+			"githubUrl": "https://github.com/AvetBadalyan/wander-armenia",
+			"id": "WS04",
+			"imageFile": "wanderarmenia.jpg",
+			"siteName": "Wander Armenia",
+			"webUrl": "https://wanderarmenia.vercel.app"
+		},
+		{
+			"category": "React.JS",
+			"description": "React food store where users browse meals, add to cart, and place orders. Includes account login, quantity control, and responsive design for smooth shopping.",
+			"githubUrl": "https://github.com/AvetBadalyan/Online-Food-Store",
+			"id": "WS05",
+			"imageFile": "foodStoreScreen2.jpg",
+			"siteName": "Online Food Store",
+			"webUrl": "https://online-foodstore.web.app/"
+		},
+		{
+			"category": "React.JS",
+			"description": "Day planner that turns plain text like \"90m next tuesday\" into a task, then warns when the day is overbooked against its set capacity. Built with React, Redux Toolkit.",
+			"githubUrl": "https://github.com/AvetBadalyan/Avetime_Day_Planner",
+			"id": "WS07",
+			"imageFile": "todo-task-page.jpg",
+			"siteName": "Avetime — Day Planner",
+			"webUrl": "https://avetime-planner.web.app/"
+		},
+		{
+			"category": "React.JS",
+			"description": "Music search app where users find songs, view artist info, and check prices. Built with React.js for a clean, responsive, and interactive listening experience.",
+			"githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
+			"id": "WS08",
+			"imageFile": "itunes.jpg",
+			"siteName": "iTunes Music Search",
+			"webUrl": "https://itunes-simple-clone-a7486.web.app/"
+		},
+		{
+			"category": "React.JS",
+			"description": "Cocktail recipe app where users browse drinks, search by name, and view details. Designed with responsive layouts for easy access on mobile and desktop devices.",
+			"githubUrl": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
+			"id": "WS09",
+			"imageFile": "cocktails.jpg",
+			"siteName": "Tales of Cocktails",
+			"webUrl": "https://tales-of-cocktails.web.app/"
+		},
+		{
+			"category": "Pure JS",
+			"description": "Pure JavaScript joke app where users click a button to hear jokes via text-to-speech. Optimized for mobile devices with a minimal, engaging, playful design.",
+			"githubUrl": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
+			"id": "WS10",
+			"imageFile": "robot.jpg",
+			"siteName": "Joke Teller (Pure JS)",
+			"webUrl": "https://get-joke-f9568.web.app/"
+		},
+		{
+			"category": "Pure JS",
+			"description": "Static travel site showcasing tours, customer stories, and contact info. Built with HTML, CSS, and JS for a responsive design with smooth, engaging animations.",
+			"githubUrl": "https://github.com/AvetBadalyan/The-Road-Tour-aggency-website-Pure-JS",
+			"id": "WS12",
+			"imageFile": "travel-screenshot2.jpg",
+			"siteName": "The Road to Armenia",
+			"webUrl": "https://theroad-9bc32.web.app/"
+		}
+	]
 }
