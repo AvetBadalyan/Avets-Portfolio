@@ -1,14 +1,14 @@
-import { useTheme } from "./../context/theme-context";
+import { useTheme } from '../context/theme-context'
 
 const BackgroundColor = ({ className }) => {
-  const { themeHandler } = useTheme();
+	const { themeHandler } = useTheme()
 
-  return (
-    <button
-      className={className}
-      onClick={() => themeHandler(className)}
-    ></button>
-  );
-};
+	return (
+		<button
+			className={className}
+			onClick={() => themeHandler(className)}
+		></button>
+	)
+}
 
-export default BackgroundColor;
+export default BackgroundColor

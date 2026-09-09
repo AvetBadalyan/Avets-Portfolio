@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaBriefcase, FaBars } from "react-icons/fa";
 import { IoIosColorPalette } from "react-icons/io";
 import { navLinks } from "./data";
-import { useModal } from "./../../context/modal-context";
+import { useModal } from "../../context/modal-context";
 import "./Navbar.scss";
 
 const Navbar = () => {
