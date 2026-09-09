@@ -5,13 +5,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
 
     <!--  Essential META Tags -->
-
     <meta property="og:title" content="Avet's Portfolio" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://avets-portfolio.web.app" />
@@ -19,14 +14,12 @@
       property="og:image"
       content="https://avets-portfolio.web.app/portfolio-preview.jpg"
     />
-
     <meta
       name="description"
       property="og:description"
       content="Here is my Portfolio Website with my deployed apps, my CV, the section about me and my career path"
     />
     <meta property="og:site_name" content="Avet's Portfolio" />
-
     <meta name="author" content="Avet Badalyan" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -43,7 +36,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Headland+One&display=swap"
       rel="stylesheet"
@@ -55,13 +47,9 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <div id="overlays"></div>
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
 
-      // Your web app's Firebase configuration
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
       const firebaseConfig = {
         apiKey: "AIzaSyAIuUOhsN_ExPIr8uNVeGAdLKYIAikyojY",
         authDomain: "avets-portfolio.firebaseapp.com",
@@ -71,9 +59,10 @@
         messagingSenderId: "135116045192",
         appId: "1:135116045192:web:0ecb7a88feacc55b88583d",
       };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
+      initializeApp(firebaseConfig);
     </script>
+
+    <!-- Vite entry point -->
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
