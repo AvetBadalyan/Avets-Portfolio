@@ -27,6 +27,7 @@
 	"scripts": {
 		"start": "vite",
 		"build": "vite build",
+		"deploy": "vite build && firebase deploy --only hosting",
 		"preview": "vite preview",
 		"test": "vitest run"
 	},
