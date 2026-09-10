@@ -53,7 +53,7 @@ Some of the web apps featured in my portfolio include:
 | MERN     | [**Avetbook Chat App**](https://avetbook-chat-app.onrender.com)                   | Real-time chat with Socket.io, JWT authentication, and Cloudinary image uploads.                                                           |
 | MERN     | [**Real Estate App**](https://mern-real-estate-project-8jqd.onrender.com/)        | Browse, search, and list properties with a clean and responsive UI.                                                                        |
 | MERN     | [**TechShop E-commerce**](https://avets-techshop.vercel.app/)                     | E-commerce with cart, reviews, and server-verified PayPal checkout — React 19, Express 5, JWT auth, Zod, Cloudinary; serverless on Vercel. |
-| React.js | [**Online Food Store**](https://online-foodstore.web.app/)                        | Meal browsing and ordering with responsive design.                                                                                         |
+| React.js | [**Online Food Store**](https://online-foodstore.web.app/)                        | Food delivery with React 19, Firebase Auth, Framer Motion, 32+ meals, category filters, slide-out cart, and 3-step checkout.               |
 | React.js | [**Todo List with Redux Toolkit**](https://todo-list-with-redux-toolkit.web.app/) | Smart task manager with deadline tracking.                                                                                                 |
 | Pure JS  | [**Joke Teller**](https://get-joke-f9568.web.app/)                                | Fun voice-based joke app using text-to-speech.                                                                                             |
 
