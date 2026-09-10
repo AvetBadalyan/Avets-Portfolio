@@ -56,7 +56,7 @@
 		},
 		{
 			"category": "React.JS",
-			"description": "Food delivery app built with React 19, Context API + useReducer, CSS Modules, Framer Motion animations, and React Hook Form + Zod validation. Features 32+ meals, category filters, search, a slide-out cart, 3-step checkout, and Firebase Auth — all without Redux or a custom backend.",
+			"description": "Food delivery app with React 19, Context API, Framer Motion, and Firebase Auth. Features 32+ meals, category filters, a slide-out cart, and 3-step checkout — no Redux or custom backend.",
 			"githubUrl": "https://github.com/AvetBadalyan/Online-Food-Store",
 			"id": "WS05",
 			"imageFile": "foodStoreScreen2.jpg",
