@@ -92,10 +92,10 @@
 		},
 		{
 			"category": "Pure JS",
-			"description": "Pure JavaScript joke app where users click a button to hear jokes via text-to-speech. Optimized for mobile devices with a minimal, engaging, playful design.",
+			"description": "Joke app with text-to-speech, voice selector, 6 categories, saved jokes collection, and dark/light mode. PWA-installable, works offline. Built with pure HTML, CSS, and JavaScript — no frameworks.",
 			"githubUrl": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
 			"id": "WS10",
-			"imageFile": "robot.jpg",
+			"imageFile": "joke-teller.png",
 			"siteName": "Joke Teller (Pure JS)",
 			"webUrl": "https://get-joke-f9568.web.app/"
 		},
