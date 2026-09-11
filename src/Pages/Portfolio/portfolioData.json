@@ -29,7 +29,7 @@
 		},
 		{
 			"category": "MERN",
-			"description": "MERN real estate app where users discover, search, and list properties for rent or sale. Manage listings, view detailed info, and log in through a clean UI.",
+			"description": "MERN real estate app with property search across 10 countries, dark mode, favorites, compare, price history charts, mortgage calculator, and Google Maps integration. JWT + Google auth, Cloudinary uploads, responsive UI.",
 			"githubUrl": "https://github.com/AvetBadalyan/MERN-Real-Estate-Project.git",
 			"id": "WS02",
 			"imageFile": "screenshot1.jpg",
