@@ -74,6 +74,15 @@
 		},
 		{
 			"category": "React.JS",
+			"description": "Frontend interview quiz with 250+ questions across HTML, CSS, JavaScript, React, and JS Tricky topics. Features timed questions, difficulty levels, high score tracking, and code block rendering. Built with React 19.",
+			"githubUrl": "https://github.com/AvetBadalyan/Frontend-Interview-Quiz",
+			"id": "WS14",
+			"imageFile": "frontend-quiz.jpg",
+			"siteName": "Frontend Interview Quiz",
+			"webUrl": "https://frontend-interview-quiz.vercel.app/"
+		},
+		{
+			"category": "React.JS",
 			"description": "Music search app where users find songs, view artist info, and check prices. Built with React.js for a clean, responsive, and interactive listening experience.",
 			"githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
 			"id": "WS08",
