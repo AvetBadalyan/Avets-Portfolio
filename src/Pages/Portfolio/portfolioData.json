@@ -10,6 +10,15 @@
 			"webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/"
 		},
 		{
+			"category": "Full Stack",
+			"description": "University timetable generator with a backtracking CSP algorithm. Manages lecturers, rooms, and faculties, then auto-generates conflict-free schedules. React 19, TypeScript, Redux Toolkit, Express, TypeORM, Supabase.",
+			"githubUrl": "https://github.com/AvetBadalyan/Edu-Scheduler",
+			"id": "WS15",
+			"imageFile": "edu-scheduler.png",
+			"siteName": "EduScheduler",
+			"webUrl": "https://edu-scheduler-aca.vercel.app"
+		},
+		{
 			"category": "React.JS",
 			"description": "React + TypeScript demo built with React Hook Form, Yup, styled-components, TanStack Query, and Axios. Submit a validated registration form and fetch live API data with caching.",
 			"githubUrl": "https://github.com/AvetBadalyan/React-hook-form-demo",
