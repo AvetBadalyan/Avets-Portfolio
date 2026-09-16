@@ -92,19 +92,19 @@
 		},
 		{
 			"category": "React.JS",
-			"description": "Music search app where users find songs, view artist info, and check prices. Built with React.js for a clean, responsive, and interactive listening experience.",
+			"description": "Music search app built with React 19 and Vite. Browse Apple's top 25 chart, search with debounce, paginate results, and preview 30-second clips. Custom hooks, skeleton loaders, and SCSS design tokens.",
 			"githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
 			"id": "WS08",
-			"imageFile": "itunes.jpg",
+			"imageFile": "itunes-new.png",
 			"siteName": "iTunes Music Search",
 			"webUrl": "https://itunes-simple-clone-a7486.web.app/"
 		},
 		{
 			"category": "React.JS",
-			"description": "Cocktail recipe app where users browse drinks, search by name, and view details. Designed with responsive layouts for easy access on mobile and desktop devices.",
+			"description": "Cocktail encyclopedia with React 19, Redux Toolkit, and Vite. Browse 160+ recipes, filter by category or A-Z, save favorites, view recently viewed, and discover with Surprise Me. Lazy loading and skeleton states.",
 			"githubUrl": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
 			"id": "WS09",
-			"imageFile": "cocktails.jpg",
+			"imageFile": "cocktails-new.png",
 			"siteName": "Tales of Cocktails",
 			"webUrl": "https://tales-of-cocktails.web.app/"
 		},
