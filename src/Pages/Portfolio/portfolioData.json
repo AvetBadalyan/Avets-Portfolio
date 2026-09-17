@@ -29,10 +29,10 @@
 		},
 		{
 			"category": "MERN",
-			"description": "Realtime MERN chat app built with Socket.io, JWT auth, Cloudinary, and Zustand. Send messages and photos, view online status, all in a clean responsive UI.",
+			"description": "Real-time MERN chat with Socket.io, typing indicators, emoji reactions, unread badges, and online presence. React 19 + Zustand frontend, Express 5 backend with JWT auth and Cloudinary uploads.",
 			"githubUrl": "https://github.com/AvetBadalyan/Chat-app",
 			"id": "WS01",
-			"imageFile": "chat app screenshot0.jpg",
+			"imageFile": "chat-app-new.png",
 			"siteName": "Avetbook Chat App",
 			"webUrl": "https://avetbook-chat-app.onrender.com"
 		},
