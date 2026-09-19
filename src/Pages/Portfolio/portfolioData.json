@@ -74,6 +74,15 @@
 		},
 		{
 			"category": "React.JS",
+			"description": "Fashion e-commerce with React 19, Redux Toolkit, and Framer Motion. Size/color variants, faceted filters, wishlist, quick-view modals, checkout flow, auth, order history, and dark mode. 26 products, fully responsive.",
+			"githubUrl": "https://github.com/AvetBadalyan/modern-fashion-store",
+			"id": "WS16",
+			"imageFile": "fashion-store.png",
+			"siteName": "Modern Fashion Store",
+			"webUrl": "https://modern-fashion-store-theta.vercel.app"
+		},
+		{
+			"category": "React.JS",
 			"description": "Day planner that turns plain text like \"90m next tuesday\" into a task, then warns when the day is overbooked against its set capacity. Built with React, Redux Toolkit.",
 			"githubUrl": "https://github.com/AvetBadalyan/Avetime_Day_Planner",
 			"id": "WS07",
