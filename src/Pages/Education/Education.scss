@@ -277,16 +277,17 @@ main.bg-2 {
     background: rgba(255, 255, 255, 0.95);
   }
 
-  .education__card-institution {
-    color: hsl(0, 0%, 96%);
+  .education__card-title {
+    color: var(--color-black);
   }
 
-  .education__card-field {
-    color: hsl(0, 0%, 82%);
+  .education__card-faculty {
+    /* accent already lightens in dark mode via the token */
+    color: var(--color-accent);
   }
 
-  .education__card-date {
-    color: hsl(0, 0%, 70%);
+  .education__card-duration {
+    color: var(--color-dark);
   }
 
   .education__card-degree {

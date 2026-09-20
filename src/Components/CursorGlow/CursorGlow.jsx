@@ -60,7 +60,7 @@ const CursorGlow = () => {
         translateX: "-50%",
         translateY: "-50%",
         opacity: isVisible ? 1 : 0,
-        transition: "opacity 0.3s ease",
+        transition: "opacity var(--duration-base) var(--easing-default)",
       }}
     />
   );

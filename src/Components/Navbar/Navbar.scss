@@ -252,12 +252,14 @@
 
 main.bg-2 {
   .nav--scrolled {
-    background: hsl(var(--primary-hue), 20%, 10%);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
+    /* Use the glass-bg-solid token (= hsl(270, 15%, 12%) in dark mode) so the
+       scrolled bar always matches the surface tier, not a one-off value. */
+    background: var(--glass-bg-solid);
+    border-bottom-color: var(--glass-border);
   }
 
   .nav__link {
-    color: hsl(0, 0%, 92%);
+    color: var(--color-black);
 
     &:hover {
       color: var(--color-accent);
@@ -266,15 +268,15 @@ main.bg-2 {
   }
 
   .nav__burger {
-    color: hsl(0, 0%, 90%);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
+    color: var(--color-dark);
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
   }
 
   .nav__theme-toggle {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
-    color: hsl(0, 0%, 90%);
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    color: var(--color-dark);
 
     &:hover {
       color: white;
@@ -282,12 +284,12 @@ main.bg-2 {
   }
 
   .nav__mobile {
-    background: hsl(var(--primary-hue), 20%, 10%);
-    border-left-color: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-solid);
+    border-left-color: var(--glass-border);
   }
 
   .nav__mobile-link {
-    color: hsl(0, 0%, 88%);
+    color: var(--color-dark);
 
     &:hover,
     &--active {
@@ -334,7 +336,7 @@ main.bg-2 {
 }
 
 main.bg-2 .nav__mobile-theme {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
-  color: hsl(0, 0%, 88%);
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+  color: var(--color-dark);
 }

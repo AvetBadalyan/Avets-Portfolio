@@ -46,13 +46,11 @@ const Portfolio = () => {
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
-  // Determine which projects get featured (larger) cards
-  const getFeaturedStatus = (project, index) => {
-    if (project.category === "MERN" || project.category === "Full Stack") {
-      return index < 4 ? "featured" : "normal";
-    }
-    return "normal";
-  };
+  // Determine which projects get featured (larger) cards.
+  // The `featured` flag lives in portfolioData.json so the decision is
+  // stable — it doesn't shift when the active category filter changes.
+  const getFeaturedStatus = (project) =>
+    project.featured ? "featured" : "normal";
 
   return (
     <section id="portfolio" className="portfolio">
@@ -104,7 +102,7 @@ const Portfolio = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className={`portfolio__item portfolio__item--${getFeaturedStatus(project, index)}`}
+                className={`portfolio__item portfolio__item--${getFeaturedStatus(project)}`}
                 variants={cardVariants}
                 custom={index}
                 initial="hidden"

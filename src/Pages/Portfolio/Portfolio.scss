@@ -49,6 +49,15 @@
   transition: var(--transition-base);
   overflow: hidden;
 
+  /* overflow:hidden clips the outline — use inset box-shadow instead */
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+      inset 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
+        var(--focus-ring-glow-color);
+  }
+
   &:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);
@@ -216,6 +225,17 @@
   text-decoration: none;
   border-radius: var(--border-radius-3);
   transition: var(--transition-fast);
+
+  /* The btn lives inside .project-card which has overflow:hidden, clipping
+     outline-based focus rings. Use inset box-shadow so the ring is drawn
+     within the element's own box and never clipped by a parent overflow. */
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+      inset 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
+        var(--focus-ring-glow-color);
+  }
 
   svg {
     font-size: var(--font-size-xs); /* non-type: tiny icon glyph */
@@ -394,7 +414,7 @@ main.bg-2 {
   }
 
   .portfolio__subtitle {
-    color: hsl(0, 0%, 80%);
+    color: var(--color-dark);
   }
 
   .project-card {
@@ -408,16 +428,16 @@ main.bg-2 {
   }
 
   .project-card__title-static {
-    color: hsl(0, 0%, 96%);
+    color: var(--color-black);
   }
 
   .project-card__description {
-    color: hsl(0, 0%, 80%);
+    color: var(--color-dark);
   }
 
   .portfolio__filter {
     border-color: rgba(255, 255, 255, 0.12);
-    color: hsl(0, 0%, 80%);
+    color: var(--color-dark);
 
     &:hover {
       border-color: var(--color-accent);
