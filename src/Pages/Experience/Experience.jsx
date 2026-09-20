@@ -1,202 +1,196 @@
-import './Experience.scss';
-import ExperienceCard from './ExperienceCard';
-import CognaizeLogo from './../../assets/pics/cognaize-armenia.jpg';
-import ashstone from './../../assets/pics/ashtone.jpg';
-import EPAMLogo from './../../assets/education/EPAM.jpg';
-import { EXPERIENCE_DATA } from './experienceData';
+import { motion } from "framer-motion";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import EPAMLogo from "./../../assets/education/EPAM.jpg";
+import ashstoneLogo from "./../../assets/pics/ashtone.jpg";
+import CognaizeLogo from "./../../assets/pics/cognaize-armenia.jpg";
+import "./Experience.scss";
 
-export default function Experience() {
+const experienceData = [
+  {
+    id: 1,
+    company: "EPAM Systems",
+    logo: EPAMLogo,
+    role: "Full-Stack Developer",
+    duration: "July 2025 - Present",
+    type: "Full-time",
+    description:
+      "Contributing to the corporate website of one of the world's largest engineering companies, built on Adobe Experience Manager (AEM) and serving millions of monthly visitors.",
+    highlights: [
+      "Resolved 40+ UI issues on www.epam.com, improving responsiveness and UX consistency",
+      "Wrote Sinon.js unit tests for 20+ frontend modules, reducing regression risk",
+      "Collaborated daily with cross-functional teams in agile sprints",
+    ],
+    tech: ["AEM", "JavaScript", "Sinon.js", "HTL", "SCSS"],
+    link: "https://www.epam.com/",
+    linkText: "Visit EPAM",
+  },
+  {
+    id: 2,
+    company: "Ashstone Studios",
+    logo: ashstoneLogo,
+    role: "Frontend (Shopify) Developer",
+    duration: "June 2024 - January 2026",
+    type: "Full-time",
+    description:
+      "Built and maintained Shopify storefronts, delivering feature enhancements, theme customization, debugging, and performance improvements.",
+    highlights: [
+      "Delivered 5 custom Shopify themes including Motto — published on official Shopify Theme Store",
+      "Resolved 30+ client support requests for international e-commerce brands",
+      "Worked in parallel with EPAM role from July 2025 to December 2025",
+    ],
+    tech: ["Shopify", "Liquid", "JavaScript", "SCSS", "Tailwind"],
+    links: [
+      {
+        url: "https://themes.shopify.com/themes/motto/presets/motto",
+        text: "Motto Theme",
+      },
+      {
+        url: "https://themes.shopify.com/themes/monochrome/presets/monochrome",
+        text: "Monochrome",
+      },
+      {
+        url: "https://themes.shopify.com/themes/force/presets/force",
+        text: "Force Theme",
+      },
+    ],
+  },
+  {
+    id: 3,
+    company: "Cognaize",
+    logo: CognaizeLogo,
+    role: "Software Engineer",
+    duration: "February 2023 - March 2024",
+    type: "Full-time",
+    description:
+      "Worked on a hybrid-intelligence platform that automated the extraction and analysis of unstructured financial documents for banks, insurers, and other financial organizations.",
+    highlights: [
+      "Implemented 50+ features and resolved 50+ production bugs on AI-powered platform",
+      "Refactored legacy modules to improve maintainability and team iteration speed",
+      "Partnered with senior engineers to ship integrated, production-ready solutions",
+    ],
+    tech: ["React", "TypeScript", "Redux", "Python", "REST API"],
+    link: "https://www.cognaize.com/",
+    linkText: "Visit Cognaize",
+  },
+];
+
+const Experience = () => {
   return (
-    <section className="experience" id="experience">
+    <section id="experience" className="experience">
       <div className="container">
-        <h2 data-aos="zoom-in-up" className="experience-header section-heading">
-          Professional Experience
-        </h2>
-      </div>
+        {/* Section Header */}
+        <motion.div
+          className="experience__header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="section-heading">Professional Experience</h2>
+          <p className="experience__subtitle">
+            3+ years building products at scale across fintech, e-commerce, and
+            enterprise
+          </p>
+        </motion.div>
 
-      <div className="container">
-        <h3 data-aos="zoom-in-up" className="experience-header section-heading">
-          EPAM Systems
-        </h3>
-      </div>
-      <div className="container experience-content" data-aos="fade-up">
-        <div className="company-info">
-          <div className="company-info__logo">
-            <img src={EPAMLogo} alt="EPAM Logo" />
-          </div>
-          <div className="company-info__details" data-aos="fade-up">
-            <p>
-              <span className="text-highlight">Company:</span>{' '}
-              EPAM Systems delivers software engineering and digital platform
-              solutions for global enterprises.
-            </p>
-            <p>
-              <span className="text-highlight">Project:</span>{' '}
-              Contributing to the corporate website of one of the world's
-              largest engineering companies, built on Adobe Experience
-              Manager (AEM) and serving millions of monthly visitors.
-            </p>
-            <p>
-              <span className="text-highlight">Position:</span> Full-Stack Developer
-            </p>
-            <p>
-              <span className="text-highlight">Duration:</span> July 2025 - Present
-            </p>
-            <p>
-              <span className="text-highlight">Highlights:</span>{' '}
-              Resolved 40+ UI issues on{' '}
-              <a
-                href="https://www.epam.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-link"
-              >
-                www.epam.com
-              </a>
-              , improving responsiveness and UX consistency. Wrote Sinon.js
-              unit tests for 20+ frontend modules, meaningfully reducing
-              regression risk. Collaborated daily with cross-functional teams
-              in agile sprints, contributing to planning and code reviews.
-            </p>
-            <a
-              href="https://www.epam.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn cat__btn white"
+        {/* Timeline */}
+        <div className="experience__timeline">
+          {/* Timeline line */}
+          <div className="experience__timeline-line" />
+
+          {experienceData.map((job, index) => (
+            <motion.div
+              key={job.id}
+              className={`experience__item ${index % 2 === 0 ? "experience__item--left" : "experience__item--right"}`}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              Visit EPAM
-            </a>
-          </div>
-        </div>
-      </div>
+              {/* Timeline dot */}
+              <motion.div
+                className="experience__dot"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  delay: index * 0.15 + 0.2,
+                }}
+              />
 
-      <div className="container">
-        <h3 data-aos="zoom-in-up" className="experience-header section-heading">
-          Ashstone Studios
-        </h3>
-      </div>
-      <div className="container experience-content" data-aos="fade-up">
-        <div className="company-info">
-          <div className="company-info__logo">
-            <img src={ashstone} alt="Ashstone Studios Logo" />
-          </div>
-          <div className="company-info__details" data-aos="fade-up">
-            <p>
-              <span className="text-highlight">Company:</span>{' '}
-              Ashstone Studios is a creative agency focused on Shopify
-              e-commerce solutions and digital growth.
-            </p>
-            <p>
-              <span className="text-highlight">Project:</span>{' '}
-              Built and maintained Shopify storefronts, delivering feature
-              enhancements, theme customization, debugging, and performance
-              improvements for client-facing e-commerce projects.
-            </p>
-            <p>
-              <span className="text-highlight">Position:</span> Frontend (Shopify) Developer
-            </p>
-            <p>
-              <span className="text-highlight">Duration:</span> June 2024 - January 2026
-            </p>
-            <p>
-              <span className="text-highlight">Note:</span>{' '}
-              Worked in parallel with my EPAM role from July 2025 to December
-              2025.
-            </p>
-            <p>
-              <span className="text-highlight">Highlights:</span>{' '}
-              Delivered 5 custom Shopify themes including <span className="text-highlight">Motto</span>{' '}
-              — published on the official Shopify Theme Store with 20+ verified
-              buyer reviews. Resolved 30+ client support requests and
-              maintained production storefronts for international e-commerce
-              brands.
-            </p>
-            <div className="theme-links">
-              <a
-                href="https://themes.shopify.com/themes/motto/presets/motto"
-                target="_blank"
-                rel="noreferrer"
-                className="btn cat__btn white"
+              {/* Card */}
+              <motion.article
+                className="experience__card"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
               >
-                Motto Theme
-              </a>
-              <a
-                href="https://themes.shopify.com/themes/monochrome/presets/monochrome"
-                target="_blank"
-                rel="noreferrer"
-                className="btn cat__btn white"
-              >
-                Monochrome Theme
-              </a>
-              <a
-                href="https://themes.shopify.com/themes/force/presets/force"
-                target="_blank"
-                rel="noreferrer"
-                className="btn cat__btn white"
-              >
-                Force Theme
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+                {/* Card Header */}
+                <div className="experience__card-header">
+                  <div className="experience__logo">
+                    <img src={job.logo} alt={job.company} />
+                  </div>
+                  <div className="experience__meta">
+                    <h3 className="experience__company">{job.company}</h3>
+                    <p className="experience__role">{job.role}</p>
+                    <span className="experience__duration">{job.duration}</span>
+                  </div>
+                </div>
 
-      <div className="container">
-        <h3 data-aos="zoom-in-up" className="experience-header section-heading">
-          Cognaize
-        </h3>
-      </div>
-      <div className="container experience-content" data-aos="fade-up">
-        <div className="company-info">
-          <div className="company-info__logo">
-            <img src={CognaizeLogo} alt="Cognaize Logo" />
-          </div>
-          <div className="company-info__details" data-aos="fade-down">
-            <p>
-              <span className="text-highlight">Company:</span>{' '}
-              Cognaize Engineering LLC builds AI-powered solutions for
-              extracting, structuring, and analyzing complex financial data.
-            </p>
-            <p>
-              <span className="text-highlight">Project:</span>{' '}
-              Worked on a hybrid-intelligence platform that automated the
-              extraction and analysis of unstructured financial documents for
-              banks, insurers, and other financial organizations.
-            </p>
-            <p>
-              <span className="text-highlight">Position:</span> Software Engineer
-            </p>
-            <p>
-              <span className="text-highlight">Duration:</span> February 2023 - March 2024
-            </p>
-            <p>
-              <span className="text-highlight">Highlights:</span>{' '}
-              Implemented 50+ features and resolved 50+ production bugs on an
-              AI-powered platform processing financial documents for banks and
-              insurers. Refactored legacy modules to improve maintainability,
-              enabling faster iteration across the engineering team.
-            </p>
-            <a
-              href="https://www.cognaize.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn cat__btn white"
-            >
-              Visit Cognaize
-            </a>
-          </div>
-        </div>
+                {/* Description */}
+                <p className="experience__description">{job.description}</p>
 
-        <h3 className="job-responsibilities">
-          Key contributions at Cognaize
-        </h3>
+                {/* Highlights */}
+                <ul className="experience__highlights">
+                  {job.highlights.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
 
-        <div className="experience-card-container">
-          {EXPERIENCE_DATA.map((experience, index) => (
-            <ExperienceCard key={index} index={index} {...experience} />
+                {/* Tech Stack */}
+                <div className="experience__tech">
+                  {job.tech.map((tech) => (
+                    <span key={tech} className="experience__tech-badge">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="experience__links">
+                  {job.link && (
+                    <a
+                      href={job.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="experience__link"
+                    >
+                      {job.linkText}
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
+                  {job.links &&
+                    job.links.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="experience__link"
+                      >
+                        {link.text}
+                        <FaExternalLinkAlt />
+                      </a>
+                    ))}
+                </div>
+              </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Experience;

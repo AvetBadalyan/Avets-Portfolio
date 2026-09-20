@@ -1,60 +1,34 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
-import themeReducer from "./themeReducer";
-import {
-  backgroundColorClassNames,
-  defaultThemeState,
-  primaryColorClassNames,
-} from "../theme/data";
+import { createContext, useContext, useEffect, useState } from "react";
 
-export const ThemeContext = createContext();
-
-const sanitizeThemeState = (themeState) => ({
-  primary: primaryColorClassNames.includes(themeState?.primary)
-    ? themeState.primary
-    : defaultThemeState.primary,
-  background: backgroundColorClassNames.includes(themeState?.background)
-    ? themeState.background
-    : defaultThemeState.background,
-});
-
-const getStoredThemeState = () => {
-  try {
-    return JSON.parse(localStorage.getItem("themeSettings"));
-  } catch {
-    return null;
-  }
-};
-
-// get theme settings from local storage, or use the curated default theme
-const initialThemeState = sanitizeThemeState(getStoredThemeState());
+const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [themeState, dispatchTheme] = useReducer(
-    themeReducer,
-    initialThemeState
-  );
+  // Check localStorage or default to dark mode
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    // Default to dark mode if no preference saved
+    return saved !== null ? JSON.parse(saved) : true;
+  });
 
-  const themeHandler = (buttonClassName) => {
-    dispatchTheme({ type: buttonClassName });
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => !prev);
   };
 
-  // save theme settings to local storage
+  // Save preference to localStorage
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      localStorage.setItem("themeSettings", JSON.stringify(themeState));
-    }, 500);
+    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
-    return () => clearTimeout(timeoutId);
-  }, [themeState]);
+  // Generate theme class for main element
+  const themeClass = isDarkMode ? "bg-2" : "bg-1";
 
   return (
-    <ThemeContext.Provider value={{ themeState, themeHandler }}>
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme, themeClass }}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
-// custom hook to use our theme context wherever we want in our project
 export const useTheme = () => {
   return useContext(ThemeContext);
 };

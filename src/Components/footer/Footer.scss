@@ -1,18 +1,67 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
 .footer {
-  background: var(--color-primary);
-  box-shadow: 0 -1.6rem 2.4rem hsla(var(--primary-hue), 68%, 42%, 20%);
-  transition: var(--transition);
+  padding: var(--space-2xl) 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* ============================================
+   BACK TO TOP
+   ============================================ */
+
+.footer__back-to-top {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: var(--color-on-primary);
+  border: none;
+  border-radius: 50%;
+  font-size: var(--icon-size-sm);
+  cursor: pointer;
+  box-shadow: 0 4px 15px hsla(var(--primary-hue), 70%, 50%, 0.3);
+  transition: var(--transition-base);
+
+  &:hover {
+    box-shadow: 0 8px 25px hsla(var(--primary-hue), 70%, 50%, 0.4);
+  }
+}
+
+/* ============================================
+   COPYRIGHT
+   ============================================ */
+
+.footer__copyright {
   text-align: center;
 
-  .footer__copyright {
-    color: white;
-    padding: var(--space-xs) 0;
+  small {
+    font-size: var(--font-size-xs);
+    color: var(--color-dark);
+    opacity: 0.7;
+  }
+}
 
-    small {
-      display: inline-block;
-      font-size: var(--font-size-h6);
-      line-height: 1.2;
-      letter-spacing: var(--tracking-tight);
-    }
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+main.bg-2 .footer {
+  background: var(--color-white);
+  border-top-color: rgba(255, 255, 255, 0.1);
+
+  .footer__copyright small {
+    color: hsl(0, 0%, 70%);
   }
 }

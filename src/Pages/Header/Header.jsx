@@ -1,74 +1,250 @@
-import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import HeaderImage from './../../assets/IMG_0861.jpeg';
-import './header.scss';
-import { FaDownload } from 'react-icons/fa';
-import CV from '../../assets/cv.pdf';
+import { motion, useReducedMotion } from "framer-motion";
+import { FaArrowDown, FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineArrowRight } from "react-icons/hi";
+import { ReactTyped } from "react-typed";
+import CV from "../../assets/cv.pdf";
+import AnimatedCounter from "../../Components/AnimatedCounter/AnimatedCounter";
+import GradientBackground from "../../Components/GradientBackground/GradientBackground";
+import MagneticButton from "../../Components/MagneticButton/MagneticButton";
+import { fadeIn, floating, staggerContainer } from "../../utils/animations";
+import HeaderImage from "./../../assets/IMG_0861.jpeg";
+import "./header.scss";
 
 const Header = () => {
-  useEffect(() => {
-    AOS.init({ duration: 2000 });
-  }, []);
+  const reduceMotion = useReducedMotion();
+
+  const stats = [
+    { number: "3+", label: "Years Exp" },
+    { number: "16", label: "Projects" },
+    { number: "4", label: "MERN Apps" },
+    { number: "5", label: "Shopify Themes" },
+  ];
+
+  const roles = [
+    "Frontend Engineer",
+    "React Developer",
+    "Full Stack Developer",
+    "Shopify Expert",
+  ];
+
+  const techBadges = [
+    { emoji: "⚛️", name: "React", position: "badge--1" },
+    { emoji: "🟢", name: "Node.js", position: "badge--2" },
+    { emoji: "💙", name: "TypeScript", position: "badge--3" },
+  ];
 
   return (
-    <header id="header" className="header">
-      <div className="container">
-        <p data-aos="flip-right" className="welcome-heading">
-          Hello and welcome &mdash; glad you&rsquo;re{' '}
-          <span className="welcome-heading__end">
-            here
-            <span className="wave" role="img" aria-label="waving hand">
-              👋
-            </span>
-          </span>
-        </p>
-      </div>
-      <div className="container header-main-content">
-        <div className="header-left-part">
-          <div className="header__profile" data-aos="fade-in">
-            <img src={HeaderImage} alt="Avet Badalyan - Frontend Engineer" />
-          </div>
-          <h1 data-aos="zoom-in-up">Avet Badalyan</h1>
-        </div>
+    <header id="header" className="hero">
+      <GradientBackground />
 
-        <div className="welcome-container">
-          <p data-aos="zoom-in-up" className="header__subtitle">Frontend Engineer</p>
-          <div data-aos="zoom-in-up" className="welcome-text">
-            <p className="home-main-text">
-              3+ years of professional experience building scalable,
-              user-focused web applications across fintech, e-commerce, and
-              enterprise platforms.
-            </p>
-            <p>
-              I have contributed to AI-powered financial products at 
-              <span className="text-highlight"> Cognaize Engineering LLC</span>, built custom Shopify
-              solutions at <span className="text-highlight">Ashstone Studios</span>, and now support{' '}
-              <span className="text-highlight">EPAM Systems</span> on its corporate web ecosystem
-              built on <span className="text-highlight">AEM</span>.
-            </p>
-            <p>
-              My focus is frontend engineering with <span className="text-highlight">React.js</span>,{' '}
-              <span className="text-highlight">Redux</span>, <span className="text-highlight">Shopify</span>, and modern UI
-              development, while I continue growing toward fullstack
-              development with <span className="text-highlight">Node.js</span>,{' '}
-              <span className="text-highlight">Express.js</span>, <span className="text-highlight">TypeScript</span>,{' '}
-              <span className="text-highlight">SQL/PostgreSQL</span>, and <span className="text-highlight">AWS</span>.
-            </p>
-          </div>
-          <div className="header__buttons">
-            <a href="#contact" className="btn primary">
+      <div className="hero__container container">
+        {/* Left Column - Text Content */}
+        <motion.div
+          className="hero__content"
+          variants={staggerContainer(0.12, 0.2)}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.p className="hero__greeting" variants={fadeIn("up", 0)}>
+            <span className="hero__wave">👋</span>
+            Hello, I'm
+          </motion.p>
+
+          <motion.h1 className="hero__name" variants={fadeIn("up", 0)}>
+            <span className="hero__name-gradient">Avet Badalyan</span>
+          </motion.h1>
+
+          <motion.div className="hero__role" variants={fadeIn("up", 0)}>
+            <span className="hero__role-static">I'm a </span>
+            <ReactTyped
+              strings={roles}
+              typeSpeed={50}
+              backSpeed={30}
+              backDelay={2500}
+              loop
+              className="hero__role-typed"
+            />
+          </motion.div>
+
+          <motion.p className="hero__bio" variants={fadeIn("up", 0)}>
+            Building scalable, user-focused web applications across fintech,
+            e-commerce, and enterprise platforms. Currently at{" "}
+            <strong>EPAM Systems</strong>, previously at{" "}
+            <strong>Ashstone Studios</strong> & <strong>Cognaize</strong>.
+          </motion.p>
+
+          <motion.div className="hero__cta" variants={fadeIn("up", 0)}>
+            <MagneticButton
+              as="a"
+              href="#portfolio"
+              className="hero__btn hero__btn--primary"
+              strength={0.2}
+            >
+              <span>View Projects</span>
+              <HiOutlineArrowRight className="hero__btn-icon" />
+            </MagneticButton>
+            <MagneticButton
+              as="a"
+              href="#contact"
+              className="hero__btn hero__btn--outline"
+              strength={0.2}
+            >
               Let's Talk
-            </a>
-            <a href="#portfolio" className="btn primary">
-              Explore Projects
-            </a>
-            <a href={CV} download className="btn primary">
-              Download CV <FaDownload />
-            </a>
-          </div>
+            </MagneticButton>
+            <MagneticButton
+              as="a"
+              href={CV}
+              download
+              className="hero__btn hero__btn--ghost"
+              strength={0.15}
+            >
+              <FaDownload />
+              <span>Resume</span>
+            </MagneticButton>
+          </motion.div>
+
+          <motion.div className="hero__social" variants={fadeIn("up", 0)}>
+            <MagneticButton
+              as="a"
+              href="https://github.com/AvetBadalyan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__social-link"
+              aria-label="GitHub Profile"
+              strength={0.4}
+            >
+              <FaGithub />
+            </MagneticButton>
+            <MagneticButton
+              as="a"
+              href="https://www.linkedin.com/in/avet-badalyan-17b767101/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__social-link"
+              aria-label="LinkedIn Profile"
+              strength={0.4}
+            >
+              <FaLinkedin />
+            </MagneticButton>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Column - Visual */}
+        <div className="hero__visual">
+          <motion.div
+            className="hero__image-wrapper"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              delay: 0.3,
+            }}
+          >
+            {/* Animated decorative rings */}
+            <motion.div
+              className="hero__ring hero__ring--outer"
+              animate={reduceMotion ? undefined : { rotate: 360 }}
+              transition={
+                reduceMotion
+                  ? undefined
+                  : { duration: 25, repeat: Infinity, ease: "linear" }
+              }
+            />
+            <motion.div
+              className="hero__ring hero__ring--inner"
+              animate={reduceMotion ? undefined : { rotate: -360 }}
+              transition={
+                reduceMotion
+                  ? undefined
+                  : { duration: 18, repeat: Infinity, ease: "linear" }
+              }
+            />
+
+            {/* Floating tech badges */}
+            {techBadges.map((badge, index) => (
+              <motion.div
+                key={badge.name}
+                className={`hero__badge ${badge.position}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + index * 0.15 }}
+              >
+                <motion.span
+                  animate={reduceMotion ? undefined : floating.animate}
+                  transition={reduceMotion ? undefined : { delay: index * 0.5 }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                  }}
+                >
+                  {badge.emoji} {badge.name}
+                </motion.span>
+              </motion.div>
+            ))}
+
+            {/* Profile image */}
+            <div className="hero__image-container">
+              <img
+                src={HeaderImage}
+                alt="Avet Badalyan - Frontend Engineer"
+                className="hero__image"
+              />
+              <div className="hero__image-glow" />
+            </div>
+          </motion.div>
+
+          {/* Stats bar with animated counters */}
+          <motion.div
+            className="hero__stats"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.5 }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="hero__stat"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.1 + index * 0.1 }}
+              >
+                <AnimatedCounter
+                  value={stat.number}
+                  className="hero__stat-number"
+                  duration={2}
+                />
+                <span className="hero__stat-label">{stat.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.a
+        href="#about"
+        className="hero__scroll"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8 }}
+        aria-label="Scroll to About section"
+      >
+        <span>Scroll</span>
+        <motion.div
+          className="hero__scroll-icon"
+          animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
+          transition={
+            reduceMotion
+              ? undefined
+              : { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+          }
+        >
+          <FaArrowDown />
+        </motion.div>
+      </motion.a>
     </header>
   );
 };

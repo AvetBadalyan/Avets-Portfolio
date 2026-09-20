@@ -1,52 +1,280 @@
-// About.scss
-.about__container {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-2xl);
-  color: var(--color-dark);
+/* ============================================
+   ABOUT SECTION - Two Column Layout
+   ============================================ */
 
-  h2 {
-    text-align: center;
-    margin: var(--section-heading-gap) auto;
-  }
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-  }
+.about {
+  padding: var(--section-padding-block) 0;
+  background: var(--color-white);
 }
 
-.language-skills {
-  flex: 0 0 32rem;
+.about__header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+/* ============================================
+   CONTENT LAYOUT
+   ============================================ */
+
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-4xl);
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   LEFT - LANGUAGES SIDEBAR
+   ============================================ */
+
+.about__sidebar {
   display: flex;
   flex-direction: column;
+  gap: var(--space-2xl);
+  position: sticky;
+  top: 10rem;
+}
 
-  h3 {
-    text-align: center;
-    margin: var(--section-heading-gap) auto;
+/* ============================================
+   LANGUAGES
+   ============================================ */
+
+.about__languages {
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-1);
+  padding: var(--space-xl);
+}
+
+.about__languages-title {
+  font-size: var(--font-size-card-title);
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.about__language {
+  margin-bottom: var(--space-md);
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
-.language-skills-container {
+.about__language-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.about__language-name {
+  font-weight: 600;
+  color: var(--color-black);
+  font-size: var(--font-size-body-sm);
+}
+
+.about__language-level {
+  font-size: var(--font-size-xs);
+  color: var(--color-dark);
+  opacity: 0.7;
+  margin-left: auto;
+}
+
+.about__language-bar {
+  height: 8px;
+  background: hsla(var(--primary-hue), 20%, 50%, 0.15);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.about__language-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    hsla(calc(var(--primary-hue) + 30), 70%, 55%, 1) 100%
+  );
+  border-radius: 100px;
+}
+
+/* ============================================
+   RIGHT - TEXT CONTENT
+   ============================================ */
+
+.about__text {
+  h3,
+  h4,
+  p,
+  .about__highlights {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+.about__role {
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  color: var(--color-accent);
   margin-top: 0;
+}
+
+.about__text p {
+  font-size: var(--font-size-body);
+  line-height: 1.8;
+  color: var(--color-dark);
+
+  strong {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+}
+
+.about__subheading {
+  font-size: var(--font-size-h4);
+  font-weight: 600;
+  color: var(--color-black);
+  margin-top: var(--space-xl);
+}
+
+/* ============================================
+   HIGHLIGHTS
+   ============================================ */
+
+.about__highlights {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  padding: var(--space-lg);
+  background: hsla(var(--primary-hue), 70%, 50%, 0.05);
+  border-radius: var(--border-radius-2);
+  border-left: 4px solid var(--color-accent);
 }
 
-.about-info {
-  max-width: 100%;
+.about__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-dark);
 
-  p {
-    margin-bottom: var(--space-md);
+  strong {
+    color: var(--color-black);
+  }
+}
+
+.about__highlight-icon {
+  font-size: var(--icon-size-sm);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   CTA BUTTON
+   ============================================ */
+
+.about__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-2xl);
+  background: var(--color-accent);
+  color: var(--color-on-primary);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 100px;
+  margin-top: var(--space-md);
+  transition: var(--transition-base);
+  box-shadow: 0 4px 15px hsla(var(--primary-hue), 70%, 50%, 0.3);
+
+  svg {
+    font-size: var(--icon-size-sm);
   }
 
-  h3 {
-    margin-bottom: var(--section-heading-gap);
-    text-align: center;
+  &:hover {
+    box-shadow: 0 8px 25px hsla(var(--primary-hue), 70%, 50%, 0.4);
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 900px) {
+  .about__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
   }
 
-  .btn {
-    text-align: center;
+  .about__sidebar {
+    position: static;
+    max-width: 500px;
+    width: 100%;
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about__role {
+    font-size: var(--font-size-h4);
+  }
+
+  .about__highlights {
+    padding: var(--space-md);
+  }
+
+  .about__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+main.bg-2 {
+  .about {
+    background: var(--color-white);
+  }
+
+  .about__languages {
+    /* Solid dark background */
+    background: hsl(var(--primary-hue), 18%, 14%);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .about__languages-title {
+    color: hsl(0, 0%, 96%);
+  }
+
+  .about__language-name {
+    color: hsl(0, 0%, 94%);
+  }
+
+  .about__language-level {
+    color: hsl(0, 0%, 70%);
+  }
+
+  .about__text p {
+    color: hsl(0, 0%, 82%);
+  }
+
+  .about__subheading {
+    color: hsl(0, 0%, 96%);
+  }
+
+  .about__highlights {
+    background: hsla(var(--primary-hue), 70%, 50%, 0.12);
+  }
+
+  .about__highlight {
+    color: hsl(0, 0%, 82%);
+
+    strong {
+      color: hsl(0, 0%, 96%);
+    }
   }
 }

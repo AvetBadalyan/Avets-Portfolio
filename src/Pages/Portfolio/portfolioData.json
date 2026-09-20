@@ -7,7 +7,13 @@
 			"id": "WS00",
 			"imageFile": "music app.png",
 			"siteName": "Music App",
-			"webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/"
+			"webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/",
+			"tech": [
+				"React",
+				"Node.js",
+				"PostgreSQL",
+				"AWS"
+			]
 		},
 		{
 			"category": "Full Stack",
@@ -16,7 +22,13 @@
 			"id": "WS15",
 			"imageFile": "edu-scheduler.png",
 			"siteName": "EduScheduler",
-			"webUrl": "https://edu-scheduler-aca.vercel.app"
+			"webUrl": "https://edu-scheduler-aca.vercel.app",
+			"tech": [
+				"React",
+				"TypeScript",
+				"Redux",
+				"Supabase"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -25,7 +37,13 @@
 			"id": "WS13",
 			"imageFile": "jobTestPrep.png",
 			"siteName": "React Hook Form Demo",
-			"webUrl": "https://jobtestprep-demo.web.app"
+			"webUrl": "https://jobtestprep-demo.web.app",
+			"tech": [
+				"React",
+				"TypeScript",
+				"React Hook Form",
+				"TanStack Query"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -34,7 +52,13 @@
 			"id": "WS17",
 			"imageFile": "battleship.png",
 			"siteName": "Battleship Game",
-			"webUrl": "https://aca-battleship.vercel.app/"
+			"webUrl": "https://aca-battleship.vercel.app/",
+			"tech": [
+				"React",
+				"TypeScript",
+				"Zustand",
+				"Framer Motion"
+			]
 		},
 		{
 			"category": "MERN",
@@ -43,7 +67,13 @@
 			"id": "WS01",
 			"imageFile": "chat-app-new.png",
 			"siteName": "Avetbook Chat App",
-			"webUrl": "https://avetbook-chat-app.onrender.com"
+			"webUrl": "https://avetbook-chat-app.onrender.com",
+			"tech": [
+				"React",
+				"Express",
+				"Socket.io",
+				"Zustand"
+			]
 		},
 		{
 			"category": "MERN",
@@ -52,7 +82,13 @@
 			"id": "WS02",
 			"imageFile": "screenshot1.jpg",
 			"siteName": "Real Estate MERN App",
-			"webUrl": "https://avets-real-estate.vercel.app"
+			"webUrl": "https://avets-real-estate.vercel.app",
+			"tech": [
+				"MongoDB",
+				"Express",
+				"React",
+				"Node.js"
+			]
 		},
 		{
 			"category": "MERN",
@@ -61,7 +97,13 @@
 			"id": "WS03",
 			"imageFile": "techshop.jpg",
 			"siteName": "Avet's TechShop",
-			"webUrl": "https://avets-techshop.vercel.app/"
+			"webUrl": "https://avets-techshop.vercel.app/",
+			"tech": [
+				"React",
+				"Express",
+				"RTK Query",
+				"MongoDB"
+			]
 		},
 		{
 			"category": "MERN",
@@ -70,7 +112,13 @@
 			"id": "WS04",
 			"imageFile": "wanderarmenia.jpg",
 			"siteName": "Wander Armenia",
-			"webUrl": "https://wanderarmenia.vercel.app"
+			"webUrl": "https://wanderarmenia.vercel.app",
+			"tech": [
+				"MongoDB",
+				"Express",
+				"React",
+				"Node.js"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -79,7 +127,12 @@
 			"id": "WS05",
 			"imageFile": "foodStoreScreen2.jpg",
 			"siteName": "Online Food Store",
-			"webUrl": "https://online-foodstore.web.app/"
+			"webUrl": "https://online-foodstore.web.app/",
+			"tech": [
+				"React",
+				"Framer Motion",
+				"Firebase"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -88,7 +141,12 @@
 			"id": "WS16",
 			"imageFile": "fashion-store.png",
 			"siteName": "Modern Fashion Store",
-			"webUrl": "https://modern-fashion-store-theta.vercel.app"
+			"webUrl": "https://modern-fashion-store-theta.vercel.app",
+			"tech": [
+				"React",
+				"Redux",
+				"Framer Motion"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -97,7 +155,11 @@
 			"id": "WS07",
 			"imageFile": "todo-task-page.jpg",
 			"siteName": "Avetime — Day Planner",
-			"webUrl": "https://avetime-day-planner.vercel.app/"
+			"webUrl": "https://avetime-day-planner.vercel.app/",
+			"tech": [
+				"React",
+				"Redux"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -106,7 +168,11 @@
 			"id": "WS14",
 			"imageFile": "frontend-quiz.jpg",
 			"siteName": "Frontend Interview Quiz",
-			"webUrl": "https://frontend-interview-quiz.vercel.app/"
+			"webUrl": "https://frontend-interview-quiz.vercel.app/",
+			"tech": [
+				"React",
+				"JavaScript"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -115,7 +181,12 @@
 			"id": "WS08",
 			"imageFile": "itunes-new.png",
 			"siteName": "iTunes Music Search",
-			"webUrl": "https://itunes-simple-clone-a7486.web.app/"
+			"webUrl": "https://itunes-simple-clone-a7486.web.app/",
+			"tech": [
+				"React",
+				"Vite",
+				"JavaScript"
+			]
 		},
 		{
 			"category": "React.JS",
@@ -124,7 +195,12 @@
 			"id": "WS09",
 			"imageFile": "cocktails-new.png",
 			"siteName": "Tales of Cocktails",
-			"webUrl": "https://tales-of-cocktails.web.app/"
+			"webUrl": "https://tales-of-cocktails.web.app/",
+			"tech": [
+				"React",
+				"Redux",
+				"Vite"
+			]
 		},
 		{
 			"category": "Pure JS",
@@ -133,7 +209,13 @@
 			"id": "WS10",
 			"imageFile": "joke-teller.png",
 			"siteName": "Joke Teller (Pure JS)",
-			"webUrl": "https://get-joke-f9568.web.app/"
+			"webUrl": "https://get-joke-f9568.web.app/",
+			"tech": [
+				"JavaScript",
+				"HTML",
+				"CSS",
+				"PWA"
+			]
 		},
 		{
 			"category": "Pure JS",
@@ -142,7 +224,12 @@
 			"id": "WS12",
 			"imageFile": "travel-screenshot2.jpg",
 			"siteName": "The Road to Armenia",
-			"webUrl": "https://theroad-9bc32.web.app/"
+			"webUrl": "https://theroad-9bc32.web.app/",
+			"tech": [
+				"JavaScript",
+				"HTML",
+				"CSS"
+			]
 		}
 	]
 }
