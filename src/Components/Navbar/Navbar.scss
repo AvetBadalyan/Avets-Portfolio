@@ -88,7 +88,7 @@
 
     #theme__icon {
       color: white;
-      font-size: var(--font-size-nav-icon);
+      font-size: var(--icon-size-nav);
       line-height: 1;
       flex-shrink: 0;
       cursor: pointer;
@@ -99,7 +99,7 @@
 
     .burger-menu {
       color: white;
-      font-size: var(--font-size-nav-burger);
+      font-size: var(--icon-size-burger);
       line-height: 1;
       flex-shrink: 0;
       cursor: pointer;
