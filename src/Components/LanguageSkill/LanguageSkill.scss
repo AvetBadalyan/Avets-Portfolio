@@ -22,7 +22,7 @@
         .progress {
             background-color: var(--color-primary);
             height: 100%;
-            transition: width 1s ease-in-out;
+            transition: width var(--duration-progress) var(--easing-smooth);
             border-radius: var(--border-radius-3);
         }
     }

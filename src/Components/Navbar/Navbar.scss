@@ -1,5 +1,23 @@
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-white);
+  color: var(--color-black);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-2);
+  font-weight: 600;
+  z-index: calc(var(--z-navbar) + 1);
+  transition: top var(--duration-fast) var(--easing-default);
+
+  &:focus {
+    top: var(--space-sm);
+  }
+}
+
 .nav {
-  width: 100vw;
+  width: 100%;
   height: 8rem;
   display: flex;
   justify-content: center;
@@ -8,7 +26,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9;
+  z-index: var(--z-navbar);
   box-shadow: var(--shadow-nav);
   transition: var(--transition);
 
@@ -48,7 +66,7 @@
         font-size: var(--font-size-nav);
         text-transform: uppercase;
         font-weight: 500;
-        transition: all 0.3s ease-in;
+        transition: var(--transition-base);
         letter-spacing: var(--tracking-nav);
         padding: var(--space-2xs) var(--space-sm);
         cursor: pointer;
@@ -74,6 +92,9 @@
       line-height: 1;
       flex-shrink: 0;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .burger-menu {
@@ -85,7 +106,9 @@
       display: none;
 
       @media screen and (max-width: 1024px) {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 
@@ -103,12 +126,12 @@
       height: calc(100vh - 8rem);
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity var(--duration-slow) var(--easing-default), visibility var(--duration-slow) var(--easing-default);
 
       &.open {
         opacity: 1;
         visibility: visible;
-        animation: slideIn 500ms forwards;
+        animation: slideIn var(--duration-slow) forwards;
       }
 
       .nav__link {
@@ -126,7 +149,7 @@
           font-size: var(--font-size-nav-mobile);
           text-transform: uppercase;
           font-weight: 500;
-          transition: all 0.3s ease-in-out;
+          transition: var(--transition-base);
           letter-spacing: var(--tracking-base);
           padding: var(--space-sm) var(--space-md);
           margin: 0 var(--space-xs);

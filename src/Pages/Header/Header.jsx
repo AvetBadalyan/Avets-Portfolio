@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header id="header" className="header">
       <div className="container">
-        <h2 data-aos="flip-right" className="welcome-heading">
+        <p data-aos="flip-right" className="welcome-heading">
           Hello and welcome &mdash; glad you&rsquo;re{' '}
           <span className="welcome-heading__end">
             here
@@ -22,18 +22,18 @@ const Header = () => {
               👋
             </span>
           </span>
-        </h2>
+        </p>
       </div>
       <div className="container header-main-content">
         <div className="header-left-part">
           <div className="header__profile" data-aos="fade-in">
-            <img src={HeaderImage} alt="Header Portrait" />
+            <img src={HeaderImage} alt="Avet Badalyan - Frontend Engineer" />
           </div>
           <h1 data-aos="zoom-in-up">Avet Badalyan</h1>
         </div>
 
         <div className="welcome-container">
-          <h2 data-aos="zoom-in-up">Frontend Engineer</h2>
+          <p data-aos="zoom-in-up" className="header__subtitle">Frontend Engineer</p>
           <div data-aos="zoom-in-up" className="welcome-text">
             <p className="home-main-text">
               3+ years of professional experience building scalable,
