@@ -1,13 +1,13 @@
 import chatAppScreenshot from '../../assets/portfolio/chat app screenshot0.jpg'
 import chatAppNewScreenshot from '../../assets/portfolio/chat-app-new.png'
-import cocktailsScreenshot from '../../assets/portfolio/cocktails.jpg'
 import cocktailsNewScreenshot from '../../assets/portfolio/cocktails-new.png'
+import cocktailsScreenshot from '../../assets/portfolio/cocktails.jpg'
 import eduSchedulerScreenshot from '../../assets/portfolio/edu-scheduler.png'
 import fashionStoreScreenshot from '../../assets/portfolio/fashion-store.png'
 import foodStoreScreenshot from '../../assets/portfolio/foodStoreScreen2.jpg'
 import frontendQuizScreenshot from '../../assets/portfolio/frontend-quiz.jpg'
-import itunesScreenshot from '../../assets/portfolio/itunes.jpg'
 import itunesNewScreenshot from '../../assets/portfolio/itunes-new.png'
+import itunesScreenshot from '../../assets/portfolio/itunes.jpg'
 import jobTestPrepScreenshot from '../../assets/portfolio/jobTestPrep.png'
 import jokeTellerScreenshot from '../../assets/portfolio/joke-teller.png'
 import musicAppScreenshot from '../../assets/portfolio/music app.png'
@@ -35,7 +35,8 @@ const projectImages = {
 	'cocktails-new.png': cocktailsNewScreenshot,
 	'joke-teller.png': jokeTellerScreenshot,
 	'travel-screenshot2.jpg': travelScreenshot,
-	'jobTestPrep.png': jobTestPrepScreenshot
+	'jobTestPrep.png': jobTestPrepScreenshot,
+	'battleship.png': battleshipScreenshot
 }
 
 export default projectImages
