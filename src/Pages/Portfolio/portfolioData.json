@@ -28,6 +28,15 @@
 			"webUrl": "https://jobtestprep-demo.web.app"
 		},
 		{
+			"category": "React.JS",
+			"description": "Classic Battleship vs AI with Hunt/Target algorithm. React 19, TypeScript, Zustand, Framer Motion. Drag-and-drop ship placement, sound effects, hit/miss animations, game stats, and dark/light themes. Fully responsive.",
+			"githubUrl": "https://github.com/AvetBadalyan/ACA-BATTLESHIP-with-React.js",
+			"id": "WS17",
+			"imageFile": "battleship.png",
+			"siteName": "Battleship Game",
+			"webUrl": "https://aca-battleship.vercel.app/"
+		},
+		{
 			"category": "MERN",
 			"description": "Real-time MERN chat with Socket.io, typing indicators, emoji reactions, unread badges, and online presence. React 19 + Zustand frontend, Express 5 backend with JWT auth and Cloudinary uploads.",
 			"githubUrl": "https://github.com/AvetBadalyan/Chat-app",
