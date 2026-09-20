@@ -13,6 +13,12 @@
 
   .welcome-heading {
     text-align: center;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    color: var(--color-black);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--tracking-display);
 
     .welcome-heading__end {
       white-space: nowrap;
@@ -35,6 +41,17 @@
     50%  { transform: rotate(10deg); }
     60%  { transform: rotate(0deg); }
     100% { transform: rotate(0deg); }
+  }
+
+  .header__subtitle {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    color: var(--color-black);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--tracking-display);
+    text-align: center;
+    margin: 0;
   }
 
   .header-main-content {
@@ -101,7 +118,7 @@
       justify-content: center;
       gap: var(--space-lg);
       margin-top: auto;
-      animation: fadeIn 500ms forwards;
+      animation: fadeIn var(--duration-slow) forwards;
 
       @keyframes fadeIn {
         from {
@@ -202,8 +219,10 @@
       }
     }
 
-    .welcome-heading {
+    .welcome-heading,
+    .header__subtitle {
       margin-top: var(--space-sm);
+      font-size: var(--font-size-h2-mobile);
     }
 
     h1 {

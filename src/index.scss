@@ -136,8 +136,27 @@
   --theme-background-preview-width:     11rem;
   --theme-background-preview-height:    4rem;
 
+  /* Z-INDEX SCALE */
+  --z-navbar: 100;
+  --z-modal-backdrop: 200;
+  --z-modal: 210;
+
+  /* TRANSITION TIMING */
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-progress: 1s;
+  --easing-default: ease;
+  --easing-smooth: ease-in-out;
+
   /* GENERAL TRANSITION VARIABLE */
-  --transition: all 500ms ease;
+  --transition: all var(--duration-slow) var(--easing-default);
+  --transition-base: all var(--duration-base) var(--easing-smooth);
+
+  /* FOCUS RING */
+  --focus-ring-color: var(--color-accent);
+  --focus-ring-offset: 2px;
+  --focus-ring-width: 2px;
 }
 
 *,
@@ -483,4 +502,32 @@ img {
   font-family: var(--font-family-display);
   font-weight: 600;
   letter-spacing: var(--tracking-tight);
+}
+
+/* FOCUS STYLES (accessibility) */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* REDUCED MOTION (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

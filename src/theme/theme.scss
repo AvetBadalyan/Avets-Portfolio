@@ -5,12 +5,12 @@
     transform: translate(-50%, -50%);
     width: min(58rem, calc(100vw - 3.2rem));
     background: var(--color-white);
-    z-index: 200;
+    z-index: var(--z-modal);
     text-align: center;
     box-shadow: var(--shadow-elevated);
     padding: var(--space-4xl);
     opacity: 0;
-    animation: animateModal 500ms ease-in forwards;
+    animation: animateModal var(--duration-slow) var(--easing-default) forwards;
     border-radius: var(--border-radius-1);
 
     &:hover {

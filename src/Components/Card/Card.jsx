@@ -1,8 +1,8 @@
 import "./Card.scss";
 
-const Card = ({ children, className, onClick }) => {
+const Card = ({ children, className }) => {
   return (
-    <article className={`card ${className}`} onClick={onClick}>
+    <article className={`card ${className}`}>
       {children}
     </article>
   );

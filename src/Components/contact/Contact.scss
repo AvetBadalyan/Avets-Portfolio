@@ -24,7 +24,7 @@
       gap: var(--control-gap);
       text-decoration: none;
       color: var(--color-dark);
-      transition: all 0.3s ease;
+      transition: var(--transition-base);
       border: 2px solid transparent;
       border-radius: var(--control-radius);
       padding: var(--control-padding);

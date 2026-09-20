@@ -15,8 +15,9 @@ const Navbar = () => {
 
   return (
     <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
+      <a href="#header" className="skip-link">Skip to main content</a>
       <div className="container nav__container">
-        <a href="index.html" className="nav__logo">
+        <a href="index.html" className="nav__logo" aria-label="Home">
           <FaBriefcase />
         </a>
 
@@ -36,9 +37,24 @@ const Navbar = () => {
           ))}
         </div>
 
-        <IoIosColorPalette id="theme__icon" onClick={showModalHandler} />
+        <button
+          type="button"
+          id="theme__icon"
+          onClick={showModalHandler}
+          aria-label="Open theme customization"
+        >
+          <IoIosColorPalette />
+        </button>
 
-        <FaBars className="burger-menu" onClick={toggleMenu} />
+        <button
+          type="button"
+          className="burger-menu"
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+        >
+          <FaBars />
+        </button>
       </div>
     </nav>
   );

@@ -42,7 +42,7 @@
   gap: var(--space-xl);
 
   .card.portfolio__project {
-    animation: animateProject 500ms ease-in forwards;
+    animation: animateProject var(--duration-slow) var(--easing-default) forwards;
   }
 
   .portfolio__project {
