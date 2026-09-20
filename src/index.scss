@@ -55,7 +55,6 @@
   --font-size-body: 1.6rem; /* 16px - base */
   --font-size-label: 1.6rem; /* 16px - form/button label (own knob, tracks base) */
   --font-size-nav: 1.6rem; /* 16px - desktop nav link (own knob) */
-  --font-size-nav-mobile: 1.6rem; /* 16px - mobile nav link (own knob) */
   --font-size-subtitle: 1.8rem; /* 18px */
   --font-size-card-title: 1.8rem; /* 18px - card heading (own knob) */
   --font-size-h3-mobile: 2rem; /* 20px */
@@ -81,7 +80,6 @@
   --tracking-tight: 0;
   --tracking-base: 0.015em;
   --tracking-display: -0.02em;
-  --tracking-nav: 0.02em;
   --line-height-body: 1.7;
   --line-height-heading: 1.15;
 
@@ -144,7 +142,6 @@
   --theme-background-preview-height: 4rem;
 
   /* Z-INDEX SCALE */
-  --z-base: 1;
   --z-elevated: 10;
   --z-navbar: 100;
   --z-modal-backdrop: 200;
@@ -160,10 +157,9 @@
   */
 
   /* TRANSITION TIMING */
-  --duration-fast: 200ms;
-  --duration-base: 300ms;
-  --duration-slow: 500ms;
-  --duration-progress: 1s;
+  --duration-fast: 200ms; /* micro-interactions: hover, focus */
+  --duration-base: 300ms; /* standard movement/reveal */
+  --duration-slow: 500ms; /* larger section/background transitions */
   --easing-default: ease;
   --easing-smooth: ease-in-out;
 
@@ -178,15 +174,21 @@
   --glass-border: rgba(255, 255, 255, 0.15);
   --glass-blur: 20px;
 
-  /* RGB VALUES FOR RGBA USAGE */
+  /* RGB channels for the ink color, used in rgba() where a var() color
+     can't be passed directly (GradientBackground grid lines). Inverts in .bg-2. */
   --color-black-rgb: 39, 39, 42;
-  --color-white-rgb: 255, 255, 255;
-  --color-accent-rgb: 139, 92, 246;
 
   /* FOCUS RING */
   --focus-ring-color: var(--color-accent);
-  --focus-ring-offset: 2px;
+  --focus-ring-offset: 3px;
   --focus-ring-width: 2px;
+  --focus-ring-glow: 4px;
+  /* Glow derives from the accent so it tracks the active theme */
+  --focus-ring-glow-color: color-mix(
+    in srgb,
+    var(--color-accent) 22%,
+    transparent
+  );
 }
 
 *,
@@ -251,27 +253,9 @@ p {
   font-weight: 700;
 }
 
-/* THEME change using react */
-main.color-2 {
-  --primary-hue: 132;
-  --color-primary-saturation: 59%;
-  --color-primary-lightness: 33%;
-  /* Green needs dark text for contrast in both light and dark modes */
-  --color-on-primary: hsl(132, 50%, 10%);
-}
-
-main.color-3 {
-  --primary-hue: 231;
-  --color-primary-saturation: 58%;
-  --color-primary-lightness: 14%;
-}
-
-main.color-4 {
-  --primary-hue: 217;
-  --color-primary-saturation: 89%;
-  --color-primary-lightness: 61%;
-}
-
+/* THEME: light (.bg-1) / dark (.bg-2) applied to <main> by theme-context.
+   The old accent-palette classes (.color-2/3/4) were removed along with the
+   color-picker modal; theming is now a single dark/light toggle. */
 main.bg-1 {
   --color-accent: var(--color-primary);
   --color-accent-saturation: var(--color-primary-saturation);
@@ -294,30 +278,21 @@ main.bg-2 {
   --color-black: hsl(0, 0%, var(--black-lightness));
   --color-dark: hsl(0, 0%, var(--dark-lightness));
 
+  /* ACCENT - the base accent (270deg, 89%, 41%) is too dark to read as text on
+     dark surfaces or as a fill behind white. Lighten + slightly desaturate it
+     for dark mode so accent-colored text (roles, links, facts) and accent
+     fills (active filter) both meet contrast. Keep --color-primary darker for
+     large solid buttons that carry white text. */
+  --color-accent-lightness: 72%;
+  --color-accent-saturation: 80%;
+
   /* Dark mode glassmorphism - darker, more opaque for better text contrast */
   --glass-bg: rgba(0, 0, 0, 0.4);
   --glass-bg-solid: hsl(var(--primary-hue), 15%, 12%);
   --glass-border: rgba(255, 255, 255, 0.12);
 
-  /* RGB values for rgba() usage in components */
+  /* Ink RGB channels invert in dark mode (used by GradientBackground grid) */
   --color-black-rgb: 247, 247, 250;
-  --color-white-rgb: 18, 20, 26;
-}
-
-main.color-2.bg-2 {
-  /* Green theme in dark mode - boost accent for visibility as text */
-  --color-primary-lightness: 38%;
-  --color-accent-lightness: 55%;
-  --color-accent-saturation: 65%;
-  /* Green buttons need dark text for contrast */
-  --color-on-primary: hsl(132, 50%, 10%);
-}
-
-main.color-3.bg-2 {
-  /* Navy/Indigo theme in dark mode - significantly lighter accent for contrast */
-  --color-primary-lightness: 32%;
-  --color-accent-saturation: 78%;
-  --color-accent-lightness: 72%;
 }
 
 main {
@@ -332,35 +307,6 @@ main {
     var(--color-accent-saturation),
     var(--color-accent-lightness)
   );
-  --shadow-soft: 0 0.6rem 1.2rem
-    hsla(
-      var(--primary-hue),
-      var(--color-accent-saturation),
-      var(--color-accent-lightness),
-      0.18
-    );
-  --shadow-card: 0 0.8rem 1.6rem
-    hsla(
-      var(--primary-hue),
-      var(--color-accent-saturation),
-      var(--color-accent-lightness),
-      0.2
-    );
-  --shadow-floating: 0 1rem 1.8rem
-    hsla(
-      var(--primary-hue),
-      var(--color-accent-saturation),
-      var(--color-accent-lightness),
-      0.22
-    );
-  --shadow-elevated: 0 1.4rem 2.6rem
-    hsla(
-      var(--primary-hue),
-      var(--color-accent-saturation),
-      var(--color-accent-lightness),
-      0.24
-    );
-  --shadow-nav: 0 1.6rem 2.4rem hsla(var(--primary-hue), 68%, 42%, 20%);
 }
 
 /* GENERAL CONTAINER CLASS */
@@ -562,15 +508,7 @@ img {
   letter-spacing: var(--tracking-tight);
 }
 
-/* FOCUS STYLES (accessibility) */
-:focus {
-  outline: none;
-}
-
-:focus-visible {
-  outline: var(--focus-ring-width) solid var(--focus-ring-color);
-  outline-offset: var(--focus-ring-offset);
-}
+/* Focus rings are defined once, lower in this file (see "FOCUS RINGS"). */
 
 /* REDUCED MOTION (accessibility) */
 @media (prefers-reduced-motion: reduce) {
@@ -646,38 +584,38 @@ main.bg-2 {
 }
 
 /* ============================================
-   BEAUTIFUL FOCUS RINGS (Accessibility)
+   FOCUS RINGS (Accessibility)
    ============================================ */
 
-/* Remove default outline */
+/* Remove default outline; keyboard focus is handled by :focus-visible below. */
 :focus {
   outline: none;
 }
 
-/* Beautiful focus ring for keyboard navigation */
+/* Base keyboard focus ring for keyboard navigation */
 :focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: 4px;
-  transition: outline-offset 0.2s ease;
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--border-radius-3);
+  transition: outline-offset var(--duration-fast) var(--easing-default);
 }
 
-/* Buttons and interactive elements */
+/* Buttons and interactive elements get an extra soft glow */
 button:focus-visible,
 a:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 4px hsla(var(--primary-hue), 70%, 50%, 0.2);
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: 0 0 0 var(--focus-ring-glow) var(--focus-ring-glow-color);
 }
 
-/* Input focus */
+/* Input focus sits flush (no offset) so the glow hugs the field */
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: 0;
-  box-shadow: 0 0 0 4px hsla(var(--primary-hue), 70%, 50%, 0.15);
+  box-shadow: 0 0 0 var(--focus-ring-glow) var(--focus-ring-glow-color);
 }
 
 /* Skip link for accessibility */
@@ -699,36 +637,8 @@ select:focus-visible {
   }
 }
 
-/* ============================================
-   SMOOTH IMAGE LOADING (Blur-up effect)
-   ============================================ */
-
-img {
-  transition:
-    filter 0.4s ease,
-    opacity 0.4s ease;
-}
-
-img[loading="lazy"] {
-  opacity: 0;
-}
-
-img[loading="lazy"].loaded,
-img:not([loading="lazy"]) {
-  opacity: 1;
-}
-
-/* ============================================
-   REDUCED MOTION PREFERENCES
-   ============================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+/* NOTE: Image fade-in is owned by the LazyImage component (framer-motion +
+   .lazy-image--loaded). The previous global `img[loading="lazy"]{opacity:0}`
+   blur-up rule was removed: its reveal selector (.loaded) never matched, so it
+   was dead for LazyImage and would have permanently hidden any plain lazy
+   <img>. Reduced-motion handling lives in the single block near the top. */
