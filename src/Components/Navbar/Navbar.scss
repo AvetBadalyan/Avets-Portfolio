@@ -143,7 +143,7 @@
   border: 1px solid var(--glass-border);
   border-radius: 50%;
   color: var(--color-accent);
-  font-size: 2rem;
+  font-size: var(--icon-size-md); /* non-type: theme-toggle icon glyph */
   cursor: pointer;
   transition: all var(--duration-base) var(--easing-default);
 
@@ -318,7 +318,7 @@ main.bg-2 {
   transition: all var(--duration-base) var(--easing-default);
 
   svg {
-    font-size: 1.8rem;
+    font-size: var(--icon-size-sm); /* non-type: mobile-theme icon glyph */
     color: var(--color-accent);
   }
 

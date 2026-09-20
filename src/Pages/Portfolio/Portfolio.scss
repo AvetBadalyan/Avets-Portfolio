@@ -55,7 +55,10 @@
   }
 
   &--active {
-    background: var(--color-accent);
+    /* Use --color-primary (stays saturated/dark in both themes) as the fill so
+       the white label keeps contrast. In dark mode --color-accent is lightened
+       for text use, which would be too pale behind white here. */
+    background: var(--color-primary);
     color: var(--color-on-primary);
     border-color: transparent;
   }
@@ -419,6 +422,15 @@ main.bg-2 {
     &:hover {
       border-color: var(--color-accent);
       color: var(--color-accent);
+    }
+
+    /* Keep the active pill's label white on the solid fill. The base dark-mode
+       rule above is more specific than .portfolio__filter--active, so restate
+       it here (and on hover) or the label falls back to grey and disappears. */
+    &--active,
+    &--active:hover {
+      color: var(--color-on-primary);
+      border-color: transparent;
     }
   }
 }

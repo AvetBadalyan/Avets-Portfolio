@@ -74,6 +74,9 @@
 }
 
 .hero__name {
+  /* Bespoke fluid display size (40->65px), intentionally larger than the
+     fixed --font-size-h1 (40px) ramp. Fluid clamp is the point, so it is not
+     a token. Mobile override below narrows it to 30->45px. */
   font-size: clamp(4rem, 7vw, 6.5rem);
   font-weight: 800;
   line-height: 1.05;
@@ -182,7 +185,7 @@
       rgba(255, 255, 255, 0.2),
       transparent
     );
-    transition: left 0.5s ease;
+    transition: left var(--duration-slow) var(--easing-default);
   }
 
   &:hover::after {
