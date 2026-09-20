@@ -1,19 +1,21 @@
 {
-    "name": "",
-    "short_name": "",
-    "icons": [
-        {
-            "src": "/logo192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/logo512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+  "name": "Avet Badalyan | Frontend Engineer Portfolio",
+  "short_name": "Avet Portfolio",
+  "description": "Frontend Engineer with 3+ years building scalable web apps. React, TypeScript, Node.js, Shopify.",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#8B5CF6",
+  "background_color": "#0f0f14",
+  "display": "standalone",
+  "start_url": "/"
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
   --primary-hue: 270;
@@ -32,11 +32,11 @@
 
   /* SPACING SCALE (1rem = 10px) */
   --space-2xs: 0.4rem;
-  --space-xs:  0.8rem;
-  --space-sm:  1.2rem;
-  --space-md:  1.6rem;
-  --space-lg:  2rem;
-  --space-xl:  2.4rem;
+  --space-xs: 0.8rem;
+  --space-sm: 1.2rem;
+  --space-md: 1.6rem;
+  --space-lg: 2rem;
+  --space-xl: 2.4rem;
   --space-2xl: 3.2rem;
   --space-3xl: 4rem;
   --space-4xl: 4.8rem;
@@ -44,33 +44,40 @@
   --space-6xl: 8rem;
 
   /* FONT FAMILIES */
-  --font-family-body: 'Roboto', sans-serif;
-  --font-family-display: 'Inter', sans-serif;
+  --font-family-body: "Roboto", sans-serif;
+  --font-family-display: "Inter", sans-serif;
 
-  /* TYPOGRAPHY SCALE (1rem = 10px). One ramp: 14 / 16 / 18 / 20 / 24 / 26 / 30 / 34 / 40 px */
-  --font-size-body-sm:     1.4rem;  /* 14px */
-  --font-size-body:        1.6rem;  /* 16px - base */
-  --font-size-label:       1.6rem;  /* 16px - form/button label (own knob, tracks base) */
-  --font-size-nav:         1.6rem;  /* 16px - desktop nav link (own knob) */
-  --font-size-nav-mobile:  1.6rem;  /* 16px - mobile nav link (own knob) */
-  --font-size-subtitle:    1.8rem;  /* 18px */
-  --font-size-card-title:  1.8rem;  /* 18px - card heading (own knob) */
-  --font-size-h3-mobile:   2rem;    /* 20px */
-  --font-size-h3:          2.4rem;  /* 24px */
-  --font-size-h2-mobile:   2.6rem;  /* 26px */
-  --font-size-h2:          3rem;    /* 30px */
-  --font-size-h1-mobile:   3.4rem;  /* 34px */
-  --font-size-h1-tablet:   3.4rem;  /* 34px */
-  --font-size-h1:          4rem;    /* 40px */
-  --font-size-h4:          1.8rem;  /* 18px */
-  --font-size-h4-mobile:   1.6rem;  /* 16px */
-  --font-size-h5:          1.6rem;  /* 16px */
-  --font-size-h6:          1.4rem;  /* 14px */
+  /* TYPOGRAPHY SCALE (1rem = 10px)
+     Intentional ramp: 12 / 14 / 16 / 18 / 20 / 24 / 26 / 30 / 34 / 40 px
+     Each step is perceptibly distinct (~2px minimum gap) */
+  --font-size-xs: 1.2rem; /* 12px - badges, small labels, meta text */
+  --font-size-body-sm: 1.4rem; /* 14px */
+  --font-size-body: 1.6rem; /* 16px - base */
+  --font-size-label: 1.6rem; /* 16px - form/button label (own knob, tracks base) */
+  --font-size-nav: 1.6rem; /* 16px - desktop nav link (own knob) */
+  --font-size-nav-mobile: 1.6rem; /* 16px - mobile nav link (own knob) */
+  --font-size-subtitle: 1.8rem; /* 18px */
+  --font-size-card-title: 1.8rem; /* 18px - card heading (own knob) */
+  --font-size-h3-mobile: 2rem; /* 20px */
+  --font-size-h3: 2.4rem; /* 24px */
+  --font-size-h2-mobile: 2.6rem; /* 26px */
+  --font-size-h2: 3rem; /* 30px */
+  --font-size-h1-mobile: 3.4rem; /* 34px */
+  --font-size-h1-tablet: 3.4rem; /* 34px */
+  --font-size-h1: 4rem; /* 40px */
+  --font-size-h4: 1.8rem; /* 18px */
+  --font-size-h4-mobile: 1.6rem; /* 16px */
+  --font-size-h5: 1.6rem; /* 16px */
+  --font-size-h6: 1.4rem; /* 14px */
 
   /* ICON SIZES (non-type: sizes decorative icon glyphs, not text) */
-  --icon-size:        3rem;    /* 30px - inline content icons (contact, experience) */
-  --icon-size-nav:    3.2rem;  /* 32px - navbar theme/palette icon */
-  --icon-size-burger: 3rem;    /* 30px - navbar hamburger */
+  --icon-size-sm: 1.8rem; /* 18px - small inline icons */
+  --icon-size-md: 2rem; /* 20px - medium inline icons */
+  --icon-size-lg: 2.4rem; /* 24px - large icons, buttons */
+  --icon-size-xl: 2.8rem; /* 28px - hero icons */
+  --icon-size: 3rem; /* 30px - inline content icons (contact, experience) */
+  --icon-size-nav: 3.2rem; /* 32px - navbar theme/palette icon */
+  --icon-size-burger: 3rem; /* 30px - navbar hamburger */
   --tracking-tight: 0;
   --tracking-base: 0.015em;
   --tracking-display: -0.02em;
@@ -109,37 +116,48 @@
   --hero-media-radius: var(--border-radius-1);
   --grid-min-card-compact: 26rem;
   --grid-min-card-default: 29rem;
-  --grid-min-card-wide:    31rem;
-  --grid-min-card-mobile:  22rem;
+  --grid-min-card-wide: 31rem;
+  --grid-min-card-mobile: 22rem;
   --control-padding: var(--space-lg);
   --control-gap: var(--space-md);
   --control-cluster-gap: var(--space-xl);
   --control-radius: var(--border-radius-2);
 
   /* MEDIA DIMENSION VARIABLES */
-  --hero-profile-width:         26rem;
-  --hero-profile-height:        34rem;
-  --hero-profile-tablet-width:  22rem;
+  --hero-profile-width: 26rem;
+  --hero-profile-height: 34rem;
+  --hero-profile-tablet-width: 22rem;
   --hero-profile-tablet-height: 29rem;
-  --hero-profile-mobile-width:  19rem;
+  --hero-profile-mobile-width: 19rem;
   --hero-profile-mobile-height: 24rem;
   --experience-logo-size: 200px;
   --experience-logo-size-mobile: 160px;
   --skill-logo-size: 60px;
   --skill-logo-size-mobile: 50px;
-  --education-card-image-height:        18rem;
+  --education-card-image-height: 18rem;
   --education-card-image-height-mobile: 16rem;
-  --portfolio-card-image-height:        14rem;
-  --language-progress-height:           2.4rem;
-  --navbar-logo-size:                   3rem;
-  --theme-swatch-size:                  3.6rem;
-  --theme-background-preview-width:     11rem;
-  --theme-background-preview-height:    4rem;
+  --portfolio-card-image-height: 14rem;
+  --language-progress-height: 2.4rem;
+  --navbar-logo-size: 3rem;
+  --theme-swatch-size: 3.6rem;
+  --theme-background-preview-width: 11rem;
+  --theme-background-preview-height: 4rem;
 
   /* Z-INDEX SCALE */
+  --z-base: 1;
+  --z-elevated: 10;
   --z-navbar: 100;
   --z-modal-backdrop: 200;
   --z-modal: 210;
+
+  /* BREAKPOINTS (for reference - SCSS doesn't support var() in media queries)
+     Mobile-first breakpoints:
+     - sm: 480px  (small phones)
+     - md: 600px  (phones)
+     - lg: 768px  (tablets)
+     - xl: 1024px (small desktop)
+     - 2xl: 1200px (desktop)
+  */
 
   /* TRANSITION TIMING */
   --duration-fast: 200ms;
@@ -150,8 +168,20 @@
   --easing-smooth: ease-in-out;
 
   /* GENERAL TRANSITION VARIABLE */
+  --transition-fast: all var(--duration-fast) var(--easing-default);
   --transition: all var(--duration-slow) var(--easing-default);
   --transition-base: all var(--duration-base) var(--easing-smooth);
+
+  /* GLASSMORPHISM */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-solid: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-blur: 20px;
+
+  /* RGB VALUES FOR RGBA USAGE */
+  --color-black-rgb: 39, 39, 42;
+  --color-white-rgb: 255, 255, 255;
+  --color-accent-rgb: 139, 92, 246;
 
   /* FOCUS RING */
   --focus-ring-color: var(--color-accent);
@@ -199,6 +229,7 @@ html {
   /* 1rem = 10px */
   font-size: 62.5%;
   scroll-behavior: smooth;
+  scroll-padding-top: 8rem; /* Account for fixed navbar */
   -webkit-text-size-adjust: 100%;
 }
 
@@ -225,6 +256,8 @@ main.color-2 {
   --primary-hue: 132;
   --color-primary-saturation: 59%;
   --color-primary-lightness: 33%;
+  /* Green needs dark text for contrast in both light and dark modes */
+  --color-on-primary: hsl(132, 50%, 10%);
 }
 
 main.color-3 {
@@ -246,24 +279,45 @@ main.bg-1 {
 }
 
 main.bg-2 {
-  --black-lightness: 96%;
-  --dark-lightness: 68%;
-  --light-lightness: 12%;
+  /* Dark mode: invert the light/dark relationship
+     Backgrounds become dark, text becomes light */
+  --black-lightness: 97%;
+  --dark-lightness: 85%;
+  --light-lightness: 14%;
   --white-lightness: 8%;
-  --color-white: hsl(0, 5%, var(--white-lightness));
-  --color-light: hsl(var(--primary-hue), 5%, var(--light-lightness));
-  --color-black: hsl(var(--primary-hue), 5%, var(--black-lightness));
-  --color-dark: hsl(var(--primary-hue), 5%, var(--dark-lightness));
+
+  /* BACKGROUNDS - dark tones with subtle hue tint */
+  --color-white: hsl(var(--primary-hue), 12%, var(--white-lightness));
+  --color-light: hsl(var(--primary-hue), 10%, var(--light-lightness));
+
+  /* TEXT - high contrast light tones (pure achromatic for max readability) */
+  --color-black: hsl(0, 0%, var(--black-lightness));
+  --color-dark: hsl(0, 0%, var(--dark-lightness));
+
+  /* Dark mode glassmorphism - darker, more opaque for better text contrast */
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --glass-bg-solid: hsl(var(--primary-hue), 15%, 12%);
+  --glass-border: rgba(255, 255, 255, 0.12);
+
+  /* RGB values for rgba() usage in components */
+  --color-black-rgb: 247, 247, 250;
+  --color-white-rgb: 18, 20, 26;
 }
 
 main.color-2.bg-2 {
-  --color-accent-lightness: 46%;
+  /* Green theme in dark mode - boost accent for visibility as text */
+  --color-primary-lightness: 38%;
+  --color-accent-lightness: 55%;
+  --color-accent-saturation: 65%;
+  /* Green buttons need dark text for contrast */
+  --color-on-primary: hsl(132, 50%, 10%);
 }
 
 main.color-3.bg-2 {
-  --color-primary-lightness: 22%;
-  --color-accent-saturation: 74%;
-  --color-accent-lightness: 64%;
+  /* Navy/Indigo theme in dark mode - significantly lighter accent for contrast */
+  --color-primary-lightness: 32%;
+  --color-accent-saturation: 78%;
+  --color-accent-lightness: 72%;
 }
 
 main {
@@ -278,30 +332,34 @@ main {
     var(--color-accent-saturation),
     var(--color-accent-lightness)
   );
-  --shadow-soft: 0 0.6rem 1.2rem hsla(
-    var(--primary-hue),
-    var(--color-accent-saturation),
-    var(--color-accent-lightness),
-    0.18
-  );
-  --shadow-card: 0 0.8rem 1.6rem hsla(
-    var(--primary-hue),
-    var(--color-accent-saturation),
-    var(--color-accent-lightness),
-    0.2
-  );
-  --shadow-floating: 0 1rem 1.8rem hsla(
-    var(--primary-hue),
-    var(--color-accent-saturation),
-    var(--color-accent-lightness),
-    0.22
-  );
-  --shadow-elevated: 0 1.4rem 2.6rem hsla(
-    var(--primary-hue),
-    var(--color-accent-saturation),
-    var(--color-accent-lightness),
-    0.24
-  );
+  --shadow-soft: 0 0.6rem 1.2rem
+    hsla(
+      var(--primary-hue),
+      var(--color-accent-saturation),
+      var(--color-accent-lightness),
+      0.18
+    );
+  --shadow-card: 0 0.8rem 1.6rem
+    hsla(
+      var(--primary-hue),
+      var(--color-accent-saturation),
+      var(--color-accent-lightness),
+      0.2
+    );
+  --shadow-floating: 0 1rem 1.8rem
+    hsla(
+      var(--primary-hue),
+      var(--color-accent-saturation),
+      var(--color-accent-lightness),
+      0.22
+    );
+  --shadow-elevated: 0 1.4rem 2.6rem
+    hsla(
+      var(--primary-hue),
+      var(--color-accent-saturation),
+      var(--color-accent-lightness),
+      0.24
+    );
   --shadow-nav: 0 1.6rem 2.4rem hsla(var(--primary-hue), 68%, 42%, 20%);
 }
 
@@ -529,5 +587,148 @@ img {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* ============================================
+   GLOBAL LINK HOVER EFFECT
+   ============================================ */
+
+a,
+button {
+  cursor: pointer;
+}
+
+/* Subtle selection color */
+::selection {
+  background: hsla(var(--primary-hue), 70%, 50%, 0.3);
+  color: inherit;
+}
+
+/* ============================================
+   SCROLLBAR STYLING (WebKit)
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(var(--primary-hue), 50%, 50%, 0.4);
+  border-radius: 10px;
+  border: 2px solid var(--color-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--primary-hue), 50%, 50%, 0.6);
+}
+
+main.bg-2 {
+  &::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-track {
+    background: var(--color-light);
+  }
+
+  &::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb {
+    border-color: var(--color-light);
+  }
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsla(var(--primary-hue), 50%, 50%, 0.4) var(--color-light);
+}
+
+/* ============================================
+   BEAUTIFUL FOCUS RINGS (Accessibility)
+   ============================================ */
+
+/* Remove default outline */
+:focus {
+  outline: none;
+}
+
+/* Beautiful focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+  transition: outline-offset 0.2s ease;
+}
+
+/* Buttons and interactive elements */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px hsla(var(--primary-hue), 70%, 50%, 0.2);
+}
+
+/* Input focus */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 0;
+  box-shadow: 0 0 0 4px hsla(var(--primary-hue), 70%, 50%, 0.15);
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  background: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  border-radius: var(--border-radius-3);
+  z-index: 10000;
+  transition: top 0.3s ease;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
+/* ============================================
+   SMOOTH IMAGE LOADING (Blur-up effect)
+   ============================================ */
+
+img {
+  transition:
+    filter 0.4s ease,
+    opacity 0.4s ease;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img[loading="lazy"].loaded,
+img:not([loading="lazy"]) {
+  opacity: 1;
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCES
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

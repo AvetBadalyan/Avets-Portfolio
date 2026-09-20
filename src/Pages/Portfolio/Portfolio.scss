@@ -1,101 +1,424 @@
-#portfolio h2 {
-  margin: var(--space-xl) auto;
+/* ============================================
+   PORTFOLIO SECTION - THE STAR
+   ============================================ */
+
+.portfolio {
+  padding: var(--section-padding-block) 0;
+  background: var(--color-light);
 }
 
-.portfolio__categories {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xl);
+/* ============================================
+   HEADER
+   ============================================ */
+
+.portfolio__header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
 }
 
-.portfolio__category-controls {
+.portfolio__subtitle {
+  color: var(--color-dark);
+  font-size: var(--font-size-body);
+  max-width: 50ch;
+  margin: var(--space-md) auto 0;
+}
+
+/* ============================================
+   CATEGORY FILTERS
+   ============================================ */
+
+.portfolio__filters {
   display: flex;
   justify-content: center;
-  gap: var(--control-cluster-gap);
   flex-wrap: wrap;
-  width: 100%;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-3xl);
 }
 
-.btn.cat__btn {
-  text-transform: capitalize;
-  transition: var(--transition);
-  border: 1px solid var(--color-accent);
+.portfolio__filter {
+  position: relative;
+  padding: var(--space-sm) var(--space-xl);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  color: var(--color-dark);
   font-size: var(--font-size-body-sm);
   font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: var(--transition-base);
+  overflow: hidden;
 
   &:hover {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  &--active {
+    background: var(--color-accent);
+    color: var(--color-on-primary);
+    border-color: transparent;
+  }
+
+  &--active:hover {
     color: var(--color-on-primary);
   }
 }
 
-.portfolio__projects {
-  width: 100%;
+/* ============================================
+   PROJECTS GRID - BENTO STYLE
+   ============================================ */
+
+.portfolio__grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(var(--grid-min-card-wide), 100%), 41.6rem)
-  );
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
+  grid-auto-flow: dense;
+}
 
-  .card.portfolio__project {
-    animation: animateProject var(--duration-slow) var(--easing-default) forwards;
-  }
+/* Featured items span 2 columns */
+.portfolio__item--featured {
+  grid-column: span 2;
 
-  .portfolio__project {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    box-shadow: var(--shadow-card);
-
-    h4 {
-      margin: 0;
-      line-height: 1.2;
-    }
-  }
-
-  .portfolio__project-image {
-    width: 100%;
-    height: var(--portfolio-card-image-height);
-    background: var(--color-light);
-    border-radius: var(--border-radius-2);
-    overflow: hidden;
-
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-  p {
-    margin: 0;
-    font-size: var(--font-size-body);
-    flex: 1;
-  }
-
-  .portfolio__project-cta {
-    display: flex;
-    gap: var(--control-gap);
-    margin-top: auto;
+  .project-card__image-wrapper {
+    height: 36rem;
   }
 }
 
-// Media Queries
-@media screen and (max-width: 600px) {
-  .portfolio__category-controls {
+.portfolio__item--normal {
+  .project-card__image-wrapper {
+    height: 26rem;
+  }
+}
+
+/* ============================================
+   PROJECT CARD
+   ============================================ */
+
+.project-card {
+  position: relative;
+  border-radius: var(--border-radius-1);
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: box-shadow var(--duration-slow) cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px var(--color-accent);
+  }
+}
+
+.project-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--easing-default);
+}
+
+/* Image zoom on hover/focus (CSS-driven so keyboard focus works too) */
+.project-card:hover .project-card__image,
+.project-card:focus-within .project-card__image {
+  transform: scale(1.08);
+}
+
+/* ============================================
+   HOVER / FOCUS OVERLAY (Desktop)
+   ============================================ */
+
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-xl);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--easing-default);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+/* Reveal on pointer hover AND keyboard focus so the Demo/Code links are
+   reachable and visible for keyboard users, not just on mouse hover. */
+.project-card:hover .project-card__overlay,
+.project-card:focus-within .project-card__overlay {
+  opacity: 1;
+}
+
+.project-card__overlay-content {
+  width: 100%;
+}
+
+.project-card__category {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-on-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 100px;
+  margin-bottom: var(--space-sm);
+}
+
+.project-card__title {
+  color: white;
+  font-size: var(--font-size-h4);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.project-card__techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.project-card__tech {
+  padding: 0.4rem 0.8rem;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--border-radius-3);
+  backdrop-filter: blur(4px);
+}
+
+.project-card__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.project-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-body-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--border-radius-3);
+  transition: var(--transition-fast);
+
+  svg {
+    font-size: var(--font-size-xs); /* non-type: tiny icon glyph */
+  }
+
+  &--primary {
+    background: white;
+    /* Fixed dark ink: the overlay is dark in BOTH themes, so this must not
+       track --color-black (which inverts to near-white in dark mode and
+       would make white-on-white text). */
+    color: #1a1a1a;
+
+    &:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+  }
+
+  &--secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    &:hover {
+      background: white;
+      /* Fixed dark ink — overlay is dark in both themes, so must not use
+         --color-black (which inverts to near-white in dark mode). */
+      color: #1a1a1a;
+      border-color: white;
+    }
+  }
+}
+
+/* ============================================
+   CARD INFO (caption — always visible)
+   Desktop: compact title + category (rich detail lives in the hover/focus
+   overlay). Mobile: full title + description + links, since there is no
+   hover overlay on touch devices.
+   ============================================ */
+
+.project-card__info {
+  display: block;
+  padding: var(--space-lg);
+}
+
+.project-card__info-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.project-card__title-static {
+  font-size: var(--font-size-card-title);
+  color: var(--color-black);
+  margin: 0;
+}
+
+.project-card__category-static {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-card__description {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-dark);
+  line-height: 1.6;
+  margin: var(--space-sm) 0 var(--space-md);
+
+  /* Limit to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  /* Description is redundant with the hover overlay on desktop; show it only
+     where there is no overlay (touch/mobile). */
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.project-card__links {
+  display: flex;
+  gap: var(--space-md);
+
+  /* On desktop the overlay provides the actions; keep the caption compact. */
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.project-card__link {
+  color: var(--color-accent);
+  font-size: var(--font-size-body-sm);
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 1200px) {
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio__item--featured {
+    grid-column: span 2;
+
+    .project-card__image-wrapper {
+      height: 32rem;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .portfolio__item--featured {
+    grid-column: span 1;
+
+    .project-card__image-wrapper {
+      height: 24rem;
+    }
+  }
+
+  .portfolio__item--normal .project-card__image-wrapper {
+    height: 22rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .portfolio__item--featured .project-card__image-wrapper,
+  .portfolio__item--normal .project-card__image-wrapper {
+    height: 22rem;
+  }
+
+  .portfolio__filters {
     gap: var(--space-xs);
+    margin-bottom: var(--space-2xl);
   }
 
-  .btn.cat__btn {
-    padding: var(--space-sm) var(--space-sm);
+  .portfolio__filter {
+    padding: var(--space-xs) var(--space-lg);
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio__item--featured .project-card__image-wrapper,
+  .portfolio__item--normal .project-card__image-wrapper {
+    height: 18rem;
+  }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+main.bg-2 {
+  .portfolio {
+    background: var(--color-light);
   }
 
-  .portfolio__projects {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-sm);
+  .portfolio__subtitle {
+    color: hsl(0, 0%, 80%);
+  }
+
+  .project-card {
+    background: hsl(var(--primary-hue), 18%, 12%);
+
+    &:hover {
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 0 1px var(--color-accent);
+    }
+  }
+
+  .project-card__title-static {
+    color: hsl(0, 0%, 96%);
+  }
+
+  .project-card__description {
+    color: hsl(0, 0%, 80%);
+  }
+
+  .portfolio__filter {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: hsl(0, 0%, 80%);
+
+    &:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
   }
 }

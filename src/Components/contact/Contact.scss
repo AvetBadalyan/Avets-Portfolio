@@ -1,65 +1,246 @@
+/* ============================================
+   CONTACT SECTION - Centered Card Design
+   ============================================ */
+
 .contact {
+  padding: var(--section-padding-block) 0;
+  background: var(--color-light);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.contact__header {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.contact__subtitle {
+  color: var(--color-dark);
+  font-size: var(--font-size-subtitle);
+  margin: var(--space-sm) 0 0;
+}
+
+/* ============================================
+   CONTACT CARD
+   ============================================ */
+
+.contact__card {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-3xl);
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-1);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* ============================================
+   STATUS & LOCATION
+   ============================================ */
+
+.contact__status {
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: hsla(120, 70%, 45%, 0.1);
+  color: hsl(120, 70%, 35%);
+  font-size: var(--font-size-body-sm);
+  font-weight: 600;
+  border-radius: 100px;
+  margin-bottom: var(--space-md);
+}
 
-  h2 {
-    margin-bottom: var(--section-heading-gap);
+.contact__status-dot {
+  width: 10px;
+  height: 10px;
+  background: hsl(120, 70%, 45%);
+  border-radius: 50%;
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
 
-  .contact__container {
-    display: flex;
-    justify-content: center;
-    gap: var(--control-cluster-gap);
-    flex-wrap: wrap;
-    width: 100%;
+.contact__location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  color: var(--color-dark);
+  font-size: var(--font-size-body-sm);
+  margin-bottom: var(--space-2xl);
 
-    .contact__link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--control-gap);
-      text-decoration: none;
-      color: var(--color-dark);
-      transition: var(--transition-base);
-      border: 2px solid transparent;
-      border-radius: var(--control-radius);
-      padding: var(--control-padding);
-      box-shadow: var(--shadow-card);
+  svg {
+    color: var(--color-accent);
+  }
+}
 
-      &:hover {
-        border-color: var(--color-accent);
-        color: var(--color-black);
-        transform: translateY(-0.4rem);
-      }
+/* ============================================
+   CONTACT GRID
+   ============================================ */
 
-      svg {
-        font-size: var(--icon-size);
-        line-height: 1;
-        flex-shrink: 0;
-      }
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
 
-      span {
-        font-size: var(--font-size-subtitle);
-        font-weight: 600;
-        line-height: 1.2;
-      }
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--color-white);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-2);
+  text-decoration: none;
+  transition: var(--transition-base);
+
+  &:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 12px 30px hsla(var(--primary-hue), 70%, 50%, 0.18);
+
+    .contact__item-icon {
+      transform: scale(1.1);
     }
   }
 }
 
-@media screen and (max-width: 600px) {
-  .contact {
-    .contact__container {
-      flex-direction: column;
-      gap: var(--space-md);
+.contact__item-icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-2);
+  font-size: var(--icon-size-lg);
+  flex-shrink: 0;
+  /* Unified accent tint instead of four different brand colors */
+  background: hsla(var(--primary-hue), 70%, 50%, 0.1);
+  color: var(--color-accent);
+  transition: transform var(--duration-base) var(--easing-default);
+}
 
-      .contact__link {
-        width: 100%;
-      }
+.contact__item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.contact__item-label {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-dark);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact__item-value {
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+/* ============================================
+   MESSAGE
+   ============================================ */
+
+.contact__message {
+  color: var(--color-dark);
+  font-size: var(--font-size-body);
+  line-height: 1.7;
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 600px) {
+  .contact__card {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .contact__item {
+    padding: var(--space-md);
+  }
+
+  .contact__item-icon {
+    width: 48px;
+    height: 48px;
+    font-size: var(--icon-size-md);
+  }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+main.bg-2 {
+  .contact {
+    background: var(--color-light);
+  }
+
+  .contact__card {
+    /* Solid dark background */
+    background: hsl(var(--primary-hue), 18%, 14%);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .contact__subtitle {
+    color: hsl(0, 0%, 82%);
+  }
+
+  .contact__item {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
     }
+  }
+
+  .contact__item-value {
+    color: hsl(0, 0%, 96%);
+  }
+
+  .contact__item-label {
+    color: hsl(0, 0%, 75%);
+  }
+
+  .contact__message {
+    color: hsl(0, 0%, 82%);
+  }
+
+  .contact__status {
+    background: hsla(120, 70%, 45%, 0.18);
+    color: hsl(120, 70%, 58%);
+  }
+
+  .contact__location {
+    color: hsl(0, 0%, 78%);
   }
 }
