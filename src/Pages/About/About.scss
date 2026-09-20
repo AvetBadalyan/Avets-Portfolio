@@ -243,27 +243,27 @@ main.bg-2 {
   .about__languages {
     /* Solid dark background */
     background: hsl(var(--primary-hue), 18%, 14%);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--glass-border);
   }
 
   .about__languages-title {
-    color: hsl(0, 0%, 96%);
+    color: var(--color-black);
   }
 
   .about__language-name {
-    color: hsl(0, 0%, 94%);
+    color: var(--color-black);
   }
 
   .about__language-level {
-    color: hsl(0, 0%, 70%);
+    color: var(--color-dark);
   }
 
   .about__text p {
-    color: hsl(0, 0%, 82%);
+    color: var(--color-dark);
   }
 
   .about__subheading {
-    color: hsl(0, 0%, 96%);
+    color: var(--color-black);
   }
 
   .about__highlights {
@@ -271,10 +271,10 @@ main.bg-2 {
   }
 
   .about__highlight {
-    color: hsl(0, 0%, 82%);
+    color: var(--color-dark);
 
     strong {
-      color: hsl(0, 0%, 96%);
+      color: var(--color-black);
     }
   }
 }

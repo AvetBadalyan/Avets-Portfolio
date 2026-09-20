@@ -1,16 +1,16 @@
-import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 /**
  * TiltCard - 3D tilt effect on hover (like Apple TV app icons)
  */
-const TiltCard = ({ 
-  children, 
-  className = '', 
-  tiltAmount = 10, 
+const TiltCard = ({
+  children,
+  className = "",
+  tiltAmount = 10,
   glareEnabled = true,
   scale = 1.02,
-  ...props 
+  ...props
 }) => {
   const cardRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -18,22 +18,22 @@ const TiltCard = ({
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
-    
+
     // Calculate tilt (inverted for natural feel)
     const tiltX = (mouseY / (rect.height / 2)) * -tiltAmount;
     const tiltY = (mouseX / (rect.width / 2)) * tiltAmount;
-    
+
     // Calculate glare position
     const glareX = ((e.clientX - rect.left) / rect.width) * 100;
     const glareY = ((e.clientY - rect.top) / rect.height) * 100;
-    
+
     setTilt({ x: tiltX, y: tiltY });
     setGlare({ x: glareX, y: glareY, opacity: 0.15 });
   };
@@ -55,28 +55,28 @@ const TiltCard = ({
         scale: tilt.x !== 0 || tilt.y !== 0 ? scale : 1,
       }}
       transition={{
-        type: 'spring',
+        type: "spring",
         stiffness: 400,
         damping: 30,
       }}
       style={{
-        transformStyle: 'preserve-3d',
-        perspective: '1000px',
+        transformStyle: "preserve-3d",
+        perspective: "1000px",
       }}
       {...props}
     >
       {children}
-      
+
       {/* Glare effect */}
       {glareEnabled && (
         <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             inset: 0,
-            pointerEvents: 'none',
-            borderRadius: 'inherit',
+            pointerEvents: "none",
+            borderRadius: "inherit",
             background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,${glare.opacity}), transparent 50%)`,
-            transition: 'opacity 0.3s ease',
+            transition: "opacity var(--duration-base) var(--easing-default)",
             zIndex: 10,
           }}
         />

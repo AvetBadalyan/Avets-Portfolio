@@ -103,11 +103,6 @@
   --section-copy-margin-top: var(--space-xs);
   --section-copy-margin-bottom: var(--space-5xl);
   --section-copy-margin-bottom-tablet: var(--space-4xl);
-  --panel-padding: var(--space-lg);
-  --panel-padding-compact: var(--space-lg);
-  --panel-padding-spacious: var(--space-xl);
-  --panel-gap: var(--space-lg);
-  --panel-gap-compact: var(--space-md);
   --card-padding: var(--space-xl);
   --card-padding-mobile: var(--space-lg);
   --card-radius: var(--border-radius-1);
@@ -616,25 +611,6 @@ select:focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: 0;
   box-shadow: 0 0 0 var(--focus-ring-glow) var(--focus-ring-glow-color);
-}
-
-/* Skip link for accessibility */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 1rem 2rem;
-  background: var(--color-accent);
-  color: white;
-  font-weight: 600;
-  border-radius: var(--border-radius-3);
-  z-index: 10000;
-  transition: top 0.3s ease;
-
-  &:focus {
-    top: 1rem;
-  }
 }
 
 /* NOTE: Image fade-in is owned by the LazyImage component (framer-motion +

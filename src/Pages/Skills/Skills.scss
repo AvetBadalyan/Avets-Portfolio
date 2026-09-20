@@ -182,7 +182,7 @@ main.bg-2 {
   .skill-card {
     /* Solid dark background instead of transparent glass */
     background: hsl(var(--primary-hue), 18%, 16%);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--glass-border);
 
     &:hover {
       box-shadow:
@@ -192,8 +192,7 @@ main.bg-2 {
   }
 
   .skill-card__name {
-    /* Ensure skill names are bright white for readability */
-    color: hsl(0, 0%, 95%);
+    color: var(--color-black);
   }
 
   .skill-card__level {

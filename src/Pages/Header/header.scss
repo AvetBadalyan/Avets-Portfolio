@@ -171,6 +171,17 @@
   position: relative;
   overflow: hidden;
 
+  /* overflow:hidden clips the global outline-based focus ring.
+     Replace with an inset box-shadow so the ring is drawn inside the
+     box model and not clipped. */
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+      inset 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
+        var(--focus-ring-glow-color);
+  }
+
   /* Shine effect on hover */
   &::after {
     content: "";
@@ -537,10 +548,8 @@
   letter-spacing: -0.02em;
 }
 
-/* Ensure stat numbers are visible in dark mode with lighter accent */
-main.bg-2 .hero__stat-number {
-  color: hsl(var(--primary-hue), 80%, 65%);
-}
+/* Dark mode: --color-accent is already lightened to 72% in main.bg-2,
+   so stat numbers pick it up automatically — no override needed. */
 
 .hero__stat-label {
   font-size: var(--font-size-xs);

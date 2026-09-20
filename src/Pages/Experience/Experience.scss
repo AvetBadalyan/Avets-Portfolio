@@ -365,7 +365,7 @@ main.bg-2 {
   .experience__card {
     /* Solid dark background for cards */
     background: hsl(var(--primary-hue), 18%, 14%);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--glass-border);
 
     &:hover {
       box-shadow:
@@ -375,13 +375,13 @@ main.bg-2 {
   }
 
   .experience__company {
-    color: hsl(0, 0%, 96%);
+    color: var(--color-black);
   }
 
   .experience__description,
   .experience__duration,
   .experience__highlights li {
-    color: hsl(0, 0%, 82%);
+    color: var(--color-dark);
   }
 
   .experience__dot {
