@@ -83,15 +83,6 @@
   --line-height-body: 1.7;
   --line-height-heading: 1.15;
 
-  /* BUTTON PRIMITIVES */
-  --button-gap: var(--space-md);
-  --button-padding-y: 1rem;
-  --button-padding-x: var(--space-2xl);
-  --button-padding-y-mobile: var(--space-sm);
-  --button-padding-x-mobile: var(--space-xl);
-  --button-padding-y-sm: var(--space-xs);
-  --button-padding-x-sm: 1rem;
-
   /* BORDER RADIUS */
   --border-radius-1: 2rem;
   --border-radius-2: 1.2rem;
@@ -141,6 +132,7 @@
   --z-navbar: 100;
   --z-modal-backdrop: 200;
   --z-modal: 210;
+  --z-cursor-glow: 300; /* decorative pointer glow, above all surfaces */
 
   /* BREAKPOINTS (for reference - SCSS doesn't support var() in media queries)
      Mobile-first breakpoints:
@@ -163,10 +155,13 @@
   --transition: all var(--duration-slow) var(--easing-default);
   --transition-base: all var(--duration-base) var(--easing-smooth);
 
-  /* GLASSMORPHISM */
+  /* GLASSMORPHISM
+     Light mode: border must be a dark-ink tint so it's visible on white
+     cards (a white-based border disappears on white). Dark mode overrides
+     --glass-border to a white tint in main.bg-2 below. */
   --glass-bg: rgba(255, 255, 255, 0.08);
   --glass-bg-solid: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-border: hsla(var(--primary-hue), 20%, 30%, 0.18);
   --glass-blur: 20px;
 
   /* RGB channels for the ink color, used in rgba() where a var() color
@@ -400,57 +395,78 @@ img {
 }
 
 /* GENERAL BUTTON STYLES */
+/* ============================================
+   SHARED BUTTON SYSTEM
+   One .btn used across every section. Variants: --primary (filled),
+   --outline (tonal/soft). Size: --sm for card actions.
+   Filled buttons use --color-primary (stays 41% lightness in dark mode) so
+   white text keeps contrast — NOT --color-accent, which lightens to 72% in
+   dark mode and would give white-on-pale-purple.
+   ============================================ */
 .btn {
-  display: flex;
+  display: inline-flex;
   width: fit-content;
   align-items: center;
   justify-content: center;
-  gap: var(--button-gap);
-  background: var(--color-light);
-  color: var(--color-black);
-  padding: var(--button-padding-y) var(--button-padding-x);
-  border: 2px solid transparent;
-  border-radius: var(--border-radius-2);
-  cursor: pointer;
-  font-size: var(--font-size-label);
-  font-weight: 500;
+  gap: var(--space-sm);
+  padding: 1.4rem 2.8rem;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  font-weight: 600;
   line-height: 1.1;
-  letter-spacing: var(--tracking-base);
+  text-decoration: none;
+  white-space: nowrap;
+  border: 2px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition-base);
 
   svg {
     font-size: 1em; /* non-type: icon scales with the button's own label size */
     flex-shrink: 0;
   }
 
-  &:hover {
-    background-color: transparent;
-    border-color: var(--color-light);
-    transform: translateY(-0.4rem);
+  &:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
-  &.white {
-    background: var(--color-white);
-
-    &:hover {
-      background: transparent;
-      border-color: var(--color-white);
-    }
-  }
-
-  &.primary {
+  /* Filled — the main call to action */
+  &--primary {
     background: var(--color-primary);
     color: var(--color-on-primary);
+    box-shadow: 0 4px 20px hsla(var(--primary-hue), 70%, 50%, 0.35);
 
     &:hover {
-      background: transparent;
-      border-color: var(--color-accent);
-      color: var(--color-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px hsla(var(--primary-hue), 70%, 50%, 0.45);
     }
   }
 
-  &.sm {
-    padding: var(--button-padding-y-sm) var(--button-padding-x-sm);
+  /* Tonal/soft — secondary action. A faint accent wash + accent text/border
+     reads as clearly interactive (more substantial than a bare outline) while
+     staying visually secondary to the filled --primary CTA. Fills on hover. */
+  &--outline {
+    background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    color: var(--color-accent);
+    border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+
+    &:hover {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+      border-color: var(--color-primary);
+      transform: translateY(-3px);
+    }
+  }
+
+  /* Small — for card actions (certificate/diploma, project links) */
+  &--sm {
+    padding: var(--space-sm) var(--space-lg);
     font-size: var(--font-size-body-sm);
+  }
+
+  &:active {
+    transform: translateY(-1px);
   }
 }
 
@@ -459,7 +475,16 @@ img {
   :root {
     --container-padding: 2.4rem;
   }
+}
 
+/* Tighter gutters on small phones so fixed-size nav controls fit ~320px. */
+@media screen and (max-width: 480px) {
+  :root {
+    --container-padding: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   section > p {
     width: 72%;
     margin-bottom: var(--section-copy-margin-bottom-tablet);
@@ -486,10 +511,6 @@ img {
 
   h4 {
     font-size: var(--font-size-h4-mobile);
-  }
-
-  .btn {
-    padding: var(--button-padding-y-mobile) var(--button-padding-x-mobile);
   }
 
   section > p {

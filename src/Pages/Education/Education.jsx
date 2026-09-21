@@ -83,7 +83,7 @@ const Education = () => {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="education__card-link"
+                      className="btn btn--outline btn--sm education__card-link"
                     >
                       <FaCertificate />
                       <span>View Certificate</span>
@@ -142,8 +142,9 @@ const Education = () => {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="education__card-link education__card-link--subtle"
+                      className="btn btn--outline btn--sm education__card-link"
                     >
+                      <FaCertificate />
                       <span>View Diploma</span>
                       <FaExternalLinkAlt />
                     </a>

@@ -25,8 +25,8 @@ const About = () => {
           {/* Left - Languages */}
           <motion.div
             className="about__sidebar"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
@@ -73,8 +73,8 @@ const About = () => {
           {/* Right - Text */}
           <motion.div
             className="about__text"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
@@ -131,7 +131,7 @@ const About = () => {
             <motion.a
               href={CV}
               download
-              className="about__cta"
+              className="btn btn--primary about__cta"
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
