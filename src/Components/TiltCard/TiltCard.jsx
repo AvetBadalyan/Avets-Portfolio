@@ -8,13 +8,11 @@ const TiltCard = ({
   children,
   className = "",
   tiltAmount = 10,
-  glareEnabled = true,
   scale = 1.02,
   ...props
 }) => {
   const cardRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -26,21 +24,14 @@ const TiltCard = ({
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
 
-    // Calculate tilt (inverted for natural feel)
     const tiltX = (mouseY / (rect.height / 2)) * -tiltAmount;
     const tiltY = (mouseX / (rect.width / 2)) * tiltAmount;
 
-    // Calculate glare position
-    const glareX = ((e.clientX - rect.left) / rect.width) * 100;
-    const glareY = ((e.clientY - rect.top) / rect.height) * 100;
-
     setTilt({ x: tiltX, y: tiltY });
-    setGlare({ x: glareX, y: glareY, opacity: 0.15 });
   };
 
   const handleMouseLeave = () => {
     setTilt({ x: 0, y: 0 });
-    setGlare({ x: 50, y: 50, opacity: 0 });
   };
 
   return (
@@ -69,21 +60,6 @@ const TiltCard = ({
       {...props}
     >
       {children}
-
-      {/* Glare effect */}
-      {glareEnabled && (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            pointerEvents: "none",
-            borderRadius: "inherit",
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,${glare.opacity}), transparent 50%)`,
-            transition: "opacity var(--duration-base) var(--easing-default)",
-            zIndex: 10,
-          }}
-        />
-      )}
     </motion.div>
   );
 };

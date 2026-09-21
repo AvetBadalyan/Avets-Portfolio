@@ -11,7 +11,6 @@ const SkillCard = ({ skill, index }) => {
         className="skill-card"
         tiltAmount={8}
         scale={1.03}
-        glareEnabled={true}
       >
         <div className="skill-card__icon">
           <img src={skill.logo} alt={skill.skillName} />
