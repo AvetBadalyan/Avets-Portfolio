@@ -31,12 +31,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity var(--duration-base) var(--easing-default);
-
-  &--loaded {
-    opacity: 1;
-  }
+  /* Opacity is managed entirely by Framer Motion (animate={{ opacity: ... }})
+     on the <motion.img>. No CSS opacity needed here. */
 }
 
 /* Light mode skeleton */

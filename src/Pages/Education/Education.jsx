@@ -54,7 +54,7 @@ const Education = () => {
           </motion.h3>
 
           <div className="education__grid">
-            {techCerts.map((item, index) => (
+            {techCerts.map((item) => (
               <motion.article
                 key={item.id}
                 className="education__card"
@@ -113,7 +113,7 @@ const Education = () => {
           </motion.h3>
 
           <div className="education__grid education__grid--academic">
-            {academic.map((item, index) => (
+            {academic.map((item) => (
               <motion.article
                 key={item.id}
                 className="education__card education__card--academic"

@@ -109,6 +109,9 @@
 
 .project-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* stretch to fill grid cell for equal heights */
   border-radius: var(--border-radius-1);
   overflow: hidden;
   background: var(--color-white);
@@ -126,6 +129,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .project-card__image {
@@ -142,16 +146,19 @@
 }
 
 /* ============================================
-   HOVER / FOCUS OVERLAY (Desktop)
+   HOVER / FOCUS OVERLAY
+   Gradient from bottom, content anchored bottom-left.
+   Hidden on touch (≤768px) — no hover on touch devices.
    ============================================ */
 
 .project-card__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.85) 100%
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0) 100%
   );
   display: flex;
   align-items: flex-end;
@@ -164,8 +171,6 @@
   }
 }
 
-/* Reveal on pointer hover AND keyboard focus so the Demo/Code links are
-   reachable and visible for keyboard users, not just on mouse hover. */
 .project-card:hover .project-card__overlay,
 .project-card:focus-within .project-card__overlay {
   opacity: 1;
@@ -175,42 +180,36 @@
   width: 100%;
 }
 
-.project-card__category {
+.project-card__overlay-category {
   display: inline-block;
-  padding: 0.4rem 1rem;
+  padding: 0.3rem 1rem;
   background: var(--color-accent);
-  color: var(--color-on-primary);
+  color: white;
   font-size: var(--font-size-xs);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   border-radius: 100px;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
-.project-card__title {
+.project-card__overlay-title {
   color: white;
+  font-family: var(--font-family-display);
   font-size: var(--font-size-h4);
   font-weight: 700;
-  margin-bottom: var(--space-md);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.2;
 }
 
-.project-card__techs {
+.project-card__overlay-techs {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
-.project-card__tech {
-  padding: 0.4rem 0.8rem;
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  border-radius: var(--border-radius-3);
-  backdrop-filter: blur(4px);
-}
-
-.project-card__actions {
+.project-card__overlay-actions {
   display: flex;
   gap: var(--space-sm);
 }
@@ -270,14 +269,13 @@
 }
 
 /* ============================================
-   CARD INFO (caption — always visible)
-   Desktop: compact title + category (rich detail lives in the hover/focus
-   overlay). Mobile: full title + description + links, since there is no
-   hover overlay on touch devices.
+   CARD INFO — flex column so height fills grid cell uniformly
    ============================================ */
 
 .project-card__info {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding: var(--space-lg);
 }
 
@@ -286,6 +284,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .project-card__title-static {
@@ -307,39 +306,73 @@
   font-size: var(--font-size-body-sm);
   color: var(--color-dark);
   line-height: 1.6;
-  margin: var(--space-sm) 0 var(--space-md);
+  margin: 0 0 var(--space-md);
 
-  /* Limit to 3 lines */
+  /* 3-line clamp keeps all cards visually uniform */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
 
-  /* Description is redundant with the hover overlay on desktop; show it only
-     where there is no overlay (touch/mobile). */
-  @media (min-width: 769px) {
-    display: none;
+/* Tags in caption — hidden on desktop (overlay shows them on dark bg).
+   Visible on mobile with solid colors so they read on light backgrounds. */
+.project-card__caption-techs {
+  display: none;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+
+  /* Override the dark-optimized inline colors with solid readable styles */
+  .tech-tag {
+    background: hsla(var(--primary-hue), 30%, 90%, 1) !important;
+    color: hsl(var(--primary-hue), 40%, 25%) !important;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
   }
 }
 
-.project-card__links {
-  display: flex;
-  gap: var(--space-md);
-
-  /* On desktop the overlay provides the actions; keep the caption compact. */
-  @media (min-width: 769px) {
-    display: none;
-  }
+main.bg-2 .project-card__caption-techs .tech-tag {
+  /* Dark mode — original overlay colors work fine */
+  background: unset !important;
+  color: unset !important;
 }
 
-.project-card__link {
-  color: var(--color-accent);
-  font-size: var(--font-size-body-sm);
-  font-weight: 600;
-  text-decoration: none;
+/* Mobile-only buttons — pinned to bottom via margin-top: auto.
+   Hidden on desktop where the overlay provides the actions. */
+.project-card__mobile-actions {
+  display: none;
+  gap: var(--space-sm);
+  margin-top: auto;
+  padding-top: var(--space-md);
 
-  &:hover {
-    text-decoration: underline;
+  /* Light background context — override the overlay-white button styles */
+  .project-card__btn--primary {
+    background: var(--color-accent);
+    color: var(--color-on-primary);
+    border: none;
+
+    &:hover {
+      background: var(--color-primary);
+    }
+  }
+
+  .project-card__btn--secondary {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent);
+      color: var(--color-on-primary);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
   }
 }
 

@@ -62,6 +62,9 @@ const TiltCard = ({
       style={{
         transformStyle: "preserve-3d",
         perspective: "1000px",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
       }}
       {...props}
     >

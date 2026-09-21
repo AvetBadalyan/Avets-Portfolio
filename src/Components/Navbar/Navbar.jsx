@@ -238,6 +238,7 @@ const Navbar = () => {
 
                 {/* Theme toggle in mobile menu */}
                 <motion.button
+                  type="button"
                   className="nav__mobile-theme"
                   onClick={toggleTheme}
                   initial={{ opacity: 0, y: 20 }}

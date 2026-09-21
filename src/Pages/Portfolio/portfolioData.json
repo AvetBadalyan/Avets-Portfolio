@@ -9,7 +9,8 @@
       "siteName": "Music App",
       "webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/",
       "featured": true,
-      "tech": ["React", "Node.js", "PostgreSQL", "AWS"]
+      "tech": ["React", "Node.js", "PostgreSQL", "AWS"],
+      "challenge": "Built a scalable music streaming architecture handling real-time audio playback state across components and efficient querying of large song datasets with PostgreSQL and Supabase."
     },
     {
       "category": "Full Stack",
@@ -20,7 +21,8 @@
       "siteName": "EduScheduler",
       "webUrl": "https://edu-scheduler-aca.vercel.app",
       "featured": true,
-      "tech": ["React", "TypeScript", "Redux", "Supabase"]
+      "tech": ["React", "TypeScript", "Redux", "Supabase"],
+      "challenge": "Implemented a constraint satisfaction algorithm to automatically generate university schedules, resolving conflicts between lecturer availability, room capacity, and faculty requirements in polynomial time."
     },
     {
       "category": "React.JS",
@@ -51,7 +53,8 @@
       "siteName": "Avetbook Chat App",
       "webUrl": "https://avetbook-chat-app.onrender.com",
       "featured": true,
-      "tech": ["React", "Express", "Socket.io", "Zustand"]
+      "tech": ["React", "Express", "Socket.io", "Zustand"],
+      "challenge": "Engineered real-time bidirectional communication with Socket.io, managing connection states, typing indicators, and message delivery across multiple concurrent users while maintaining data consistency."
     },
     {
       "category": "MERN",
@@ -62,7 +65,8 @@
       "siteName": "Real Estate MERN App",
       "webUrl": "https://avets-real-estate.vercel.app",
       "featured": true,
-      "tech": ["MongoDB", "Express", "React", "Node.js"]
+      "tech": ["MongoDB", "Express", "React", "Node.js"],
+      "challenge": "Designed a complex property filtering system with multi-criteria search, geolocation queries, and interactive map integration while handling large datasets efficiently across 10 countries."
     },
     {
       "category": "MERN",
