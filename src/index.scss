@@ -53,7 +53,6 @@
   --font-size-xs: 1.2rem; /* 12px - badges, small labels, meta text */
   --font-size-body-sm: 1.4rem; /* 14px */
   --font-size-body: 1.6rem; /* 16px - base */
-  --font-size-label: 1.6rem; /* 16px - form/button label (own knob, tracks base) */
   --font-size-nav: 1.6rem; /* 16px - desktop nav link (own knob) */
   --font-size-subtitle: 1.8rem; /* 18px */
   --font-size-card-title: 1.8rem; /* 18px - card heading (own knob) */
@@ -74,11 +73,7 @@
   --icon-size-md: 2rem; /* 20px - medium inline icons */
   --icon-size-lg: 2.4rem; /* 24px - large icons, buttons */
   --icon-size-xl: 2.8rem; /* 28px - hero icons */
-  --icon-size: 3rem; /* 30px - inline content icons (contact, experience) */
-  --icon-size-nav: 3.2rem; /* 32px - navbar theme/palette icon */
-  --icon-size-burger: 3rem; /* 30px - navbar hamburger */
   --tracking-tight: 0;
-  --tracking-base: 0.015em;
   --tracking-display: -0.02em;
   --line-height-body: 1.7;
   --line-height-heading: 1.15;
@@ -90,49 +85,15 @@
 
   /* SEMANTIC LAYOUT TOKENS */
   --section-padding-block: var(--space-6xl);
-  --section-heading-gap: var(--space-md);
   --section-copy-margin-top: var(--space-xs);
   --section-copy-margin-bottom: var(--space-5xl);
   --section-copy-margin-bottom-tablet: var(--space-4xl);
-  --card-padding: var(--space-xl);
-  --card-padding-mobile: var(--space-lg);
-  --card-radius: var(--border-radius-1);
-  --hero-media-radius: var(--border-radius-1);
-  --grid-min-card-compact: 26rem;
-  --grid-min-card-default: 29rem;
-  --grid-min-card-wide: 31rem;
-  --grid-min-card-mobile: 22rem;
-  --control-padding: var(--space-lg);
-  --control-gap: var(--space-md);
-  --control-cluster-gap: var(--space-xl);
-  --control-radius: var(--border-radius-2);
 
-  /* MEDIA DIMENSION VARIABLES */
-  --hero-profile-width: 26rem;
-  --hero-profile-height: 34rem;
-  --hero-profile-tablet-width: 22rem;
-  --hero-profile-tablet-height: 29rem;
-  --hero-profile-mobile-width: 19rem;
-  --hero-profile-mobile-height: 24rem;
-  --experience-logo-size: 200px;
-  --experience-logo-size-mobile: 160px;
-  --skill-logo-size: 60px;
-  --skill-logo-size-mobile: 50px;
-  --education-card-image-height: 18rem;
-  --education-card-image-height-mobile: 16rem;
-  --portfolio-card-image-height: 14rem;
-  --language-progress-height: 2.4rem;
-  --navbar-logo-size: 3rem;
-  --theme-swatch-size: 3.6rem;
-  --theme-background-preview-width: 11rem;
-  --theme-background-preview-height: 4rem;
-
-  /* Z-INDEX SCALE */
+    /* Z-INDEX SCALE */
   --z-elevated: 10;
   --z-navbar: 100;
   --z-modal-backdrop: 200;
   --z-modal: 210;
-  --z-cursor-glow: 300; /* decorative pointer glow, above all surfaces */
 
   /* BREAKPOINTS (for reference - SCSS doesn't support var() in media queries)
      Mobile-first breakpoints:
@@ -450,7 +411,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: 1.4rem 2.8rem;
+  padding: var(--space-sm) var(--space-2xl); /* 12px 32px */
   font-family: var(--font-family-body);
   font-size: var(--font-size-body);
   font-weight: 600;
