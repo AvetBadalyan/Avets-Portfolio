@@ -1,16 +1,16 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import './LazyImage.scss';
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import "./LazyImage.scss";
 
 /**
  * LazyImage - Image component with lazy loading and fade-in effect
  */
-const LazyImage = ({ 
-  src, 
-  alt, 
-  className = '', 
-  wrapperClassName = '',
-  ...props 
+const LazyImage = ({
+  src,
+  alt,
+  className = "",
+  wrapperClassName = "",
+  ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -24,7 +24,7 @@ const LazyImage = ({
           observer.disconnect();
         }
       },
-      { rootMargin: '100px' }
+      { rootMargin: "100px" },
     );
 
     if (imgRef.current) {
@@ -37,16 +37,14 @@ const LazyImage = ({
   return (
     <div ref={imgRef} className={`lazy-image-wrapper ${wrapperClassName}`}>
       {/* Skeleton placeholder */}
-      {!isLoaded && (
-        <div className="lazy-image-skeleton" />
-      )}
-      
+      {!isLoaded && <div className="lazy-image-skeleton" />}
+
       {/* Actual image */}
       {isInView && (
         <motion.img
           src={src}
           alt={alt}
-          className={`lazy-image ${className} ${isLoaded ? 'lazy-image--loaded' : ''}`}
+          className={`lazy-image ${className}`}
           onLoad={() => setIsLoaded(true)}
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0 }}

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Contact from "./Components/contact/Contact";
-import CursorGlow from "./Components/CursorGlow/CursorGlow";
 import EasterEgg from "./Components/EasterEgg/EasterEgg";
 import Footer from "./Components/footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
@@ -33,7 +32,6 @@ const App = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <CursorGlow />
       <EasterEgg />
       <Navbar />
       <Header />

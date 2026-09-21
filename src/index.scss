@@ -297,6 +297,10 @@ main {
     var(--color-accent-saturation),
     var(--color-accent-lightness)
   );
+
+  /* Scroll-snap for smooth section-to-section transitions
+     Using 'proximity' for gentle guidance without forcing snapping */
+  scroll-snap-type: y proximity;
 }
 
 /* GENERAL CONTAINER CLASS */
@@ -312,6 +316,7 @@ section {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
   transition: var(--transition);
+  scroll-snap-align: start; /* Align section tops with scroll-snap */
 }
 
 section:nth-child(even) {
@@ -342,6 +347,42 @@ a {
 
   &:hover {
     color: var(--color-primary);
+  }
+}
+
+/* ============================================
+   ANIMATED LINK UNDERLINE
+   Underline expands from center on hover using ::after pseudo-element.
+   Apply .animated-link class to content links for this effect.
+   ============================================ */
+.animated-link {
+  position: relative;
+  display: inline-block;
+  color: var(--color-accent);
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transform: translateX(-50%);
+    transition: width var(--duration-base) var(--easing-smooth);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:hover {
+    color: var(--color-primary);
+
+    &::after {
+      background: var(--color-primary);
+    }
   }
 }
 
@@ -540,6 +581,11 @@ img {
   [data-aos] {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
+  }
+
+  /* Animated link underline completes instantly without transition */
+  .animated-link::after {
     transition: none !important;
   }
 }

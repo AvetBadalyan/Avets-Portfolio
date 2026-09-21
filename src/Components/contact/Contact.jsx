@@ -14,7 +14,7 @@ const contactItems = [
     icon: <FaEnvelope />,
     label: "Email",
     value: "avetbadalyan@gmail.com",
-    href: "mailto:avetbadalyan@gmail.com",
+    href: "mailto:avetbadalyan@gmail.com?subject=Let's%20Connect",
   },
   {
     icon: <FaPhone />,

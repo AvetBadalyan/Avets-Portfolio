@@ -114,8 +114,12 @@
 .nav__link-indicator {
   position: absolute;
   bottom: 0;
+  /* Framer Motion's layoutId writes an inline `transform` which prevents the
+     usual left:50%+translateX(-50%) trick. We use the separate `translate`
+     CSS property (distinct from `transform`) so it stacks on top of — and
+     doesn't conflict with — Framer Motion's inline transform matrix. */
   left: 50%;
-  transform: translateX(-50%);
+  translate: -50% 0;
   width: 60%;
   height: 3px;
   background: var(--color-accent);
