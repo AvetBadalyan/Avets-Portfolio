@@ -449,7 +449,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.4rem;
+  gap: var(--space-2xs);
   position: relative;
 
   /* Divider between stats */
