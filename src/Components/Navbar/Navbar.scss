@@ -176,6 +176,14 @@
   cursor: pointer;
   transition: all var(--duration-base) var(--easing-default);
 
+  /* The icon lives in an AnimatePresence <span>; make it flex-centered so the
+     glyph sits in the visual center of the circle (not on the text baseline). */
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);

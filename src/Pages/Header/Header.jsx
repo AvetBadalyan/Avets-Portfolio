@@ -1,5 +1,13 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { FaArrowDown, FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaArrowDown,
+  FaDownload,
+  FaGithub,
+  FaJs,
+  FaLinkedin,
+  FaNodeJs,
+  FaReact,
+} from "react-icons/fa";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { ReactTyped } from "react-typed";
 import CV from "../../assets/cv.pdf";
@@ -28,9 +36,24 @@ const Header = () => {
   ];
 
   const techBadges = [
-    { emoji: "⚛️", name: "React", position: "badge--1" },
-    { emoji: "🟢", name: "Node.js", position: "badge--2" },
-    { emoji: "💙", name: "TypeScript", position: "badge--3" },
+    {
+      icon: <FaReact />,
+      name: "React",
+      position: "badge--1",
+      color: "#61DAFB",
+    },
+    {
+      icon: <FaNodeJs />,
+      name: "Node.js",
+      position: "badge--2",
+      color: "#68A063",
+    },
+    {
+      icon: <FaJs />,
+      name: "JavaScript",
+      position: "badge--3",
+      color: "#F0DB4F",
+    },
   ];
 
   return (
@@ -77,7 +100,7 @@ const Header = () => {
             <MagneticButton
               as="a"
               href="#portfolio"
-              className="hero__btn hero__btn--primary"
+              className="btn btn--primary hero__btn"
               strength={0.2}
             >
               <span>View Projects</span>
@@ -86,7 +109,7 @@ const Header = () => {
             <MagneticButton
               as="a"
               href="#contact"
-              className="hero__btn hero__btn--outline"
+              className="btn btn--outline hero__btn"
               strength={0.2}
             >
               Let's Talk
@@ -95,7 +118,7 @@ const Header = () => {
               as="a"
               href={CV}
               download
-              className="hero__btn hero__btn--ghost"
+              className="btn btn--outline hero__btn"
               strength={0.15}
             >
               <FaDownload />
@@ -172,15 +195,17 @@ const Header = () => {
                 transition={{ delay: 0.8 + index * 0.15 }}
               >
                 <motion.span
+                  className="hero__badge-inner"
                   animate={reduceMotion ? undefined : floating.animate}
                   transition={reduceMotion ? undefined : { delay: index * 0.5 }}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
                 >
-                  {badge.emoji} {badge.name}
+                  <span
+                    className="hero__badge-icon"
+                    style={{ color: badge.color }}
+                  >
+                    {badge.icon}
+                  </span>
+                  {badge.name}
                 </motion.span>
               </motion.div>
             ))}

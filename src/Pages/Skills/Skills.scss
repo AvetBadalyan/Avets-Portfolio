@@ -109,6 +109,12 @@
   color: var(--color-black);
   text-align: center;
   line-height: 1.3;
+  /* Reserve two lines so cards whose label wraps (e.g. "Styled-Components")
+     stay the same height as single-line cards — uniform grid, no jitter. */
+  min-height: calc(2 * 1.3em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .skill-card__level {
@@ -180,9 +186,9 @@ main.bg-2 {
   }
 
   .skill-card {
-    /* Solid dark background instead of transparent glass */
+    /* Solid dark background instead of transparent glass;
+       border comes from the theme-aware --glass-border token. */
     background: hsl(var(--primary-hue), 18%, 16%);
-    border-color: var(--glass-border);
 
     &:hover {
       box-shadow:

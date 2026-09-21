@@ -5,6 +5,11 @@
 .experience {
   padding: var(--section-padding-block) 0;
   background: var(--color-white);
+  /* Timeline items reveal with a horizontal slide (framer-motion initial
+     x: ±60). Clip x so those off-screen start positions don't widen the page
+     while the section is still below the fold. `clip` (not `hidden`) avoids
+     creating a scroll container, so sticky/scroll elsewhere is unaffected. */
+  overflow-x: clip;
 }
 
 /* ============================================
@@ -304,29 +309,11 @@
   gap: var(--space-sm);
 }
 
-.experience__link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-lg);
-  background: transparent;
-  border: 1px solid var(--color-accent);
-  color: var(--color-accent);
-  font-size: var(--font-size-body-sm);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 100px;
-  transition: var(--transition-base);
-
-  svg {
-    font-size: 1rem; /* non-type: tiny inline icon */
-  }
-
-  &:hover {
-    background: var(--color-accent);
-    color: white;
-    transform: translateY(-2px);
-  }
+/* Styling from shared .btn / .btn--outline / .btn--sm; only the trailing
+   external-link glyph is tweaked here. */
+.experience__link svg {
+  font-size: 0.85em;
+  opacity: 0.7;
 }
 
 /* ============================================
@@ -390,15 +377,5 @@ main.bg-2 {
 
   .experience__tech-badge {
     background: hsla(var(--primary-hue), 70%, 50%, 0.2);
-  }
-
-  .experience__link {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
-
-    &:hover {
-      background: var(--color-accent);
-      color: white;
-    }
   }
 }

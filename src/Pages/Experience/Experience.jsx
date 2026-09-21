@@ -164,7 +164,7 @@ const Experience = () => {
                       href={job.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="experience__link"
+                      className="btn btn--outline btn--sm experience__link"
                     >
                       {job.linkText}
                       <FaExternalLinkAlt />
@@ -177,7 +177,7 @@ const Experience = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="experience__link"
+                        className="btn btn--outline btn--sm experience__link"
                       >
                         {link.text}
                         <FaExternalLinkAlt />

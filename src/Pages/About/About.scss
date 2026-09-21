@@ -174,28 +174,9 @@
    CTA BUTTON
    ============================================ */
 
+/* Layout only — all button styling comes from the shared .btn / .btn--primary */
 .about__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-2xl);
-  background: var(--color-accent);
-  color: var(--color-on-primary);
-  font-size: var(--font-size-body);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 100px;
   margin-top: var(--space-md);
-  transition: var(--transition-base);
-  box-shadow: 0 4px 15px hsla(var(--primary-hue), 70%, 50%, 0.3);
-
-  svg {
-    font-size: var(--icon-size-sm);
-  }
-
-  &:hover {
-    box-shadow: 0 8px 25px hsla(var(--primary-hue), 70%, 50%, 0.4);
-  }
 }
 
 /* ============================================

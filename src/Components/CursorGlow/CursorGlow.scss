@@ -1,0 +1,20 @@
+/* Decorative cursor-following glow.
+   Fixed + translate(-50%, -50%) centers it on the pointer; it only mounts
+   after the first mouse move so it never sits off-origin on load. */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40rem;
+  height: 40rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    hsla(var(--primary-hue), 70%, 50%, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: var(--z-cursor-glow);
+  translate: -50% -50%;
+  transition: opacity var(--duration-base) var(--easing-default);
+}

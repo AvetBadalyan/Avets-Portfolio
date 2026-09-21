@@ -1,15 +1,18 @@
 import { motion, useReducedMotion, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
+import "./CursorGlow.scss";
 
 /**
- * CursorGlow - Subtle glow effect that follows the cursor.
- * Skips rendering on touch devices and when the user prefers reduced motion.
+ * CursorGlow - subtle glow that follows the cursor.
+ * Not rendered on touch devices or when the user prefers reduced motion.
+ * Only mounts once the mouse actually moves, so it never sits off-origin
+ * at (0,0) on load (which would extend the page and cause horizontal scroll).
  */
 const CursorGlow = () => {
   const reduceMotion = useReducedMotion();
+  const [hasMoved, setHasMoved] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Smooth spring animation for cursor
   const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
   const cursorX = useSpring(0, springConfig);
   const cursorY = useSpring(0, springConfig);
@@ -20,47 +23,33 @@ const CursorGlow = () => {
     const handleMouseMove = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+      setHasMoved(true);
       setIsVisible(true);
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
+    const handleMouseLeave = () => setIsVisible(false);
 
     window.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
-
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [cursorX, cursorY, reduceMotion]);
 
-  // Don't render on touch devices or when reduced motion is requested.
+  // Skip on reduced-motion, touch devices, and until the cursor has moved.
   if (reduceMotion) return null;
-  if (typeof window !== "undefined" && "ontouchstart" in window) {
-    return null;
-  }
+  if (typeof window !== "undefined" && "ontouchstart" in window) return null;
+  if (!hasMoved) return null;
 
   return (
     <motion.div
+      aria-hidden="true"
+      className="cursor-glow"
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "400px",
-        height: "400px",
-        borderRadius: "50%",
-        background:
-          "radial-gradient(circle, hsla(var(--primary-hue), 70%, 50%, 0.08) 0%, transparent 70%)",
-        pointerEvents: "none",
-        zIndex: 9998,
         x: cursorX,
         y: cursorY,
-        translateX: "-50%",
-        translateY: "-50%",
         opacity: isVisible ? 1 : 0,
-        transition: "opacity var(--duration-base) var(--easing-default)",
       }}
     />
   );
