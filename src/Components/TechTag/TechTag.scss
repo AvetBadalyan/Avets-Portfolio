@@ -1,13 +1,7 @@
 /* ============================================
    TECH TAG COMPONENT
-   Reusable technology badge that matches the
-   project card tech badge styling.
-   
-   The tech colors (defined in techColors.js) use low-alpha
-   backgrounds with light text, optimized for dark overlays.
-   This component works in both contexts:
-   1. On dark overlays (project card hover) - colors work as-is
-   2. On light backgrounds - backdrop-filter enhances readability
+   Reusable technology badge. Colors are passed
+   inline from techColors.js.
    ============================================ */
 
 .tech-tag {
@@ -15,11 +9,7 @@
   align-items: center;
   font-weight: 600;
   border-radius: var(--border-radius-3);
-  backdrop-filter: blur(4px);
   white-space: nowrap;
-  transition:
-    transform var(--duration-fast) var(--easing-default),
-    box-shadow var(--duration-fast) var(--easing-default);
 }
 
 /* Size variants */
@@ -31,13 +21,4 @@
 .tech-tag--sm {
   padding: 0.25rem 0.6rem;
   font-size: calc(var(--font-size-xs) * 0.9);
-}
-
-/* ============================================
-   REDUCED MOTION
-   ============================================ */
-@media (prefers-reduced-motion: reduce) {
-  .tech-tag {
-    transition: none;
-  }
 }

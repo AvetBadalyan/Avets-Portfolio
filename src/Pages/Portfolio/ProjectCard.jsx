@@ -13,7 +13,6 @@ const ProjectCard = ({ project, index }) => {
       className="project-card"
       tiltAmount={6}
       scale={1.02}
-      glareEnabled={true}
     >
       {/* Image + hover overlay */}
       <div className="project-card__image-wrapper">
