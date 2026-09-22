@@ -34,7 +34,10 @@
   backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-1);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  /* Signature soft 40px-blur card shadow (one-off, not on the surface scale);
+     alpha rides --shadow-strength so it deepens in dark mode rather than
+     staying frozen at the light-mode value. */
+  box-shadow: 0 8px 40px rgba(0, 0, 0, calc(0.08 * var(--shadow-strength)));
   text-align: center;
 }
 
@@ -55,7 +58,7 @@
   color: var(--status-green);
   font-size: var(--font-size-body-sm);
   font-weight: 600;
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill);
   margin-bottom: var(--space-md);
 }
 
@@ -152,7 +155,7 @@
   font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--color-dark);
-  
+
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

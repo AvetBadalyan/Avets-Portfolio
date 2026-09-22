@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const KONAMI_CODE = [
   "ArrowUp",
@@ -18,40 +18,41 @@ const KONAMI_CODE = [
  * EasterEgg - Konami code reveals a fun animation
  */
 const EasterEgg = () => {
-  const [inputSequence, setInputSequence] = useState([]);
+  // Rolling buffer of recent keypresses. It never needs to render, so it lives
+  // in a ref — using state here would re-render the component on every keydown.
+  const inputSequence = useRef([]);
   const [isActivated, setIsActivated] = useState(false);
   const [confetti, setConfetti] = useState([]);
 
   const handleKeyDown = useCallback((event) => {
-    setInputSequence((prev) => {
-      const newSequence = [...prev, event.code].slice(-KONAMI_CODE.length);
+    const newSequence = [...inputSequence.current, event.code].slice(
+      -KONAMI_CODE.length,
+    );
+    inputSequence.current = newSequence;
 
-      // Check if the sequence matches
-      if (
-        newSequence.length === KONAMI_CODE.length &&
-        newSequence.every((key, i) => key === KONAMI_CODE[i])
-      ) {
-        setIsActivated(true);
+    // Check if the sequence matches
+    if (
+      newSequence.length === KONAMI_CODE.length &&
+      newSequence.every((key, i) => key === KONAMI_CODE[i])
+    ) {
+      setIsActivated(true);
 
-        // Generate confetti
-        const newConfetti = Array.from({ length: 50 }, (_, i) => ({
-          id: i,
-          x: Math.random() * window.innerWidth,
-          delay: Math.random() * 0.5,
-          color: `hsl(${Math.random() * 360}, 70%, 60%)`,
-          size: Math.random() * 10 + 5,
-        }));
-        setConfetti(newConfetti);
+      // Generate confetti
+      const newConfetti = Array.from({ length: 50 }, (_, i) => ({
+        id: i,
+        x: Math.random() * window.innerWidth,
+        delay: Math.random() * 0.5,
+        color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+        size: Math.random() * 10 + 5,
+      }));
+      setConfetti(newConfetti);
 
-        // Hide after 4 seconds
-        setTimeout(() => {
-          setIsActivated(false);
-          setConfetti([]);
-        }, 4000);
-      }
-
-      return newSequence;
-    });
+      // Hide after 4 seconds
+      setTimeout(() => {
+        setIsActivated(false);
+        setConfetti([]);
+      }, 4000);
+    }
   }, []);
 
   useEffect(() => {
@@ -97,6 +98,8 @@ const EasterEgg = () => {
 
           {/* Message */}
           <motion.div
+            role="status"
+            aria-live="polite"
             initial={{ opacity: 0, scale: 0.5, y: -50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: -50 }}
@@ -114,6 +117,7 @@ const EasterEgg = () => {
             }}
           >
             <motion.div
+              aria-hidden="true"
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 0.5, repeat: 3 }}
               style={{ fontSize: "4rem", marginBottom: "1rem" }}

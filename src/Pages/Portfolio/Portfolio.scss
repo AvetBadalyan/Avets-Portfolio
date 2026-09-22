@@ -40,7 +40,7 @@
   padding: var(--space-sm) var(--space-xl);
   background: transparent;
   border: 1px solid var(--glass-border);
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill);
   color: var(--color-dark);
   font-size: var(--font-size-body-sm);
   font-weight: 600;
@@ -115,12 +115,14 @@
   border-radius: var(--border-radius-1);
   overflow: hidden;
   background: var(--color-white);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: box-shadow var(--duration-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-slow) var(--easing-emphasized);
 
   &:hover {
+    /* --shadow-xl deepens automatically in dark mode via --shadow-strength,
+       so the separate dark-mode hover override below is no longer needed. */
     box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.15),
+      var(--shadow-xl),
       0 0 0 1px var(--color-accent);
   }
 }
@@ -189,7 +191,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill);
   margin-bottom: var(--space-xs);
 }
 
@@ -452,12 +454,8 @@ main.bg-2 {
 
   .project-card {
     background: hsl(var(--primary-hue), 18%, 12%);
-
-    &:hover {
-      box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.5),
-        0 0 0 1px var(--color-accent);
-    }
+    /* Hover shadow is inherited from the base rule — --shadow-xl deepens in
+       dark mode automatically via --shadow-strength, so no override needed. */
   }
 
   .project-card__title-static {

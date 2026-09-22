@@ -99,20 +99,26 @@ const About = () => {
 
             <div className="about__highlights">
               <div className="about__highlight">
-                <span className="about__highlight-icon">🎯</span>
+                <span className="about__highlight-icon" aria-hidden="true">
+                  🎯
+                </span>
                 <div>
                   <strong>Core Stack:</strong> React, TypeScript, Node.js,
                   PostgreSQL
                 </div>
               </div>
               <div className="about__highlight">
-                <span className="about__highlight-icon">🛒</span>
+                <span className="about__highlight-icon" aria-hidden="true">
+                  🛒
+                </span>
                 <div>
                   <strong>E-commerce:</strong> Shopify Liquid, Theme Development
                 </div>
               </div>
               <div className="about__highlight">
-                <span className="about__highlight-icon">☁️</span>
+                <span className="about__highlight-icon" aria-hidden="true">
+                  ☁️
+                </span>
                 <div>
                   <strong>Cloud:</strong> AWS Amplify, Vercel, Render, Firebase
                 </div>

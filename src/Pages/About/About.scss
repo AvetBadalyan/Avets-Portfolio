@@ -81,14 +81,14 @@
   /* Secondary text — no opacity reduction to maintain contrast */
   font-size: var(--font-size-xs);
   color: var(--color-dark);
-  
+
   margin-left: auto;
 }
 
 .about__language-bar {
   height: 8px;
   background: hsla(var(--primary-hue), 20%, 50%, 0.15);
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill);
   overflow: hidden;
 }
 
@@ -99,7 +99,7 @@
     var(--color-accent) 0%,
     hsla(calc(var(--primary-hue) + 30), 70%, 55%, 1) 100%
   );
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill);
 }
 
 /* ============================================
@@ -237,7 +237,7 @@ main.bg-2 {
   }
 
   .about__language-level {
-  /* Secondary text — no opacity reduction to maintain contrast */
+    /* Secondary text — no opacity reduction to maintain contrast */
     color: var(--color-dark);
   }
 

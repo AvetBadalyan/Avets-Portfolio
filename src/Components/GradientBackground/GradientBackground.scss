@@ -104,11 +104,12 @@
       transparent 60%
     );
     background-size: 200% 100%;
-    animation: shimmer 8s ease-in-out infinite;
+    /* Distinct name from LazyImage's skeleton-shimmer — see note there. */
+    animation: bg-shimmer 8s ease-in-out infinite;
     z-index: 1;
   }
 
-  @keyframes shimmer {
+  @keyframes bg-shimmer {
     0%,
     100% {
       background-position: 200% 0;
