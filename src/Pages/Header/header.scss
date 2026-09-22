@@ -693,7 +693,9 @@ main.bg-2 {
     /* Ensure badges are readable with solid dark background */
     background: hsl(var(--primary-hue), 20%, 18%);
     border-color: rgba(255, 255, 255, 0.15);
-    color: hsl(0, 0%, 95%);
+    /* --color-black resolves to hsl(0, 0%, 97%) in dark mode — same perceptual
+       result as the frozen hsl(0,0%,95%) it replaces, but theme-aware. */
+    color: var(--color-black);
   }
 
   .hero__stats {

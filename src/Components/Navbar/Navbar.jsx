@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaBars, FaBriefcase, FaMoon, FaSun, FaTimes } from "react-icons/fa";
 import { useTheme } from "../../context/theme-context";
 import { navLinks } from "./data";
@@ -10,6 +10,11 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("header");
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // Refs for the mobile-menu focus trap: the panel we trap focus inside, and
+  // the burger button we return focus to when the menu closes.
+  const mobileMenuRef = useRef(null);
+  const burgerRef = useRef(null);
 
   // Track scroll position and active section
   useEffect(() => {
@@ -39,14 +44,58 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on escape
+  // Mobile-menu keyboard handling: Escape closes it, and Tab is trapped inside
+  // the panel so focus can't escape to the page behind it (required to honor
+  // aria-modal="true"). On open we move focus into the panel; on close we
+  // restore focus to the burger button that opened it.
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === "Escape") setIsMenuOpen(false);
+    if (!isMenuOpen) return;
+
+    const panel = mobileMenuRef.current;
+    if (!panel) return;
+
+    const getFocusable = () =>
+      Array.from(
+        panel.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+
+    // Move focus into the panel on open.
+    getFocusable()[0]?.focus();
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusable = getFocusable();
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      // Cycle: Shift+Tab off the first element wraps to the last, and Tab off
+      // the last wraps back to the first.
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
-  }, []);
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      // Return focus to the burger when the menu closes.
+      burgerRef.current?.focus();
+    };
+  }, [isMenuOpen]);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -161,6 +210,7 @@ const Navbar = () => {
 
           {/* Mobile Burger */}
           <motion.button
+            ref={burgerRef}
             type="button"
             className="nav__burger"
             onClick={toggleMenu}
@@ -209,7 +259,11 @@ const Navbar = () => {
 
               {/* Menu Panel */}
               <motion.div
+                ref={mobileMenuRef}
                 className="nav__mobile"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Navigation menu"
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}

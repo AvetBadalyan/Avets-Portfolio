@@ -103,6 +103,9 @@
   overflow: hidden;
   flex-shrink: 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Pure white background for the logo well: --color-white has a slight warm
+     tint (hsl(0,5%,100%)) that would subtly tint brand logos. `white` = #fff
+     is the correct neutral here. Dark mode overrides in the block below. */
   background: white;
   padding: 0.6rem;
 
