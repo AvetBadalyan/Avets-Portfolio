@@ -48,25 +48,28 @@
   --font-family-display: "Inter", sans-serif;
 
   /* TYPOGRAPHY SCALE (1rem = 10px)
-     Intentional ramp: 12 / 14 / 16 / 18 / 20 / 24 / 26 / 30 / 34 / 40 px
-     Each step is perceptibly distinct (~2px minimum gap) */
+     Ordered ascending by px. Size-named scale (xs..3xl) — one token per
+     visible step, so no two tokens share a value. Duplicates that used to
+     exist as "own knobs" but were never tuned apart were merged into the
+     step they equalled:
+       - nav / h5 / h4-mobile (16px)      → --font-size-base
+       - subtitle / card-title / h4 (18px)→ --font-size-md
+       - h6 (14px)                        → --font-size-sm
+       - h3-mobile (20px)                 → --font-size-lg
+       - h3 (24px)                        → --font-size-xl
+     Two responsive-only sizes sit between ramp steps (used only in @media
+     overrides where an h1/h2 shrinks): --font-size-h2-mobile (26px) and
+     --font-size-h1-responsive (34px). They stay named for their role. */
   --font-size-xs: 1.2rem; /* 12px - badges, small labels, meta text */
-  --font-size-body-sm: 1.4rem; /* 14px */
-  --font-size-body: 1.6rem; /* 16px - base */
-  --font-size-nav: 1.6rem; /* 16px - desktop nav link (own knob) */
-  --font-size-subtitle: 1.8rem; /* 18px */
-  --font-size-card-title: 1.8rem; /* 18px - card heading (own knob) */
-  --font-size-h3-mobile: 2rem; /* 20px */
-  --font-size-h3: 2.4rem; /* 24px */
-  --font-size-h2-mobile: 2.6rem; /* 26px */
-  --font-size-h2: 3rem; /* 30px */
-  --font-size-h1-mobile: 3.4rem; /* 34px */
-  --font-size-h1-tablet: 3.4rem; /* 34px */
-  --font-size-h1: 4rem; /* 40px */
-  --font-size-h4: 1.8rem; /* 18px */
-  --font-size-h4-mobile: 1.6rem; /* 16px */
-  --font-size-h5: 1.6rem; /* 16px */
-  --font-size-h6: 1.4rem; /* 14px */
+  --font-size-sm: 1.4rem; /* 14px - secondary/fine text */
+  --font-size-base: 1.6rem; /* 16px - body text, nav links */
+  --font-size-md: 1.8rem; /* 18px - subtitles, card titles, small headings (h4) */
+  --font-size-lg: 2rem; /* 20px */
+  --font-size-xl: 2.4rem; /* 24px - h3 */
+  --font-size-h2-mobile: 2.6rem; /* 26px - h2 on phones */
+  --font-size-2xl: 3rem; /* 30px - h2 */
+  --font-size-h1-responsive: 3.4rem; /* 34px - h1 on tablet/phone */
+  --font-size-3xl: 4rem; /* 40px - h1 */
 
   /* ICON SIZES (non-type: sizes decorative icon glyphs, not text) */
   --icon-size-sm: 1.8rem; /* 18px - small inline icons */
@@ -225,7 +228,7 @@ body {
   font-family: var(--font-family-body);
   font-weight: 400;
   line-height: var(--line-height-body);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-base);
   text-rendering: optimizeLegibility;
 }
 
@@ -401,30 +404,30 @@ h6 {
 }
 
 h1 {
-  font-size: var(--font-size-h1);
+  font-size: var(--font-size-3xl);
   font-weight: 700;
   text-transform: capitalize;
 }
 
 h2 {
-  font-size: var(--font-size-h2);
+  font-size: var(--font-size-2xl);
   text-transform: capitalize;
 }
 
 h3 {
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-xl);
 }
 
 h4 {
-  font-size: var(--font-size-h4);
+  font-size: var(--font-size-md);
 }
 
 h5 {
-  font-size: var(--font-size-h5);
+  font-size: var(--font-size-base);
 }
 
 h6 {
-  font-size: var(--font-size-h6);
+  font-size: var(--font-size-sm);
 }
 
 /* GENERAL IMAGES STYLES */
@@ -451,7 +454,7 @@ img {
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-2xl); /* 12px 32px */
   font-family: var(--font-family-body);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-base);
   font-weight: 600;
   line-height: 1.1;
   text-decoration: none;
@@ -502,7 +505,7 @@ img {
   /* Small — for card actions (certificate/diploma, project links) */
   &--sm {
     padding: var(--space-sm) var(--space-lg);
-    font-size: var(--font-size-body-sm);
+    font-size: var(--font-size-sm);
   }
 
   &:active {
@@ -531,14 +534,14 @@ img {
   }
 
   h1 {
-    font-size: var(--font-size-h1-tablet);
+    font-size: var(--font-size-h1-responsive);
   }
 }
 
 /* MEDIA QUERIES (phones) */
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: var(--font-size-h1-mobile);
+    font-size: var(--font-size-h1-responsive);
   }
 
   h2 {
@@ -546,11 +549,11 @@ img {
   }
 
   h3 {
-    font-size: var(--font-size-h3-mobile);
+    font-size: var(--font-size-lg);
   }
 
   h4 {
-    font-size: var(--font-size-h4-mobile);
+    font-size: var(--font-size-base);
   }
 
   section > p {

@@ -18,7 +18,7 @@
 
 .contact__subtitle {
   color: var(--color-dark);
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-md);
   margin: var(--space-sm) 0 0;
 }
 
@@ -56,7 +56,7 @@
   --status-green: hsl(120, 70%, 40%);
   background: color-mix(in srgb, var(--status-green) 12%, transparent);
   color: var(--status-green);
-  font-size: var(--font-size-body-sm);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   border-radius: var(--border-radius-pill);
   margin-bottom: var(--space-md);
@@ -89,7 +89,7 @@
   justify-content: center;
   gap: var(--space-sm);
   color: var(--color-dark);
-  font-size: var(--font-size-body-sm);
+  font-size: var(--font-size-sm);
   margin-bottom: var(--space-2xl);
 
   svg {
@@ -161,7 +161,7 @@
 }
 
 .contact__item-value {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-base);
   font-weight: 600;
   color: var(--color-black);
 }
@@ -172,7 +172,7 @@
 
 .contact__message {
   color: var(--color-dark);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-base);
   line-height: 1.7;
   max-width: 50ch;
   margin: 0 auto;
