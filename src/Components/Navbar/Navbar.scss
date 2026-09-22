@@ -73,7 +73,9 @@
 .nav__logo-text {
   font-family: var(--font-family-display);
   font-weight: 700;
-  font-size: var(--icon-size-md);
+  /* Was --icon-size-md, which is an icon token not a type token.
+     --font-size-subtitle (18px) is the right ramp step for this label size. */
+  font-size: var(--font-size-subtitle);
   letter-spacing: -0.02em;
 }
 
@@ -247,6 +249,9 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: var(--border-radius-2);
+  /* Transparent base border reserves the 4px so the active state's
+     solid accent border doesn't cause a layout shift. */
+  border-left: 4px solid transparent;
   transition: all var(--duration-base) var(--easing-default);
 
   &:hover,
@@ -257,7 +262,7 @@
   }
 
   &--active {
-    border-left: 4px solid var(--color-accent);
+    border-left-color: var(--color-accent);
   }
 }
 

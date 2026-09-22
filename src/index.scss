@@ -618,7 +618,7 @@ button {
 
 ::-webkit-scrollbar-thumb {
   background: hsla(var(--primary-hue), 50%, 50%, 0.4);
-  border-radius: 10px;
+  border-radius: var(--border-radius-pill);
   border: 2px solid var(--color-light);
 }
 

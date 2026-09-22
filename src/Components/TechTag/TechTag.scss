@@ -20,5 +20,7 @@
 
 .tech-tag--sm {
   padding: 0.25rem 0.6rem;
-  font-size: calc(var(--font-size-xs) * 0.9);
+  /* Was calc(--font-size-xs * 0.9) = 10.8px, which falls below the 12px
+     minimum for legibility. Floored to the token (12px). */
+  font-size: var(--font-size-xs);
 }

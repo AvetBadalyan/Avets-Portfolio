@@ -58,9 +58,14 @@
 
 main.bg-2 .footer {
   background: var(--color-white);
-  border-top-color: rgba(255, 255, 255, 0.1);
+  /* --glass-border is already overridden to rgba(255,255,255,0.12) in
+     main.bg-2 in index.scss, so the base rule picks up the correct dark
+     value automatically. No border-top-color override needed here. */
 
   .footer__copyright small {
+    /* --color-dark is 85% lightness in dark mode — the body text tier.
+       Copyright is intentionally slightly dimmer (fine print), so use a
+       mid-point value rather than the full body-text token. */
     color: hsl(0, 0%, 70%);
   }
 }
