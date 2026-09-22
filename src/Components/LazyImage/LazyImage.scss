@@ -15,10 +15,14 @@
     hsla(var(--primary-hue), 20%, 20%, 0.3) 100%
   );
   background-size: 200% 100%;
-  animation: shimmer 1.5s ease-in-out infinite;
+  /* Renamed from the generic `shimmer` to avoid a global @keyframes name
+     collision with GradientBackground's own `shimmer` (@keyframes are global
+     regardless of SCSS nesting, so the duplicate name meant one silently
+     overrode the other). */
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
 }
 
-@keyframes shimmer {
+@keyframes skeleton-shimmer {
   0% {
     background-position: 200% 0;
   }

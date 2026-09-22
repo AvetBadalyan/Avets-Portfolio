@@ -79,12 +79,12 @@
   backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
   transition: var(--transition-base);
 
   &:hover {
     box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.12),
+      var(--shadow-lg),
       0 0 0 1px hsla(var(--primary-hue), 70%, 50%, 0.15);
   }
 
@@ -157,7 +157,7 @@
   color: var(--color-accent);
   font-size: var(--font-size-xs);
   font-weight: 600;
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill);
   margin-top: var(--space-xs);
   width: fit-content;
 }
@@ -236,8 +236,10 @@ main.bg-2 {
     border-color: rgba(255, 255, 255, 0.1);
 
     &:hover {
+      /* --shadow-lg deepens automatically in dark mode; only the accent ring
+         is strengthened here so it stays visible against the dark surface. */
       box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.4),
+        var(--shadow-lg),
         0 0 0 1px hsla(var(--primary-hue), 70%, 50%, 0.3);
     }
   }

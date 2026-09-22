@@ -7,11 +7,7 @@ import { aiToolsSkills, backendSkills, frontendSkills } from "./utils";
 const SkillCard = ({ skill, index }) => {
   return (
     <motion.div variants={fadeIn("up", 0)} custom={index}>
-      <TiltCard
-        className="skill-card"
-        tiltAmount={8}
-        scale={1.03}
-      >
+      <TiltCard className="skill-card" tiltAmount={8} scale={1.03}>
         <div className="skill-card__icon">
           <img src={skill.logo} alt={skill.skillName} />
         </div>
@@ -72,7 +68,7 @@ const Skills = () => {
               className="skills__category-title"
               variants={fadeIn("up", 0)}
             >
-              <span>{category.icon}</span>
+              <span aria-hidden="true">{category.icon}</span>
               {category.title}
             </motion.h3>
 
