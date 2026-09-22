@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-md);
   font-weight: 500;
   color: var(--color-dark);
   margin: 0;
@@ -118,7 +118,7 @@
 }
 
 .hero__role {
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-xl);
   font-weight: 500;
   color: var(--color-dark);
 }
@@ -133,7 +133,7 @@
 }
 
 .hero__bio {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-base);
   line-height: 1.8;
   color: var(--color-dark);
   max-width: 50ch;
@@ -288,7 +288,7 @@
   backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-pill);
-  font-size: var(--font-size-body-sm);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-black);
   box-shadow:
@@ -498,7 +498,7 @@
   gap: var(--space-xs);
   color: var(--color-dark);
   text-decoration: none;
-  font-size: var(--font-size-body-sm);
+  font-size: var(--font-size-sm);
   font-weight: 500;
   transition: var(--transition-base);
   z-index: var(--z-elevated);
@@ -510,7 +510,7 @@
 }
 
 .hero__scroll-icon {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-base);
 }
 
 /* ============================================
@@ -528,7 +528,7 @@
   }
 
   .hero__badge {
-    font-size: var(--font-size-body-sm);
+    font-size: var(--font-size-sm);
     padding: 0.7rem 1.4rem;
 
     &.badge--1 {
@@ -630,7 +630,7 @@
   }
 
   .hero__role {
-    font-size: var(--font-size-subtitle);
+    font-size: var(--font-size-md);
   }
 
   .hero__image-wrapper {
