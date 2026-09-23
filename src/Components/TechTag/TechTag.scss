@@ -1,7 +1,7 @@
 /* ============================================
    TECH TAG COMPONENT
-   Reusable technology badge. Colors are passed
-   inline from techColors.js.
+   Reusable technology badge. Colors come from
+   CSS custom properties set by TechTag.jsx.
    ============================================ */
 
 .tech-tag {
@@ -10,6 +10,9 @@
   font-weight: 600;
   border-radius: var(--border-radius-3);
   white-space: nowrap;
+  /* Base colors from custom properties; can be overridden by parent context */
+  background: var(--tag-bg);
+  color: var(--tag-color);
 }
 
 /* Size variants */

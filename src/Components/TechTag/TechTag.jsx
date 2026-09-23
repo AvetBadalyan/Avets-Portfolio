@@ -23,11 +23,10 @@ const TechTag = ({ name, color, size = "md", className = "" }) => {
     <span
       className={classes}
       style={{
-        background: style.bg,
-        color: style.color,
-        // Solid brand color exposed for contexts that render on a light
-        // surface (e.g. the mobile project-card caption), where the dark-tuned
-        // bg/color pair would be unreadable. See Portfolio.scss caption tags.
+        // CSS custom properties allow parent contexts to override colors
+        // without !important. Portfolio.scss uses --tag-solid for solid-bg tags.
+        "--tag-bg": style.bg,
+        "--tag-color": style.color,
         "--tag-solid": style.solid,
       }}
     >
