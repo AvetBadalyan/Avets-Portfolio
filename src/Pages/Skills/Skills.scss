@@ -187,13 +187,11 @@ main.bg-2 {
   }
 
   .skill-card {
-    /* Solid surface instead of the light-mode glass; border stays on the
-       theme-aware --glass-border token. */
+    /* Solid surface instead of light-mode glass. */
     background: var(--surface-card-dark);
 
     &:hover {
-      /* --shadow-lg deepens automatically in dark mode; only the accent ring
-         is strengthened here so it stays visible against the dark surface. */
+      /* Accent ring strengthened in dark mode — --shadow-lg deepens automatically. */
       box-shadow:
         var(--shadow-lg),
         0 0 0 1px hsla(var(--primary-hue), 70%, 50%, 0.25);

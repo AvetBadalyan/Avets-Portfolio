@@ -74,9 +74,8 @@
 }
 
 .hero__name {
-  /* Bespoke fluid display size (40->65px), intentionally larger than the
-     fixed --font-size-h1 (40px) ramp. Fluid clamp is the point, so it is not
-     a token. Mobile override below narrows it to 30->45px. */
+  /* Fluid display size (40→65px) — intentionally larger than the fixed
+     --font-size-3xl (40px) ramp. Mobile override narrows it to 30→45px. */
   font-size: clamp(4rem, 7vw, 6.5rem);
   font-weight: var(--fw-extrabold);
   line-height: 1.05;
@@ -134,7 +133,7 @@
 
 .hero__bio {
   font-size: var(--font-size-base);
-  line-height: 1.8;
+  line-height: var(--line-height-loose);
   color: var(--color-dark);
   max-width: 50ch;
   margin: 0;
@@ -221,7 +220,7 @@
   &:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: white;
+    color: var(--color-on-primary);
     transform: translateY(-4px) scale(1.1);
     box-shadow: var(--shadow-accent);
   }
@@ -256,7 +255,6 @@
     inset: -30px;
     border: 2px dashed var(--color-accent);
     opacity: 0.3;
-    /* Add subtle pulse animation */
     animation: ringPulse 3s ease-in-out infinite;
   }
 
@@ -306,7 +304,7 @@
 
   .hero__badge-icon {
     display: flex;
-    font-size: 1.2em; /* non-type: brand glyph, sized relative to the label */
+    font-size: 1.2em; /* non-type: brand glyph, relative to the badge label */
   }
 
   &:hover {
@@ -345,7 +343,6 @@
     0 0 60px hsla(var(--primary-hue), 70%, 50%, 0.4),
     0 25px 80px rgba(0, 0, 0, 0.25);
 
-  /* Animated border glow */
   &::before {
     content: "";
     position: absolute;
@@ -410,13 +407,10 @@
   backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-1);
-  box-shadow:
-    var(--shadow-md),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
 
-  /* Subtle shine effect */
   &::before {
     content: "";
     position: absolute;
@@ -473,8 +467,7 @@
   letter-spacing: var(--tracking-display);
 }
 
-/* Dark mode: --color-accent is already lightened to 72% in main.bg-2,
-   so stat numbers pick it up automatically — no override needed. */
+/* --color-accent is already lightened to 72% in main.bg-2 — no override needed. */
 
 .hero__stat-label {
   font-size: var(--font-size-xs);
@@ -669,8 +662,7 @@
   }
 }
 
-/* Extra-small phones (320px) — shrink the hero image and tighten the stats.
-   (Floating badges are already hidden at <=600px above.) */
+/* Extra-small phones — shrink hero image, badges already hidden at ≤600px. */
 @media screen and (max-width: 375px) {
   .hero__image-wrapper {
     width: 22rem;
@@ -696,29 +688,28 @@ main.bg-2 {
   }
 
   .hero__badge {
-    /* Ensure badges are readable with solid dark background */
-    background: hsl(var(--primary-hue), 20%, 18%);
-    border-color: rgba(255, 255, 255, 0.15);
-    /* --color-black resolves to hsl(0, 0%, 97%) in dark mode — same perceptual
-       result as the frozen hsl(0,0%,95%) it replaces, but theme-aware. */
+    /* --glass-bg-solid in dark = hsl(270,15%,12%) — readable on the
+       radial gradient background. --glass-border gives the correct white tint. */
+    background: var(--glass-bg-solid);
+    border-color: var(--glass-border);
     color: var(--color-black);
   }
 
   .hero__stats {
-    /* Solid dark background for stats panel */
-    background: hsl(var(--primary-hue), 20%, 14%);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-solid);
+    border-color: var(--glass-border);
   }
 
   .hero__social-link {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
+    /* Glass tokens carry the correct dark-mode values from index.scss. */
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
     color: var(--color-black);
 
     &:hover {
       background: var(--color-accent);
       border-color: var(--color-accent);
-      color: white;
+      color: var(--color-on-primary);
     }
   }
 

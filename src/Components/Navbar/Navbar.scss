@@ -28,19 +28,14 @@
   height: 8rem;
   z-index: var(--z-navbar);
   transition: all var(--duration-slow) var(--easing-emphasized);
-
-  /* Default state - transparent */
   background: transparent;
 
-  /* Scrolled state - glassmorphism */
   &--scrolled {
     height: 7rem;
     background: var(--glass-bg-solid);
     backdrop-filter: blur(var(--glass-blur));
     border-bottom: 1px solid var(--glass-border);
-    /* Distinct 30px-blur chrome shadow (not on the surface scale), but its
-       alpha rides --shadow-strength so it deepens against the dark navbar
-       instead of staying frozen at the light-mode value. */
+    /* --shadow-strength multiplier deepens this in dark mode automatically. */
     box-shadow: 0 4px 30px rgba(0, 0, 0, calc(0.1 * var(--shadow-strength)));
   }
 }
@@ -73,8 +68,8 @@
 .nav__logo-text {
   font-family: var(--font-family-display);
   font-weight: var(--fw-bold);
-  /* Uses --font-size-md (18px, a type token) rather than an icon-size token —
-     this is the right ramp step for the logo label. */
+  /* --font-size-md (18px) is the right type-scale step for the logo label,
+     not an icon-size token. */
   font-size: var(--font-size-md);
   letter-spacing: var(--tracking-display);
 }
@@ -119,10 +114,8 @@
 .nav__link-indicator {
   position: absolute;
   bottom: 0;
-  /* Framer Motion's layoutId writes an inline `transform` which prevents the
-     usual left:50%+translateX(-50%) trick. We use the separate `translate`
-     CSS property (distinct from `transform`) so it stacks on top of — and
-     doesn't conflict with — Framer Motion's inline transform matrix. */
+  /* Framer Motion's layoutId writes an inline `transform`. We use the separate
+     `translate` CSS property so it doesn't conflict with that matrix. */
   left: 50%;
   translate: -50% 0;
   width: 60%;
@@ -152,7 +145,7 @@
   border: 1px solid var(--glass-border);
   border-radius: 50%;
   color: var(--color-accent);
-  font-size: var(--icon-size-md); /* non-type: theme-toggle icon glyph */
+  font-size: var(--icon-size-md); /* non-type: icon glyph */
   cursor: pointer;
   transition: all var(--duration-base) var(--easing-default);
 
@@ -165,8 +158,7 @@
   &:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: white;
-    /* Same accent-glow family as the other interactive controls. */
+    color: var(--color-on-primary);
     box-shadow: var(--shadow-accent);
   }
 }
@@ -182,12 +174,12 @@
   border: 1px solid var(--glass-border);
   border-radius: 50%;
   color: var(--color-dark);
-  font-size: var(--icon-size-md);
+  font-size: var(--icon-size-md); /* non-type: icon glyph */
   cursor: pointer;
   transition: all var(--duration-base) var(--easing-default);
 
-  /* The icon lives in an AnimatePresence <span>; make it flex-centered so the
-     glyph sits in the visual center of the circle (not on the text baseline). */
+  /* AnimatePresence <span> — flex-centered so the glyph sits in the visual
+     centre of the circle, not on the text baseline. */
   span {
     display: flex;
     align-items: center;
@@ -197,7 +189,7 @@
   &:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: white;
+    color: var(--color-on-primary);
   }
 
   @media screen and (max-width: 1024px) {
@@ -226,7 +218,8 @@
   background: var(--glass-bg-solid);
   backdrop-filter: blur(var(--glass-blur));
   border-left: 1px solid var(--glass-border);
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+  /* --shadow-strength multiplier deepens this in dark mode automatically. */
+  box-shadow: -10px 0 40px rgba(0, 0, 0, calc(0.15 * var(--shadow-strength)));
   z-index: var(--z-modal);
   padding: 10rem var(--space-2xl) var(--space-2xl);
   display: flex;
@@ -250,8 +243,8 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   border-radius: var(--border-radius-2);
-  /* Transparent base border reserves the 4px so the active state's
-     solid accent border doesn't cause a layout shift. */
+  /* Transparent base border reserves 4px so the active state's solid accent
+     border doesn't cause a layout shift. */
   border-left: 4px solid transparent;
   transition: all var(--duration-base) var(--easing-default);
 
@@ -273,8 +266,6 @@
 
 main.bg-2 {
   .nav--scrolled {
-    /* Use the glass-bg-solid token (= hsl(270, 15%, 12%) in dark mode) so the
-       scrolled bar always matches the surface tier, not a one-off value. */
     background: var(--glass-bg-solid);
     border-bottom-color: var(--glass-border);
   }
@@ -300,7 +291,7 @@ main.bg-2 {
     color: var(--color-dark);
 
     &:hover {
-      color: white;
+      color: var(--color-on-primary);
     }
   }
 
@@ -341,17 +332,17 @@ main.bg-2 {
   transition: all var(--duration-base) var(--easing-default);
 
   svg {
-    font-size: var(--icon-size-sm); /* non-type: mobile-theme icon glyph */
+    font-size: var(--icon-size-sm); /* non-type: icon glyph */
     color: var(--color-accent);
   }
 
   &:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: white;
+    color: var(--color-on-primary);
 
     svg {
-      color: white;
+      color: var(--color-on-primary);
     }
   }
 }

@@ -249,7 +249,7 @@
 .experience__description {
   font-size: var(--font-size-sm);
   color: var(--color-dark);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
   margin-bottom: var(--space-md);
 }
 
@@ -270,7 +270,7 @@
     padding-left: var(--space-lg);
     font-size: var(--font-size-sm);
     color: var(--color-dark);
-    line-height: 1.6;
+    line-height: var(--line-height-tight);
 
     &::before {
       content: "→";
@@ -357,8 +357,7 @@ main.bg-2 {
     border-color: var(--glass-border);
 
     &:hover {
-      /* --shadow-lg deepens automatically in dark mode; only the accent ring
-         is strengthened here so it stays visible against the dark surface. */
+      /* Accent ring strengthened in dark mode — --shadow-lg deepens automatically. */
       box-shadow:
         var(--shadow-lg),
         0 0 0 1px hsla(var(--primary-hue), 70%, 50%, 0.35);

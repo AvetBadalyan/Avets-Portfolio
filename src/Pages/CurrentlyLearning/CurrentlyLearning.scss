@@ -90,9 +90,7 @@
 .learning-card__status {
   flex-shrink: 0;
   padding: var(--space-2xs) var(--space-sm);
-  /* Accent wash via color-mix so the tint derives from the live accent and
-     tracks the theme (--accent-rgb was never defined, so the old
-     rgba(var(--accent-rgb),…) resolved invalid and rendered no background). */
+  /* color-mix so the tint derives from the live accent and tracks the theme. */
   background: color-mix(in srgb, var(--color-accent) 12%, transparent);
   color: var(--color-accent);
   font-size: var(--font-size-xs);
@@ -105,7 +103,7 @@
   margin: 0;
   font-size: var(--font-size-sm);
   color: var(--color-dark);
-  line-height: 1.6;
+  line-height: var(--line-height-tight);
 }
 
 /* ============================================
@@ -164,7 +162,7 @@ main.bg-2 {
   }
 
   .learning-card__status {
-    /* Slightly stronger wash so the tint stays visible on the dark card. */
+    /* Stronger wash so the tint stays visible on the dark card surface. */
     background: color-mix(in srgb, var(--color-accent) 18%, transparent);
   }
 }

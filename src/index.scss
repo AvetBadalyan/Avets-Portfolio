@@ -26,11 +26,11 @@
   --color-black: hsl(var(--primary-hue), 5%, var(--black-lightness));
   --color-dark: hsl(var(--primary-hue), 5%, var(--dark-lightness));
 
-  /* CONTAINER (best-practice: full width + max-width + responsive padding) */
+  /* CONTAINER */
   --container-max: 136rem;
   --container-padding: 3.2rem;
 
-  /* SPACING SCALE (1rem = 10px) */
+  /* SPACING SCALE — 1rem = 10px */
   --space-2xs: 0.4rem;
   --space-xs: 0.8rem;
   --space-sm: 1.2rem;
@@ -47,31 +47,23 @@
   --font-family-body: "Roboto", sans-serif;
   --font-family-display: "Inter", sans-serif;
 
-  /* FONT WEIGHTS — five roles, each a distinct step of the ramp:
-     regular = body copy, medium = secondary/supporting text, semibold = the
-     default for labels/links/subheadings, bold = titles, extrabold = the hero
-     display name/stat. Kept as five tokens (not merged) because collapsing them
-     would flatten the type hierarchy — semibold vs bold vs extrabold each carry
-     a different level of emphasis. */
+  /* FONT WEIGHTS */
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
   --fw-extrabold: 800;
 
-  /* TYPOGRAPHY SCALE (1rem = 10px)
-     Ordered ascending by px. Size-named scale (xs..3xl) — one token per
-     visible step, so no two tokens share a value. Duplicates that used to
-     exist as "own knobs" but were never tuned apart were merged into the
-     step they equalled:
+  /* TYPOGRAPHY SCALE — 1rem = 10px
+     One token per visible step; no two tokens share a value.
+     Sizes merged to the step they equalled (were never tuned apart):
        - nav / h5 / h4-mobile (16px)      → --font-size-base
        - subtitle / card-title / h4 (18px)→ --font-size-md
        - h6 (14px)                        → --font-size-sm
        - h3-mobile (20px)                 → --font-size-lg
        - h3 (24px)                        → --font-size-xl
-     Two responsive-only sizes sit between ramp steps (used only in @media
-     overrides where an h1/h2 shrinks): --font-size-h2-mobile (26px) and
-     --font-size-h1-responsive (34px). They stay named for their role. */
+     Two responsive-only sizes stay named for their role (used only in @media
+     overrides): --font-size-h2-mobile and --font-size-h1-responsive. */
   --font-size-xs: 1.2rem; /* 12px - badges, small labels, meta text */
   --font-size-sm: 1.4rem; /* 14px - secondary/fine text */
   --font-size-base: 1.6rem; /* 16px - body text, nav links */
@@ -90,21 +82,21 @@
   --icon-size-xl: 2.8rem; /* 28px - hero icons */
   /* LETTER-SPACING
      --tracking-display: slight negative for large display/heading type.
-     --tracking-wide: the single value for uppercase labels (nav links, category
-     badges, field labels) so they track uniformly app-wide. --tracking-tight: 0
-     for headings that should sit at normal spacing. */
+     --tracking-wide: uniform value for all uppercase labels (nav, badges, field labels).
+     --tracking-tight: 0 — headings at normal spacing. */
   --tracking-tight: 0;
   --tracking-display: -0.02em;
   --tracking-wide: 0.05em;
-  --line-height-body: 1.7;
+  --line-height-body: 1.7; /* standard paragraphs — matches body default */
   --line-height-heading: 1.15;
+  --line-height-tight: 1.6; /* compact descriptions, list items */
+  --line-height-loose: 1.8; /* long-form reading paragraphs (bio, about) */
 
   /* BORDER RADIUS
-     1/2/3 are the surface scale (large card / medium / small control).
-     --border-radius-pill is a distinct role: fully-rounded ends for pills,
-     chips and circular controls. It is NOT a step on the surface scale — it
-     always renders as a full sweep regardless of element size, so it stays a
-     separate token rather than a large number on the same ramp. */
+     1/2/3 = surface scale (large card / medium / small control).
+     --border-radius-pill = fully-rounded ends for pills and circular controls.
+     Not a step on the surface ramp — always renders as a full sweep regardless
+     of element size. */
   --border-radius-1: 2rem;
   --border-radius-2: 1.2rem;
   --border-radius-3: 0.8rem;
@@ -117,70 +109,52 @@
   --section-copy-margin-bottom-tablet: var(--space-4xl);
 
   /* Z-INDEX SCALE
-     --z-modal-backdrop/--z-modal cover the mobile nav drawer (scrim + panel).
-     --z-overlay is the project-detail modal, which must layer above that
-     drawer — hence its own higher tier rather than a magic 1000. */
+     --z-modal-backdrop/--z-modal: mobile nav drawer (scrim + panel).
+     --z-overlay: project-detail modal — must sit above the drawer. */
   --z-elevated: 10;
   --z-navbar: 100;
   --z-modal-backdrop: 200;
   --z-modal: 210;
   --z-overlay: 300;
 
-  /* BREAKPOINTS (for reference - SCSS doesn't support var() in media queries)
-     Mobile-first breakpoints:
-     - sm: 480px  (small phones)
-     - md: 600px  (phones)
-     - lg: 768px  (tablets)
-     - xl: 1024px (small desktop)
-     - 2xl: 1200px (desktop)
-  */
+  /* BREAKPOINTS — reference only; var() doesn't work in media queries
+     sm: 480px  |  md: 600px  |  lg: 768px  |  xl: 1024px  |  2xl: 1200px */
 
   /* TRANSITION TIMING */
-  --duration-fast: 200ms; /* micro-interactions: hover, focus */
-  --duration-base: 300ms; /* standard movement/reveal */
-  --duration-slow: 500ms; /* larger section/background transitions */
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
   --easing-default: ease;
   --easing-smooth: ease-in-out;
-  /* Standard "emphasized" curve (fast-out, slow-in) for movement that should
-     feel decisive — used by elevation/shadow transitions on cards and the
-     navbar. Was previously an inline cubic-bezier(0.4, 0, 0.2, 1) copied in a
-     couple of places; tokenized so the motion language stays consistent. */
+  /* "Emphasized" curve (fast-out, slow-in) for decisive movement — cards,
+     navbar. Previously an inline cubic-bezier copied in multiple places. */
   --easing-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* GENERAL TRANSITION VARIABLE */
+  /* TRANSITIONS */
   --transition-fast: all var(--duration-fast) var(--easing-default);
   --transition: all var(--duration-slow) var(--easing-default);
   --transition-base: all var(--duration-base) var(--easing-smooth);
 
   /* GLASSMORPHISM
-     Light mode: border must be a dark-ink tint so it's visible on white
-     cards (a white-based border disappears on white). Dark mode overrides
-     --glass-border to a white tint in main.bg-2 below. */
+     Light-mode border uses a dark-ink tint (a white-based border
+     disappears on white). Dark mode overrides --glass-border to a white tint. */
   --glass-bg: rgba(255, 255, 255, 0.08);
   --glass-bg-solid: rgba(255, 255, 255, 0.85);
   --glass-border: hsla(var(--primary-hue), 20%, 30%, 0.18);
   --glass-blur: 20px;
 
-  /* RGB channels for the ink color, used in rgba() where a var() color
-     can't be passed directly (GradientBackground grid lines). Inverts in .bg-2. */
+  /* RGB channels for --color-black, used in rgba() where var() can't be
+     passed directly (GradientBackground grid lines). Inverts in .bg-2. */
   --color-black-rgb: 39, 39, 42;
 
-  /* ============================================
-     ELEVATION / SHADOWS
-     Two deliberate families:
-     1. Neutral elevation (--shadow-sm/md/lg/xl): soft black shadows that lift
-        a surface off the page. The black opacity is driven by --shadow-strength
-        so dark mode can deepen every level in ONE place (shadows read weaker on
-        dark backgrounds, so .bg-2 raises the multiplier below). This replaces
-        ~15 hand-tuned rgba(0,0,0,x) values that had drifted apart (0.06/0.08/
-        0.10/0.12/0.15).
-     2. Accent glow (--shadow-accent, --shadow-accent-strong): the colored halo
-        on interactive controls (primary button, social icons, back-to-top).
-        Derives from --primary-hue so it tracks the theme. Kept separate from
-        neutral elevation because it signals interactivity, not just height.
-     The accent RING on hovered cards (0 0 0 1px var(--color-accent)) stays in
-     each component because it uses the live accent and pairs with a lift. */
-  --shadow-strength: 1; /* dark mode bumps this to deepen all levels at once */
+  /* ELEVATION / SHADOWS
+     Neutral family (--shadow-sm/md/lg/xl): opacity driven by --shadow-strength
+     so dark mode deepens all levels in one place (.bg-2 sets it to 3.2).
+     Accent glow (--shadow-accent, --shadow-accent-strong): colored halo on
+     interactive controls — kept separate because it signals interactivity.
+     Per-card accent rings (0 0 0 1px var(--color-accent)) stay in components
+     since they pair with a hover lift. */
+  --shadow-strength: 1;
   --shadow-sm: 0 4px 20px rgba(0, 0, 0, calc(0.08 * var(--shadow-strength)));
   --shadow-md: 0 8px 32px rgba(0, 0, 0, calc(0.12 * var(--shadow-strength)));
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, calc(0.14 * var(--shadow-strength)));
@@ -193,7 +167,7 @@
   --focus-ring-offset: 3px;
   --focus-ring-width: 2px;
   --focus-ring-glow: 4px;
-  /* Glow derives from the accent so it tracks the active theme */
+  /* color-mix so the glow tracks the active accent in both themes */
   --focus-ring-glow-color: color-mix(
     in srgb,
     var(--color-accent) 22%,
@@ -234,10 +208,9 @@ button {
 }
 
 html {
-  /* 1rem = 10px */
-  font-size: 62.5%;
+  font-size: 62.5%; /* 1rem = 10px */
   scroll-behavior: smooth;
-  scroll-padding-top: 8rem; /* Account for fixed navbar */
+  scroll-padding-top: 8rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -259,9 +232,7 @@ p {
   font-weight: var(--fw-bold);
 }
 
-/* THEME: light (.bg-1) / dark (.bg-2) applied to <main> by theme-context.
-   The old accent-palette classes (.color-2/3/4) were removed along with the
-   color-picker modal; theming is now a single dark/light toggle. */
+/* THEME: bg-1 = light, bg-2 = dark, applied to <main> by theme-context. */
 main.bg-1 {
   --color-accent: var(--color-primary);
   --color-accent-saturation: var(--color-primary-saturation);
@@ -269,48 +240,36 @@ main.bg-1 {
 }
 
 main.bg-2 {
-  /* Dark mode: invert the light/dark relationship
-     Backgrounds become dark, text becomes light */
   --black-lightness: 97%;
   --dark-lightness: 85%;
   --light-lightness: 14%;
   --white-lightness: 8%;
 
-  /* BACKGROUNDS - dark tones with subtle hue tint */
   --color-white: hsl(var(--primary-hue), 12%, var(--white-lightness));
   --color-light: hsl(var(--primary-hue), 10%, var(--light-lightness));
-
-  /* TEXT - high contrast light tones (pure achromatic for max readability) */
   --color-black: hsl(0, 0%, var(--black-lightness));
   --color-dark: hsl(0, 0%, var(--dark-lightness));
 
-  /* ACCENT - the base accent (270deg, 89%, 41%) is too dark to read as text on
-     dark surfaces or as a fill behind white. Lighten + slightly desaturate it
-     for dark mode so accent-colored text (roles, links, facts) and accent
-     fills (active filter) both meet contrast. Keep --color-primary darker for
-     large solid buttons that carry white text. */
+  /* Base accent (36% lightness) is too dark for text on dark surfaces.
+     Lighten + desaturate for readability. --color-primary stays dark so
+     filled buttons keep contrast with white text. */
   --color-accent-lightness: 72%;
   --color-accent-saturation: 80%;
 
-  /* Dark mode glassmorphism - darker, more opaque for better text contrast */
   --glass-bg: rgba(0, 0, 0, 0.4);
   --glass-bg-solid: hsl(var(--primary-hue), 15%, 12%);
   --glass-border: rgba(255, 255, 255, 0.12);
 
-  /* Solid card surface (dark mode only). Every section card — project,
-     education, experience, skills, contact, about, learning, modal — sits one
-     tier above the section background on this single value. Previously each
-     component hardcoded hsl(--primary-hue, 18%, X%) with X drifted to 12/14/16;
-     they all serve the same role, so they share one token now. Light mode uses
-     --glass-bg-solid / --color-white per component, so no light value is
-     needed here. */
+  /* Single dark-surface token for every section card. Previously each
+     component hardcoded hsl(--primary-hue, 18%, X%) with X drifting between
+     12/14/16. Light mode uses --glass-bg-solid / --color-white per component. */
   --surface-card-dark: hsl(var(--primary-hue), 18%, 12%);
 
-  /* Ink RGB channels invert in dark mode (used by GradientBackground grid) */
+  /* Inverts in dark mode — used by GradientBackground grid lines */
   --color-black-rgb: 247, 247, 250;
 
-  /* Shadows read faint against dark surfaces — deepen every neutral level at
-     once (matches the ~3-4x hand-tuned dark alphas the tokens replaced). */
+  /* Shadows read faint on dark backgrounds — raise the multiplier to
+     match the 3-4× alphas the tokens replaced. */
   --shadow-strength: 3.2;
 }
 
@@ -326,13 +285,11 @@ main {
     var(--color-accent-saturation),
     var(--color-accent-lightness)
   );
-
-  /* Scroll-snap for smooth section-to-section transitions
-     Using 'proximity' for gentle guidance without forcing snapping */
+  /* proximity snapping guides the user between sections without forcing it */
   scroll-snap-type: y proximity;
 }
 
-/* GENERAL CONTAINER CLASS */
+/* CONTAINER */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -340,12 +297,11 @@ main {
   padding-inline: var(--container-padding);
 }
 
-/* GENERAL SECTION STYLES */
 section {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
   transition: var(--transition);
-  scroll-snap-align: start; /* Align section tops with scroll-snap */
+  scroll-snap-align: start;
 }
 
 section:nth-child(even) {
@@ -362,7 +318,6 @@ section > p {
   width: 40%;
 }
 
-/* GENERAL SECTION STYLES */
 a {
   transition: var(--transition);
 }
@@ -415,7 +370,7 @@ a {
   }
 }
 
-/* GENERAL HEADING STYLES */
+/* HEADINGS */
 h1,
 h2,
 h3,
@@ -457,18 +412,15 @@ h6 {
   font-size: var(--font-size-sm);
 }
 
-/* GENERAL IMAGES STYLES */
 img {
   display: block;
   width: 100%;
   object-fit: cover;
 }
 
-/* GENERAL BUTTON STYLES */
 /* ============================================
    SHARED BUTTON SYSTEM
-   One .btn used across every section. Variants: --primary (filled),
-   --outline (tonal/soft). Size: --sm for card actions.
+   Variants: --primary (filled), --outline (tonal/soft), --sm (card actions).
    Filled buttons use --color-primary (stays 41% lightness in dark mode) so
    white text keeps contrast — NOT --color-accent, which lightens to 72% in
    dark mode and would give white-on-pale-purple.
@@ -513,9 +465,7 @@ img {
     }
   }
 
-  /* Tonal/soft — secondary action. A faint accent wash + accent text/border
-     reads as clearly interactive (more substantial than a bare outline) while
-     staying visually secondary to the filled --primary CTA. Fills on hover. */
+  /* Faint accent wash — secondary CTA, visually subordinate to --primary. */
   &--outline {
     background: color-mix(in srgb, var(--color-accent) 12%, transparent);
     color: var(--color-accent);
@@ -540,7 +490,6 @@ img {
   }
 }
 
-/* MEDIA QUERIES (tablets) */
 @media screen and (max-width: 1024px) {
   :root {
     --container-padding: 2.4rem;
@@ -565,7 +514,6 @@ img {
   }
 }
 
-/* MEDIA QUERIES (phones) */
 @media screen and (max-width: 600px) {
   h1 {
     font-size: var(--font-size-h1-responsive);
@@ -612,10 +560,6 @@ img {
     transition: none !important;
   }
 }
-
-/* ============================================
-   GLOBAL LINK HOVER EFFECT
-   ============================================ */
 
 a,
 button {
@@ -672,12 +616,11 @@ main.bg-2 {
    FOCUS RINGS (Accessibility)
    ============================================ */
 
-/* Remove default outline; keyboard focus is handled by :focus-visible below. */
+/* Remove default outline; keyboard navigation uses :focus-visible below. */
 :focus {
   outline: none;
 }
 
-/* Base keyboard focus ring for keyboard navigation */
 :focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
@@ -685,7 +628,7 @@ main.bg-2 {
   transition: outline-offset var(--duration-fast) var(--easing-default);
 }
 
-/* Buttons and interactive elements get an extra soft glow */
+/* Buttons and links get a glow on top of the outline */
 button:focus-visible,
 a:focus-visible,
 [role="button"]:focus-visible {
@@ -694,7 +637,7 @@ a:focus-visible,
   box-shadow: 0 0 0 var(--focus-ring-glow) var(--focus-ring-glow-color);
 }
 
-/* Input focus sits flush (no offset) so the glow hugs the field */
+/* Input focus sits flush so the glow hugs the field */
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
@@ -703,8 +646,7 @@ select:focus-visible {
   box-shadow: 0 0 0 var(--focus-ring-glow) var(--focus-ring-glow-color);
 }
 
-/* NOTE: Image fade-in is owned by the LazyImage component (framer-motion +
-   .lazy-image--loaded). The previous global `img[loading="lazy"]{opacity:0}`
-   blur-up rule was removed: its reveal selector (.loaded) never matched, so it
-   was dead for LazyImage and would have permanently hidden any plain lazy
-   <img>. Reduced-motion handling lives in the single block near the top. */
+/* LazyImage fade-in is handled by the component itself (framer-motion +
+   .lazy-image--loaded). A previous global img[loading="lazy"]{opacity:0}
+   rule was removed — its .loaded selector never matched LazyImage and would
+   have permanently hidden any plain lazy <img>. */
