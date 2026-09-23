@@ -47,6 +47,18 @@
   --font-family-body: "Roboto", sans-serif;
   --font-family-display: "Inter", sans-serif;
 
+  /* FONT WEIGHTS — five roles, each a distinct step of the ramp:
+     regular = body copy, medium = secondary/supporting text, semibold = the
+     default for labels/links/subheadings, bold = titles, extrabold = the hero
+     display name/stat. Kept as five tokens (not merged) because collapsing them
+     would flatten the type hierarchy — semibold vs bold vs extrabold each carry
+     a different level of emphasis. */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
   /* TYPOGRAPHY SCALE (1rem = 10px)
      Ordered ascending by px. Size-named scale (xs..3xl) — one token per
      visible step, so no two tokens share a value. Duplicates that used to
@@ -76,8 +88,14 @@
   --icon-size-md: 2rem; /* 20px - medium inline icons */
   --icon-size-lg: 2.4rem; /* 24px - large icons, buttons */
   --icon-size-xl: 2.8rem; /* 28px - hero icons */
+  /* LETTER-SPACING
+     --tracking-display: slight negative for large display/heading type.
+     --tracking-wide: the single value for uppercase labels (nav links, category
+     badges, field labels) so they track uniformly app-wide. --tracking-tight: 0
+     for headings that should sit at normal spacing. */
   --tracking-tight: 0;
   --tracking-display: -0.02em;
+  --tracking-wide: 0.05em;
   --line-height-body: 1.7;
   --line-height-heading: 1.15;
 
@@ -226,7 +244,7 @@ html {
 body {
   min-height: 100vh;
   font-family: var(--font-family-body);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   line-height: var(--line-height-body);
   font-size: var(--font-size-base);
   text-rendering: optimizeLegibility;
@@ -238,7 +256,7 @@ p {
 
 .text-highlight {
   color: var(--color-black);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
 }
 
 /* THEME: light (.bg-1) / dark (.bg-2) applied to <main> by theme-context.
@@ -351,7 +369,7 @@ a {
 
 .inline-link {
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.12em;
@@ -407,14 +425,14 @@ h6 {
   line-height: var(--line-height-heading);
   color: var(--color-black);
   font-family: var(--font-family-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-display);
   text-wrap: balance;
 }
 
 h1 {
   font-size: var(--font-size-3xl);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   text-transform: capitalize;
 }
 
@@ -464,7 +482,7 @@ img {
   padding: var(--space-sm) var(--space-2xl); /* 12px 32px */
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.1;
   text-decoration: none;
   white-space: nowrap;
@@ -572,7 +590,7 @@ img {
 
 .section-heading {
   font-family: var(--font-family-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-tight);
 }
 

@@ -229,14 +229,14 @@
 
 .experience__company {
   font-size: var(--font-size-md);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   color: var(--color-black);
   margin: 0;
 }
 
 .experience__role {
   font-size: var(--font-size-base);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--color-accent);
   margin: 0;
 }
@@ -277,7 +277,7 @@
       position: absolute;
       left: 0;
       color: var(--color-accent);
-      font-weight: 600;
+      font-weight: var(--fw-semibold);
     }
   }
 }
@@ -298,7 +298,7 @@
   background: hsla(var(--primary-hue), 70%, 50%, 0.1);
   color: var(--color-accent);
   font-size: var(--font-size-xs);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   border-radius: var(--border-radius-pill);
 }
 
