@@ -8,7 +8,7 @@ const AnimatedCounter = ({ value, duration = 2, className = "" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  // Parse the numeric part
+  // Strip any non-numeric characters (e.g. "3+" -> 3) and remember the suffix.
   const numericValue =
     parseFloat(value.toString().replace(/[^0-9.]/g, "")) || 0;
   const hasPlus = value.toString().includes("+");

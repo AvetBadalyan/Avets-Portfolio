@@ -223,8 +223,7 @@ main.bg-2 {
   }
 
   .about__languages {
-    /* Solid dark background */
-    background: hsl(var(--primary-hue), 18%, 14%);
+    background: var(--surface-card-dark);
     border-color: var(--glass-border);
   }
 

@@ -213,8 +213,7 @@ main.bg-2 {
   }
 
   .contact__card {
-    /* Solid dark background */
-    background: hsl(var(--primary-hue), 18%, 14%);
+    background: var(--surface-card-dark);
     border-color: var(--glass-border);
   }
 

@@ -31,11 +31,13 @@
   border-radius: 50%;
   font-size: var(--icon-size-sm);
   cursor: pointer;
-  box-shadow: 0 4px 15px hsla(var(--primary-hue), 70%, 50%, 0.3);
+  /* Accent-glow family — same interactive halo the token was built for
+     (its comment names "back-to-top"), deepening on hover. */
+  box-shadow: var(--shadow-accent);
   transition: var(--transition-base);
 
   &:hover {
-    box-shadow: 0 8px 25px hsla(var(--primary-hue), 70%, 50%, 0.4);
+    box-shadow: var(--shadow-accent-strong);
   }
 }
 

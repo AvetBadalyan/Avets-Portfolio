@@ -23,8 +23,10 @@
 }
 
 .tech-tag--sm {
-  padding: 0.25rem 0.6rem;
-  /* Was calc(--font-size-xs * 0.9) = 10.8px, which falls below the 12px
-     minimum for legibility. Floored to the token (12px). */
+  /* Compact tag: one spacing step tighter than --md on each axis
+     (--space-2xs/--space-2xs vs --space-2xs/--space-xs). Font size stays at
+     the 12px token — the same floor as --md — since anything smaller drops
+     below the legibility minimum, so the two variants differ by padding only. */
+  padding: var(--space-2xs);
   font-size: var(--font-size-xs);
 }

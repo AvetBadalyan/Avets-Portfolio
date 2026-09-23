@@ -13,7 +13,6 @@ import "./TechTag.scss";
  * @param {string} [props.className] - Additional CSS classes
  */
 const TechTag = ({ name, color, size = "md", className = "" }) => {
-  // Use custom color if provided, otherwise look up from techColors, fallback to default
   const style = color || techColors[name] || defaultTechStyle;
 
   const sizeClass = size === "sm" ? "tech-tag--sm" : "tech-tag--md";

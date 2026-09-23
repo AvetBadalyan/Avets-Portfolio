@@ -98,11 +98,15 @@
   --section-copy-margin-bottom: var(--space-5xl);
   --section-copy-margin-bottom-tablet: var(--space-4xl);
 
-  /* Z-INDEX SCALE */
+  /* Z-INDEX SCALE
+     --z-modal-backdrop/--z-modal cover the mobile nav drawer (scrim + panel).
+     --z-overlay is the project-detail modal, which must layer above that
+     drawer — hence its own higher tier rather than a magic 1000. */
   --z-elevated: 10;
   --z-navbar: 100;
   --z-modal-backdrop: 200;
   --z-modal: 210;
+  --z-overlay: 300;
 
   /* BREAKPOINTS (for reference - SCSS doesn't support var() in media queries)
      Mobile-first breakpoints:
@@ -274,6 +278,15 @@ main.bg-2 {
   --glass-bg: rgba(0, 0, 0, 0.4);
   --glass-bg-solid: hsl(var(--primary-hue), 15%, 12%);
   --glass-border: rgba(255, 255, 255, 0.12);
+
+  /* Solid card surface (dark mode only). Every section card — project,
+     education, experience, skills, contact, about, learning, modal — sits one
+     tier above the section background on this single value. Previously each
+     component hardcoded hsl(--primary-hue, 18%, X%) with X drifted to 12/14/16;
+     they all serve the same role, so they share one token now. Light mode uses
+     --glass-bg-solid / --color-white per component, so no light value is
+     needed here. */
+  --surface-card-dark: hsl(var(--primary-hue), 18%, 12%);
 
   /* Ink RGB channels invert in dark mode (used by GradientBackground grid) */
   --color-black-rgb: 247, 247, 250;

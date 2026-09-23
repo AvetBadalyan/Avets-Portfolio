@@ -6,7 +6,6 @@ import portfolioData from "./portfolioData.json";
 import ProjectCard from "./ProjectCard";
 import projectImages from "./projectImages";
 
-// Staggered animation for cards
 const cardVariants = {
   hidden: {
     opacity: 0,
@@ -39,10 +38,8 @@ const Portfolio = () => {
     image: projectImages[project.imageFile] || project.imageFile,
   }));
 
-  // Get unique categories
   const categories = ["all", ...new Set(projects.map((p) => p.category))];
 
-  // Filter projects
   const filteredProjects =
     activeCategory === "all"
       ? projects

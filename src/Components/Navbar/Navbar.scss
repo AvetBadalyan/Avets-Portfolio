@@ -166,7 +166,8 @@
     background: var(--color-accent);
     border-color: var(--color-accent);
     color: white;
-    box-shadow: 0 4px 20px hsla(var(--primary-hue), 70%, 50%, 0.35);
+    /* Same accent-glow family as the other interactive controls. */
+    box-shadow: var(--shadow-accent);
   }
 }
 

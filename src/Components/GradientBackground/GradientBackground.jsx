@@ -18,7 +18,6 @@ const GradientBackground = ({ className = "" }) => {
           transition: { duration, repeat: Infinity, ease: "easeInOut" },
         };
 
-  // Generate floating particles
   const particles = Array.from({ length: 20 }, (_, i) => ({
     id: i,
     size: Math.random() * 4 + 2,
