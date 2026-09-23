@@ -211,10 +211,6 @@ button {
   background: none;
 }
 
-[data-aos] {
-  transition-duration: 1s !important;
-}
-
 html {
   /* 1rem = 10px */
   font-size: 62.5%;
@@ -578,12 +574,6 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-
-  [data-aos] {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
   }
 
   /* Animated link underline completes instantly without transition */

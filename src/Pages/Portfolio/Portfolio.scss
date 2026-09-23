@@ -212,10 +212,10 @@
 
   /* Match the mobile caption tags: solid brand color + white text. The old
      transparent bg/bright-text pair washed out against the image gradient and
-     was hard to read. --tag-solid is set inline by TechTag. */
+     was hard to read. Override the CSS custom properties set by TechTag. */
   .tech-tag {
-    background: var(--tag-solid) !important;
-    color: #fff !important;
+    --tag-bg: var(--tag-solid);
+    --tag-color: #fff;
     font-weight: 600;
   }
 }
@@ -336,11 +336,11 @@
 
   /* Use each tech's SOLID brand color with white text so the tags are
      colorful and recognizable (React blue, Node green, ...) and stay readable
-     on the light card in light mode. --tag-solid is set inline by TechTag.
+     on the light card in light mode. Override the CSS custom properties.
      Works in both themes, so no dark-mode override is needed. */
   .tech-tag {
-    background: var(--tag-solid) !important;
-    color: #fff !important;
+    --tag-bg: var(--tag-solid);
+    --tag-color: #fff;
     font-weight: 600;
   }
 
