@@ -1,9 +1,9 @@
-import UFAR from './../../assets/education/UFAR.png';
-import ACA from './../../assets/education/ACA.jpg';
-import JML3 from './../../assets/education/JML3.jpg';
-import PAARA from './../../assets/education/PAARA.png';
-import MIC from './../../assets/education/mic-1200x800.png';
-import EPAM from './../../assets/education/EPAM.jpg';
+import UFAR from './../../assets/education/UFAR.webp';
+import ACA from './../../assets/education/ACA.webp';
+import JML3 from './../../assets/education/JML3.webp';
+import PAARA from './../../assets/education/PAARA.webp';
+import MIC from './../../assets/education/mic-1200x800.webp';
+import EPAM from './../../assets/education/EPAM.webp';
 
 const data = [
   {
