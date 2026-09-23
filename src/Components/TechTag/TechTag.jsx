@@ -1,4 +1,4 @@
-import { techColors, defaultTechStyle } from "../../utils/techColors";
+import { defaultTechStyle, techColors } from "../../utils/techColors";
 import "./TechTag.scss";
 
 /**
@@ -22,7 +22,14 @@ const TechTag = ({ name, color, size = "md", className = "" }) => {
   return (
     <span
       className={classes}
-      style={{ background: style.bg, color: style.color }}
+      style={{
+        background: style.bg,
+        color: style.color,
+        // Solid brand color exposed for contexts that render on a light
+        // surface (e.g. the mobile project-card caption), where the dark-tuned
+        // bg/color pair would be unreadable. See Portfolio.scss caption tags.
+        "--tag-solid": style.solid,
+      }}
     >
       {name}
     </span>

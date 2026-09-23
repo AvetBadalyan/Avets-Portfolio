@@ -129,7 +129,12 @@ const Experience = () => {
                 {/* Card Header */}
                 <div className="experience__card-header">
                   <div className="experience__logo">
-                    <img src={job.logo} alt={job.company} />
+                    <img
+                      src={job.logo}
+                      alt={job.company}
+                      width={56}
+                      height={56}
+                    />
                   </div>
                   <div className="experience__meta">
                     <h3 className="experience__company">{job.company}</h3>

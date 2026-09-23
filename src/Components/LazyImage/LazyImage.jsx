@@ -11,6 +11,8 @@ const LazyImage = ({
   alt,
   className = "",
   wrapperClassName = "",
+  width,
+  height,
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +28,8 @@ const LazyImage = ({
         loading="lazy"
         onLoad={() => setIsLoaded(true)}
         className={`lazy-image ${isLoaded ? "lazy-image--loaded" : ""} ${className}`}
+        width={width}
+        height={height}
         {...props}
       />
     </div>

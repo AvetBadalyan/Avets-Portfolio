@@ -62,7 +62,12 @@ const Education = () => {
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
                 <div className="education__card-logo">
-                  <img src={item.logo} alt={item.title} />
+                  <img
+                    src={item.logo}
+                    alt={item.title}
+                    width={60}
+                    height={60}
+                  />
                 </div>
 
                 <div className="education__card-content">
@@ -121,7 +126,12 @@ const Education = () => {
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
                 <div className="education__card-logo">
-                  <img src={item.logo} alt={item.title} />
+                  <img
+                    src={item.logo}
+                    alt={item.title}
+                    width={60}
+                    height={60}
+                  />
                 </div>
 
                 <div className="education__card-content">

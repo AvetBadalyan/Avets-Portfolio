@@ -9,7 +9,7 @@ const SkillCard = ({ skill, index }) => {
     <motion.div variants={fadeIn("up", 0)} custom={index}>
       <TiltCard className="skill-card" tiltAmount={8} scale={1.03}>
         <div className="skill-card__icon">
-          <img src={skill.logo} alt={skill.skillName} />
+          <img src={skill.logo} alt={skill.skillName} width={48} height={48} />
         </div>
         <span className="skill-card__name">{skill.skillName}</span>
         <div className="skill-card__level">
