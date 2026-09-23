@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import EPAMLogo from "./../../assets/education/EPAM.jpg";
-import ashstoneLogo from "./../../assets/pics/ashtone.jpg";
-import CognaizeLogo from "./../../assets/pics/cognaize-armenia.jpg";
+import EPAMLogo from "./../../assets/education/EPAM.webp";
+import ashstoneLogo from "./../../assets/pics/ashtone.webp";
+import CognaizeLogo from "./../../assets/pics/cognaize-armenia.webp";
 import "./Experience.scss";
 
 const experienceData = [

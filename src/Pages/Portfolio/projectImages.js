@@ -1,40 +1,38 @@
-import battleshipScreenshot from "../../assets/portfolio/battleship.png";
-import chatAppNewScreenshot from "../../assets/portfolio/chat-app-new.png";
-import cocktailsNewScreenshot from "../../assets/portfolio/cocktails-new.png";
-import eduSchedulerScreenshot from "../../assets/portfolio/edu-scheduler.png";
-import fashionStoreScreenshot from "../../assets/portfolio/fashion-store.png";
-import foodStoreScreenshot from "../../assets/portfolio/foodStoreScreen2.jpg";
-import frontendQuizScreenshot from "../../assets/portfolio/frontend-quiz.jpg";
-import itunesNewScreenshot from "../../assets/portfolio/itunes-new.png";
-import jobTestPrepScreenshot from "../../assets/portfolio/jobTestPrep.png";
-import jokeTellerScreenshot from "../../assets/portfolio/joke-teller.png";
-import musicAppScreenshot from "../../assets/portfolio/music app.png";
-import realEstateScreenshot from "../../assets/portfolio/screenshot1.jpg";
-import techshopScreenshot from "../../assets/portfolio/techshop.jpg";
-import todoScreenshot from "../../assets/portfolio/todo-task-page.jpg";
-import travelScreenshot from "../../assets/portfolio/travel-screenshot2.jpg";
-import wanderArmeniaScreenshot from "../../assets/portfolio/wanderarmenia.jpg";
+import battleshipScreenshot from "../../assets/portfolio/battleship.webp";
+import chatAppNewScreenshot from "../../assets/portfolio/chat-app-new.webp";
+import cocktailsNewScreenshot from "../../assets/portfolio/cocktails-new.webp";
+import eduSchedulerScreenshot from "../../assets/portfolio/edu-scheduler.webp";
+import fashionStoreScreenshot from "../../assets/portfolio/fashion-store.webp";
+import foodStoreScreenshot from "../../assets/portfolio/foodStoreScreen2.webp";
+import frontendQuizScreenshot from "../../assets/portfolio/frontend-quiz.webp";
+import itunesNewScreenshot from "../../assets/portfolio/itunes-new.webp";
+import jobTestPrepScreenshot from "../../assets/portfolio/jobTestPrep.webp";
+import jokeTellerScreenshot from "../../assets/portfolio/joke-teller.webp";
+import musicAppScreenshot from "../../assets/portfolio/music app.webp";
+import realEstateScreenshot from "../../assets/portfolio/screenshot1.webp";
+import techshopScreenshot from "../../assets/portfolio/techshop.webp";
+import todoScreenshot from "../../assets/portfolio/todo-task-page.webp";
+import travelScreenshot from "../../assets/portfolio/travel-screenshot2.webp";
+import wanderArmeniaScreenshot from "../../assets/portfolio/wanderarmenia.webp";
 
-// Removed: cocktails.jpg, itunes.jpg, chat app screenshot0.jpg
-// portfolioData.json now references the newer -new variants for all three.
-
+// Keys match the `imageFile` values in portfolioData.json.
 const projectImages = {
-  "music app.png": musicAppScreenshot,
-  "edu-scheduler.png": eduSchedulerScreenshot,
-  "chat-app-new.png": chatAppNewScreenshot,
-  "screenshot1.jpg": realEstateScreenshot,
-  "techshop.jpg": techshopScreenshot,
-  "wanderarmenia.jpg": wanderArmeniaScreenshot,
-  "foodStoreScreen2.jpg": foodStoreScreenshot,
-  "fashion-store.png": fashionStoreScreenshot,
-  "todo-task-page.jpg": todoScreenshot,
-  "frontend-quiz.jpg": frontendQuizScreenshot,
-  "itunes-new.png": itunesNewScreenshot,
-  "cocktails-new.png": cocktailsNewScreenshot,
-  "joke-teller.png": jokeTellerScreenshot,
-  "travel-screenshot2.jpg": travelScreenshot,
-  "jobTestPrep.png": jobTestPrepScreenshot,
-  "battleship.png": battleshipScreenshot,
+  "music app.webp": musicAppScreenshot,
+  "edu-scheduler.webp": eduSchedulerScreenshot,
+  "chat-app-new.webp": chatAppNewScreenshot,
+  "screenshot1.webp": realEstateScreenshot,
+  "techshop.webp": techshopScreenshot,
+  "wanderarmenia.webp": wanderArmeniaScreenshot,
+  "foodStoreScreen2.webp": foodStoreScreenshot,
+  "fashion-store.webp": fashionStoreScreenshot,
+  "todo-task-page.webp": todoScreenshot,
+  "frontend-quiz.webp": frontendQuizScreenshot,
+  "itunes-new.webp": itunesNewScreenshot,
+  "cocktails-new.webp": cocktailsNewScreenshot,
+  "joke-teller.webp": jokeTellerScreenshot,
+  "travel-screenshot2.webp": travelScreenshot,
+  "jobTestPrep.webp": jobTestPrepScreenshot,
+  "battleship.webp": battleshipScreenshot,
 };
 
 export default projectImages;
