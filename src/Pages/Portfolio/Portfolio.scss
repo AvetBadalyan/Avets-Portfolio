@@ -209,6 +209,15 @@
   flex-wrap: wrap;
   gap: var(--space-xs);
   margin-bottom: var(--space-md);
+
+  /* Match the mobile caption tags: solid brand color + white text. The old
+     transparent bg/bright-text pair washed out against the image gradient and
+     was hard to read. --tag-solid is set inline by TechTag. */
+  .tech-tag {
+    background: var(--tag-solid) !important;
+    color: #fff !important;
+    font-weight: 600;
+  }
 }
 
 .project-card__overlay-actions {
@@ -325,22 +334,19 @@
   gap: var(--space-xs);
   margin-bottom: var(--space-sm);
 
-  /* Override the dark-optimized inline colors with solid readable styles */
+  /* Use each tech's SOLID brand color with white text so the tags are
+     colorful and recognizable (React blue, Node green, ...) and stay readable
+     on the light card in light mode. --tag-solid is set inline by TechTag.
+     Works in both themes, so no dark-mode override is needed. */
   .tech-tag {
-    background: hsla(var(--primary-hue), 30%, 90%, 1) !important;
-    color: hsl(var(--primary-hue), 40%, 25%) !important;
-    font-weight: 700;
+    background: var(--tag-solid) !important;
+    color: #fff !important;
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {
     display: flex;
   }
-}
-
-main.bg-2 .project-card__caption-techs .tech-tag {
-  /* Dark mode — original overlay colors work fine */
-  background: unset !important;
-  color: unset !important;
 }
 
 /* Mobile-only buttons — pinned to bottom via margin-top: auto.

@@ -638,22 +638,11 @@
     height: 26rem;
   }
 
+  /* Hide the floating tech badges on phones — at this size they overlap the
+     profile photo and clutter the face. They're purely decorative, so the hero
+     reads cleaner without them on small screens. */
   .hero__badge {
-    font-size: var(--font-size-xs);
-    padding: var(--space-xs) var(--space-sm);
-
-    &.badge--1 {
-      right: 0;
-      top: -5%;
-    }
-    &.badge--2 {
-      left: -12%;
-      bottom: 20%;
-    }
-    &.badge--3 {
-      right: -5%;
-      bottom: -5%;
-    }
+    display: none;
   }
 
   .hero__cta {
@@ -677,6 +666,23 @@
 
   .hero__stat-label {
     font-size: var(--font-size-xs);
+  }
+}
+
+/* Extra-small phones (320px) — shrink the hero image and tighten the stats.
+   (Floating badges are already hidden at <=600px above.) */
+@media screen and (max-width: 375px) {
+  .hero__image-wrapper {
+    width: 22rem;
+    height: 22rem;
+  }
+
+  .hero__stats {
+    padding: var(--space-md);
+  }
+
+  .hero__stat-number {
+    font-size: var(--font-size-md);
   }
 }
 

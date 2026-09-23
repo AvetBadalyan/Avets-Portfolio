@@ -9,17 +9,15 @@ const ProjectCard = ({ project, index }) => {
   const techs = (project.tech || []).slice(0, 4);
 
   return (
-    <TiltCard
-      className="project-card"
-      tiltAmount={6}
-      scale={1.02}
-    >
+    <TiltCard className="project-card" tiltAmount={6} scale={1.02}>
       {/* Image + hover overlay */}
       <div className="project-card__image-wrapper">
         <LazyImage
           src={project.image}
           alt={project.siteName}
           className="project-card__image"
+          width={600}
+          height={400}
         />
 
         {/* Overlay: gradient + category + title + buttons — desktop only */}

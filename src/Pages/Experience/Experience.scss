@@ -208,6 +208,8 @@
   border-radius: var(--border-radius-2);
   overflow: hidden;
   flex-shrink: 0;
+  /* Tight one-off chip shadow — deliberately smaller than the card-surface
+     --shadow-sm; a logo well sits close to its card, not floating above it. */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   img {

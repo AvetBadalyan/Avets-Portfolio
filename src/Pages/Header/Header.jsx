@@ -216,6 +216,8 @@ const Header = () => {
                 src={HeaderImage}
                 alt="Avet Badalyan - Frontend Engineer"
                 className="hero__image"
+                width={280}
+                height={280}
               />
               <div className="hero__image-glow" />
             </div>
