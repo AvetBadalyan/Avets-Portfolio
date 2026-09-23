@@ -35,8 +35,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Opacity is managed entirely by Framer Motion (animate={{ opacity: ... }})
-     on the <motion.img>. No CSS opacity needed here. */
+  /* Fade in once loaded (the --loaded class is added in the onLoad handler). */
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--easing-default);
+}
+
+.lazy-image--loaded {
+  opacity: 1;
 }
 
 /* Light mode skeleton */

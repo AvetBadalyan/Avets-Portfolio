@@ -14,7 +14,8 @@
 
 /* Size variants */
 .tech-tag--md {
-  padding: 0.4rem 0.8rem;
+  /* Exactly --space-2xs --space-xs (4px 8px) — use the tokens, not raw rem. */
+  padding: var(--space-2xs) var(--space-xs);
   font-size: var(--font-size-xs);
 }
 
