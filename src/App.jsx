@@ -15,7 +15,7 @@ import Skills from "./Pages/Skills/Skills";
 const App = () => {
   const { themeClass } = useTheme();
 
-  // Remove initial loader once app mounts
+  // Fade out and remove the static HTML loader once React has mounted.
   useEffect(() => {
     const loader = document.getElementById("initial-loader");
     if (loader) {

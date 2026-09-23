@@ -62,7 +62,7 @@
 
 .learning-card__emoji {
   flex-shrink: 0;
-  font-size: 2.5rem;
+  font-size: var(--icon-size-lg); /* non-type: decorative emoji glyph (24px) */
   line-height: 1;
   transition: transform var(--duration-base) var(--easing-default);
 }
@@ -90,7 +90,10 @@
 .learning-card__status {
   flex-shrink: 0;
   padding: var(--space-2xs) var(--space-sm);
-  background: rgba(var(--accent-rgb), 0.1);
+  /* Accent wash via color-mix so the tint derives from the live accent and
+     tracks the theme (--accent-rgb was never defined, so the old
+     rgba(var(--accent-rgb),…) resolved invalid and rendered no background). */
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
   color: var(--color-accent);
   font-size: var(--font-size-xs);
   font-weight: 600;
@@ -123,7 +126,8 @@
   }
 
   .learning-card__emoji {
-    font-size: 2rem;
+    /* non-type: decorative emoji glyph (20px) */
+    font-size: var(--icon-size-md);
   }
 
   .learning-card__header {
@@ -143,7 +147,7 @@ main.bg-2 {
   }
 
   .learning-card {
-    background: hsl(var(--primary-hue), 18%, 14%);
+    background: var(--surface-card-dark);
     border-color: var(--glass-border);
 
     &:hover {
@@ -160,6 +164,7 @@ main.bg-2 {
   }
 
   .learning-card__status {
-    background: rgba(var(--accent-rgb), 0.15);
+    /* Slightly stronger wash so the tint stays visible on the dark card. */
+    background: color-mix(in srgb, var(--color-accent) 18%, transparent);
   }
 }

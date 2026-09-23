@@ -478,7 +478,7 @@ main.bg-2 {
   }
 
   .project-card {
-    background: hsl(var(--primary-hue), 18%, 12%);
+    background: var(--surface-card-dark);
     /* Hover shadow is inherited from the base rule — --shadow-xl deepens in
        dark mode automatically via --shadow-strength, so no override needed. */
   }

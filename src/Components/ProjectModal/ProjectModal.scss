@@ -5,7 +5,7 @@
 .project-modal__overlay {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: var(--z-overlay);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +48,7 @@
   position: absolute;
   top: var(--space-md);
   right: var(--space-md);
-  z-index: 10;
+  z-index: var(--z-elevated);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,10 +139,13 @@
 .project-modal__challenge {
   margin-bottom: var(--space-xl);
   padding: var(--space-lg);
+  /* Accent wash via color-mix so the tint derives from the live accent and
+     tracks the theme (--accent-rgb was never defined, so the old
+     rgba(var(--accent-rgb),…) resolved invalid and rendered no gradient). */
   background: linear-gradient(
     135deg,
-    rgba(var(--accent-rgb), 0.08) 0%,
-    rgba(var(--accent-rgb), 0.03) 100%
+    color-mix(in srgb, var(--color-accent) 8%, transparent) 0%,
+    color-mix(in srgb, var(--color-accent) 3%, transparent) 100%
   );
   border-left: 3px solid var(--color-accent);
   border-radius: 0 var(--border-radius-3) var(--border-radius-3) 0;
@@ -287,7 +290,7 @@
 
 main.bg-2 {
   .project-modal {
-    background: hsl(var(--primary-hue), 18%, 12%);
+    background: var(--surface-card-dark);
   }
 
   .project-modal__title {
@@ -300,10 +303,11 @@ main.bg-2 {
   }
 
   .project-modal__challenge {
+    /* Stronger wash so the accent stays visible on the dark modal surface. */
     background: linear-gradient(
       135deg,
-      rgba(var(--accent-rgb), 0.12) 0%,
-      rgba(var(--accent-rgb), 0.05) 100%
+      color-mix(in srgb, var(--color-accent) 12%, transparent) 0%,
+      color-mix(in srgb, var(--color-accent) 5%, transparent) 100%
     );
   }
 

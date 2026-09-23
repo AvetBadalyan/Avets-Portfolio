@@ -1,9 +1,9 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useCallback } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useRef } from "react";
 import { FaExternalLinkAlt, FaGithub, FaTimes } from "react-icons/fa";
+import { techColors } from "../../utils/techColors";
 import LazyImage from "../LazyImage/LazyImage";
 import TechTag from "../TechTag/TechTag";
-import { techColors } from "../../utils/techColors";
 import "./ProjectModal.scss";
 
 const overlayVariants = {
@@ -33,12 +33,11 @@ const ProjectModal = ({ project, onClose }) => {
   const closeButtonRef = useRef(null);
   const previousActiveElement = useRef(null);
 
-  // Store the element that was focused before modal opened
+  // Remember what was focused before opening so we can restore it on close.
   useEffect(() => {
     previousActiveElement.current = document.activeElement;
   }, []);
 
-  // Focus the close button when modal opens, restore focus on close
   useEffect(() => {
     if (project && closeButtonRef.current) {
       closeButtonRef.current.focus();
@@ -51,7 +50,6 @@ const ProjectModal = ({ project, onClose }) => {
     };
   }, [project]);
 
-  // Handle Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -61,7 +59,6 @@ const ProjectModal = ({ project, onClose }) => {
 
     if (project) {
       document.addEventListener("keydown", handleKeyDown);
-      // Prevent body scroll when modal is open
       document.body.style.overflow = "hidden";
     }
 
@@ -71,32 +68,28 @@ const ProjectModal = ({ project, onClose }) => {
     };
   }, [project, onClose]);
 
-  // Focus trap
-  const handleKeyDown = useCallback(
-    (e) => {
-      if (e.key !== "Tab" || !modalRef.current) return;
+  // Trap Tab focus inside the modal while it's open (required by aria-modal).
+  const handleKeyDown = useCallback((e) => {
+    if (e.key !== "Tab" || !modalRef.current) return;
 
-      const focusableElements = modalRef.current.querySelectorAll(
-        'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])'
-      );
+    const focusableElements = modalRef.current.querySelectorAll(
+      'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
+    );
 
-      if (focusableElements.length === 0) return;
+    if (focusableElements.length === 0) return;
 
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
 
-      if (e.shiftKey && document.activeElement === firstElement) {
-        e.preventDefault();
-        lastElement.focus();
-      } else if (!e.shiftKey && document.activeElement === lastElement) {
-        e.preventDefault();
-        firstElement.focus();
-      }
-    },
-    []
-  );
+    if (e.shiftKey && document.activeElement === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    } else if (!e.shiftKey && document.activeElement === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
+  }, []);
 
-  // Click outside to close
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -147,7 +140,9 @@ const ProjectModal = ({ project, onClose }) => {
                 width={800}
                 height={450}
               />
-              <span className="project-modal__category">{project.category}</span>
+              <span className="project-modal__category">
+                {project.category}
+              </span>
             </div>
 
             {/* Content */}
@@ -156,7 +151,9 @@ const ProjectModal = ({ project, onClose }) => {
                 {project.siteName}
               </h2>
 
-              <p className="project-modal__description">{project.description}</p>
+              <p className="project-modal__description">
+                {project.description}
+              </p>
 
               {/* Challenge section - the key differentiator */}
               {project.challenge && (

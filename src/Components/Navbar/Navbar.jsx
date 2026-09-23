@@ -16,12 +16,10 @@ const Navbar = () => {
   const mobileMenuRef = useRef(null);
   const burgerRef = useRef(null);
 
-  // Track scroll position and active section
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Find active section
       const sections = [
         "header",
         ...navLinks.map((link) => link.link.slice(1)),
@@ -61,7 +59,6 @@ const Navbar = () => {
         ),
       );
 
-    // Move focus into the panel on open.
     getFocusable()[0]?.focus();
 
     const handleKeyDown = (e) => {
@@ -97,7 +94,6 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => {

@@ -228,7 +228,7 @@ main.bg-2 {
   }
 
   .education__card {
-    background: hsl(var(--primary-hue), 18%, 12%);
+    background: var(--surface-card-dark);
 
     &:hover {
       box-shadow:

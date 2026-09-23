@@ -353,8 +353,7 @@ main.bg-2 {
   }
 
   .experience__card {
-    /* Solid dark background for cards */
-    background: hsl(var(--primary-hue), 18%, 14%);
+    background: var(--surface-card-dark);
     border-color: var(--glass-border);
 
     &:hover {

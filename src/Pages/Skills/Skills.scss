@@ -187,9 +187,9 @@ main.bg-2 {
   }
 
   .skill-card {
-    /* Solid dark background instead of transparent glass;
-       border comes from the theme-aware --glass-border token. */
-    background: hsl(var(--primary-hue), 18%, 16%);
+    /* Solid surface instead of the light-mode glass; border stays on the
+       theme-aware --glass-border token. */
+    background: var(--surface-card-dark);
 
     &:hover {
       /* --shadow-lg deepens automatically in dark mode; only the accent ring
