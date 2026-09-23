@@ -68,10 +68,6 @@
   height: 100%;
 }
 
-/* ============================================
-   CARDS - Vertical layout, centered
-   ============================================ */
-
 .education__card {
   display: flex;
   flex-direction: column;
@@ -90,8 +86,8 @@
   border-radius: var(--border-radius-1);
   box-shadow: var(--shadow-sm);
 
-  /* Smooth transition for border, shadow — no CSS transform here;
-     Framer Motion's whileHover handles the lift to avoid doubling */
+  /* Framer Motion's whileHover handles the lift; no CSS transform here to
+     avoid doubling the effect. */
   transition:
     box-shadow var(--duration-base) var(--easing-default),
     border-color var(--duration-base) var(--easing-default);
@@ -105,13 +101,12 @@
   }
 }
 
-/* Logo at top */
 .education__card-logo {
   width: 140px;
   height: 140px;
   border-radius: var(--border-radius-2);
   overflow: hidden;
-  background: white;
+  background: var(--color-on-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
   /* Smooth scale + glow on card hover */
@@ -134,7 +129,6 @@
     0 0 0 2px hsla(var(--primary-hue), 70%, 50%, 0.2);
 }
 
-/* Title - institution name */
 .education__card-title {
   font-size: var(--font-size-lg);
   font-weight: var(--fw-bold);
@@ -143,16 +137,14 @@
   line-height: 1.3;
 }
 
-/* Content area with labeled fields */
 .education__card-content {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
   width: 100%;
-  /* flex: 1 removed — button uses margin-top: auto to push itself down */
+  /* flex: 1 removed — margin-top: auto on the button pushes it to the bottom */
 }
 
-/* Label + value pairs */
 .education__card-field {
   font-size: var(--font-size-sm);
   color: var(--color-dark);
@@ -164,7 +156,6 @@
   }
 }
 
-/* Degree badge */
 .education__card-degree {
   display: inline-block;
   padding: 0.4rem 1rem;
@@ -181,7 +172,8 @@
    ============================================ */
 
 .education__card-link {
-  /* Push button to bottom of card; margin (not padding) keeps button box inside card's padding */
+  /* margin-top: auto pushes the button to the card's bottom without flex: 1
+     on the content, keeping the button box inside the card's padding. */
   margin-top: auto;
   padding-top: 0;
   align-self: center;

@@ -34,10 +34,7 @@
   backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-1);
-  /* Signature soft 40px-blur card shadow (one-off, not on the surface scale);
-     alpha rides --shadow-strength so it deepens in dark mode rather than
-     staying frozen at the light-mode value. */
-  box-shadow: 0 8px 40px rgba(0, 0, 0, calc(0.08 * var(--shadow-strength)));
+  box-shadow: var(--shadow-md);
   text-align: center;
 }
 
@@ -51,8 +48,7 @@
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-lg);
   /* Semantic green — deliberately not theme-accented (signals availability).
-     background uses color-mix so the tint derives from the fill color and
-     scales correctly if the green value ever changes. */
+     color-mix so the tint tracks this value if it ever changes. */
   --status-green: hsl(120, 70%, 40%);
   background: color-mix(in srgb, var(--status-green) 12%, transparent);
   color: var(--status-green);
@@ -65,7 +61,6 @@
 .contact__status-dot {
   width: 10px;
   height: 10px;
-  /* Inherits --status-green from parent .contact__status */
   background: var(--status-green);
   border-radius: 50%;
   animation: pulse-green 2s ease-in-out infinite;
@@ -138,7 +133,6 @@
   border-radius: var(--border-radius-2);
   font-size: var(--icon-size-lg);
   flex-shrink: 0;
-  /* Unified accent tint instead of four different brand colors */
   background: hsla(var(--primary-hue), 70%, 50%, 0.1);
   color: var(--color-accent);
   transition: transform var(--duration-base) var(--easing-default);
@@ -173,7 +167,7 @@
 .contact__message {
   color: var(--color-dark);
   font-size: var(--font-size-base);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
   max-width: 50ch;
   margin: 0 auto;
 }
@@ -222,7 +216,6 @@ main.bg-2 {
   }
 
   .contact__item {
-    /* Use glass tokens so the surface tier tracks theme changes */
     background: var(--glass-bg);
     border-color: var(--glass-border);
 

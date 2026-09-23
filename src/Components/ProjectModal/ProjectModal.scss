@@ -129,7 +129,7 @@
   margin: 0 0 var(--space-xl);
   font-size: var(--font-size-base);
   color: var(--color-dark);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
 }
 
 /* ============================================
@@ -139,9 +139,7 @@
 .project-modal__challenge {
   margin-bottom: var(--space-xl);
   padding: var(--space-lg);
-  /* Accent wash via color-mix so the tint derives from the live accent and
-     tracks the theme (--accent-rgb was never defined, so the old
-     rgba(var(--accent-rgb),…) resolved invalid and rendered no gradient). */
+  /* color-mix so the accent wash tracks the live theme color. */
   background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--color-accent) 8%, transparent) 0%,
@@ -162,7 +160,7 @@
   margin: 0;
   font-size: var(--font-size-sm);
   color: var(--color-dark);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
 }
 
 /* ============================================
@@ -187,7 +185,6 @@
   flex-wrap: wrap;
   gap: var(--space-sm);
 
-  /* Solid brand colors for better visibility */
   .tech-tag {
     --tag-bg: var(--tag-solid);
     --tag-color: #fff;
@@ -303,7 +300,7 @@ main.bg-2 {
   }
 
   .project-modal__challenge {
-    /* Stronger wash so the accent stays visible on the dark modal surface. */
+    /* Stronger wash for visibility on the dark surface. */
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--color-accent) 12%, transparent) 0%,

@@ -64,9 +64,8 @@
   }
 
   &--active {
-    /* Use --color-primary (stays saturated/dark in both themes) as the fill so
-       the white label keeps contrast. In dark mode --color-accent is lightened
-       for text use, which would be too pale behind white here. */
+    /* --color-primary (not --color-accent) keeps contrast with white text in
+       dark mode, where --color-accent lightens to 72%. */
     background: var(--color-primary);
     color: var(--color-on-primary);
     border-color: transparent;
@@ -120,8 +119,7 @@
   cursor: pointer;
 
   &:hover {
-    /* --shadow-xl deepens automatically in dark mode via --shadow-strength,
-       so the separate dark-mode hover override below is no longer needed. */
+    /* --shadow-xl deepens via --shadow-strength in dark mode automatically. */
     box-shadow:
       var(--shadow-xl),
       0 0 0 1px var(--color-accent);
@@ -327,7 +325,7 @@
 .project-card__description {
   font-size: var(--font-size-sm);
   color: var(--color-dark);
-  line-height: 1.6;
+  line-height: var(--line-height-tight);
   margin: 0 0 var(--space-md);
 
   /* 3-line clamp keeps all cards visually uniform */
@@ -338,17 +336,15 @@
 }
 
 /* Tags in caption — hidden on desktop (overlay shows them on dark bg).
-   Visible on mobile with solid colors so they read on light backgrounds. */
+   Mobile: solid brand colors to read on light card backgrounds. */
 .project-card__caption-techs {
   display: none;
   flex-wrap: wrap;
   gap: var(--space-xs);
   margin-bottom: var(--space-sm);
 
-  /* Use each tech's SOLID brand color with white text so the tags are
-     colorful and recognizable (React blue, Node green, ...) and stay readable
-     on the light card in light mode. Override the CSS custom properties.
-     Works in both themes, so no dark-mode override is needed. */
+  /* Solid brand colors so the tags are colorful and readable on the light
+     card in light mode. Works in both themes — no dark-mode override needed. */
   .tech-tag {
     --tag-bg: var(--tag-solid);
     --tag-color: #fff;
@@ -360,7 +356,7 @@
   }
 }
 
-/* Mobile-only buttons — pinned to bottom via margin-top: auto.
+/* Mobile-only actions — pinned to bottom via margin-top: auto.
    Hidden on desktop where the overlay provides the actions. */
 .project-card__mobile-actions {
   display: none;
@@ -369,14 +365,13 @@
   margin-top: auto;
   padding-top: var(--space-md);
 
-  /* Three actions (Details / Demo / Code) share the row and grow to fill it;
-     they wrap to a second line on very narrow phones instead of overflowing. */
+  /* Three actions grow to fill the row; wrap on very narrow phones. */
   .project-card__btn {
     flex: 1 1 auto;
     justify-content: center;
   }
 
-  /* Light background context — override the overlay-white button styles */
+  /* Light card context — override the overlay-white button styles. */
   .project-card__btn--primary {
     background: var(--color-accent);
     color: var(--color-on-primary);
@@ -479,8 +474,6 @@ main.bg-2 {
 
   .project-card {
     background: var(--surface-card-dark);
-    /* Hover shadow is inherited from the base rule — --shadow-xl deepens in
-       dark mode automatically via --shadow-strength, so no override needed. */
   }
 
   .project-card__title-static {
@@ -500,9 +493,9 @@ main.bg-2 {
       color: var(--color-accent);
     }
 
-    /* Keep the active pill's label white on the solid fill. The base dark-mode
-       rule above is more specific than .portfolio__filter--active, so restate
-       it here (and on hover) or the label falls back to grey and disappears. */
+    /* Keep the active pill's label white on the solid fill. The dark-mode rule
+       above is more specific than .portfolio__filter--active, so re-state it
+       here or the label falls back to grey. */
     &--active,
     &--active:hover {
       color: var(--color-on-primary);

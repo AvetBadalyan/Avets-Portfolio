@@ -78,10 +78,8 @@
 }
 
 .about__language-level {
-  /* Secondary text — no opacity reduction to maintain contrast */
   font-size: var(--font-size-xs);
   color: var(--color-dark);
-
   margin-left: auto;
 }
 
@@ -124,7 +122,7 @@
 
 .about__text p {
   font-size: var(--font-size-base);
-  line-height: 1.8;
+  line-height: var(--line-height-loose);
   color: var(--color-dark);
 
   strong {
@@ -171,11 +169,7 @@
   flex-shrink: 0;
 }
 
-/* ============================================
-   CTA BUTTON
-   ============================================ */
-
-/* Layout only — all button styling comes from the shared .btn / .btn--primary */
+/* Layout only — all button styling comes from .btn / .btn--primary */
 .about__cta {
   margin-top: var(--space-md);
 }
@@ -236,7 +230,6 @@ main.bg-2 {
   }
 
   .about__language-level {
-    /* Secondary text — no opacity reduction to maintain contrast */
     color: var(--color-dark);
   }
 
