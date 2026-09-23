@@ -40,7 +40,7 @@
   justify-content: center;
   gap: var(--space-sm);
   font-size: var(--font-size-md);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-black);
   margin-bottom: var(--space-2xl);
 
@@ -106,7 +106,7 @@
 
 .skill-card__name {
   font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-black);
   text-align: center;
   line-height: 1.3;

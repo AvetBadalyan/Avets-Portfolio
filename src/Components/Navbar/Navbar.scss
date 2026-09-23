@@ -11,7 +11,7 @@
   color: var(--color-on-primary);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--border-radius-2);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   z-index: calc(var(--z-navbar) + 10);
   transition: top var(--duration-fast) var(--easing-default);
 
@@ -72,11 +72,11 @@
 
 .nav__logo-text {
   font-family: var(--font-family-display);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   /* Uses --font-size-md (18px, a type token) rather than an icon-size token —
      this is the right ramp step for the logo label. */
   font-size: var(--font-size-md);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-display);
 }
 
 /* ============================================
@@ -99,10 +99,10 @@
   color: var(--color-black);
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--tracking-wide);
   border-radius: var(--border-radius-3);
   transition: all var(--duration-base) var(--easing-default);
 
@@ -245,10 +245,10 @@
   color: var(--color-dark);
   font-family: var(--font-family-display);
   font-size: var(--font-size-md);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--tracking-wide);
   border-radius: var(--border-radius-2);
   /* Transparent base border reserves the 4px so the active state's
      solid accent border doesn't cause a layout shift. */
@@ -336,7 +336,7 @@ main.bg-2 {
   border-radius: var(--border-radius-2);
   color: var(--color-dark);
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   cursor: pointer;
   transition: all var(--duration-base) var(--easing-default);
 

@@ -51,7 +51,7 @@
 
 .about__languages-title {
   font-size: var(--font-size-md);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-black);
   margin: 0 0 var(--space-lg) 0;
 }
@@ -72,7 +72,7 @@
 }
 
 .about__language-name {
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-black);
   font-size: var(--font-size-sm);
 }
@@ -117,7 +117,7 @@
 
 .about__role {
   font-size: var(--font-size-xl);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   color: var(--color-accent);
   margin-top: 0;
 }
@@ -129,13 +129,13 @@
 
   strong {
     color: var(--color-accent);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
   }
 }
 
 .about__subheading {
   font-size: var(--font-size-md);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-black);
   margin-top: var(--space-xl);
 }

@@ -7,7 +7,7 @@
 .tech-tag {
   display: inline-flex;
   align-items: center;
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   border-radius: var(--border-radius-3);
   white-space: nowrap;
   /* Base colors from custom properties; can be overridden by parent context */

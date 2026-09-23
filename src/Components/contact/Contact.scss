@@ -57,7 +57,7 @@
   background: color-mix(in srgb, var(--status-green) 12%, transparent);
   color: var(--status-green);
   font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   border-radius: var(--border-radius-pill);
   margin-bottom: var(--space-md);
 }
@@ -153,16 +153,16 @@
 
 .contact__item-label {
   font-size: var(--font-size-xs);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--color-dark);
 
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--tracking-wide);
 }
 
 .contact__item-value {
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-black);
 }
 
