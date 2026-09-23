@@ -1,19 +1,10 @@
-import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
 
 /**
- * TiltCard - 3D tilt effect on hover (like Apple TV app icons).
- *
- * Uses Framer Motion motion values so the tilt animates OUTSIDE React's render
- * cycle: mouse movement writes to motion values directly, so the component does
- * not re-render on every mousemove (only the CSS transform updates). Springs
- * smooth the motion and the ease-back on mouse leave.
+ * TiltCard - subtle 3D tilt toward the cursor on hover (like Apple TV icons).
+ * On mouse move we work out where the cursor is relative to the card centre
+ * and store the resulting tilt angles in state; Framer Motion animates to them.
  */
 const TiltCard = ({
   children,
@@ -23,38 +14,27 @@ const TiltCard = ({
   ...props
 }) => {
   const cardRef = useRef(null);
-  // Respect the OS "reduce motion" setting — skip the 3D tilt entirely.
   const reduceMotion = useReducedMotion();
-
-  // Normalized pointer position within the card: -0.5 (top/left) .. 0.5 (bottom/right),
-  // 0 at the center. Springs give the tilt a smooth, springy feel.
-  const px = useSpring(0, { stiffness: 400, damping: 30 });
-  const py = useSpring(0, { stiffness: 400, damping: 30 });
-  const hovering = useMotionValue(0); // 0 = at rest, 1 = pointer over card
-
-  // Map the normalized position to rotation degrees.
-  // rotateX is negated so the card tips TOWARD the cursor (top-hover leans back).
-  const rotateX = useTransform(py, (v) => -v * 2 * tiltAmount);
-  const rotateY = useTransform(px, (v) => v * 2 * tiltAmount);
-  const scaleValue = useTransform(hovering, [0, 1], [1, scale]);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
-    const el = cardRef.current;
-    if (!el || reduceMotion) return;
+    if (!cardRef.current || reduceMotion) return;
 
-    const rect = el.getBoundingClientRect();
-    // (mouse - left) / width gives 0..1 across the card; subtract 0.5 to center it.
-    px.set((e.clientX - rect.left) / rect.width - 0.5);
-    py.set((e.clientY - rect.top) / rect.height - 0.5);
-    hovering.set(1);
+    const rect = cardRef.current.getBoundingClientRect();
+    // How far the cursor is from the card centre, as -0.5 .. 0.5 on each axis.
+    const percentX = (e.clientX - rect.left) / rect.width - 0.5;
+    const percentY = (e.clientY - rect.top) / rect.height - 0.5;
+
+    // rotateX is negated so the card tips toward the cursor.
+    setTilt({
+      x: -percentY * 2 * tiltAmount,
+      y: percentX * 2 * tiltAmount,
+    });
   };
 
-  const handleMouseLeave = () => {
-    // Ease everything back to flat/resting.
-    px.set(0);
-    py.set(0);
-    hovering.set(0);
-  };
+  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
+
+  const isTilting = tilt.x !== 0 || tilt.y !== 0;
 
   return (
     <motion.div
@@ -62,10 +42,13 @@ const TiltCard = ({
       className={className}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      animate={{
+        rotateX: tilt.x,
+        rotateY: tilt.y,
+        scale: isTilting ? scale : 1,
+      }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
       style={{
-        rotateX,
-        rotateY,
-        scale: scaleValue,
         transformStyle: "preserve-3d",
         perspective: "1000px",
         height: "100%",

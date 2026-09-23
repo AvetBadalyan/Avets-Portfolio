@@ -1,9 +1,10 @@
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import "./LazyImage.scss";
 
 /**
- * LazyImage - Image component with lazy loading and fade-in effect
+ * LazyImage - lazy-loaded image with a skeleton placeholder and fade-in.
+ * Uses the browser's native loading="lazy" (no IntersectionObserver needed)
+ * and a simple CSS fade once the image has loaded.
  */
 const LazyImage = ({
   src,
@@ -13,46 +14,20 @@ const LazyImage = ({
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "100px" },
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <div ref={imgRef} className={`lazy-image-wrapper ${wrapperClassName}`}>
-      {/* Skeleton placeholder */}
+    <div className={`lazy-image-wrapper ${wrapperClassName}`}>
+      {/* Skeleton shows until the image finishes loading */}
       {!isLoaded && <div className="lazy-image-skeleton" />}
 
-      {/* Actual image */}
-      {isInView && (
-        <motion.img
-          src={src}
-          alt={alt}
-          className={`lazy-image ${className}`}
-          onLoad={() => setIsLoaded(true)}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isLoaded ? 1 : 0 }}
-          transition={{ duration: 0.4 }}
-          loading="lazy"
-          {...props}
-        />
-      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setIsLoaded(true)}
+        className={`lazy-image ${isLoaded ? "lazy-image--loaded" : ""} ${className}`}
+        {...props}
+      />
     </div>
   );
 };
