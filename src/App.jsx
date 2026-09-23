@@ -5,6 +5,7 @@ import Footer from "./Components/footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import { useTheme } from "./context/theme-context.jsx";
 import About from "./Pages/About/About";
+import CurrentlyLearning from "./Pages/CurrentlyLearning/CurrentlyLearning";
 import Education from "./Pages/Education/Education";
 import Experience from "./Pages/Experience/Experience";
 import Header from "./Pages/Header/Header";
@@ -36,6 +37,7 @@ const App = () => {
       <About />
       <Education />
       <Skills />
+      <CurrentlyLearning />
       <Experience />
       <Portfolio />
       <Contact />

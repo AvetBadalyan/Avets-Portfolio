@@ -4,6 +4,7 @@ import {
   FaExternalLinkAlt,
   FaGraduationCap,
 } from "react-icons/fa";
+import TiltCard from "../../Components/TiltCard/TiltCard";
 import { fadeIn, staggerContainer } from "../../utils/animations";
 import data from "./data";
 import "./Education.scss";
@@ -33,7 +34,7 @@ const Education = () => {
         >
           <h2 className="section-heading">Education & Training</h2>
           <p className="education__subtitle">
-            Professional certifications and academic background
+            Professional trainings, certifications, and academic studies
           </p>
         </motion.div>
 
@@ -53,55 +54,67 @@ const Education = () => {
             <span>Technical Training</span>
           </motion.h3>
 
-          <div className="education__grid">
-            {techCerts.map((item) => (
-              <motion.article
+          <motion.div
+            className="education__grid"
+            variants={staggerContainer(0.12, 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {techCerts.map((item, index) => (
+              <TiltCard
                 key={item.id}
-                className="education__card"
-                variants={fadeIn("up", 0)}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="education__card-tilt"
+                tiltAmount={8}
+                scale={1.02}
               >
-                <div className="education__card-logo">
-                  <img
-                    src={item.logo}
-                    alt={item.title}
-                    width={60}
-                    height={60}
-                  />
-                </div>
+                <motion.article
+                  className="education__card"
+                  variants={fadeIn("up", index * 0.08)}
+                >
+                  <div className="education__card-logo">
+                    <img
+                      src={item.logo}
+                      alt={item.title}
+                      width={140}
+                      height={140}
+                    />
+                  </div>
 
-                <div className="education__card-content">
                   <h4 className="education__card-title">{item.title}</h4>
-                  <p className="education__card-faculty">{item.faculty}</p>
-                  <span className="education__card-duration">
-                    {item.duration}
-                  </span>
 
-                  {item.description && (
-                    <p className="education__card-description">
-                      {item.description}
+                  <div className="education__card-content">
+                    <p className="education__card-field">
+                      <strong>Duration:</strong> {item.duration}
                     </p>
-                  )}
+                    <p className="education__card-field">
+                      <strong>Faculty:</strong> {item.faculty}
+                    </p>
+                    {item.description && (
+                      <p className="education__card-field">
+                        <strong>Description:</strong> {item.description}
+                      </p>
+                    )}
+                  </div>
 
                   {item.link && (
-                    <a
+                    <motion.a
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn--outline btn--sm education__card-link"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <FaCertificate />
-                      <span>View Certificate</span>
+                      <span>Certificate</span>
                       <FaExternalLinkAlt />
-                    </a>
+                    </motion.a>
                   )}
-                </div>
-              </motion.article>
+                </motion.article>
+              </TiltCard>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
-
-        {/* Academic Degrees */}
         <motion.div
           className="education__section"
           variants={staggerContainer(0.1, 0.2)}
@@ -117,52 +130,66 @@ const Education = () => {
             <span>Academic Background</span>
           </motion.h3>
 
-          <div className="education__grid education__grid--academic">
-            {academic.map((item) => (
-              <motion.article
+          <motion.div
+            className="education__grid"
+            variants={staggerContainer(0.12, 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {academic.map((item, index) => (
+              <TiltCard
                 key={item.id}
-                className="education__card education__card--academic"
-                variants={fadeIn("up", 0)}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="education__card-tilt"
+                tiltAmount={8}
+                scale={1.02}
               >
-                <div className="education__card-logo">
-                  <img
-                    src={item.logo}
-                    alt={item.title}
-                    width={60}
-                    height={60}
-                  />
-                </div>
+                <motion.article
+                  className="education__card"
+                  variants={fadeIn("up", index * 0.08)}
+                >
+                  <div className="education__card-logo">
+                    <img
+                      src={item.logo}
+                      alt={item.title}
+                      width={140}
+                      height={140}
+                    />
+                  </div>
 
-                <div className="education__card-content">
                   <h4 className="education__card-title">{item.title}</h4>
-                  <p className="education__card-faculty">{item.faculty}</p>
-                  <span className="education__card-duration">
-                    {item.duration}
-                  </span>
 
-                  {item.degree && (
-                    <span className="education__card-degree">
-                      {item.degree}
-                    </span>
-                  )}
+                  <div className="education__card-content">
+                    <p className="education__card-field">
+                      <strong>Duration:</strong> {item.duration}
+                    </p>
+                    <p className="education__card-field">
+                      <strong>Faculty:</strong> {item.faculty}
+                    </p>
+                    {item.degree && (
+                      <span className="education__card-degree">
+                        {item.degree}
+                      </span>
+                    )}
+                  </div>
 
                   {item.link && (
-                    <a
+                    <motion.a
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn--outline btn--sm education__card-link"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <FaCertificate />
-                      <span>View Diploma</span>
+                      <span>Diploma</span>
                       <FaExternalLinkAlt />
-                    </a>
+                    </motion.a>
                   )}
-                </div>
-              </motion.article>
+                </motion.article>
+              </TiltCard>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

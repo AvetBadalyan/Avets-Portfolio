@@ -1,0 +1,165 @@
+/* ============================================
+   CURRENTLY LEARNING SECTION
+   ============================================ */
+
+.learning {
+  padding: var(--section-padding-block) 0;
+  background: var(--color-light);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.learning__header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.learning__subtitle {
+  color: var(--color-dark);
+  font-size: var(--font-size-base);
+  margin: var(--space-md) 0 0;
+}
+
+/* ============================================
+   LEARNING GRID
+   ============================================ */
+
+.learning__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   LEARNING CARD
+   ============================================ */
+
+.learning-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  background: var(--color-white);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-2);
+  transition:
+    transform var(--duration-base) var(--easing-default),
+    box-shadow var(--duration-base) var(--easing-default);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+
+    .learning-card__emoji {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.learning-card__emoji {
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  line-height: 1;
+  transition: transform var(--duration-base) var(--easing-default);
+}
+
+.learning-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.learning-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.learning-card__title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.learning-card__status {
+  flex-shrink: 0;
+  padding: var(--space-2xs) var(--space-sm);
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--color-accent);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--border-radius-pill);
+  white-space: nowrap;
+}
+
+.learning-card__description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 900px) {
+  .learning__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .learning-card {
+    padding: var(--space-lg);
+    gap: var(--space-md);
+  }
+
+  .learning-card__emoji {
+    font-size: 2rem;
+  }
+
+  .learning-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+main.bg-2 {
+  .learning {
+    background: var(--color-light);
+  }
+
+  .learning-card {
+    background: hsl(var(--primary-hue), 18%, 14%);
+    border-color: var(--glass-border);
+
+    &:hover {
+      box-shadow: var(--shadow-lg);
+    }
+  }
+
+  .learning-card__title {
+    color: var(--color-black);
+  }
+
+  .learning-card__description {
+    color: var(--color-dark);
+  }
+
+  .learning-card__status {
+    background: rgba(var(--accent-rgb), 0.15);
+  }
+}

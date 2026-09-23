@@ -117,6 +117,7 @@
   background: var(--color-white);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--duration-slow) var(--easing-emphasized);
+  cursor: pointer;
 
   &:hover {
     /* --shadow-xl deepens automatically in dark mode via --shadow-strength,
@@ -124,6 +125,15 @@
     box-shadow:
       var(--shadow-xl),
       0 0 0 1px var(--color-accent);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      var(--shadow-xl),
+      0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+      0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
+        var(--focus-ring-glow-color);
   }
 }
 
@@ -222,6 +232,7 @@
 
 .project-card__overlay-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-sm);
 }
 
@@ -353,9 +364,17 @@
    Hidden on desktop where the overlay provides the actions. */
 .project-card__mobile-actions {
   display: none;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   margin-top: auto;
   padding-top: var(--space-md);
+
+  /* Three actions (Details / Demo / Code) share the row and grow to fill it;
+     they wrap to a second line on very narrow phones instead of overflowing. */
+  .project-card__btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
 
   /* Light background context — override the overlay-white button styles */
   .project-card__btn--primary {
