@@ -10,7 +10,7 @@
       "webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/",
       "featured": true,
       "tech": ["React", "Node.js", "PostgreSQL", "AWS"],
-      "challenge": "Built a scalable music streaming architecture handling real-time audio playback state across components and efficient querying of large song datasets with PostgreSQL and Supabase."
+      "challenge": "Built a full-stack music app where a single audio player keeps playing while you browse different pages, and songs, artists, and albums are stored and fetched from a PostgreSQL database."
     },
     {
       "category": "Full Stack",
@@ -22,7 +22,7 @@
       "webUrl": "https://edu-scheduler-aca.vercel.app",
       "featured": true,
       "tech": ["React", "TypeScript", "Redux", "Supabase"],
-      "challenge": "Implemented a constraint satisfaction algorithm to automatically generate university schedules, resolving conflicts between lecturer availability, room capacity, and faculty requirements in polynomial time."
+      "challenge": "Wrote an algorithm that automatically builds university timetables, making sure no lecturer, room, or class is double-booked. The tricky part was fitting everything together without conflicts as the number of classes grows."
     },
     {
       "category": "React.JS",
@@ -32,7 +32,8 @@
       "imageFile": "jobTestPrep.webp",
       "siteName": "React Hook Form Demo",
       "webUrl": "https://jobtestprep-demo.web.app",
-      "tech": ["React", "TypeScript", "React Hook Form", "TanStack Query"]
+      "tech": ["React", "TypeScript", "React Hook Form", "TanStack Query"],
+      "challenge": "Built a registration form with full validation (required fields, formats, matching passwords) using React Hook Form, and fetched live data from an API with caching so it doesn't refetch the same data repeatedly."
     },
     {
       "category": "React.JS",
@@ -42,7 +43,8 @@
       "imageFile": "battleship.webp",
       "siteName": "Battleship Game",
       "webUrl": "https://aca-battleship.vercel.app/",
-      "tech": ["React", "TypeScript", "Zustand", "Framer Motion"]
+      "tech": ["React", "TypeScript", "Zustand", "Framer Motion"],
+      "challenge": "Built an AI opponent using the Hunt/Target approach: it fires randomly until it lands a hit, then focuses its next shots around that spot. Added drag-and-drop ship placement that prevents overlaps, plus sound effects and hit/miss animations."
     },
     {
       "category": "MERN",
@@ -54,7 +56,7 @@
       "webUrl": "https://avetbook-chat-app.onrender.com",
       "featured": true,
       "tech": ["React", "Express", "Socket.io", "Zustand"],
-      "challenge": "Engineered real-time bidirectional communication with Socket.io, managing connection states, typing indicators, and message delivery across multiple concurrent users while maintaining data consistency."
+      "challenge": "Built real-time chat with Socket.io so messages, typing indicators, and online status update instantly for everyone in the conversation without refreshing the page."
     },
     {
       "category": "MERN",
@@ -66,7 +68,7 @@
       "webUrl": "https://avets-real-estate.vercel.app",
       "featured": true,
       "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "challenge": "Designed a complex property filtering system with multi-criteria search, geolocation queries, and interactive map integration while handling large datasets efficiently across 10 countries."
+      "challenge": "Built a property search that filters by several things at once (location, price, type) and shows results on an interactive map, working across listings from 10 countries."
     },
     {
       "category": "MERN",
@@ -76,7 +78,8 @@
       "imageFile": "techshop.webp",
       "siteName": "Avet's TechShop",
       "webUrl": "https://avets-techshop.vercel.app/",
-      "tech": ["React", "Express", "RTK Query", "MongoDB"]
+      "tech": ["React", "Express", "RTK Query", "MongoDB"],
+      "challenge": "Built a checkout flow where the server verifies the PayPal payment before completing an order, so prices can't be tampered with on the client. Managed products, cart, and user data with RTK Query, updating the cart instantly in the UI."
     },
     {
       "category": "MERN",
@@ -86,7 +89,8 @@
       "imageFile": "wanderarmenia.webp",
       "siteName": "Wander Armenia",
       "webUrl": "https://wanderarmenia.vercel.app",
-      "tech": ["MongoDB", "Express", "React", "Node.js"]
+      "tech": ["MongoDB", "Express", "React", "Node.js"],
+      "challenge": "Imported over 400 landmarks from a public data source and cleaned the data into a consistent format, handling missing fields and bad coordinates. Built map-based search that finds sites near a chosen location, plus a simple day-trip planner."
     },
     {
       "category": "React.JS",
@@ -96,7 +100,8 @@
       "imageFile": "foodStoreScreen2.webp",
       "siteName": "Online Food Store",
       "webUrl": "https://online-foodstore.web.app/",
-      "tech": ["React", "Framer Motion", "Firebase"]
+      "tech": ["React", "Framer Motion", "Firebase"],
+      "challenge": "Managed the shopping cart with React's Context API so any component (meal cards, the cart drawer, checkout) can read and update it without passing props down through every level. Built a 3-step checkout that keeps your info between steps and requires sign-in with Firebase."
     },
     {
       "category": "React.JS",
@@ -106,7 +111,8 @@
       "imageFile": "fashion-store.webp",
       "siteName": "Modern Fashion Store",
       "webUrl": "https://modern-fashion-store-theta.vercel.app",
-      "tech": ["React", "Redux", "Framer Motion"]
+      "tech": ["React", "Redux", "Framer Motion"],
+      "challenge": "Built filtering that combines several options at once (size, color, category, price), with the filters saved in the URL so a filtered view can be shared or bookmarked. Handled product variants where different size and color choices change what's available."
     },
     {
       "category": "React.JS",
@@ -116,7 +122,8 @@
       "imageFile": "todo-task-page.webp",
       "siteName": "Avetime — Day Planner",
       "webUrl": "https://avetime-day-planner.vercel.app/",
-      "tech": ["React", "Redux"]
+      "tech": ["React", "Redux"],
+      "challenge": "Turned typed text like '90m next tuesday' into a task with a duration and a date, so users can add tasks quickly. Added day-capacity tracking that adds up each day's task time and warns when a day is overbooked past its limit."
     },
     {
       "category": "React.JS",
@@ -126,7 +133,8 @@
       "imageFile": "frontend-quiz.webp",
       "siteName": "Frontend Interview Quiz",
       "webUrl": "https://frontend-interview-quiz.vercel.app/",
-      "tech": ["React", "JavaScript"]
+      "tech": ["React", "JavaScript"],
+      "challenge": "Built a quiz that shuffles the question order, times each question, and scores harder questions higher. Questions with code show it as a properly formatted, highlighted code block."
     },
     {
       "category": "React.JS",
@@ -136,7 +144,8 @@
       "imageFile": "itunes-new.webp",
       "siteName": "iTunes Music Search",
       "webUrl": "https://itunes-simple-clone-a7486.web.app/",
-      "tech": ["React", "Vite", "JavaScript"]
+      "tech": ["React", "Vite", "JavaScript"],
+      "challenge": "Made search wait until you stop typing before calling the API, so it doesn't fire a request on every keystroke or show results from an old search. Added loading placeholders shaped like the real content so the page doesn't jump when data arrives."
     },
     {
       "category": "React.JS",
@@ -146,7 +155,8 @@
       "imageFile": "cocktails-new.webp",
       "siteName": "Tales of Cocktails",
       "webUrl": "https://tales-of-cocktails.web.app/",
-      "tech": ["React", "Redux", "Vite"]
+      "tech": ["React", "Redux", "Vite"],
+      "challenge": "Organized 160+ cocktails in a Redux store so features like favorites, recently viewed, and filters all read from one source without duplicating data. Images only load as you scroll to them, so the page loads faster."
     },
     {
       "category": "Pure JS",
@@ -156,7 +166,8 @@
       "imageFile": "joke-teller.webp",
       "siteName": "Joke Teller (Pure JS)",
       "webUrl": "https://get-joke-f9568.web.app/",
-      "tech": ["JavaScript", "HTML", "CSS", "PWA"]
+      "tech": ["JavaScript", "HTML", "CSS", "PWA"],
+      "challenge": "Used the browser's built-in text-to-speech to read jokes aloud, with a picker for different voices. Made it installable and able to work offline, like a small app, using only plain JavaScript."
     },
     {
       "category": "Pure JS",
@@ -166,7 +177,8 @@
       "imageFile": "travel-screenshot2.webp",
       "siteName": "The Road to Armenia",
       "webUrl": "https://theroad-9bc32.web.app/",
-      "tech": ["JavaScript", "HTML", "CSS"]
+      "tech": ["JavaScript", "HTML", "CSS"],
+      "challenge": "Built smooth animations with pure CSS (no animation libraries) and a fully responsive layout using CSS Grid and Flexbox that adapts from phone to desktop — all with plain HTML, CSS, and JavaScript."
     }
   ]
 }

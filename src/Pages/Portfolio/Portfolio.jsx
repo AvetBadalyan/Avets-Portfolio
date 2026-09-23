@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import ProjectModal from "../../Components/ProjectModal/ProjectModal";
 import "./Portfolio.scss";
 import portfolioData from "./portfolioData.json";
 import ProjectCard from "./ProjectCard";
@@ -31,6 +32,7 @@ const cardVariants = {
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = (portfolioData.websites || []).map((project) => ({
     ...project,
@@ -110,11 +112,21 @@ const Portfolio = () => {
                 exit="exit"
                 layout
               >
-                <ProjectCard project={project} index={index} />
+                <ProjectCard
+                  project={project}
+                  index={index}
+                  onSelect={() => setSelectedProject(project)}
+                />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Project Detail Modal */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       </div>
     </section>
   );

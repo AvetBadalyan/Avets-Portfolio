@@ -1,15 +1,33 @@
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub, FaInfoCircle } from "react-icons/fa";
 import LazyImage from "../../Components/LazyImage/LazyImage";
 import TechTag from "../../Components/TechTag/TechTag";
 import TiltCard from "../../Components/TiltCard/TiltCard";
 import { techColors } from "../../utils/techColors";
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, onSelect }) => {
   const techs = (project.tech || []).slice(0, 4);
+  // Only offer "Details" when the modal has something the card doesn't —
+  // i.e. a challenge write-up. Otherwise the modal would just repeat the card.
+  const hasDetails = Boolean(project.challenge);
+
+  // Mouse-convenience: clicking anywhere on the card opens the modal. This is a
+  // progressive enhancement for pointer users only — the card is NOT given
+  // role="button"/tabIndex, so it stays out of the tab order and out of the
+  // a11y tree as an interactive element. Keyboard and screen-reader users use
+  // the real <button> (Details) and <a> (Demo/Code) inside. The links call
+  // stopPropagation so they don't also trigger this.
+  const handleCardClick = () => {
+    if (hasDetails) onSelect?.();
+  };
 
   return (
-    <TiltCard className="project-card" tiltAmount={6} scale={1.02}>
+    <TiltCard
+      className="project-card"
+      tiltAmount={6}
+      scale={1.02}
+      onClick={handleCardClick}
+    >
       {/* Image + hover overlay */}
       <div className="project-card__image-wrapper">
         <LazyImage
@@ -40,22 +58,38 @@ const ProjectCard = ({ project, index }) => {
               </div>
             )}
             <div className="project-card__overlay-actions">
+              {hasDetails && (
+                <button
+                  type="button"
+                  className="project-card__btn project-card__btn--primary"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSelect?.();
+                  }}
+                  aria-label={`View details of ${project.siteName}`}
+                >
+                  <FaInfoCircle />
+                  <span>Details</span>
+                </button>
+              )}
               <motion.a
                 href={project.webUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-card__btn project-card__btn--primary"
+                onClick={(e) => e.stopPropagation()}
+                className={`project-card__btn ${hasDetails ? "project-card__btn--secondary" : "project-card__btn--primary"}`}
                 aria-label={`Open live demo of ${project.siteName}`}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <FaExternalLinkAlt />
-                <span>Live Demo</span>
+                <span>Demo</span>
               </motion.a>
               <motion.a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="project-card__btn project-card__btn--secondary"
                 aria-label={`View source code of ${project.siteName} on GitHub`}
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -94,13 +128,28 @@ const ProjectCard = ({ project, index }) => {
           </div>
         )}
 
-        {/* Mobile-only buttons — overlay is not available on touch */}
+        {/* Mobile-only actions — overlay is not available on touch */}
         <div className="project-card__mobile-actions">
+          {hasDetails && (
+            <button
+              type="button"
+              className="project-card__btn project-card__btn--primary"
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelect?.();
+              }}
+              aria-label={`View details of ${project.siteName}`}
+            >
+              <FaInfoCircle />
+              <span>Details</span>
+            </button>
+          )}
           <a
             href={project.webUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="project-card__btn project-card__btn--primary"
+            onClick={(e) => e.stopPropagation()}
+            className={`project-card__btn ${hasDetails ? "project-card__btn--secondary" : "project-card__btn--primary"}`}
             aria-label={`Open live demo of ${project.siteName}`}
           >
             <FaExternalLinkAlt />
@@ -110,6 +159,7 @@ const ProjectCard = ({ project, index }) => {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
             className="project-card__btn project-card__btn--secondary"
             aria-label={`View source code of ${project.siteName} on GitHub`}
           >
