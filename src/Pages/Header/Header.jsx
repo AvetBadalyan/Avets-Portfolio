@@ -25,7 +25,7 @@ const Header = () => {
     { number: "3+", label: "Years Exp" },
     { number: "16", label: "Projects" },
     { number: "4", label: "MERN Apps" },
-    { number: "5", label: "Shopify Themes" },
+    { number: "3", label: "Shopify Themes" },
   ];
 
   const roles = [

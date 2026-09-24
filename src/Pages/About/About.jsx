@@ -82,19 +82,16 @@ const About = () => {
 
             <p>
               I build complete web products — from database schema to React UI
-              to cloud deployment. Started in 2021 with JavaScript and React
-              training, joined <strong>Cognaize</strong> building AI-powered
-              fintech platforms, then <strong>Ashstone Studios</strong> shipping
-              Shopify themes (3 published on official Theme Store), and now at{" "}
-              <strong>EPAM Systems</strong> as Full-Stack Developer.
+              to cloud deployment. Since 2021 I've shipped AI-powered fintech
+              platforms, published Shopify themes, and enterprise web apps,
+              currently as a <strong>Software Engineer</strong> at{" "}
+              <strong>EPAM Systems</strong>.
             </p>
 
             <p>
-              Recently built a full-stack music library end-to-end —{" "}
-              <strong>React/Node.js</strong> with Express REST API, PostgreSQL,
-              TypeORM, Supabase, Redux Toolkit, RTK Query, and persistent audio
-              player. That project was my deliberate push from "frontend dev who
-              can touch backend" to owning the whole stack.
+              Most recently I built a full-stack music library end-to-end with{" "}
+              <strong>React and Node.js</strong> — my deliberate push from
+              "frontend dev who can touch backend" to owning the whole stack.
             </p>
 
             <div className="about__highlights">
