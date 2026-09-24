@@ -4,13 +4,13 @@ import cocktailsNewScreenshot from "../../assets/portfolio/cocktails-new.webp";
 import eduSchedulerScreenshot from "../../assets/portfolio/edu-scheduler.webp";
 import fashionStoreScreenshot from "../../assets/portfolio/fashion-store.webp";
 import foodStoreScreenshot from "../../assets/portfolio/foodStoreScreen2.webp";
-import forceThemeScreenshot from "../../assets/portfolio/force-theme.png";
+import forceThemeScreenshot from "../../assets/portfolio/force-theme.webp";
 import frontendQuizScreenshot from "../../assets/portfolio/frontend-quiz.webp";
 import itunesNewScreenshot from "../../assets/portfolio/itunes-new.webp";
 import jobTestPrepScreenshot from "../../assets/portfolio/jobTestPrep.webp";
 import jokeTellerScreenshot from "../../assets/portfolio/joke-teller.webp";
-import monochromeThemeScreenshot from "../../assets/portfolio/monochrome-theme.png";
-import mottoThemeScreenshot from "../../assets/portfolio/motto-theme.png";
+import monochromeThemeScreenshot from "../../assets/portfolio/monochrome-theme.webp";
+import mottoThemeScreenshot from "../../assets/portfolio/motto-theme.webp";
 import musicAppScreenshot from "../../assets/portfolio/music app.webp";
 import realEstateScreenshot from "../../assets/portfolio/screenshot1.webp";
 import techshopScreenshot from "../../assets/portfolio/techshop.webp";
@@ -36,9 +36,9 @@ const projectImages = {
   "travel-screenshot2.webp": travelScreenshot,
   "jobTestPrep.webp": jobTestPrepScreenshot,
   "battleship.webp": battleshipScreenshot,
-  "force-theme.png": forceThemeScreenshot,
-  "monochrome-theme.png": monochromeThemeScreenshot,
-  "motto-theme.png": mottoThemeScreenshot,
+  "force-theme.webp": forceThemeScreenshot,
+  "monochrome-theme.webp": monochromeThemeScreenshot,
+  "motto-theme.webp": mottoThemeScreenshot,
 };
 
 export default projectImages;
