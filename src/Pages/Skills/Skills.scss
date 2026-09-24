@@ -5,60 +5,60 @@
 .skills {
   padding: var(--section-padding-block) 0;
   background: var(--color-white);
-}
 
-/* ============================================
-   HEADER
-   ============================================ */
-
-.skills__header {
-  text-align: center;
-  margin-bottom: var(--space-4xl);
-}
-
-.skills__subtitle {
-  color: var(--color-dark);
-  font-size: var(--font-size-base);
-  margin: var(--space-md) 0 0;
-}
-
-/* ============================================
-   CATEGORIES
-   ============================================ */
-
-.skills__category {
-  margin-bottom: var(--space-4xl);
-
-  &:last-child {
-    margin-bottom: 0;
+  &__header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
   }
-}
 
-.skills__category-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  font-size: var(--font-size-md);
-  font-weight: var(--fw-semibold);
-  color: var(--color-black);
-  margin-bottom: var(--space-2xl);
-
-  span {
-    font-size: var(--icon-size-lg); /* non-type: emoji icon */
+  &__subtitle {
+    color: var(--color-dark);
+    font-size: var(--font-size-base);
+    margin: var(--space-md) 0 0;
   }
-}
 
-/* ============================================
-   SKILLS GRID
-   ============================================ */
+  /* Categories */
+  &__category {
+    margin-bottom: var(--space-4xl);
 
-.skills__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: var(--space-lg);
-  max-width: 900px;
-  margin: 0 auto;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__category-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-md);
+    font-weight: var(--fw-semibold);
+    color: var(--color-black);
+    margin-bottom: var(--space-2xl);
+
+    span {
+      font-size: var(--icon-size-lg);
+    }
+  }
+
+  /* Grid */
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+    }
+  }
 }
 
 /* ============================================
@@ -78,7 +78,6 @@
   transition: box-shadow var(--duration-base) var(--easing-default);
 
   &:hover {
-    /* Same card-hover elevation as Education/Experience/Portfolio cards. */
     box-shadow:
       var(--shadow-lg),
       0 0 0 1px hsla(var(--primary-hue), 70%, 50%, 0.15);
@@ -87,93 +86,73 @@
       transform: scale(1.1);
     }
   }
-}
 
-.skill-card__icon {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform var(--duration-base) var(--easing-default);
-  }
-}
-
-.skill-card__name {
-  font-size: var(--font-size-sm);
-  font-weight: var(--fw-semibold);
-  color: var(--color-black);
-  text-align: center;
-  line-height: 1.3;
-  /* Reserve two lines so cards whose label wraps (e.g. "Styled-Components")
-     stay the same height as single-line cards — uniform grid, no jitter. */
-  min-height: calc(2 * 1.3em);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.skill-card__level {
-  width: 100%;
-  height: 6px;
-  background: hsla(var(--primary-hue), 20%, 50%, 0.15);
-  border-radius: var(--border-radius-pill);
-  overflow: hidden;
-  margin-top: auto;
-}
-
-.skill-card__level-fill {
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--color-accent) 0%,
-    hsla(calc(var(--primary-hue) + 30), 70%, 55%, 1) 100%
-  );
-  border-radius: var(--border-radius-pill);
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-@media screen and (max-width: 768px) {
-  .skills__grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: var(--space-md);
-  }
-
-  .skill-card {
+  @media (max-width: 768px) {
     padding: var(--space-md);
   }
 
-  .skill-card__icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .skill-card__name {
-    font-size: var(--font-size-xs);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .skills__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-sm);
-  }
-
-  .skill-card {
+  @media (max-width: 480px) {
     padding: var(--space-sm);
   }
 
-  .skill-card__icon {
-    width: 35px;
-    height: 35px;
+  &__icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform var(--duration-base) var(--easing-default);
+    }
+
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (max-width: 480px) {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  &__name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-black);
+    text-align: center;
+    line-height: 1.3;
+    min-height: calc(2 * 1.3em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-xs);
+    }
+  }
+
+  &__level {
+    width: 100%;
+    height: 6px;
+    background: hsla(var(--primary-hue), 20%, 50%, 0.15);
+    border-radius: var(--border-radius-pill);
+    overflow: hidden;
+    margin-top: auto;
+  }
+
+  &__level-fill {
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      hsla(calc(var(--primary-hue) + 30), 70%, 55%, 1) 100%
+    );
+    border-radius: var(--border-radius-pill);
   }
 }
 
@@ -187,22 +166,20 @@ main.bg-2 {
   }
 
   .skill-card {
-    /* Solid surface instead of light-mode glass. */
     background: var(--surface-card-dark);
 
     &:hover {
-      /* Accent ring strengthened in dark mode — --shadow-lg deepens automatically. */
       box-shadow:
         var(--shadow-lg),
         0 0 0 1px hsla(var(--primary-hue), 70%, 50%, 0.25);
     }
-  }
 
-  .skill-card__name {
-    color: var(--color-black);
-  }
+    &__name {
+      color: var(--color-black);
+    }
 
-  .skill-card__level {
-    background: rgba(255, 255, 255, 0.1);
+    &__level {
+      background: rgba(255, 255, 255, 0.1);
+    }
   }
 }

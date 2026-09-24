@@ -35,320 +35,296 @@
     background: var(--glass-bg-solid);
     backdrop-filter: blur(var(--glass-blur));
     border-bottom: 1px solid var(--glass-border);
-    /* --shadow-strength multiplier deepens this in dark mode automatically. */
     box-shadow: 0 4px 30px rgba(0, 0, 0, calc(0.1 * var(--shadow-strength)));
   }
-}
 
-.nav__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-}
-
-/* ============================================
-   LOGO
-   ============================================ */
-
-.nav__logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  color: var(--color-accent);
-  font-size: var(--icon-size-lg);
-  text-decoration: none;
-  transition: color var(--duration-base) var(--easing-default);
-
-  svg {
-    font-size: var(--icon-size-xl);
-  }
-}
-
-.nav__logo-text {
-  font-family: var(--font-family-display);
-  font-weight: var(--fw-bold);
-  /* --font-size-md (18px) is the right type-scale step for the logo label,
-     not an icon-size token. */
-  font-size: var(--font-size-md);
-  letter-spacing: var(--tracking-display);
-}
-
-/* ============================================
-   DESKTOP NAV LINKS
-   ============================================ */
-
-.nav__links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-
-  @media screen and (max-width: 1024px) {
-    display: none;
-  }
-}
-
-.nav__link {
-  position: relative;
-  padding: var(--space-sm) var(--space-md);
-  color: var(--color-black);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--fw-semibold);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  border-radius: var(--border-radius-3);
-  transition: all var(--duration-base) var(--easing-default);
-
-  &:hover {
-    color: var(--color-accent);
-    background: hsla(var(--primary-hue), 70%, 50%, 0.08);
-  }
-
-  &--active {
-    color: var(--color-accent);
-  }
-}
-
-.nav__link-indicator {
-  position: absolute;
-  bottom: 0;
-  /* Framer Motion's layoutId writes an inline `transform`. We use the separate
-     `translate` CSS property so it doesn't conflict with that matrix. */
-  left: 50%;
-  translate: -50% 0;
-  width: 60%;
-  height: 3px;
-  background: var(--color-accent);
-  border-radius: 3px;
-}
-
-/* ============================================
-   ACTIONS (Theme + Burger)
-   ============================================ */
-
-.nav__actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-.nav__theme-toggle {
-  width: 4.4rem;
-  height: 4.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  color: var(--color-accent);
-  font-size: var(--icon-size-md); /* non-type: icon glyph */
-  cursor: pointer;
-  transition: all var(--duration-base) var(--easing-default);
-
-  span {
+  &__container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 100%;
   }
 
-  &:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-on-primary);
-    box-shadow: var(--shadow-accent);
-  }
-}
-
-.nav__burger {
-  display: none;
-  width: 4.4rem;
-  height: 4.4rem;
-  align-items: center;
-  justify-content: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  color: var(--color-dark);
-  font-size: var(--icon-size-md); /* non-type: icon glyph */
-  cursor: pointer;
-  transition: all var(--duration-base) var(--easing-default);
-
-  /* AnimatePresence <span> — flex-centered so the glyph sits in the visual
-     centre of the circle, not on the text baseline. */
-  span {
+  /* Logo */
+  &__logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
-
-  &:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-on-primary);
-  }
-
-  @media screen and (max-width: 1024px) {
-    display: flex;
-  }
-}
-
-/* ============================================
-   MOBILE MENU
-   ============================================ */
-
-.nav__backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: var(--z-modal-backdrop);
-}
-
-.nav__mobile {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(85vw, 400px);
-  height: 100vh;
-  background: var(--glass-bg-solid);
-  backdrop-filter: blur(var(--glass-blur));
-  border-left: 1px solid var(--glass-border);
-  /* --shadow-strength multiplier deepens this in dark mode automatically. */
-  box-shadow: -10px 0 40px rgba(0, 0, 0, calc(0.15 * var(--shadow-strength)));
-  z-index: var(--z-modal);
-  padding: 10rem var(--space-2xl) var(--space-2xl);
-  display: flex;
-  flex-direction: column;
-}
-
-.nav__mobile-links {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.nav__mobile-link {
-  display: block;
-  padding: var(--space-lg) var(--space-xl);
-  color: var(--color-dark);
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-md);
-  font-weight: var(--fw-semibold);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  border-radius: var(--border-radius-2);
-  /* Transparent base border reserves 4px so the active state's solid accent
-     border doesn't cause a layout shift. */
-  border-left: 4px solid transparent;
-  transition: all var(--duration-base) var(--easing-default);
-
-  &:hover,
-  &--active {
-    background: hsla(var(--primary-hue), 70%, 50%, 0.1);
+    gap: var(--space-sm);
     color: var(--color-accent);
-    transform: translateX(8px);
+    font-size: var(--icon-size-lg);
+    text-decoration: none;
+    transition: color var(--duration-base) var(--easing-default);
+
+    svg {
+      font-size: var(--icon-size-xl);
+    }
   }
 
-  &--active {
-    border-left-color: var(--color-accent);
-  }
-}
-
-/* ============================================
-   DARK MODE ADJUSTMENTS
-   ============================================ */
-
-main.bg-2 {
-  .nav--scrolled {
-    background: var(--glass-bg-solid);
-    border-bottom-color: var(--glass-border);
+  &__logo-text {
+    font-family: var(--font-family-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--font-size-md);
+    letter-spacing: var(--tracking-display);
   }
 
-  .nav__link {
+  /* Desktop Nav Links */
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: var(--space-sm) var(--space-md);
     color: var(--color-black);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    border-radius: var(--border-radius-3);
+    transition: all var(--duration-base) var(--easing-default);
 
     &:hover {
       color: var(--color-accent);
-      background: hsla(var(--primary-hue), 70%, 50%, 0.15);
+      background: hsla(var(--primary-hue), 70%, 50%, 0.08);
+    }
+
+    &--active {
+      color: var(--color-accent);
     }
   }
 
-  .nav__burger {
-    color: var(--color-dark);
-    background: var(--glass-bg);
-    border-color: var(--glass-border);
+  &__link-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: 60%;
+    height: 3px;
+    background: var(--color-accent);
+    border-radius: 3px;
   }
 
-  .nav__theme-toggle {
+  /* Actions (Theme + Burger) */
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  &__theme-toggle {
+    width: 4.4rem;
+    height: 4.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--glass-bg);
-    border-color: var(--glass-border);
-    color: var(--color-dark);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    color: var(--color-accent);
+    font-size: var(--icon-size-md);
+    cursor: pointer;
+    transition: all var(--duration-base) var(--easing-default);
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     &:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
       color: var(--color-on-primary);
+      box-shadow: var(--shadow-accent);
     }
   }
 
-  .nav__mobile {
-    background: var(--glass-bg-solid);
-    border-left-color: var(--glass-border);
+  &__burger {
+    display: none;
+    width: 4.4rem;
+    height: 4.4rem;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    color: var(--color-dark);
+    font-size: var(--icon-size-md);
+    cursor: pointer;
+    transition: all var(--duration-base) var(--easing-default);
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-on-primary);
+    }
+
+    @media (max-width: 1024px) {
+      display: flex;
+    }
   }
 
-  .nav__mobile-link {
+  /* Mobile Menu */
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: var(--z-modal-backdrop);
+  }
+
+  &__mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(85vw, 400px);
+    height: 100vh;
+    background: var(--glass-bg-solid);
+    backdrop-filter: blur(var(--glass-blur));
+    border-left: 1px solid var(--glass-border);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, calc(0.15 * var(--shadow-strength)));
+    z-index: var(--z-modal);
+    padding: 10rem var(--space-2xl) var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  &__mobile-link {
+    display: block;
+    padding: var(--space-lg) var(--space-xl);
     color: var(--color-dark);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-md);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    border-radius: var(--border-radius-2);
+    border-left: 4px solid transparent;
+    transition: all var(--duration-base) var(--easing-default);
 
     &:hover,
     &--active {
+      background: hsla(var(--primary-hue), 70%, 50%, 0.1);
       color: var(--color-accent);
-      background: hsla(var(--primary-hue), 70%, 50%, 0.2);
+      transform: translateX(8px);
+    }
+
+    &--active {
+      border-left-color: var(--color-accent);
+    }
+  }
+
+  &__mobile-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-top: auto;
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-2);
+    color: var(--color-dark);
+    font-size: var(--font-size-base);
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    transition: all var(--duration-base) var(--easing-default);
+
+    svg {
+      font-size: var(--icon-size-sm);
+      color: var(--color-accent);
+    }
+
+    &:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-on-primary);
+
+      svg {
+        color: var(--color-on-primary);
+      }
     }
   }
 }
 
 /* ============================================
-   MOBILE THEME TOGGLE
+   DARK MODE
    ============================================ */
 
-.nav__mobile-theme {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-top: auto;
-  padding: var(--space-lg) var(--space-xl);
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius-2);
-  color: var(--color-dark);
-  font-size: var(--font-size-base);
-  font-weight: var(--fw-semibold);
-  cursor: pointer;
-  transition: all var(--duration-base) var(--easing-default);
+main.bg-2 {
+  .nav {
+    &--scrolled {
+      background: var(--glass-bg-solid);
+      border-bottom-color: var(--glass-border);
+    }
 
-  svg {
-    font-size: var(--icon-size-sm); /* non-type: icon glyph */
-    color: var(--color-accent);
-  }
+    &__link {
+      color: var(--color-black);
 
-  &:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-on-primary);
+      &:hover {
+        color: var(--color-accent);
+        background: hsla(var(--primary-hue), 70%, 50%, 0.15);
+      }
+    }
 
-    svg {
-      color: var(--color-on-primary);
+    &__burger {
+      color: var(--color-dark);
+      background: var(--glass-bg);
+      border-color: var(--glass-border);
+    }
+
+    &__theme-toggle {
+      background: var(--glass-bg);
+      border-color: var(--glass-border);
+      color: var(--color-dark);
+
+      &:hover {
+        color: var(--color-on-primary);
+      }
+    }
+
+    &__mobile {
+      background: var(--glass-bg-solid);
+      border-left-color: var(--glass-border);
+    }
+
+    &__mobile-link {
+      color: var(--color-dark);
+
+      &:hover,
+      &--active {
+        color: var(--color-accent);
+        background: hsla(var(--primary-hue), 70%, 50%, 0.2);
+      }
+    }
+
+    &__mobile-theme {
+      background: var(--glass-bg);
+      border-color: var(--glass-border);
+      color: var(--color-dark);
     }
   }
-}
-
-main.bg-2 .nav__mobile-theme {
-  background: var(--glass-bg);
-  border-color: var(--glass-border);
-  color: var(--color-dark);
 }

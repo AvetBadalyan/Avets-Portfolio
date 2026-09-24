@@ -1,3 +1,7 @@
+/* ============================================
+   LAZY IMAGE COMPONENT
+   ============================================ */
+
 .lazy-image-wrapper {
   position: relative;
   width: 100%;
@@ -15,12 +19,34 @@
     hsla(var(--primary-hue), 20%, 20%, 0.3) 100%
   );
   background-size: 200% 100%;
-  /* Renamed from the generic `shimmer` to avoid a global @keyframes name
-     collision with GradientBackground's own `shimmer` (@keyframes are global
-     regardless of SCSS nesting, so the duplicate name meant one silently
-     overrode the other). */
   animation: skeleton-shimmer 1.5s ease-in-out infinite;
+
+  main.bg-1 & {
+    background: linear-gradient(
+      90deg,
+      hsla(var(--primary-hue), 20%, 90%, 0.5) 0%,
+      hsla(var(--primary-hue), 20%, 95%, 0.5) 50%,
+      hsla(var(--primary-hue), 20%, 90%, 0.5) 100%
+    );
+    background-size: 200% 100%;
+  }
 }
+
+.lazy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--easing-default);
+
+  &--loaded {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
 
 @keyframes skeleton-shimmer {
   0% {
@@ -29,28 +55,4 @@
   100% {
     background-position: -200% 0;
   }
-}
-
-.lazy-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Fade in once loaded (the --loaded class is added in the onLoad handler). */
-  opacity: 0;
-  transition: opacity var(--duration-base) var(--easing-default);
-}
-
-.lazy-image--loaded {
-  opacity: 1;
-}
-
-/* Light mode skeleton */
-main.bg-1 .lazy-image-skeleton {
-  background: linear-gradient(
-    90deg,
-    hsla(var(--primary-hue), 20%, 90%, 0.5) 0%,
-    hsla(var(--primary-hue), 20%, 95%, 0.5) 50%,
-    hsla(var(--primary-hue), 20%, 90%, 0.5) 100%
-  );
-  background-size: 200% 100%;
 }
