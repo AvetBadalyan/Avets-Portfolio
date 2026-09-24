@@ -6,51 +6,41 @@
   padding: var(--space-2xl) 0;
   background: var(--color-white);
   border-top: 1px solid var(--glass-border);
-}
 
-.footer__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-lg);
-}
-
-/* ============================================
-   BACK TO TOP
-   ============================================ */
-
-.footer__back-to-top {
-  width: var(--space-4xl);
-  height: var(--space-4xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-accent);
-  color: var(--color-on-primary);
-  border: none;
-  border-radius: 50%;
-  font-size: var(--icon-size-sm);
-  cursor: pointer;
-  /* Accent-glow family — same interactive halo the token was built for
-     (its comment names "back-to-top"), deepening on hover. */
-  box-shadow: var(--shadow-accent);
-  transition: var(--transition-base);
-
-  &:hover {
-    box-shadow: var(--shadow-accent-strong);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
   }
-}
 
-/* ============================================
-   COPYRIGHT
-   ============================================ */
+  &__back-to-top {
+    width: var(--space-4xl);
+    height: var(--space-4xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: var(--color-on-primary);
+    border: none;
+    border-radius: 50%;
+    font-size: var(--icon-size-sm);
+    cursor: pointer;
+    box-shadow: var(--shadow-accent);
+    transition: var(--transition-base);
 
-.footer__copyright {
-  text-align: center;
+    &:hover {
+      box-shadow: var(--shadow-accent-strong);
+    }
+  }
 
-  small {
-    font-size: var(--font-size-xs);
-    color: var(--color-dark);
+  &__copyright {
+    text-align: center;
+
+    small {
+      font-size: var(--font-size-xs);
+      color: var(--color-dark);
+    }
   }
 }
 
@@ -58,16 +48,12 @@
    DARK MODE
    ============================================ */
 
-main.bg-2 .footer {
-  background: var(--color-white);
-  /* --glass-border is already overridden to rgba(255,255,255,0.12) in
-     main.bg-2 in index.scss, so the base rule picks up the correct dark
-     value automatically. No border-top-color override needed here. */
+main.bg-2 {
+  .footer {
+    background: var(--color-white);
 
-  .footer__copyright small {
-    /* --color-dark is 85% lightness in dark mode — the body text tier.
-       Copyright is intentionally slightly dimmer (fine print), so use a
-       mid-point value rather than the full body-text token. */
-    color: hsl(0, 0%, 70%);
+    &__copyright small {
+      color: hsl(0, 0%, 70%);
+    }
   }
 }

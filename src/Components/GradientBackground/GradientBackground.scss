@@ -1,3 +1,7 @@
+/* ============================================
+   GRADIENT BACKGROUND COMPONENT
+   ============================================ */
+
 .gradient-bg {
   position: absolute;
   inset: 0;
@@ -22,6 +26,11 @@
       );
       top: -250px;
       right: -150px;
+
+      @media (max-width: 768px) {
+        width: 450px;
+        height: 450px;
+      }
     }
 
     &--2 {
@@ -35,6 +44,11 @@
       );
       bottom: -200px;
       left: -150px;
+
+      @media (max-width: 768px) {
+        width: 400px;
+        height: 400px;
+      }
     }
 
     &--3 {
@@ -48,6 +62,11 @@
       );
       top: 35%;
       left: 25%;
+
+      @media (max-width: 768px) {
+        width: 320px;
+        height: 320px;
+      }
     }
 
     &--4 {
@@ -61,6 +80,11 @@
       top: 10%;
       left: 60%;
       filter: blur(100px);
+
+      @media (max-width: 768px) {
+        width: 280px;
+        height: 280px;
+      }
     }
 
     &--5 {
@@ -74,10 +98,14 @@
       bottom: 20%;
       right: 20%;
       filter: blur(90px);
+
+      @media (max-width: 768px) {
+        width: 250px;
+        height: 250px;
+      }
     }
   }
 
-  /* Floating particles */
   &__particles {
     position: absolute;
     inset: 0;
@@ -91,7 +119,6 @@
     box-shadow: 0 0 10px hsla(var(--primary-hue), 80%, 60%, 0.4);
   }
 
-  /* Shimmer effect */
   &__shimmer {
     position: absolute;
     inset: 0;
@@ -104,18 +131,12 @@
       transparent 60%
     );
     background-size: 200% 100%;
-    /* Distinct name from LazyImage's skeleton-shimmer — see note there. */
     animation: bg-shimmer 8s ease-in-out infinite;
     z-index: 1;
-  }
 
-  @keyframes bg-shimmer {
-    0%,
-    100% {
-      background-position: 200% 0;
-    }
-    50% {
-      background-position: -200% 0;
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      background: none;
     }
   }
 
@@ -147,102 +168,92 @@
   }
 }
 
-// Dark mode - more vibrant orbs
-main.bg-2 .gradient-bg {
-  &__orb {
-    &--1 {
-      background: radial-gradient(
-        circle,
-        hsla(var(--primary-hue), 95%, 60%, 0.5) 0%,
-        hsla(var(--primary-hue), 90%, 50%, 0.25) 40%,
-        transparent 70%
-      );
-    }
-    &--2 {
-      background: radial-gradient(
-        circle,
-        hsla(calc(var(--primary-hue) + 40), 85%, 55%, 0.4) 0%,
-        hsla(calc(var(--primary-hue) + 40), 80%, 45%, 0.2) 40%,
-        transparent 70%
-      );
-    }
-    &--3 {
-      background: radial-gradient(
-        circle,
-        hsla(calc(var(--primary-hue) - 30), 75%, 60%, 0.35) 0%,
-        hsla(calc(var(--primary-hue) - 30), 70%, 50%, 0.15) 40%,
-        transparent 70%
-      );
-    }
-    &--4 {
-      background: radial-gradient(
-        circle,
-        hsla(calc(var(--primary-hue) + 80), 80%, 60%, 0.3) 0%,
-        transparent 70%
-      );
-    }
-    &--5 {
-      background: radial-gradient(
-        circle,
-        hsla(calc(var(--primary-hue) - 60), 70%, 55%, 0.25) 0%,
-        transparent 70%
-      );
-    }
-  }
+/* ============================================
+   KEYFRAMES
+   ============================================ */
 
-  &__particle {
-    background: hsla(var(--primary-hue), 90%, 75%, 0.7);
-    box-shadow: 0 0 15px hsla(var(--primary-hue), 90%, 70%, 0.5);
+@keyframes bg-shimmer {
+  0%,
+  100% {
+    background-position: 200% 0;
   }
-
-  &__shimmer {
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      hsla(var(--primary-hue), 100%, 85%, 0.04) 45%,
-      hsla(var(--primary-hue), 100%, 95%, 0.06) 50%,
-      hsla(var(--primary-hue), 100%, 85%, 0.04) 55%,
-      transparent 60%
-    );
-    background-size: 200% 100%;
-  }
-
-  &__grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  50% {
+    background-position: -200% 0;
   }
 }
 
-/* Reduced motion - disable shimmer animation */
-@media (prefers-reduced-motion: reduce) {
-  .gradient-bg__shimmer {
-    animation: none;
-    background: none;
-  }
-}
+/* ============================================
+   DARK MODE
+   ============================================ */
 
-@media (max-width: 768px) {
-  .gradient-bg__orb {
-    &--1 {
-      width: 450px;
-      height: 450px;
+main.bg-2 {
+  .gradient-bg {
+    &__orb {
+      &--1 {
+        background: radial-gradient(
+          circle,
+          hsla(var(--primary-hue), 95%, 60%, 0.5) 0%,
+          hsla(var(--primary-hue), 90%, 50%, 0.25) 40%,
+          transparent 70%
+        );
+      }
+
+      &--2 {
+        background: radial-gradient(
+          circle,
+          hsla(calc(var(--primary-hue) + 40), 85%, 55%, 0.4) 0%,
+          hsla(calc(var(--primary-hue) + 40), 80%, 45%, 0.2) 40%,
+          transparent 70%
+        );
+      }
+
+      &--3 {
+        background: radial-gradient(
+          circle,
+          hsla(calc(var(--primary-hue) - 30), 75%, 60%, 0.35) 0%,
+          hsla(calc(var(--primary-hue) - 30), 70%, 50%, 0.15) 40%,
+          transparent 70%
+        );
+      }
+
+      &--4 {
+        background: radial-gradient(
+          circle,
+          hsla(calc(var(--primary-hue) + 80), 80%, 60%, 0.3) 0%,
+          transparent 70%
+        );
+      }
+
+      &--5 {
+        background: radial-gradient(
+          circle,
+          hsla(calc(var(--primary-hue) - 60), 70%, 55%, 0.25) 0%,
+          transparent 70%
+        );
+      }
     }
-    &--2 {
-      width: 400px;
-      height: 400px;
+
+    &__particle {
+      background: hsla(var(--primary-hue), 90%, 75%, 0.7);
+      box-shadow: 0 0 15px hsla(var(--primary-hue), 90%, 70%, 0.5);
     }
-    &--3 {
-      width: 320px;
-      height: 320px;
+
+    &__shimmer {
+      background: linear-gradient(
+        105deg,
+        transparent 40%,
+        hsla(var(--primary-hue), 100%, 85%, 0.04) 45%,
+        hsla(var(--primary-hue), 100%, 95%, 0.06) 50%,
+        hsla(var(--primary-hue), 100%, 85%, 0.04) 55%,
+        transparent 60%
+      );
+      background-size: 200% 100%;
     }
-    &--4 {
-      width: 280px;
-      height: 280px;
-    }
-    &--5 {
-      width: 250px;
-      height: 250px;
+
+    &__grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     }
   }
 }

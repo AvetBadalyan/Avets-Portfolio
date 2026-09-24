@@ -5,33 +5,30 @@
 .learning {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
-}
 
-/* ============================================
-   HEADER
-   ============================================ */
+  &__header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
 
-.learning__header {
-  text-align: center;
-  margin-bottom: var(--space-3xl);
-}
+  &__subtitle {
+    color: var(--color-dark);
+    font-size: var(--font-size-base);
+    margin: var(--space-md) 0 0;
+  }
 
-.learning__subtitle {
-  color: var(--color-dark);
-  font-size: var(--font-size-base);
-  margin: var(--space-md) 0 0;
-}
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    max-width: 1000px;
+    margin: 0 auto;
 
-/* ============================================
-   LEARNING GRID
-   ============================================ */
-
-.learning__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
-  max-width: 1000px;
-  margin: 0 auto;
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+  }
 }
 
 /* ============================================
@@ -58,80 +55,65 @@
       transform: scale(1.15);
     }
   }
-}
 
-.learning-card__emoji {
-  flex-shrink: 0;
-  font-size: var(--icon-size-lg); /* non-type: decorative emoji glyph (24px) */
-  line-height: 1;
-  transition: transform var(--duration-base) var(--easing-default);
-}
-
-.learning-card__content {
-  flex: 1;
-  min-width: 0;
-}
-
-.learning-card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-xs);
-}
-
-.learning-card__title {
-  margin: 0;
-  font-size: var(--font-size-md);
-  font-weight: var(--fw-semibold);
-  color: var(--color-black);
-}
-
-.learning-card__status {
-  flex-shrink: 0;
-  padding: var(--space-2xs) var(--space-sm);
-  /* color-mix so the tint derives from the live accent and tracks the theme. */
-  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
-  color: var(--color-accent);
-  font-size: var(--font-size-xs);
-  font-weight: var(--fw-semibold);
-  border-radius: var(--border-radius-pill);
-  white-space: nowrap;
-}
-
-.learning-card__description {
-  margin: 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-dark);
-  line-height: var(--line-height-tight);
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-@media screen and (max-width: 900px) {
-  .learning__grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .learning-card {
+  @media (max-width: 480px) {
     padding: var(--space-lg);
     gap: var(--space-md);
   }
 
-  .learning-card__emoji {
-    /* non-type: decorative emoji glyph (20px) */
-    font-size: var(--icon-size-md);
+  &__emoji {
+    flex-shrink: 0;
+    font-size: var(--icon-size-lg);
+    line-height: 1;
+    transition: transform var(--duration-base) var(--easing-default);
+
+    @media (max-width: 480px) {
+      font-size: var(--icon-size-md);
+    }
   }
 
-  .learning-card__header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-xs);
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--fw-semibold);
+    color: var(--color-black);
+  }
+
+  &__status {
+    flex-shrink: 0;
+    padding: var(--space-2xs) var(--space-sm);
+    background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    color: var(--color-accent);
+    font-size: var(--font-size-xs);
+    font-weight: var(--fw-semibold);
+    border-radius: var(--border-radius-pill);
+    white-space: nowrap;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+    line-height: var(--line-height-tight);
   }
 }
 
@@ -151,18 +133,17 @@ main.bg-2 {
     &:hover {
       box-shadow: var(--shadow-lg);
     }
-  }
 
-  .learning-card__title {
-    color: var(--color-black);
-  }
+    &__title {
+      color: var(--color-black);
+    }
 
-  .learning-card__description {
-    color: var(--color-dark);
-  }
+    &__description {
+      color: var(--color-dark);
+    }
 
-  .learning-card__status {
-    /* Stronger wash so the tint stays visible on the dark card surface. */
-    background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+    &__status {
+      background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+    }
   }
 }

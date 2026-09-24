@@ -5,100 +5,138 @@
 .portfolio {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
-}
 
-/* ============================================
-   HEADER
-   ============================================ */
-
-.portfolio__header {
-  text-align: center;
-  margin-bottom: var(--space-3xl);
-}
-
-.portfolio__subtitle {
-  color: var(--color-dark);
-  font-size: var(--font-size-base);
-  max-width: 50ch;
-  margin: var(--space-md) auto 0;
-}
-
-/* ============================================
-   CATEGORY FILTERS
-   ============================================ */
-
-.portfolio__filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-3xl);
-}
-
-.portfolio__filter {
-  position: relative;
-  padding: var(--space-sm) var(--space-xl);
-  background: transparent;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius-pill);
-  color: var(--color-dark);
-  font-size: var(--font-size-sm);
-  font-weight: var(--fw-semibold);
-  text-transform: capitalize;
-  cursor: pointer;
-  transition: var(--transition-base);
-  overflow: hidden;
-
-  /* overflow:hidden clips the outline — use inset box-shadow instead */
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
-      inset 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
-        var(--focus-ring-glow-color);
+  &__header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
   }
 
-  &:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+  &__subtitle {
+    color: var(--color-dark);
+    font-size: var(--font-size-base);
+    max-width: 50ch;
+    margin: var(--space-md) auto 0;
   }
 
-  &--active {
-    /* --color-primary (not --color-accent) keeps contrast with white text in
-       dark mode, where --color-accent lightens to 72%. */
-    background: var(--color-primary);
-    color: var(--color-on-primary);
-    border-color: transparent;
+  /* Category Filters */
+  &__filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-3xl);
+
+    @media (max-width: 768px) {
+      gap: var(--space-xs);
+      margin-bottom: var(--space-2xl);
+    }
   }
 
-  &--active:hover {
-    color: var(--color-on-primary);
+  &__filter {
+    position: relative;
+    padding: var(--space-sm) var(--space-xl);
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-pill);
+    color: var(--color-dark);
+    font-size: var(--font-size-sm);
+    font-weight: var(--fw-semibold);
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: var(--transition-base);
+    overflow: hidden;
+
+    &:focus-visible {
+      outline: none;
+      box-shadow:
+        inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+        inset 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
+          var(--focus-ring-glow-color);
+    }
+
+    &:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    &--active {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+      border-color: transparent;
+
+      &:hover {
+        color: var(--color-on-primary);
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: var(--space-xs) var(--space-lg);
+      font-size: var(--font-size-xs);
+    }
   }
-}
 
-/* ============================================
-   PROJECTS GRID - BENTO STYLE
-   ============================================ */
+  /* Projects Grid - Bento Style */
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    grid-auto-flow: dense;
 
-.portfolio__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
-  grid-auto-flow: dense;
-}
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-/* Featured items span 2 columns */
-.portfolio__item--featured {
-  grid-column: span 2;
-
-  .project-card__image-wrapper {
-    height: 36rem;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
   }
-}
 
-.portfolio__item--normal {
-  .project-card__image-wrapper {
-    height: 26rem;
+  /* Featured items span 2 columns */
+  &__item--featured {
+    grid-column: span 2;
+
+    .project-card__image-wrapper {
+      height: 36rem;
+
+      @media (max-width: 1200px) {
+        height: 32rem;
+      }
+
+      @media (max-width: 900px) {
+        height: 24rem;
+      }
+
+      @media (max-width: 768px) {
+        height: 22rem;
+      }
+
+      @media (max-width: 480px) {
+        height: 18rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      grid-column: span 1;
+    }
+  }
+
+  &__item--normal {
+    .project-card__image-wrapper {
+      height: 26rem;
+
+      @media (max-width: 900px) {
+        height: 22rem;
+      }
+
+      @media (max-width: 768px) {
+        height: 22rem;
+      }
+
+      @media (max-width: 480px) {
+        height: 18rem;
+      }
+    }
   }
 }
 
@@ -110,7 +148,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%; /* stretch to fill grid cell for equal heights */
+  height: 100%;
   border-radius: var(--border-radius-1);
   overflow: hidden;
   background: var(--color-white);
@@ -119,7 +157,6 @@
   cursor: pointer;
 
   &:hover {
-    /* --shadow-xl deepens via --shadow-strength in dark mode automatically. */
     box-shadow:
       var(--shadow-xl),
       0 0 0 1px var(--color-accent);
@@ -133,329 +170,241 @@
       0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
         var(--focus-ring-glow-color);
   }
-}
 
-.project-card__image-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.project-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--duration-slow) var(--easing-default);
-}
-
-/* Image zoom on hover/focus (CSS-driven so keyboard focus works too) */
-.project-card:hover .project-card__image,
-.project-card:focus-within .project-card__image {
-  transform: scale(1.08);
-}
-
-/* ============================================
-   HOVER / FOCUS OVERLAY
-   Gradient from bottom, content anchored bottom-left.
-   Hidden on touch (≤768px) — no hover on touch devices.
-   ============================================ */
-
-.project-card__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.88) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  display: flex;
-  align-items: flex-end;
-  padding: var(--space-xl);
-  opacity: 0;
-  transition: opacity var(--duration-base) var(--easing-default);
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-.project-card:hover .project-card__overlay,
-.project-card:focus-within .project-card__overlay {
-  opacity: 1;
-}
-
-.project-card__overlay-content {
-  width: 100%;
-}
-
-.project-card__overlay-category {
-  display: inline-block;
-  padding: 0.3rem 1rem;
-  background: var(--color-accent);
-  color: white;
-  font-size: var(--font-size-xs);
-  font-weight: var(--fw-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  border-radius: var(--border-radius-pill);
-  margin-bottom: var(--space-xs);
-}
-
-.project-card__overlay-title {
-  color: white;
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-md);
-  font-weight: var(--fw-bold);
-  margin: 0 0 var(--space-sm);
-  line-height: 1.2;
-}
-
-.project-card__overlay-techs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-md);
-
-  /* Match the mobile caption tags: solid brand color + white text. The old
-     transparent bg/bright-text pair washed out against the image gradient and
-     was hard to read. Override the CSS custom properties set by TechTag. */
-  .tech-tag {
-    --tag-bg: var(--tag-solid);
-    --tag-color: #fff;
-    font-weight: var(--fw-semibold);
-  }
-}
-
-.project-card__overlay-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-
-.project-card__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-lg);
-  font-size: var(--font-size-sm);
-  font-weight: var(--fw-semibold);
-  text-decoration: none;
-  border-radius: var(--border-radius-3);
-  transition: var(--transition-fast);
-
-  /* The btn lives inside .project-card which has overflow:hidden, clipping
-     outline-based focus rings. Use inset box-shadow so the ring is drawn
-     within the element's own box and never clipped by a parent overflow. */
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
-      inset 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
-        var(--focus-ring-glow-color);
+  &:hover &__image,
+  &:focus-within &__image {
+    transform: scale(1.08);
   }
 
-  svg {
-    font-size: var(--font-size-xs); /* non-type: tiny icon glyph */
+  &:hover &__overlay,
+  &:focus-within &__overlay {
+    opacity: 1;
   }
 
-  &--primary {
-    background: white;
-    /* Fixed dark ink: the overlay is dark in BOTH themes, so this must not
-       track --color-black (which inverts to near-white in dark mode and
-       would make white-on-white text). */
-    color: #1a1a1a;
-
-    &:hover {
-      background: var(--color-accent);
-      color: white;
-    }
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
-  &--secondary {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
-    &:hover {
-      background: white;
-      /* Fixed dark ink — overlay is dark in both themes, so must not use
-         --color-black (which inverts to near-white in dark mode). */
-      color: #1a1a1a;
-      border-color: white;
-    }
-  }
-}
-
-/* ============================================
-   CARD INFO — flex column so height fills grid cell uniformly
-   ============================================ */
-
-.project-card__info {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: var(--space-lg);
-}
-
-.project-card__info-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
-}
-
-.project-card__title-static {
-  font-size: var(--font-size-md);
-  color: var(--color-black);
-  margin: 0;
-}
-
-.project-card__category-static {
-  flex-shrink: 0;
-  color: var(--color-accent);
-  font-size: var(--font-size-xs);
-  font-weight: var(--fw-semibold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-}
-
-.project-card__description {
-  font-size: var(--font-size-sm);
-  color: var(--color-dark);
-  line-height: var(--line-height-tight);
-  margin: 0 0 var(--space-md);
-
-  /* 3-line clamp keeps all cards visually uniform */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Tags in caption — hidden on desktop (overlay shows them on dark bg).
-   Mobile: solid brand colors to read on light card backgrounds. */
-.project-card__caption-techs {
-  display: none;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-sm);
-
-  /* Solid brand colors so the tags are colorful and readable on the light
-     card in light mode. Works in both themes — no dark-mode override needed. */
-  .tech-tag {
-    --tag-bg: var(--tag-solid);
-    --tag-color: #fff;
-    font-weight: var(--fw-semibold);
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slow) var(--easing-default);
   }
 
-  @media (max-width: 768px) {
+  /* Hover/Focus Overlay */
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
     display: flex;
-  }
-}
+    align-items: flex-end;
+    padding: var(--space-xl);
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--easing-default);
 
-/* Mobile-only actions — pinned to bottom via margin-top: auto.
-   Hidden on desktop where the overlay provides the actions. */
-.project-card__mobile-actions {
-  display: none;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-top: auto;
-  padding-top: var(--space-md);
-
-  /* Three actions grow to fill the row; wrap on very narrow phones. */
-  .project-card__btn {
-    flex: 1 1 auto;
-    justify-content: center;
-  }
-
-  /* Light card context — override the overlay-white button styles. */
-  .project-card__btn--primary {
-    background: var(--color-accent);
-    color: var(--color-on-primary);
-    border: none;
-
-    &:hover {
-      background: var(--color-primary);
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 
-  .project-card__btn--secondary {
-    background: transparent;
-    color: var(--color-accent);
-    border: 1px solid var(--color-accent);
+  &__overlay-content {
+    width: 100%;
+  }
 
-    &:hover {
+  &__overlay-category {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background: var(--color-accent);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    border-radius: var(--border-radius-pill);
+    margin-bottom: var(--space-xs);
+  }
+
+  &__overlay-title {
+    color: white;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-md);
+    font-weight: var(--fw-bold);
+    margin: 0 0 var(--space-sm);
+    line-height: 1.2;
+  }
+
+  &__overlay-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+
+    .tech-tag {
+      --tag-bg: var(--tag-solid);
+      --tag-color: #fff;
+      font-weight: var(--fw-semibold);
+    }
+  }
+
+  &__overlay-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  /* Card Info */
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: var(--space-lg);
+  }
+
+  &__info-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  &__title-static {
+    font-size: var(--font-size-md);
+    color: var(--color-black);
+    margin: 0;
+  }
+
+  &__category-static {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    font-size: var(--font-size-xs);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  &__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+    line-height: var(--line-height-tight);
+    margin: 0 0 var(--space-md);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Caption techs - mobile only */
+  &__caption-techs {
+    display: none;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+
+    .tech-tag {
+      --tag-bg: var(--tag-solid);
+      --tag-color: #fff;
+      font-weight: var(--fw-semibold);
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  /* Mobile-only actions */
+  &__mobile-actions {
+    display: none;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: auto;
+    padding-top: var(--space-md);
+
+    .project-card__btn {
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+
+    .project-card__btn--primary {
       background: var(--color-accent);
       color: var(--color-on-primary);
+      border: none;
+
+      &:hover {
+        background: var(--color-primary);
+      }
+    }
+
+    .project-card__btn--secondary {
+      background: transparent;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+
+      &:hover {
+        background: var(--color-accent);
+        color: var(--color-on-primary);
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
     }
   }
 
-  @media (max-width: 768px) {
-    display: flex;
-  }
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-@media screen and (max-width: 1200px) {
-  .portfolio__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .portfolio__item--featured {
-    grid-column: span 2;
-
-    .project-card__image-wrapper {
-      height: 32rem;
-    }
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .portfolio__item--featured {
-    grid-column: span 1;
-
-    .project-card__image-wrapper {
-      height: 24rem;
-    }
-  }
-
-  .portfolio__item--normal .project-card__image-wrapper {
-    height: 22rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .portfolio__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .portfolio__item--featured .project-card__image-wrapper,
-  .portfolio__item--normal .project-card__image-wrapper {
-    height: 22rem;
-  }
-
-  .portfolio__filters {
+  /* Buttons */
+  &__btn {
+    display: inline-flex;
+    align-items: center;
     gap: var(--space-xs);
-    margin-bottom: var(--space-2xl);
-  }
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-3);
+    transition: var(--transition-fast);
 
-  .portfolio__filter {
-    padding: var(--space-xs) var(--space-lg);
-    font-size: var(--font-size-xs);
-  }
-}
+    &:focus-visible {
+      outline: none;
+      box-shadow:
+        inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+        inset 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-glow))
+          var(--focus-ring-glow-color);
+    }
 
-@media screen and (max-width: 480px) {
-  .portfolio__item--featured .project-card__image-wrapper,
-  .portfolio__item--normal .project-card__image-wrapper {
-    height: 18rem;
+    svg {
+      font-size: var(--font-size-xs);
+    }
+
+    &--primary {
+      background: white;
+      color: #1a1a1a;
+
+      &:hover {
+        background: var(--color-accent);
+        color: white;
+      }
+    }
+
+    &--secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      &:hover {
+        background: white;
+        color: #1a1a1a;
+        border-color: white;
+      }
+    }
   }
 }
 
@@ -466,40 +415,37 @@
 main.bg-2 {
   .portfolio {
     background: var(--color-light);
-  }
 
-  .portfolio__subtitle {
-    color: var(--color-dark);
+    &__subtitle {
+      color: var(--color-dark);
+    }
+
+    &__filter {
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--color-dark);
+
+      &:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
+      }
+
+      &--active,
+      &--active:hover {
+        color: var(--color-on-primary);
+        border-color: transparent;
+      }
+    }
   }
 
   .project-card {
     background: var(--surface-card-dark);
-  }
 
-  .project-card__title-static {
-    color: var(--color-black);
-  }
-
-  .project-card__description {
-    color: var(--color-dark);
-  }
-
-  .portfolio__filter {
-    border-color: rgba(255, 255, 255, 0.12);
-    color: var(--color-dark);
-
-    &:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
+    &__title-static {
+      color: var(--color-black);
     }
 
-    /* Keep the active pill's label white on the solid fill. The dark-mode rule
-       above is more specific than .portfolio__filter--active, so re-state it
-       here or the label falls back to grey. */
-    &--active,
-    &--active:hover {
-      color: var(--color-on-primary);
-      border-color: transparent;
+    &__description {
+      color: var(--color-dark);
     }
   }
 }
