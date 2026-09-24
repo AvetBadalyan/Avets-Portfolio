@@ -33,6 +33,9 @@ const projectImages = {
   "travel-screenshot2.webp": travelScreenshot,
   "jobTestPrep.webp": jobTestPrepScreenshot,
   "battleship.webp": battleshipScreenshot,
+  "force-theme.png": forceThemeScreenshot,
+  "monochrome-theme.png": monochromeThemeScreenshot,
+  "motto-theme.png": mottoThemeScreenshot,
 };
 
 export default projectImages;
