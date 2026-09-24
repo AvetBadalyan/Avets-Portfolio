@@ -1,6 +1,39 @@
 {
   "websites": [
     {
+      "category": "Shopify",
+      "description": "Premium Shopify theme ($320) published on the official Theme Store. Dark style with high-contrast layouts, vibrant accents, and conversion-focused tools. 100% positive reviews. Built with Liquid, JavaScript, and SCSS.",
+      "id": "WS18",
+      "imageFile": "force-theme.png",
+      "siteName": "Force Theme",
+      "webUrl": "https://themes.shopify.com/themes/force/presets/force",
+      "featured": true,
+      "tech": ["Shopify", "Liquid", "JavaScript", "SCSS"],
+      "challenge": "Built a performance-optimized dark theme for gaming/tech stores with promo banners, countdown timers, sticky cart, and quick-view popups — all passing Shopify's strict Theme Store review."
+    },
+    {
+      "category": "Shopify",
+      "description": "Premium Shopify theme ($320) on the official Theme Store. Minimal, refined design for visual storytelling with 30+ sections, scroll animations, and bold typography. 96% positive (27 reviews).",
+      "id": "WS19",
+      "imageFile": "monochrome-theme.png",
+      "siteName": "Monochrome Theme",
+      "webUrl": "https://themes.shopify.com/themes/monochrome/presets/monochrome",
+      "featured": true,
+      "tech": ["Shopify", "Liquid", "JavaScript", "SCSS"],
+      "challenge": "Created an immersive art-store theme with smooth sliders, scroll reveal effects, and clean layouts. Built 30+ customizable sections while keeping the code fast and maintainable."
+    },
+    {
+      "category": "Shopify",
+      "description": "Premium Shopify theme ($320) on the official Theme Store. Clean, modern design focused on full-width product presentation with conversion tools. 93% positive (27 reviews).",
+      "id": "WS20",
+      "imageFile": "motto-theme.png",
+      "siteName": "Motto Theme",
+      "webUrl": "https://themes.shopify.com/themes/motto/presets/motto",
+      "featured": true,
+      "tech": ["Shopify", "Liquid", "JavaScript", "SCSS"],
+      "challenge": "Developed a conversion-driven theme with promo banners, countdowns, sticky cart, badges, and quick-view popups. Handled complex customization options while ensuring responsive design across all devices."
+    },
+    {
       "category": "Full Stack",
       "description": "Full-stack music library with React, Node.js, Express, PostgreSQL, and Supabase. Browse songs, artists, and albums with a global audio player. Deployed on AWS Amplify.",
       "githubUrl": "https://github.com/AvetBadalyan/Music-app-fullstack-practice.git",
