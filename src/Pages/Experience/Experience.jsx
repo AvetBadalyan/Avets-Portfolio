@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaExternalLinkAlt, FaTimes } from "react-icons/fa";
+import { FaArrowDown, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import EPAMLogo from "./../../assets/education/EPAM.webp";
 import ashstoneLogo from "./../../assets/pics/ashtone.webp";
 import CognaizeLogo from "./../../assets/pics/cognaize-armenia.webp";
@@ -183,14 +183,15 @@ const experienceData = [
   },
   {
     id: 4,
-    company: "Upwork",
+    company: "Freelance & Own Projects",
     logo: null,
-    role: "Freelance Developer",
+    role: "Self-Directed Developer",
     duration: "June 2022 - February 2023",
     type: "Freelance",
     compact: true,
     projectDescription:
-      "Delivered tailored frontend solutions for various clients while building personal portfolio projects to sharpen skills and showcase expertise.",
+      "Where it started — freelance work and self-directed learning. I built many of the apps below and grew into professional engineering.",
+    portfolioLink: true,
   },
 ];
 
@@ -241,131 +242,146 @@ const Experience = () => {
           </p>
         </motion.div>
 
-        {/* Experience Cards - Full Width Layout */}
+        {/* Experience Cards */}
         <div className="experience__list">
-          {experienceData.map((job, index) => (
-            <motion.article
-              key={job.id}
-              className="experience__card"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              {job.compact ? (
-                /* Compact single-row entry (e.g. freelance) */
-                <div className="experience__content experience__content--compact">
-                  <div className="experience__card-header">
-                    <div className="experience__meta">
-                      <h3 className="experience__company">{job.company}</h3>
-                      <p className="experience__role">{job.role}</p>
-                      <span className="experience__duration">
-                        {job.duration}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="experience__project">
-                    {job.projectDescription}
-                  </p>
-                </div>
-              ) : (
-                <>
-                  {/* Logo */}
+          {experienceData
+            .filter((job) => !job.compact)
+            .map((job, index) => (
+              <motion.article
+                key={job.id}
+                className="experience__card"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                {/* Header with Logo + Meta */}
+                <div className="experience__card-header">
                   <div className="experience__logo-wrapper">
                     <div className="experience__logo">
                       <img
                         src={job.logo}
                         alt={job.company}
-                        width={80}
-                        height={80}
+                        width={64}
+                        height={64}
                       />
                     </div>
                   </div>
+                  <div className="experience__meta">
+                    <h3 className="experience__company">{job.company}</h3>
+                    <p className="experience__role">{job.role}</p>
+                    <span className="experience__duration">{job.duration}</span>
+                  </div>
+                </div>
 
-                  {/* Content */}
-                  <div className="experience__content">
-                    {/* Header Row */}
-                    <div className="experience__card-header">
-                      <div className="experience__meta">
-                        <h3 className="experience__company">{job.company}</h3>
-                        <p className="experience__role">{job.role}</p>
-                        <span className="experience__duration">
-                          {job.duration}
-                        </span>
-                      </div>
-                    </div>
+                {/* Content */}
+                <div className="experience__content">
+                  {/* Project Description */}
+                  <p className="experience__project">
+                    {job.projectDescription}
+                  </p>
 
-                    {/* Project Description */}
-                    <p className="experience__project">
-                      {job.projectDescription}
+                  {/* Note if exists */}
+                  {job.note && (
+                    <p className="experience__note">
+                      <strong>Note:</strong> {job.note}
                     </p>
+                  )}
 
-                    {/* Note if exists */}
-                    {job.note && (
-                      <p className="experience__note">
-                        <strong>Note:</strong> {job.note}
-                      </p>
-                    )}
-
-                    {/* Highlights */}
-                    <div className="experience__highlights-section">
-                      <ul className="experience__highlights">
-                        {job.highlights.map((item, i) => (
-                          <li key={i}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div className="experience__tech">
-                      {job.tech.map((tech) => (
-                        <span key={tech} className="experience__tech-badge">
-                          {tech}
-                        </span>
+                  {/* Highlights */}
+                  <div className="experience__highlights-section">
+                    <ul className="experience__highlights">
+                      {job.highlights.map((item, i) => (
+                        <li key={i}>{item}</li>
                       ))}
-                    </div>
+                    </ul>
+                  </div>
 
-                    {/* Links */}
-                    <div className="experience__links">
-                      {job.link && (
+                  {/* Tech Stack */}
+                  <div className="experience__tech">
+                    {job.tech.map((tech) => (
+                      <span key={tech} className="experience__tech-badge">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Links */}
+                  <div className="experience__links">
+                    {job.link && (
+                      <a
+                        href={job.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn--outline btn--sm"
+                      >
+                        {job.linkText}
+                        <FaExternalLinkAlt />
+                      </a>
+                    )}
+                    {job.links &&
+                      job.links.map((link) => (
                         <a
-                          href={job.link}
+                          key={link.url}
+                          href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="btn btn--outline btn--sm"
                         >
-                          {job.linkText}
+                          {link.text}
                           <FaExternalLinkAlt />
                         </a>
-                      )}
-                      {job.links &&
-                        job.links.map((link) => (
-                          <a
-                            key={link.url}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn--outline btn--sm"
-                          >
-                            {link.text}
-                            <FaExternalLinkAlt />
-                          </a>
-                        ))}
-                      {/* Show "View Details" for jobs with contributions */}
-                      {job.contributions && (
-                        <button
-                          className="btn btn--primary btn--sm"
-                          onClick={() => openModal(job)}
-                        >
-                          View Details
-                        </button>
-                      )}
-                    </div>
+                      ))}
+                    {job.contributions && (
+                      <button
+                        className="btn btn--primary btn--sm"
+                        onClick={() => openModal(job)}
+                      >
+                        View Details
+                      </button>
+                    )}
                   </div>
-                </>
-              )}
-            </motion.article>
-          ))}
+                </div>
+              </motion.article>
+            ))}
+
+          {/* Compact Freelance Entry */}
+          {experienceData
+            .filter((job) => job.compact)
+            .map((job) => (
+              <motion.div
+                key={job.id}
+                className="experience__compact-entry"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <span className="experience__compact-marker" aria-hidden="true">
+                  🚀
+                </span>
+                <div className="experience__compact-body">
+                  <div className="experience__compact-meta">
+                    <h3 className="experience__compact-company">
+                      {job.company}
+                    </h3>
+                    <span className="experience__compact-role">{job.role}</span>
+                    <span className="experience__compact-duration">
+                      · {job.duration}
+                    </span>
+                  </div>
+                  <p className="experience__compact-desc">
+                    {job.projectDescription}
+                  </p>
+                  {job.portfolioLink && (
+                    <a href="#portfolio" className="experience__compact-link">
+                      See projects
+                      <FaArrowDown />
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
         </div>
       </div>
 

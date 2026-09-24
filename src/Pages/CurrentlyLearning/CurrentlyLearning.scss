@@ -19,14 +19,14 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* auto-fit flows 3 -> 2 -> 1 columns based on space, no cramped mid-widths */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: var(--space-xl);
     max-width: 1000px;
     margin: 0 auto;
 
-    @media (max-width: 900px) {
-      grid-template-columns: 1fr;
-      max-width: 500px;
+    @media (max-width: 600px) {
+      max-width: 400px;
     }
   }
 }
