@@ -12,6 +12,7 @@ import jokeTellerScreenshot from "../../assets/portfolio/joke-teller.webp";
 import monochromeThemeScreenshot from "../../assets/portfolio/monochrome-theme.webp";
 import mottoThemeScreenshot from "../../assets/portfolio/motto-theme.webp";
 import musicAppScreenshot from "../../assets/portfolio/music app.webp";
+import petutyunScreenshot from "../../assets/portfolio/petutyun.png";
 import realEstateScreenshot from "../../assets/portfolio/screenshot1.webp";
 import techshopScreenshot from "../../assets/portfolio/techshop.webp";
 import todoScreenshot from "../../assets/portfolio/todo-task-page.webp";
@@ -39,6 +40,7 @@ const projectImages = {
   "force-theme.webp": forceThemeScreenshot,
   "monochrome-theme.webp": monochromeThemeScreenshot,
   "motto-theme.webp": mottoThemeScreenshot,
+  "petutyun.png": petutyunScreenshot,
 };
 
 export default projectImages;
