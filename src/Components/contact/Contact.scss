@@ -196,7 +196,11 @@ main.bg-2 {
       border-color: var(--glass-border);
 
       &:hover {
-        background: color-mix(in srgb, var(--glass-bg) 100%, white 4%);
+        background: color-mix(
+          in srgb,
+          var(--glass-bg) 90%,
+          var(--color-light) 10%
+        );
       }
     }
 

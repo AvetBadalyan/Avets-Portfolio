@@ -252,8 +252,15 @@ main.bg-2 {
 
     &__grid {
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        linear-gradient(
+          rgba(var(--color-black-rgb), 0.04) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(var(--color-black-rgb), 0.04) 1px,
+          transparent 1px
+        );
     }
   }
 }

@@ -109,7 +109,7 @@
     width: 60%;
     height: 3px;
     background: var(--color-accent);
-    border-radius: 3px;
+    border-radius: var(--border-radius-pill);
   }
 
   /* Actions (Theme + Burger) */

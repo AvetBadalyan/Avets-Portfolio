@@ -17,7 +17,6 @@
     margin: var(--space-md) 0 0;
   }
 
-  /* Categories */
   &__category {
     margin-bottom: var(--space-4xl);
 
@@ -41,7 +40,6 @@
     }
   }
 
-  /* Grid */
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -179,7 +177,7 @@ main.bg-2 {
     }
 
     &__level {
-      background: rgba(255, 255, 255, 0.1);
+      background: hsla(var(--primary-hue), 20%, 50%, 0.15);
     }
   }
 }

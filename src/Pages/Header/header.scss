@@ -41,7 +41,6 @@
     }
   }
 
-  /* Left Column - Text Content */
   &__content {
     display: flex;
     flex-direction: column;
@@ -137,7 +136,6 @@
     }
   }
 
-  /* CTA Buttons */
   &__cta {
     display: flex;
     flex-wrap: wrap;
@@ -192,7 +190,6 @@
     transition: transform var(--duration-base) var(--easing-default);
   }
 
-  /* Social Links */
   &__social {
     display: flex;
     gap: var(--space-md);
@@ -226,7 +223,6 @@
     }
   }
 
-  /* Right Column - Visual */
   &__visual {
     display: flex;
     flex-direction: column;
@@ -268,7 +264,6 @@
     }
   }
 
-  /* Decorative rings */
   &__ring {
     position: absolute;
     border-radius: 50%;
@@ -289,7 +284,6 @@
     }
   }
 
-  /* Floating tech badges */
   &__badge {
     position: absolute;
     padding: var(--space-xs) var(--space-md);
@@ -358,7 +352,7 @@
 
     @media (max-width: 1200px) {
       font-size: var(--font-size-sm);
-      padding: 0.7rem 1.4rem;
+      padding: var(--space-xs) var(--space-md);
     }
 
     @media (max-width: 600px) {
@@ -377,7 +371,6 @@
     font-size: 1.2em;
   }
 
-  /* Profile image container */
   &__image-container {
     position: relative;
     width: 100%;
@@ -426,7 +419,6 @@
     pointer-events: none;
   }
 
-  /* Stats Bar */
   &__stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

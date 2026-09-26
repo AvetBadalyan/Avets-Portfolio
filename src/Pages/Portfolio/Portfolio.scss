@@ -222,7 +222,7 @@
 
   &__overlay-category {
     display: inline-block;
-    padding: 0.3rem 1rem;
+    padding: var(--space-2xs) var(--space-sm);
     background: var(--color-accent);
     color: white;
     font-size: var(--font-size-xs);
@@ -261,7 +261,6 @@
     gap: var(--space-sm);
   }
 
-  /* Card Info */
   &__info {
     display: flex;
     flex-direction: column;
@@ -354,13 +353,11 @@
         color: var(--color-on-primary);
       }
     }
-
     @media (max-width: 768px) {
       display: flex;
     }
   }
 
-  /* Buttons */
   &__btn {
     display: inline-flex;
     align-items: center;
@@ -386,7 +383,7 @@
 
     &--primary {
       background: white;
-      color: #1a1a1a;
+      color: hsl(0, 0%, 10%);
 
       &:hover {
         background: var(--color-accent);
@@ -401,7 +398,7 @@
 
       &:hover {
         background: white;
-        color: #1a1a1a;
+        color: hsl(0, 0%, 10%);
         border-color: white;
       }
     }
@@ -421,7 +418,7 @@ main.bg-2 {
     }
 
     &__filter {
-      border-color: rgba(255, 255, 255, 0.12);
+      border-color: var(--glass-border);
       color: var(--color-dark);
 
       &:hover {

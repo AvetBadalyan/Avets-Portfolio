@@ -6,7 +6,6 @@
   padding: var(--section-padding-block) 0;
   background: var(--color-white);
 
-  /* Header */
   &__header {
     text-align: center;
     margin-bottom: var(--space-4xl);
@@ -133,7 +132,6 @@
     }
   }
 
-  /* Card */
   &__card {
     display: flex;
     flex-direction: column;
@@ -178,7 +176,6 @@
     gap: var(--space-md);
   }
 
-  /* Logo */
   &__logo-wrapper {
     flex-shrink: 0;
   }
@@ -207,7 +204,6 @@
     }
   }
 
-  /* Content */
   &__content {
     display: flex;
     flex-direction: column;
@@ -253,7 +249,6 @@
     font-weight: var(--fw-medium);
   }
 
-  /* Descriptions */
   &__company-desc,
   &__project,
   &__note {
@@ -267,7 +262,6 @@
     }
   }
 
-  /* Highlights */
   &__highlights-section {
     margin-top: var(--space-2xs);
   }
@@ -303,7 +297,6 @@
     }
   }
 
-  /* Tech Stack */
   &__tech {
     display: flex;
     flex-wrap: wrap;
@@ -312,7 +305,7 @@
   }
 
   &__tech-badge {
-    padding: 0.35rem 0.8rem;
+    padding: var(--space-2xs) var(--space-xs);
     background: hsla(var(--primary-hue), 70%, 50%, 0.1);
     color: var(--color-accent);
     font-size: var(--font-size-xs);
@@ -321,7 +314,6 @@
     border: 1px solid hsla(var(--primary-hue), 70%, 50%, 0.2);
   }
 
-  /* Links */
   &__links {
     display: flex;
     flex-wrap: wrap;

@@ -53,7 +53,7 @@ main.bg-2 {
     background: var(--color-white);
 
     &__copyright small {
-      color: hsl(0, 0%, 70%);
+      color: var(--color-dark);
     }
   }
 }

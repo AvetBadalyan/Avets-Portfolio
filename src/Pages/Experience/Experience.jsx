@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowDown, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import EPAMLogo from "./../../assets/education/EPAM.webp";
 import ashstoneLogo from "./../../assets/pics/ashtone.webp";
@@ -197,8 +197,11 @@ const experienceData = [
 
 const Experience = () => {
   const [selectedJob, setSelectedJob] = useState(null);
+  const modalRef = useRef(null);
+  const openerRef = useRef(null);
 
-  const openModal = (job) => {
+  const openModal = (job, triggerEl) => {
+    openerRef.current = triggerEl || null;
     setSelectedJob(job);
     document.body.style.overflow = "hidden";
   };
@@ -208,21 +211,49 @@ const Experience = () => {
     document.body.style.overflow = "";
   };
 
-  // Handle Escape key to close modal
   useEffect(() => {
+    if (!selectedJob) {
+      openerRef.current?.focus();
+      return;
+    }
+
+    const modal = modalRef.current;
+    if (!modal) return;
+
+    const getFocusable = () =>
+      Array.from(
+        modal.querySelectorAll(
+          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+
+    getFocusable()[0]?.focus();
+
     const handleKeyDown = (e) => {
-      if (e.key === "Escape" && selectedJob) {
+      if (e.key === "Escape") {
         closeModal();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusable = getFocusable();
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     };
 
-    if (selectedJob) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedJob]);
 
   return (
@@ -335,7 +366,7 @@ const Experience = () => {
                     {job.contributions && (
                       <button
                         className="btn btn--primary btn--sm"
-                        onClick={() => openModal(job)}
+                        onClick={(e) => openModal(job, e.currentTarget)}
                       >
                         View Details
                       </button>
@@ -395,6 +426,7 @@ const Experience = () => {
           aria-labelledby="modal-title"
         >
           <motion.div
+            ref={modalRef}
             className="experience-modal"
             onClick={(e) => e.stopPropagation()}
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
