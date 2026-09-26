@@ -1,6 +1,18 @@
 {
   "websites": [
     {
+      "category": "React.JS",
+      "description": "All-in-one pet care app with symptom checker, adoption browser, dosage calculator, and wellness box builder. Weight-based medication dosing, drug interaction warnings, and decision-tree diagnostics. React 19, TypeScript, Zustand, Tailwind.",
+      "githubUrl": "https://github.com/AvetBadalyan/petutyun",
+      "id": "WS21",
+      "imageFile": "petutyun.png",
+      "siteName": "Petutyun",
+      "webUrl": "https://petutyun.vercel.app/",
+      "featured": true,
+      "tech": ["React", "TypeScript", "Zustand", "Tailwind"],
+      "challenge": "Built a weight-based dosage calculator with min/max limits and a drug interaction checker that detects dangerous combinations. Created a symptom checker using decision-tree logic that maps answers to severity levels and vet recommendations."
+    },
+    {
       "category": "Shopify",
       "description": "Premium Shopify theme ($320) published on the official Theme Store. Dark style with high-contrast layouts, vibrant accents, and conversion-focused tools. 100% positive reviews. Built with Liquid, JavaScript, and SCSS.",
       "id": "WS18",
