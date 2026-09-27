@@ -52,6 +52,8 @@ const Navbar = () => {
     const panel = mobileMenuRef.current;
     if (!panel) return;
 
+    const burger = burgerRef.current;
+
     const getFocusable = () =>
       Array.from(
         panel.querySelectorAll(
@@ -90,7 +92,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       // Return focus to the burger when the menu closes.
-      burgerRef.current?.focus();
+      burger?.focus();
     };
   }, [isMenuOpen]);
 
