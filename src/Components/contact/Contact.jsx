@@ -40,7 +40,6 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        {/* Header */}
         <motion.div
           className="contact__header"
           initial={{ opacity: 0, y: 30 }}
@@ -54,7 +53,6 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        {/* Contact Card */}
         <motion.div
           className="contact__card"
           initial={{ opacity: 0, y: 40 }}
@@ -62,19 +60,16 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {/* Status Badge */}
           <div className="contact__status">
             <span className="contact__status-dot" />
             <span>Open to opportunities</span>
           </div>
 
-          {/* Location */}
           <div className="contact__location">
             <FaMapMarkerAlt />
             <span>Yerevan, Armenia • Open to remote</span>
           </div>
 
-          {/* Contact Grid */}
           <motion.div
             className="contact__grid"
             variants={staggerContainer(0.1, 0.3)}
@@ -106,7 +101,6 @@ const Contact = () => {
             ))}
           </motion.div>
 
-          {/* Message */}
           <motion.p
             className="contact__message"
             initial={{ opacity: 0 }}

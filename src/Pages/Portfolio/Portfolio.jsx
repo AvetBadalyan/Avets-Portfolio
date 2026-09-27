@@ -45,16 +45,9 @@ const Portfolio = () => {
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
-  // Determine which projects get featured (larger) cards.
-  // The `featured` flag lives in portfolioData.json so the decision is
-  // stable — it doesn't shift when the active category filter changes.
-  const getFeaturedStatus = (project) =>
-    project.featured ? "featured" : "normal";
-
   return (
     <section id="portfolio" className="portfolio">
       <div className="container">
-        {/* Section Header */}
         <motion.div
           className="portfolio__header"
           initial={{ opacity: 0, y: 30 }}
@@ -69,7 +62,6 @@ const Portfolio = () => {
           </p>
         </motion.div>
 
-        {/* Category Filter */}
         <motion.div
           className="portfolio__filters"
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +82,6 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
-        {/* Projects Grid with Staggered Animation */}
         <motion.div
           className="portfolio__grid"
           initial="hidden"
@@ -101,7 +92,7 @@ const Portfolio = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className={`portfolio__item portfolio__item--${getFeaturedStatus(project)}`}
+                className={`portfolio__item portfolio__item--${project.featured ? "featured" : "normal"}`}
                 variants={cardVariants}
                 custom={index}
                 initial="hidden"
@@ -119,7 +110,6 @@ const Portfolio = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Project Detail Modal */}
         <ProjectModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}

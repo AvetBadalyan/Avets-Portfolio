@@ -10,21 +10,12 @@ import data from "./data";
 import "./Education.scss";
 
 const Education = () => {
-  // Separate into tech certifications and academic degrees
-  const techCerts = data.filter(
-    (item) =>
-      item.faculty.toLowerCase().includes("javascript") ||
-      item.faculty.toLowerCase().includes("react") ||
-      item.faculty.toLowerCase().includes("frontend") ||
-      item.faculty.toLowerCase().includes("fullstack"),
-  );
-
-  const academic = data.filter((item) => !techCerts.includes(item));
+  const techCerts = data.filter((item) => item.type === "technical");
+  const academic = data.filter((item) => item.type === "academic");
 
   return (
     <section id="education" className="education">
       <div className="container">
-        {/* Section Header */}
         <motion.div
           className="education__header"
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +29,6 @@ const Education = () => {
           </p>
         </motion.div>
 
-        {/* Tech Certifications */}
         <motion.div
           className="education__section"
           variants={staggerContainer(0.1, 0.2)}
@@ -78,6 +68,7 @@ const Education = () => {
                       alt={item.title}
                       width={140}
                       height={140}
+                      loading="lazy"
                     />
                   </div>
 
@@ -154,6 +145,7 @@ const Education = () => {
                       alt={item.title}
                       width={140}
                       height={140}
+                      loading="lazy"
                     />
                   </div>
 

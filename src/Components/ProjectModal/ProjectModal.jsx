@@ -33,20 +33,18 @@ const ProjectModal = ({ project, onClose }) => {
   const closeButtonRef = useRef(null);
   const previousActiveElement = useRef(null);
 
-  // Remember what was focused before opening so we can restore it on close.
+  // Capture the trigger (the card/button that opened the modal) when `project`
+  // becomes set, move focus to the close button, then restore focus to the
+  // trigger on close. The modal is always mounted, so this must key off
+  // `project` — a one-time mount effect would only ever capture <body>.
   useEffect(() => {
-    previousActiveElement.current = document.activeElement;
-  }, []);
+    if (!project) return;
 
-  useEffect(() => {
-    if (project && closeButtonRef.current) {
-      closeButtonRef.current.focus();
-    }
+    previousActiveElement.current = document.activeElement;
+    closeButtonRef.current?.focus();
 
     return () => {
-      if (previousActiveElement.current) {
-        previousActiveElement.current.focus();
-      }
+      previousActiveElement.current?.focus();
     };
   }, [project]);
 

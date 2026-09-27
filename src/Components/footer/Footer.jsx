@@ -10,7 +10,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer__container">
-        {/* Back to top */}
         <motion.button
           className="footer__back-to-top"
           onClick={scrollToTop}
@@ -21,7 +20,6 @@ const Footer = () => {
           <FaArrowUp />
         </motion.button>
 
-        {/* Copyright */}
         <div className="footer__copyright">
           <small>
             © {new Date().getFullYear()} Avet Badalyan — All Rights Reserved

@@ -155,8 +155,8 @@
     }
 
     &:focus-within {
-      outline: 2px solid var(--color-accent);
-      outline-offset: 2px;
+      outline: var(--focus-ring-width) solid var(--focus-ring-color);
+      outline-offset: var(--focus-ring-offset);
     }
 
     @media (max-width: 768px) {
@@ -364,7 +364,7 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(4px);
-    z-index: var(--z-overlay, 300);
+    z-index: var(--z-overlay);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -391,7 +391,7 @@
     cursor: pointer;
     color: var(--color-dark);
     transition: var(--transition-fast);
-    z-index: 10;
+    z-index: var(--z-elevated);
 
     &:hover {
       background: var(--color-accent);

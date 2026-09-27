@@ -2,32 +2,29 @@ import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../../utils/animations";
 import "./CurrentlyLearning.scss";
 
-/**
- * What I'm currently learning/exploring.
- * Keep this updated — shows employers you're actively growing.
- * 
- * Icons: use emoji for simplicity, or swap for react-icons if you prefer.
- */
 const learningItems = [
   {
     id: 1,
     emoji: "☁️",
     title: "AWS Cloud",
-    description: "S3, Amplify, Lambda basics — building and deploying serverless apps",
+    description:
+      "S3, Amplify, Lambda basics — building and deploying serverless apps",
     status: "In Progress",
   },
   {
     id: 2,
     emoji: "🤖",
     title: "Claude AI",
-    description: "AI-assisted development with Anthropic's Claude and prompt engineering",
+    description:
+      "AI-assisted development with Anthropic's Claude and prompt engineering",
     status: "Exploring",
   },
   {
     id: 3,
     emoji: "⚡",
     title: "Next.js",
-    description: "Server components, App Router, and full-stack React framework",
+    description:
+      "Server components, App Router, and full-stack React framework",
     status: "Learning",
   },
 ];
@@ -36,7 +33,6 @@ const CurrentlyLearning = () => {
   return (
     <section id="learning" className="learning">
       <div className="container">
-        {/* Header */}
         <motion.div
           className="learning__header"
           initial={{ opacity: 0, y: 30 }}
@@ -50,7 +46,6 @@ const CurrentlyLearning = () => {
           </p>
         </motion.div>
 
-        {/* Learning Cards */}
         <motion.div
           className="learning__grid"
           variants={staggerContainer(0.1, 0.2)}

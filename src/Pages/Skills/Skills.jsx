@@ -9,7 +9,13 @@ const SkillCard = ({ skill, index }) => {
     <motion.div variants={fadeIn("up", 0)} custom={index}>
       <TiltCard className="skill-card" tiltAmount={8} scale={1.03}>
         <div className="skill-card__icon">
-          <img src={skill.logo} alt={skill.skillName} width={48} height={48} />
+          <img
+            src={skill.logo}
+            alt={skill.skillName}
+            width={48}
+            height={48}
+            loading="lazy"
+          />
         </div>
         <span className="skill-card__name">{skill.skillName}</span>
         <div className="skill-card__level">
@@ -40,7 +46,6 @@ const Skills = () => {
   return (
     <section id="skills" className="skills">
       <div className="container">
-        {/* Header */}
         <motion.div
           className="skills__header"
           initial={{ opacity: 0, y: 30 }}
@@ -54,8 +59,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        {/* Skill Categories */}
-        {skillCategories.map((category, catIndex) => (
+        {skillCategories.map((category) => (
           <motion.div
             key={category.title}
             className="skills__category"

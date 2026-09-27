@@ -23,7 +23,7 @@ const Header = () => {
 
   const stats = [
     { number: "3+", label: "Years Exp" },
-    { number: "16", label: "Projects" },
+    { number: "20", label: "Projects" },
     { number: "4", label: "MERN Apps" },
     { number: "3", label: "Shopify Themes" },
   ];
@@ -61,7 +61,6 @@ const Header = () => {
       <GradientBackground />
 
       <div className="hero__container container">
-        {/* Left Column - Text Content */}
         <motion.div
           className="hero__content"
           variants={staggerContainer(0.12, 0.2)}
@@ -152,7 +151,6 @@ const Header = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Column - Visual */}
         <div className="hero__visual">
           <motion.div
             className="hero__image-wrapper"
@@ -165,7 +163,6 @@ const Header = () => {
               delay: 0.3,
             }}
           >
-            {/* Animated decorative rings */}
             <motion.div
               className="hero__ring hero__ring--outer"
               animate={reduceMotion ? undefined : { rotate: 360 }}
@@ -185,7 +182,6 @@ const Header = () => {
               }
             />
 
-            {/* Floating tech badges */}
             {techBadges.map((badge, index) => (
               <motion.div
                 key={badge.name}
@@ -210,7 +206,6 @@ const Header = () => {
               </motion.div>
             ))}
 
-            {/* Profile image */}
             <div className="hero__image-container">
               <img
                 src={HeaderImage}
@@ -223,7 +218,6 @@ const Header = () => {
             </div>
           </motion.div>
 
-          {/* Stats bar with animated counters */}
           <motion.div
             className="hero__stats"
             initial={{ opacity: 0, y: 30 }}
@@ -250,7 +244,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.a
         href="#about"
         className="hero__scroll"

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowDown, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import EPAMLogo from "./../../assets/education/EPAM.webp";
@@ -18,7 +18,7 @@ const experienceData = [
       "EPAM Systems, Inc. delivers software engineering and digital platform solutions for global enterprises, serving millions of users worldwide.",
     projectDescription:
       "Building the HFM Client Area for HF Markets Group — the client portal for a global forex/CFD brokerage. A large-scale Next.js (App Router) frontend in TypeScript, React, and Tailwind CSS with an internal design system, SSR, and a 2700+ test suite.",
-    note: "Previously contributed to EPAM's corporate websites (epam.com and regional/product sites) on the AEM platform (July 2025 - April 2026), resolving 40+ UI issues and writing Sinon.js unit tests for 20+ frontend modules, then to the Ketcher Life Sciences platform (~3 months).",
+    note: "Earlier in this role I contributed to EPAM's corporate websites (epam.com and regional/product sites) on the AEM platform, resolving 40+ UI issues and writing Sinon.js unit tests for 20+ frontend modules. I then worked on the Ketcher Life Sciences platform (~3 months) before moving to the HF Markets client area.",
     highlights: [
       "Resolved a wide range of UI/UX bugs across the client area — navigation, modals/drawers/dropdowns, overflow and positioning, and layout fixes to match Figma designs",
       "Implemented feature enhancements in marketing tools, asset pages, account manager cards, search, widgets, and the AI assistant",
@@ -259,7 +259,6 @@ const Experience = () => {
   return (
     <section id="experience" className="experience">
       <div className="container">
-        {/* Section Header */}
         <motion.div
           className="experience__header"
           initial={{ opacity: 0, y: 30 }}
@@ -273,7 +272,6 @@ const Experience = () => {
           </p>
         </motion.div>
 
-        {/* Experience Cards */}
         <div className="experience__list">
           {experienceData
             .filter((job) => !job.compact)
@@ -286,7 +284,6 @@ const Experience = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {/* Header with Logo + Meta */}
                 <div className="experience__card-header">
                   <div className="experience__logo-wrapper">
                     <div className="experience__logo">
@@ -295,6 +292,7 @@ const Experience = () => {
                         alt={job.company}
                         width={64}
                         height={64}
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -305,21 +303,17 @@ const Experience = () => {
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="experience__content">
-                  {/* Project Description */}
                   <p className="experience__project">
                     {job.projectDescription}
                   </p>
 
-                  {/* Note if exists */}
                   {job.note && (
                     <p className="experience__note">
                       <strong>Note:</strong> {job.note}
                     </p>
                   )}
 
-                  {/* Highlights */}
                   <div className="experience__highlights-section">
                     <ul className="experience__highlights">
                       {job.highlights.map((item, i) => (
@@ -328,7 +322,6 @@ const Experience = () => {
                     </ul>
                   </div>
 
-                  {/* Tech Stack */}
                   <div className="experience__tech">
                     {job.tech.map((tech) => (
                       <span key={tech} className="experience__tech-badge">
@@ -337,7 +330,6 @@ const Experience = () => {
                     ))}
                   </div>
 
-                  {/* Links */}
                   <div className="experience__links">
                     {job.link && (
                       <a
@@ -416,95 +408,100 @@ const Experience = () => {
         </div>
       </div>
 
-      {/* Detailed Modal for Experience */}
-      {selectedJob && (
-        <div
-          className="experience-modal__overlay"
-          onClick={closeModal}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-        >
+      {/* AnimatePresence keeps the modal mounted through its exit animation —
+          without it the exit variant below never plays. */}
+      <AnimatePresence>
+        {selectedJob && (
           <motion.div
-            ref={modalRef}
-            className="experience-modal"
-            onClick={(e) => e.stopPropagation()}
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3 }}
+            className="experience-modal__overlay"
+            onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            {/* Close Button */}
-            <button
-              className="experience-modal__close"
-              onClick={closeModal}
-              aria-label="Close modal"
+            <motion.div
+              ref={modalRef}
+              className="experience-modal"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
             >
-              <FaTimes />
-            </button>
+              <button
+                className="experience-modal__close"
+                onClick={closeModal}
+                aria-label="Close modal"
+              >
+                <FaTimes />
+              </button>
 
-            {/* Modal Header */}
-            <div className="experience-modal__header">
-              <div className="experience-modal__logo">
-                <img
-                  src={selectedJob.logo}
-                  alt={selectedJob.company}
-                  width={120}
-                  height={120}
-                />
-              </div>
-              <div className="experience-modal__info">
-                <h2 id="modal-title" className="experience-modal__company">
-                  {selectedJob.company}
-                </h2>
-                <p className="experience-modal__role">
-                  {selectedJob.role} · {selectedJob.duration}
-                </p>
-                <p className="experience-modal__intro">
-                  {selectedJob.companyDescription}
-                </p>
-                {selectedJob.link && (
-                  <a
-                    href={selectedJob.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn--outline btn--sm"
-                  >
-                    {selectedJob.linkText}
-                    <FaExternalLinkAlt />
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Key Contributions */}
-            {selectedJob.contributions && (
-              <div className="experience-modal__contributions">
-                <h3 className="experience-modal__contributions-title">
-                  Key contributions at {selectedJob.company}
-                </h3>
-                <div className="experience-modal__contributions-grid">
-                  {selectedJob.contributions.map((contrib, i) => (
-                    <div key={i} className="contribution-card">
-                      <span className="contribution-card__icon">
-                        {contrib.icon}
-                      </span>
-                      <h4 className="contribution-card__title">
-                        {contrib.title}
-                      </h4>
-                      <ul className="contribution-card__points">
-                        {contrib.points.map((point, j) => (
-                          <li key={j}>{point}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+              <div className="experience-modal__header">
+                <div className="experience-modal__logo">
+                  <img
+                    src={selectedJob.logo}
+                    alt={selectedJob.company}
+                    width={120}
+                    height={120}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="experience-modal__info">
+                  <h2 id="modal-title" className="experience-modal__company">
+                    {selectedJob.company}
+                  </h2>
+                  <p className="experience-modal__role">
+                    {selectedJob.role} · {selectedJob.duration}
+                  </p>
+                  <p className="experience-modal__intro">
+                    {selectedJob.companyDescription}
+                  </p>
+                  {selectedJob.link && (
+                    <a
+                      href={selectedJob.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn--outline btn--sm"
+                    >
+                      {selectedJob.linkText}
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
                 </div>
               </div>
-            )}
+
+              {selectedJob.contributions && (
+                <div className="experience-modal__contributions">
+                  <h3 className="experience-modal__contributions-title">
+                    Key contributions at {selectedJob.company}
+                  </h3>
+                  <div className="experience-modal__contributions-grid">
+                    {selectedJob.contributions.map((contrib, i) => (
+                      <div key={i} className="contribution-card">
+                        <span className="contribution-card__icon">
+                          {contrib.icon}
+                        </span>
+                        <h4 className="contribution-card__title">
+                          {contrib.title}
+                        </h4>
+                        <ul className="contribution-card__points">
+                          {contrib.points.map((point, j) => (
+                            <li key={j}>{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </motion.div>
           </motion.div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </section>
   );
 };

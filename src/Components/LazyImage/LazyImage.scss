@@ -44,6 +44,26 @@
   }
 }
 
+/* Shown when the image fails to load — a neutral plate with the alt text so
+   the card doesn't sit on a skeleton that never resolves. */
+.lazy-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-md);
+  background: var(--color-light);
+  color: var(--color-dark);
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-medium);
+  text-align: center;
+
+  span {
+    max-width: 90%;
+  }
+}
+
 /* ============================================
    KEYFRAMES
    ============================================ */

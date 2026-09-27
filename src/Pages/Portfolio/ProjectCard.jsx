@@ -28,7 +28,6 @@ const ProjectCard = ({ project, onSelect }) => {
       scale={1.02}
       onClick={handleCardClick}
     >
-      {/* Image + hover overlay */}
       <div className="project-card__image-wrapper">
         <LazyImage
           src={project.image}

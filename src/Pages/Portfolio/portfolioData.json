@@ -50,7 +50,7 @@
       "description": "All-in-one pet care app with symptom checker, adoption browser, dosage calculator, and wellness box builder. Weight-based medication dosing, drug interaction warnings, and decision-tree diagnostics. React 19, TypeScript, Zustand, Tailwind.",
       "githubUrl": "https://github.com/AvetBadalyan/petutyun",
       "id": "WS21",
-      "imageFile": "petutyun.png",
+      "imageFile": "petutyun.webp",
       "siteName": "Petutyun",
       "webUrl": "https://petutyun.vercel.app/",
       "featured": true,

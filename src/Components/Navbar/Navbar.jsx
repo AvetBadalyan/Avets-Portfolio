@@ -130,7 +130,6 @@ const Navbar = () => {
       </a>
 
       <div className="container nav__container">
-        {/* Logo */}
         <motion.a
           href="#header"
           className="nav__logo"
@@ -142,7 +141,6 @@ const Navbar = () => {
           <span className="nav__logo-text">AB</span>
         </motion.a>
 
-        {/* Desktop Nav Links */}
         <div className="nav__links">
           {navLinks.map((item) => {
             const sectionId = item.link.slice(1);
@@ -166,9 +164,7 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Actions */}
         <div className="nav__actions">
-          {/* Theme Toggle */}
           <motion.button
             type="button"
             className="nav__theme-toggle"
@@ -204,7 +200,6 @@ const Navbar = () => {
             </AnimatePresence>
           </motion.button>
 
-          {/* Mobile Burger */}
           <motion.button
             ref={burgerRef}
             type="button"
@@ -240,11 +235,9 @@ const Navbar = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <>
-              {/* Backdrop */}
               <motion.div
                 className="nav__backdrop"
                 initial={{ opacity: 0 }}
@@ -253,7 +246,6 @@ const Navbar = () => {
                 onClick={closeMenu}
               />
 
-              {/* Menu Panel */}
               <motion.div
                 ref={mobileMenuRef}
                 className="nav__mobile"
@@ -286,7 +278,6 @@ const Navbar = () => {
                   })}
                 </div>
 
-                {/* Theme toggle in mobile menu */}
                 <motion.button
                   type="button"
                   className="nav__mobile-theme"

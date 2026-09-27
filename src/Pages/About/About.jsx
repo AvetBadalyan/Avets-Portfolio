@@ -10,7 +10,6 @@ const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        {/* Section Header */}
         <motion.div
           className="about__header"
           initial={{ opacity: 0, y: 30 }}
@@ -22,7 +21,6 @@ const About = () => {
         </motion.div>
 
         <div className="about__content">
-          {/* Left - Languages */}
           <motion.div
             className="about__sidebar"
             initial={{ opacity: 0, y: 30 }}
@@ -30,7 +28,6 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Languages */}
             <motion.div
               className="about__languages"
               variants={staggerContainer(0.1, 0.4)}
@@ -70,7 +67,6 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right - Text */}
           <motion.div
             className="about__text"
             initial={{ opacity: 0, y: 30 }}
