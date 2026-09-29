@@ -38,7 +38,7 @@
       "description": "Two-sided job marketplace for Armenia. Candidates browse jobs, apply, and track applications. Employers post openings and manage applicants. React 18, Redux Toolkit, Supabase with role-based auth and Row Level Security.",
       "githubUrl": "https://github.com/AvetBadalyan/joblist-am",
       "id": "WS22",
-      "imageFile": "joblist-am.png",
+      "imageFile": "joblist-am.webp",
       "siteName": "JobList.am",
       "webUrl": "https://joblist-am.vercel.app",
       "featured": true,

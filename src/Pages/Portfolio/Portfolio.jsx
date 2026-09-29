@@ -102,7 +102,6 @@ const Portfolio = () => {
               >
                 <ProjectCard
                   project={project}
-                  index={index}
                   onSelect={() => setSelectedProject(project)}
                 />
               </motion.div>
