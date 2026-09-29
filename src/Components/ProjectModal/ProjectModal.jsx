@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { FaExternalLinkAlt, FaGithub, FaTimes } from "react-icons/fa";
+import { useFocusTrap } from "../../hooks/useFocusTrap";
 import { techColors } from "../../utils/techColors";
 import LazyImage from "../LazyImage/LazyImage";
 import TechTag from "../TechTag/TechTag";
@@ -31,62 +32,14 @@ const modalVariants = {
 const ProjectModal = ({ project, onClose }) => {
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
-  const previousActiveElement = useRef(null);
 
-  // Capture the trigger (the card/button that opened the modal) when `project`
-  // becomes set, move focus to the close button, then restore focus to the
-  // trigger on close. The modal is always mounted, so this must key off
-  // `project` — a one-time mount effect would only ever capture <body>.
-  useEffect(() => {
-    if (!project) return;
-
-    previousActiveElement.current = document.activeElement;
-    closeButtonRef.current?.focus();
-
-    return () => {
-      previousActiveElement.current?.focus();
-    };
-  }, [project]);
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
-
-    if (project) {
-      document.addEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [project, onClose]);
-
-  // Trap Tab focus inside the modal while it's open (required by aria-modal).
-  const handleKeyDown = useCallback((e) => {
-    if (e.key !== "Tab" || !modalRef.current) return;
-
-    const focusableElements = modalRef.current.querySelectorAll(
-      'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
-    );
-
-    if (focusableElements.length === 0) return;
-
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-
-    if (e.shiftKey && document.activeElement === firstElement) {
-      e.preventDefault();
-      lastElement.focus();
-    } else if (!e.shiftKey && document.activeElement === lastElement) {
-      e.preventDefault();
-      firstElement.focus();
-    }
-  }, []);
+  // Trap focus inside the modal, close on Escape, lock scroll, and restore
+  // focus to the trigger on close. Focus starts on the close button.
+  useFocusTrap(Boolean(project), {
+    containerRef: modalRef,
+    onClose,
+    initialFocusRef: closeButtonRef,
+  });
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -117,7 +70,6 @@ const ProjectModal = ({ project, onClose }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            onKeyDown={handleKeyDown}
           >
             {/* Close button */}
             <button

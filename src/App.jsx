@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Contact from "./Components/contact/Contact";
 import Footer from "./Components/footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
-import { useTheme } from "./context/theme-context.jsx";
+import { useTheme } from "./context/use-theme";
 import About from "./Pages/About/About";
 import CurrentlyLearning from "./Pages/CurrentlyLearning/CurrentlyLearning";
 import Education from "./Pages/Education/Education";
