@@ -184,7 +184,7 @@
 
     .tech-tag {
       --tag-bg: var(--tag-solid);
-      --tag-color: #fff;
+      --tag-color: var(--color-on-primary);
       font-weight: var(--fw-semibold);
     }
   }

@@ -205,6 +205,15 @@ const Navbar = () => {
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               >
+                <button
+                  type="button"
+                  className="nav__mobile-close"
+                  onClick={closeMenu}
+                  aria-label="Close menu"
+                >
+                  <FaTimes />
+                </button>
+
                 <div className="nav__mobile-links">
                   {navLinks.map((item, index) => {
                     const sectionId = item.link.slice(1);
