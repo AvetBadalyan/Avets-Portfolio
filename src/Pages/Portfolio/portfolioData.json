@@ -2,7 +2,7 @@
   "websites": [
     {
       "category": "Shopify",
-      "description": "Premium Shopify theme ($320) published on the official Theme Store. Dark style with high-contrast layouts, vibrant accents, and conversion-focused tools. 100% positive reviews. Built with Liquid, JavaScript, and SCSS.",
+      "description": "Premium Shopify theme ($320) published on the official Theme Store. Dark style with high-contrast layouts, vibrant accents, and conversion-focused tools. 100% positive (6 reviews). Built with Liquid, JavaScript, and SCSS.",
       "id": "WS18",
       "imageFile": "force-theme.webp",
       "siteName": "Force Theme",
@@ -71,14 +71,14 @@
     },
     {
       "category": "Full Stack",
-      "description": "Full-stack music library with React, Node.js, Express, PostgreSQL, and Supabase. Browse songs, artists, and albums with a global audio player. Deployed on AWS Amplify.",
+      "description": "Full-stack music library with React, Node.js, Express, PostgreSQL, and Supabase. Browse songs, artists, and albums with a global audio player. Deployed on Vercel.",
       "githubUrl": "https://github.com/AvetBadalyan/Music-app-fullstack-practice.git",
       "id": "WS00",
       "imageFile": "music app.webp",
       "siteName": "Music App",
-      "webUrl": "https://main.d3kojl89wftd85.amplifyapp.com/",
+      "webUrl": "https://musicavet.vercel.app/",
       "featured": true,
-      "tech": ["React", "Node.js", "PostgreSQL", "AWS"],
+      "tech": ["React", "Node.js", "PostgreSQL", "Supabase"],
       "challenge": "Built a full-stack music app where a single audio player keeps playing while you browse different pages, and songs, artists, and albums are stored and fetched from a PostgreSQL database."
     },
     {
