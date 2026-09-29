@@ -383,7 +383,7 @@
 
     &--primary {
       background: white;
-      color: hsl(0, 0%, 10%);
+      color: var(--color-black);
 
       &:hover {
         background: var(--color-accent);
@@ -398,7 +398,7 @@
 
       &:hover {
         background: white;
-        color: hsl(0, 0%, 10%);
+        color: var(--color-black);
         border-color: white;
       }
     }

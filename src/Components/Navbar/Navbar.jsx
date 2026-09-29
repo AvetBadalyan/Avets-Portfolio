@@ -74,7 +74,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
-      <a href="#header" className="skip-link">
+      <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
 

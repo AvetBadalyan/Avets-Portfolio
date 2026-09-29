@@ -8,9 +8,10 @@
 /.vite
 
 # Firebase
-firebase.json
-.firebase
-.firebaserc
+# firebase.json and .firebaserc are committed on purpose — the deploy
+# (npm run deploy) and the GitHub Actions workflow both need them in the repo.
+# Only the local deploy cache is ignored.
+.firebase/
 
 # env files
 .env

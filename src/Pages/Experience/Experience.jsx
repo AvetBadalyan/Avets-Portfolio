@@ -8,14 +8,18 @@ import "./Experience.scss";
 const Experience = () => {
   const [selectedJob, setSelectedJob] = useState(null);
   const modalRef = useRef(null);
+  const closeButtonRef = useRef(null);
 
   const openModal = (job) => setSelectedJob(job);
   const closeModal = () => setSelectedJob(null);
 
   // Focus trap + Escape + scroll-lock + focus restore to the trigger button.
+  // initialFocusRef ensures focus lands on the close button so keyboard users
+  // always have a consistent, predictable exit point on modal open.
   useFocusTrap(Boolean(selectedJob), {
     containerRef: modalRef,
     onClose: closeModal,
+    initialFocusRef: closeButtonRef,
   });
 
   return (
@@ -177,9 +181,6 @@ const Experience = () => {
           <motion.div
             className="experience-modal__overlay"
             onClick={closeModal}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -188,6 +189,9 @@ const Experience = () => {
             <motion.div
               ref={modalRef}
               className="experience-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="experience-modal-title"
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -195,6 +199,7 @@ const Experience = () => {
               transition={{ duration: 0.3 }}
             >
               <button
+                ref={closeButtonRef}
                 className="experience-modal__close"
                 onClick={closeModal}
                 aria-label="Close modal"
@@ -213,7 +218,10 @@ const Experience = () => {
                   />
                 </div>
                 <div className="experience-modal__info">
-                  <h2 id="modal-title" className="experience-modal__company">
+                  <h2
+                    id="experience-modal-title"
+                    className="experience-modal__company"
+                  >
                     {selectedJob.company}
                   </h2>
                   <p className="experience-modal__role">

@@ -35,7 +35,7 @@ const About = () => {
               whileInView="show"
               viewport={{ once: true }}
             >
-              <h4 className="about__languages-title">Languages</h4>
+              <h3 className="about__languages-title">Languages</h3>
               {languageSkills.map((lang) => (
                 <motion.div
                   key={lang.language}

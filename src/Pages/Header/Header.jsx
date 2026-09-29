@@ -68,7 +68,9 @@ const Header = () => {
           animate="show"
         >
           <motion.p className="hero__greeting" variants={fadeIn("up", 0)}>
-            <span className="hero__wave">👋</span>
+            <span className="hero__wave" aria-hidden="true">
+              👋
+            </span>
             Hello, I'm
           </motion.p>
 
@@ -197,6 +199,7 @@ const Header = () => {
                 >
                   <span
                     className="hero__badge-icon"
+                    aria-hidden="true"
                     style={{ color: badge.color }}
                   >
                     {badge.icon}

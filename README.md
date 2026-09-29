@@ -50,7 +50,7 @@ Some of the web apps featured in my portfolio include:
 
 | Category   | Project                                                            | Description                                                                            |
 | ---------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| Full Stack | [**Music App**](https://main.d3kojl89wftd85.amplifyapp.com/)       | Full-stack music library with React, Node.js, PostgreSQL, and persistent audio player. |
+| Full Stack | [**Music App**](https://musicavet.vercel.app/)                     | Full-stack music library with React, Node.js, PostgreSQL, and persistent audio player. |
 | Full Stack | [**EduScheduler**](https://edu-scheduler-aca.vercel.app)           | University timetable generator with backtracking CSP algorithm.                        |
 | MERN       | [**Avetbook Chat App**](https://avetbook-chat-app.onrender.com)    | Real-time chat with Socket.io, typing indicators, and online presence.                 |
 | MERN       | [**Real Estate App**](https://avets-real-estate.vercel.app)        | Property search across 10 countries with Google Maps integration.                      |

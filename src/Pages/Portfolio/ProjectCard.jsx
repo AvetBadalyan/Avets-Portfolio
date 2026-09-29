@@ -84,19 +84,21 @@ const ProjectCard = ({ project, onSelect }) => {
                 <FaExternalLinkAlt />
                 <span>Demo</span>
               </motion.a>
-              <motion.a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="project-card__btn project-card__btn--secondary"
-                aria-label={`View source code of ${project.siteName} on GitHub`}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaGithub />
-                <span>Code</span>
-              </motion.a>
+              {project.githubUrl && (
+                <motion.a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="project-card__btn project-card__btn--secondary"
+                  aria-label={`View source code of ${project.siteName} on GitHub`}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaGithub />
+                  <span>Code</span>
+                </motion.a>
+              )}
             </div>
           </div>
         </div>
@@ -154,17 +156,19 @@ const ProjectCard = ({ project, onSelect }) => {
             <FaExternalLinkAlt />
             <span>Demo</span>
           </a>
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="project-card__btn project-card__btn--secondary"
-            aria-label={`View source code of ${project.siteName} on GitHub`}
-          >
-            <FaGithub />
-            <span>Code</span>
-          </a>
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="project-card__btn project-card__btn--secondary"
+              aria-label={`View source code of ${project.siteName} on GitHub`}
+            >
+              <FaGithub />
+              <span>Code</span>
+            </a>
+          )}
         </div>
       </div>
     </TiltCard>

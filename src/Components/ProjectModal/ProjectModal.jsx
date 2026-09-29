@@ -59,13 +59,13 @@ const ProjectModal = ({ project, onClose }) => {
           animate="visible"
           exit="exit"
           onClick={handleOverlayClick}
-          aria-modal="true"
-          role="dialog"
-          aria-labelledby="modal-title"
         >
           <motion.div
             className="project-modal"
             ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
             variants={modalVariants}
             initial="hidden"
             animate="visible"
@@ -97,7 +97,7 @@ const ProjectModal = ({ project, onClose }) => {
 
             {/* Content */}
             <div className="project-modal__content">
-              <h2 id="modal-title" className="project-modal__title">
+              <h2 id="project-modal-title" className="project-modal__title">
                 {project.siteName}
               </h2>
 
@@ -145,15 +145,17 @@ const ProjectModal = ({ project, onClose }) => {
                   <FaExternalLinkAlt />
                   <span>Live Demo</span>
                 </a>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-modal__btn project-modal__btn--secondary"
-                >
-                  <FaGithub />
-                  <span>View Code</span>
-                </a>
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-modal__btn project-modal__btn--secondary"
+                  >
+                    <FaGithub />
+                    <span>View Code</span>
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>

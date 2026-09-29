@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { useMemo } from "react";
 import "./GradientBackground.scss";
 
 /**
@@ -18,14 +19,20 @@ const GradientBackground = ({ className = "" }) => {
           transition: { duration, repeat: Infinity, ease: "easeInOut" },
         };
 
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 4 + 2,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 10 + 15,
-    delay: Math.random() * 5,
-  }));
+  // Positions are stable for the component's lifetime — memoized so a parent
+  // re-render (e.g. theme toggle) doesn't regenerate them and cause a jump.
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        size: Math.random() * 4 + 2,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        duration: Math.random() * 10 + 15,
+        delay: Math.random() * 5,
+      })),
+    [],
+  );
 
   return (
     <div className={`gradient-bg ${className}`}>

@@ -27,6 +27,7 @@ const App = () => {
 
   return (
     <motion.main
+      id="main-content"
       className={themeClass}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

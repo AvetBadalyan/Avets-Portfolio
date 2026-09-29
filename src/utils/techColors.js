@@ -12,6 +12,18 @@
  */
 export const techColors = {
   React: { bg: "rgba(97, 218, 251, 0.15)", color: "#61DAFB", solid: "#0B7EA2" },
+  // "Tailwind" (short form used in portfolioData) and "Tailwind CSS" (full form
+  // used in experienceData) both map to the same brand cyan token.
+  Tailwind: {
+    bg: "rgba(56, 189, 248, 0.18)",
+    color: "#7DD3FC",
+    solid: "#0369A1",
+  },
+  "Tailwind CSS": {
+    bg: "rgba(56, 189, 248, 0.18)",
+    color: "#7DD3FC",
+    solid: "#0369A1",
+  },
   "Node.js": {
     bg: "rgba(104, 160, 99, 0.18)",
     color: "#8CC084",
