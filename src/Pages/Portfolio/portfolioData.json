@@ -35,6 +35,18 @@
     },
     {
       "category": "Full Stack",
+      "description": "Two-sided job marketplace for Armenia. Candidates browse jobs, apply, and track applications. Employers post openings and manage applicants. React 18, Redux Toolkit, Supabase with role-based auth and Row Level Security.",
+      "githubUrl": "https://github.com/AvetBadalyan/joblist-am",
+      "id": "WS22",
+      "imageFile": "joblist-am.png",
+      "siteName": "JobList.am",
+      "webUrl": "https://joblist-am.vercel.app",
+      "featured": true,
+      "tech": ["React", "Redux", "Supabase"],
+      "challenge": "Built role-based authentication where candidates and employers see different dashboards and can only access their own data. Used Supabase Row Level Security so users can't read or modify records that don't belong to them."
+    },
+    {
+      "category": "Full Stack",
       "description": "University timetable generator with a backtracking CSP algorithm. Manages lecturers, rooms, and faculties, then auto-generates conflict-free schedules. React 19, TypeScript, Redux Toolkit, Express, TypeORM, Supabase.",
       "githubUrl": "https://github.com/AvetBadalyan/Edu-Scheduler",
       "id": "WS15",

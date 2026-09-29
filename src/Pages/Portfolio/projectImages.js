@@ -7,6 +7,7 @@ import foodStoreScreenshot from "../../assets/portfolio/foodStoreScreen2.webp";
 import forceThemeScreenshot from "../../assets/portfolio/force-theme.webp";
 import frontendQuizScreenshot from "../../assets/portfolio/frontend-quiz.webp";
 import itunesNewScreenshot from "../../assets/portfolio/itunes-new.webp";
+import joblistAmScreenshot from "../../assets/portfolio/joblist-am.png";
 import jobTestPrepScreenshot from "../../assets/portfolio/jobTestPrep.webp";
 import jokeTellerScreenshot from "../../assets/portfolio/joke-teller.webp";
 import monochromeThemeScreenshot from "../../assets/portfolio/monochrome-theme.webp";
@@ -41,6 +42,7 @@ const projectImages = {
   "monochrome-theme.webp": monochromeThemeScreenshot,
   "motto-theme.webp": mottoThemeScreenshot,
   "petutyun.webp": petutyunScreenshot,
+  "joblist-am.png": joblistAmScreenshot,
 };
 
 export default projectImages;

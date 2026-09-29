@@ -21,7 +21,7 @@ It features:
 - 🌙 **Dark/Light Theme Toggle** — Switch between dark and light modes with smooth transitions.
 - 🧭 **Smooth Navigation** — Explore sections including _About Me_, _Education_,
   _Skills_, _Currently Learning_, _Experience_, _Portfolio_, and _Contact_.
-- 💼 **Project Showcase** — Browse 20 web apps with category filters, detailed modals, and live demos.
+- 💼 **Project Showcase** — Browse 21 web apps with category filters, detailed modals, and live demos.
 - ✨ **Modern Interactions** — Magnetic buttons, tilt cards, animated counters, and subtle micro-animations.
 - ♿ **Accessible** — Focus traps, keyboard navigation, reduced-motion support, and proper ARIA labels.
 - ⚙️ **Clean Architecture** — Component-based design with a consistent token-based design system.
@@ -58,7 +58,7 @@ Some of the web apps featured in my portfolio include:
 | React.js   | [**Battleship Game**](https://aca-battleship.vercel.app/)          | Classic Battleship vs AI with Hunt/Target algorithm, drag-and-drop, and sound effects. |
 | React.js   | [**Fashion Store**](https://modern-fashion-store-theta.vercel.app) | E-commerce with size/color variants, faceted filters, wishlist, and checkout flow.     |
 
-_(20 projects total — see the live site for the complete list!)_
+_(21 projects total — see the live site for the complete list!)_
 
 ---
 
