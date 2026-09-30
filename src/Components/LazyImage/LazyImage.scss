@@ -12,23 +12,42 @@
 .lazy-image-skeleton {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    hsla(var(--primary-hue), 20%, 20%, 0.3) 0%,
-    hsla(var(--primary-hue), 20%, 30%, 0.3) 50%,
-    hsla(var(--primary-hue), 20%, 20%, 0.3) 100%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  overflow: hidden;
+  background: hsla(var(--primary-hue), 20%, 25%, 0.3);
 
   main.bg-1 & {
+    background: hsla(var(--primary-hue), 20%, 92%, 0.5);
+  }
+
+  /* The moving highlight is a separate layer animated with translateX so the
+     shimmer runs on the compositor (GPU) instead of repainting background-position
+     every frame — which Lighthouse flagged as a non-composited animation. */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
     background: linear-gradient(
       90deg,
-      hsla(var(--primary-hue), 20%, 90%, 0.5) 0%,
-      hsla(var(--primary-hue), 20%, 95%, 0.5) 50%,
-      hsla(var(--primary-hue), 20%, 90%, 0.5) 100%
+      transparent 0%,
+      hsla(var(--primary-hue), 20%, 40%, 0.35) 50%,
+      transparent 100%
     );
-    background-size: 200% 100%;
+    transform: translateX(-100%);
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+    will-change: transform;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  main.bg-1 &::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(var(--primary-hue), 20%, 100%, 0.6) 50%,
+      transparent 100%
+    );
   }
 }
 
@@ -70,9 +89,9 @@
 
 @keyframes skeleton-shimmer {
   0% {
-    background-position: 200% 0;
+    transform: translateX(-100%);
   }
   100% {
-    background-position: -200% 0;
+    transform: translateX(100%);
   }
 }

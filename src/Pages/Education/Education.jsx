@@ -94,6 +94,7 @@ const Education = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn--outline btn--sm education__card-link"
+                      aria-label={`View ${item.faculty} ${item.degree} from ${item.title}`}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -171,6 +172,7 @@ const Education = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn--outline btn--sm education__card-link"
+                      aria-label={`View diploma for ${item.title}`}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >

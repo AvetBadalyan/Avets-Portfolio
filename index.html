@@ -64,16 +64,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Preload critical fonts -->
+    <!-- Load Google Fonts without blocking first paint: fetch the stylesheet as
+         a non-render-blocking resource, then flip it to media="all" once loaded.
+         The <noscript> keeps fonts working when JS is disabled. -->
     <link
       rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+      />
+    </noscript>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://avets-portfolio.web.app/" />

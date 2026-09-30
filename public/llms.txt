@@ -1,0 +1,10 @@
+# Avet Badalyan — Frontend Engineer & Full Stack Developer
+
+Portfolio of Avet Badalyan, a frontend engineer building scalable web
+applications with React, TypeScript, and Node.js.
+
+## Links
+
+- [Portfolio](https://avets-portfolio.web.app/): Live portfolio site
+- [GitHub](https://github.com/AvetBadalyan): Open-source projects and code
+- [LinkedIn](https://www.linkedin.com/in/avet-badalyan-17b767101/): Professional profile

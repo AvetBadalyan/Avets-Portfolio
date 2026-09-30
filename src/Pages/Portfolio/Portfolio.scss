@@ -334,12 +334,17 @@
     }
 
     .project-card__btn--primary {
-      background: var(--color-accent);
+      /* --color-primary stays dark (36% L) in both themes, so white text keeps
+         ~10:1 contrast. --color-accent lightens to 72% in dark mode, which
+         dropped white text to 2.9:1 and failed WCAG AA. */
+      background: var(--color-primary);
       color: var(--color-on-primary);
       border: none;
 
       &:hover {
-        background: var(--color-primary);
+        /* Brighten the dark primary rather than switching to --color-accent,
+           which lightens to 72% in dark mode and fails contrast with white. */
+        filter: brightness(1.15);
       }
     }
 

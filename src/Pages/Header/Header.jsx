@@ -216,6 +216,8 @@ const Header = () => {
                 className="hero__image"
                 width={280}
                 height={280}
+                loading="eager"
+                fetchPriority="high"
               />
               <div className="hero__image-glow" />
             </div>

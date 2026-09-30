@@ -19,11 +19,15 @@ const GradientBackground = ({ className = "" }) => {
           transition: { duration, repeat: Infinity, ease: "easeInOut" },
         };
 
-  // Positions are stable for the component's lifetime — memoized so a parent
-  // re-render (e.g. theme toggle) doesn't regenerate them and cause a jump.
+  // Fewer floating particles on small screens — each is an infinitely
+  // animating layer, and phones have far less GPU fill-rate headroom than
+  // desktops. Positions are stable for the component's lifetime (memoized) so a
+  // parent re-render (e.g. theme toggle) doesn't regenerate them and cause a jump.
+  const particleCount =
+    typeof window !== "undefined" && window.innerWidth <= 768 ? 8 : 20;
   const particles = useMemo(
     () =>
-      Array.from({ length: 20 }, (_, i) => ({
+      Array.from({ length: particleCount }, (_, i) => ({
         id: i,
         size: Math.random() * 4 + 2,
         x: Math.random() * 100,
@@ -31,7 +35,7 @@ const GradientBackground = ({ className = "" }) => {
         duration: Math.random() * 10 + 15,
         delay: Math.random() * 5,
       })),
-    [],
+    [particleCount],
   );
 
   return (

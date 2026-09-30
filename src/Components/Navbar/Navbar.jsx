@@ -18,30 +18,44 @@ const Navbar = () => {
 
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
+  // Navbar background toggle: reads only window.scrollY (no layout query), so
+  // it never forces a synchronous reflow on scroll.
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      const sections = [
-        "header",
-        ...navLinks.map((link) => link.link.slice(1)),
-      ];
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 120) {
-            setActiveSection(sections[i]);
-            break;
-          }
-        }
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Active-section highlighting via IntersectionObserver instead of reading
+  // getBoundingClientRect() for every section on each scroll event — the
+  // previous approach forced a layout reflow per frame (flagged by Lighthouse).
+  useEffect(() => {
+    const sectionIds = [
+      "header",
+      ...navLinks.map((link) => link.link.slice(1)),
+    ];
+    const observed = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (observed.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry closest to the top that is currently intersecting.
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActiveSection(visible[0].target.id);
+      },
+      // Trigger the switch when a section crosses the upper region of the
+      // viewport, mirroring the old `rect.top <= 120` threshold.
+      { rootMargin: "-120px 0px -70% 0px", threshold: 0 },
+    );
+
+    observed.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   // Mobile-menu a11y: trap Tab inside the panel, close on Escape, lock body

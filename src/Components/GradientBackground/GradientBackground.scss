@@ -15,6 +15,11 @@
     filter: blur(80px);
     will-change: transform;
 
+    /* Large blur radii are fill-rate heavy; ease off on phones. */
+    @media (max-width: 768px) {
+      filter: blur(60px);
+    }
+
     &--1 {
       width: 700px;
       height: 700px;
@@ -81,9 +86,10 @@
       left: 60%;
       filter: blur(100px);
 
+      /* Orbs 4 & 5 are pure depth accents; drop them on phones to cut the
+         number of large blurred layers the mobile GPU has to composite. */
       @media (max-width: 768px) {
-        width: 280px;
-        height: 280px;
+        display: none;
       }
     }
 
@@ -100,8 +106,7 @@
       filter: blur(90px);
 
       @media (max-width: 768px) {
-        width: 250px;
-        height: 250px;
+        display: none;
       }
     }
   }
@@ -122,21 +127,36 @@
   &__shimmer {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      hsla(var(--primary-hue), 100%, 80%, 0.03) 45%,
-      hsla(var(--primary-hue), 100%, 90%, 0.05) 50%,
-      hsla(var(--primary-hue), 100%, 80%, 0.03) 55%,
-      transparent 60%
-    );
-    background-size: 200% 100%;
-    animation: bg-shimmer 8s ease-in-out infinite;
+    overflow: hidden;
     z-index: 1;
 
+    /* Diagonal light sweep on a translateX layer (compositor-friendly) rather
+       than animating background-position, which forces main-thread repaints. */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        hsla(var(--primary-hue), 100%, 80%, 0.03) 30%,
+        hsla(var(--primary-hue), 100%, 90%, 0.05) 50%,
+        hsla(var(--primary-hue), 100%, 80%, 0.03) 70%,
+        transparent 100%
+      );
+      transform: translateX(-100%);
+      animation: bg-shimmer 8s ease-in-out infinite;
+      will-change: transform;
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      animation: none;
-      background: none;
+      &::before {
+        animation: none;
+        background: none;
+      }
     }
   }
 
@@ -173,12 +193,11 @@
    ============================================ */
 
 @keyframes bg-shimmer {
-  0%,
-  100% {
-    background-position: 200% 0;
+  0% {
+    transform: translateX(-100%);
   }
-  50% {
-    background-position: -200% 0;
+  100% {
+    transform: translateX(266%);
   }
 }
 

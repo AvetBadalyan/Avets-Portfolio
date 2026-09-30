@@ -46,6 +46,8 @@ const About = () => {
                     <ReactCountryFlag
                       countryCode={lang.flagEmoji}
                       svg
+                      alt={`${lang.language} flag`}
+                      aria-hidden="true"
                       style={{ width: "2rem", height: "1.5rem" }}
                     />
                     <span className="about__language-name">
