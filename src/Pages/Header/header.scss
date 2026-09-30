@@ -52,6 +52,17 @@
     }
   }
 
+  /* CSS-only entrance for above-the-fold content. Animates transform only —
+     opacity stays at 1 — so the LCP text paints on the very first frame instead
+     of waiting for JS/framer-motion. Skipped for reduced-motion users. */
+  &__content--enter {
+    animation: heroContentEnter 0.7s var(--easing-default) both;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
   &__greeting {
     display: flex;
     align-items: center;
@@ -687,5 +698,15 @@ main.bg-2 {
     &__btn::after {
       display: none;
     }
+  }
+}
+
+/* Transform-only entrance (opacity stays 1) so LCP text paints immediately. */
+@keyframes heroContentEnter {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
   }
 }

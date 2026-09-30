@@ -14,7 +14,7 @@ import CV from "../../assets/cv.pdf";
 import AnimatedCounter from "../../Components/AnimatedCounter/AnimatedCounter";
 import GradientBackground from "../../Components/GradientBackground/GradientBackground";
 import MagneticButton from "../../Components/MagneticButton/MagneticButton";
-import { fadeIn, floating, staggerContainer } from "../../utils/animations";
+import { floating } from "../../utils/animations";
 import HeaderImage from "./../../assets/IMG_0861.jpeg";
 import "./header.scss";
 
@@ -61,24 +61,22 @@ const Header = () => {
       <GradientBackground />
 
       <div className="hero__container container">
-        <motion.div
-          className="hero__content"
-          variants={staggerContainer(0.12, 0.2)}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.p className="hero__greeting" variants={fadeIn("up", 0)}>
+        {/* Above-the-fold content renders visible immediately (no opacity:0
+            gate) so the LCP text paints without waiting on JS hydration or a
+            framer-motion entrance. A lightweight CSS fade-up handles the reveal. */}
+        <div className="hero__content hero__content--enter">
+          <p className="hero__greeting">
             <span className="hero__wave" aria-hidden="true">
               👋
             </span>
             Hello, I'm
-          </motion.p>
+          </p>
 
-          <motion.h1 className="hero__name" variants={fadeIn("up", 0)}>
+          <h1 className="hero__name">
             <span className="hero__name-gradient">Avet Badalyan</span>
-          </motion.h1>
+          </h1>
 
-          <motion.div className="hero__role" variants={fadeIn("up", 0)}>
+          <div className="hero__role">
             <span className="hero__role-static">I'm a </span>
             <ReactTyped
               strings={roles}
@@ -88,16 +86,16 @@ const Header = () => {
               loop
               className="hero__role-typed"
             />
-          </motion.div>
+          </div>
 
-          <motion.p className="hero__bio" variants={fadeIn("up", 0)}>
+          <p className="hero__bio">
             Building scalable, user-focused web applications across fintech,
             e-commerce, and enterprise platforms. Currently at{" "}
             <strong>EPAM Systems</strong>, previously at{" "}
             <strong>Ashstone Studios</strong> & <strong>Cognaize</strong>.
-          </motion.p>
+          </p>
 
-          <motion.div className="hero__cta" variants={fadeIn("up", 0)}>
+          <div className="hero__cta">
             <MagneticButton
               as="a"
               href="#portfolio"
@@ -125,9 +123,9 @@ const Header = () => {
               <FaDownload />
               <span>Resume</span>
             </MagneticButton>
-          </motion.div>
+          </div>
 
-          <motion.div className="hero__social" variants={fadeIn("up", 0)}>
+          <div className="hero__social">
             <MagneticButton
               as="a"
               href="https://github.com/AvetBadalyan"
@@ -150,8 +148,8 @@ const Header = () => {
             >
               <FaLinkedin />
             </MagneticButton>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         <div className="hero__visual">
           <motion.div
