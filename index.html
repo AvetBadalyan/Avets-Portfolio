@@ -64,6 +64,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- Preload critical JS chunks to reduce network dependency chain -->
+    <link rel="modulepreload" href="/src/main.jsx" />
+
     <!-- Load Google Fonts without blocking first paint: fetch the stylesheet as
          a non-render-blocking resource, then flip it to media="all" once loaded.
          The <noscript> keeps fonts working when JS is disabled. -->

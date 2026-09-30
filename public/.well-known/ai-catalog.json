@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "name": "Avet Badalyan Portfolio",
+  "description": "Frontend Engineer portfolio showcasing 21 web applications built with React, the MERN stack, and Shopify.",
+  "identifier": "https://avets-portfolio.web.app",
+  "author": {
+    "name": "Avet Badalyan",
+    "url": "https://avets-portfolio.web.app"
+  },
+  "resources": [
+    {
+      "type": "portfolio",
+      "name": "Project Portfolio",
+      "url": "https://avets-portfolio.web.app/#portfolio",
+      "description": "Browse 21 live web projects with source code and live demos."
+    },
+    {
+      "type": "contact",
+      "name": "Contact",
+      "url": "https://avets-portfolio.web.app/#contact",
+      "description": "Contact form for professional inquiries."
+    }
+  ],
+  "tags": ["portfolio", "frontend", "react", "mern", "shopify", "developer"]
+}

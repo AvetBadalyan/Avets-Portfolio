@@ -1,187 +1,22 @@
 {
-  "version": "1.0",
-  "generatedFor": "AI agents and automated browsers",
-  "site": {
-    "name": "Avet Badalyan Portfolio",
-    "url": "https://avets-portfolio.web.app/",
-    "description": "Portfolio of Avet Badalyan, a Frontend Engineer and Full Stack Developer with 3+ years of experience building scalable web applications with React, TypeScript, Node.js, and Shopify.",
-    "language": "en"
-  },
-  "person": {
+  "name": "Avet Badalyan Portfolio",
+  "description": "Frontend Engineer portfolio showcasing 21 web applications including React, MERN stack, and Shopify themes",
+  "version": "1.0.0",
+  "author": {
     "name": "Avet Badalyan",
-    "jobTitle": "Frontend Engineer / Full Stack Developer",
-    "currentEmployer": "EPAM Systems",
-    "summary": "Frontend Engineer moving into full stack. Since 2021 has shipped AI-powered fintech platforms, published Shopify themes, and enterprise web apps. Former financial analyst (2017-2021) serving ~40 client organizations.",
-    "coreStack": ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    "ecommerce": ["Shopify", "Liquid", "Theme Development"],
-    "cloud": ["AWS Amplify", "Vercel", "Render", "Firebase"],
-    "languages": ["Armenian", "Russian", "English", "French"]
+    "url": "https://avets-portfolio.web.app"
   },
-  "projects": [
+  "resources": [
     {
-      "name": "Force Theme",
-      "category": "Shopify",
-      "url": "https://themes.shopify.com/themes/force/presets/force",
-      "tech": ["Shopify", "Liquid", "JavaScript", "SCSS"],
-      "description": "Premium Shopify theme published on the official Theme Store. Dark, high-contrast, conversion-focused design."
+      "type": "portfolio",
+      "url": "https://avets-portfolio.web.app/#portfolio",
+      "description": "Browse 21 live web projects with source code"
     },
     {
-      "name": "Monochrome Theme",
-      "category": "Shopify",
-      "url": "https://themes.shopify.com/themes/monochrome/presets/monochrome",
-      "tech": ["Shopify", "Liquid", "JavaScript", "SCSS"],
-      "description": "Premium Shopify theme with 30+ sections, scroll animations, and bold typography for visual storytelling."
-    },
-    {
-      "name": "Motto Theme",
-      "category": "Shopify",
-      "url": "https://themes.shopify.com/themes/motto/presets/motto",
-      "tech": ["Shopify", "Liquid", "JavaScript", "SCSS"],
-      "description": "Premium Shopify theme focused on full-width product presentation with conversion tools."
-    },
-    {
-      "name": "JobList.am",
-      "category": "Full Stack",
-      "url": "https://joblist-am.vercel.app",
-      "repository": "https://github.com/AvetBadalyan/joblist-am",
-      "tech": ["React", "Redux", "Supabase"],
-      "description": "Two-sided job marketplace for Armenia with role-based auth and Supabase Row Level Security."
-    },
-    {
-      "name": "EduScheduler",
-      "category": "Full Stack",
-      "url": "https://edu-scheduler-aca.vercel.app",
-      "repository": "https://github.com/AvetBadalyan/Edu-Scheduler",
-      "tech": ["React", "TypeScript", "Redux", "Supabase"],
-      "description": "University timetable generator using a backtracking CSP algorithm to build conflict-free schedules."
-    },
-    {
-      "name": "Petutyun",
-      "category": "React.JS",
-      "url": "https://petutyun.vercel.app/",
-      "repository": "https://github.com/AvetBadalyan/petutyun",
-      "tech": ["React", "TypeScript", "Zustand", "Tailwind"],
-      "description": "All-in-one pet care app with symptom checker, dosage calculator, and drug interaction warnings."
-    },
-    {
-      "name": "Music App",
-      "category": "Full Stack",
-      "url": "https://musicavet.vercel.app/",
-      "repository": "https://github.com/AvetBadalyan/Music-app-fullstack-practice.git",
-      "tech": ["React", "Node.js", "PostgreSQL", "Supabase"],
-      "description": "Full-stack music library with a global audio player and PostgreSQL-backed catalog."
-    },
-    {
-      "name": "Real Estate MERN App",
-      "category": "MERN",
-      "url": "https://avets-real-estate.vercel.app",
-      "repository": "https://github.com/AvetBadalyan/MERN-Real-Estate-Project.git",
-      "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "description": "MERN real estate app with multi-country search, price history charts, mortgage calculator, and Google Maps."
-    },
-    {
-      "name": "Avet's TechShop",
-      "category": "MERN",
-      "url": "https://avets-techshop.vercel.app/",
-      "repository": "https://github.com/AvetBadalyan/TechShop-MERN-practice.git",
-      "tech": ["React", "Express", "RTK Query", "MongoDB"],
-      "description": "MERN e-commerce store with server-verified PayPal checkout and JWT auth."
-    },
-    {
-      "name": "Avetbook Chat App",
-      "category": "MERN",
-      "url": "https://avetbook-chat-app.onrender.com",
-      "repository": "https://github.com/AvetBadalyan/Chat-app",
-      "tech": ["React", "Express", "Socket.io", "Zustand"],
-      "description": "Real-time chat with Socket.io, typing indicators, emoji reactions, and online presence."
-    },
-    {
-      "name": "Wander Armenia",
-      "category": "MERN",
-      "url": "https://wanderarmenia.vercel.app",
-      "repository": "https://github.com/AvetBadalyan/wander-armenia",
-      "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "description": "Travel atlas of 461 Armenian landmarks from Wikidata with map-based search and day-trip planning."
-    },
-    {
-      "name": "Modern Fashion Store",
-      "category": "React.JS",
-      "url": "https://modern-fashion-store-theta.vercel.app",
-      "repository": "https://github.com/AvetBadalyan/modern-fashion-store",
-      "tech": ["React", "Redux", "Framer Motion"],
-      "description": "Fashion e-commerce with size/color variants, faceted URL-synced filters, and wishlist."
-    },
-    {
-      "name": "Battleship Game",
-      "category": "React.JS",
-      "url": "https://aca-battleship.vercel.app/",
-      "repository": "https://github.com/AvetBadalyan/ACA-BATTLESHIP-with-React.js",
-      "tech": ["React", "TypeScript", "Zustand", "Framer Motion"],
-      "description": "Classic Battleship vs an AI opponent using a Hunt/Target algorithm and drag-and-drop ship placement."
-    },
-    {
-      "name": "Tales of Cocktails",
-      "category": "React.JS",
-      "url": "https://tales-of-cocktails.web.app/",
-      "repository": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
-      "tech": ["React", "Redux", "Vite"],
-      "description": "Cocktail encyclopedia with 160+ recipes, favorites, filters, and lazy-loaded images."
-    },
-    {
-      "name": "Avetime — Day Planner",
-      "category": "React.JS",
-      "url": "https://avetime-day-planner.vercel.app/",
-      "repository": "https://github.com/AvetBadalyan/Avetime_Day_Planner",
-      "tech": ["React", "Redux"],
-      "description": "Day planner that parses natural-language input into tasks and warns on overbooked days."
-    },
-    {
-      "name": "Frontend Interview Quiz",
-      "category": "React.JS",
-      "url": "https://frontend-interview-quiz.vercel.app/",
-      "repository": "https://github.com/AvetBadalyan/Frontend-Interview-Quiz",
-      "tech": ["React", "JavaScript"],
-      "description": "Interview quiz with 250+ questions, timed rounds, difficulty scoring, and code block rendering."
-    },
-    {
-      "name": "iTunes Music Search",
-      "category": "React.JS",
-      "url": "https://itunes-simple-clone-a7486.web.app/",
-      "repository": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
-      "tech": ["React", "Vite", "JavaScript"],
-      "description": "Music search app with debounced search, pagination, and 30-second preview clips."
-    },
-    {
-      "name": "React Hook Form Demo",
-      "category": "React.JS",
-      "url": "https://jobtestprep-demo.web.app",
-      "repository": "https://github.com/AvetBadalyan/React-hook-form-demo",
-      "tech": ["React", "TypeScript", "React Hook Form", "TanStack Query"],
-      "description": "Validated registration form with React Hook Form plus cached live API data via TanStack Query."
-    },
-    {
-      "name": "Online Food Store",
-      "category": "React.JS",
-      "url": "https://online-foodstore.web.app/",
-      "repository": "https://github.com/AvetBadalyan/Online-Food-Store",
-      "tech": ["React", "Framer Motion", "Firebase"],
-      "description": "Food delivery app with Context API cart, category filters, and a 3-step checkout with Firebase Auth."
-    },
-    {
-      "name": "Joke Teller (Pure JS)",
-      "category": "Pure JS",
-      "url": "https://get-joke-f9568.web.app/",
-      "repository": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
-      "tech": ["JavaScript", "HTML", "CSS", "PWA"],
-      "description": "Installable, offline-capable PWA joke app with text-to-speech and a voice selector."
-    },
-    {
-      "name": "The Road to Armenia",
-      "category": "Pure JS",
-      "url": "https://theroad-9bc32.web.app/",
-      "repository": "https://github.com/AvetBadalyan/The-Road-Tour-aggency-website-Pure-JS",
-      "tech": ["JavaScript", "HTML", "CSS"],
-      "description": "Static travel site with pure-CSS animations and a responsive Grid/Flexbox layout."
+      "type": "contact",
+      "url": "https://avets-portfolio.web.app/#contact",
+      "description": "Contact form for inquiries"
     }
-  ]
+  ],
+  "tags": ["portfolio", "frontend", "react", "developer", "engineer"]
 }
