@@ -20,33 +20,6 @@
       filter: blur(60px);
     }
 
-    /* CSS drift animations — compositor-friendly transform-only keyframes */
-    &--1 {
-      animation: orbDrift1 18s ease-in-out infinite;
-    }
-    &--2 {
-      animation: orbDrift2 22s ease-in-out infinite;
-    }
-    &--3 {
-      animation: orbDrift3 15s ease-in-out infinite;
-    }
-    &--4 {
-      animation: orbDrift4 20s ease-in-out infinite;
-    }
-    &--5 {
-      animation: orbDrift5 25s ease-in-out infinite;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      &--1,
-      &--2,
-      &--3,
-      &--4,
-      &--5 {
-        animation: none;
-      }
-    }
-
     &--1 {
       width: 700px;
       height: 700px;
@@ -149,11 +122,6 @@
     background: hsla(var(--primary-hue), 80%, 70%, 0.6);
     border-radius: 50%;
     box-shadow: 0 0 10px hsla(var(--primary-hue), 80%, 60%, 0.4);
-    animation: particleFloat 20s ease-in-out infinite;
-
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
-    }
   }
 
   &__shimmer {
@@ -230,86 +198,6 @@
   }
   100% {
     transform: translateX(266%);
-  }
-}
-
-/* Orb drift keyframes — transform only, stays on GPU compositor */
-@keyframes orbDrift1 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(50px, -50px) scale(1.2);
-  }
-  66% {
-    transform: translate(-30px, 30px) scale(0.9);
-  }
-}
-@keyframes orbDrift2 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(-60px, 30px) scale(0.85);
-  }
-  66% {
-    transform: translate(40px, -50px) scale(1.15);
-  }
-}
-@keyframes orbDrift3 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(70px, -30px) scale(1.2);
-  }
-  66% {
-    transform: translate(-50px, 40px) scale(0.85);
-  }
-}
-@keyframes orbDrift4 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(-40px, 50px) scale(1.1);
-  }
-  66% {
-    transform: translate(60px, -30px) scale(0.95);
-  }
-}
-@keyframes orbDrift5 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -60px) scale(0.9);
-  }
-  66% {
-    transform: translate(-40px, 40px) scale(1.1);
-  }
-}
-
-@keyframes particleFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px);
-    opacity: 0;
   }
 }
 

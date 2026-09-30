@@ -1,51 +1,51 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { useRef, useState } from "react";
 
 /**
- * MagneticButton — follows the cursor while hovered.
- * CSS `transition: transform` replaces the framer-motion spring so that
- * framer-motion is NOT part of the initial bundle.
- * The magnetic effect is kept for pointer devices; touch / reduced-motion
- * users get the plain element with no JS overhead.
+ * MagneticButton - button/link that subtly follows the cursor while hovered.
+ * On mouse move we store an offset from the element's centre in state and let
+ * Framer Motion spring toward it; on leave it springs back.
  */
 const MagneticButton = ({
   children,
   className = "",
   strength = 0.3,
-  as: Tag = "button",
+  as = "button",
   ...props
 }) => {
   const ref = useRef(null);
-  const [style, setStyle] = useState({});
-
-  const reduceMotion =
-    typeof window !== "undefined"
-      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      : false;
+  const reduceMotion = useReducedMotion();
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
     if (!ref.current || reduceMotion) return;
+
     const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - (rect.left + rect.width / 2)) * strength;
-    const y = (e.clientY - (rect.top + rect.height / 2)) * strength;
-    setStyle({ transform: `translate(${x}px, ${y}px)` });
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    setPosition({
+      x: (e.clientX - centerX) * strength,
+      y: (e.clientY - centerY) * strength,
+    });
   };
 
-  const handleMouseLeave = () => setStyle({});
+  const handleMouseLeave = () => setPosition({ x: 0, y: 0 });
+
+  const Component = motion[as] || motion.button;
 
   return (
-    <Tag
+    <Component
       ref={ref}
       className={className}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        transition: "transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
-        ...style,
-      }}
+      animate={{ x: position.x, y: position.y }}
+      transition={{ type: "spring", stiffness: 350, damping: 15, mass: 0.5 }}
       {...props}
     >
       {children}
-    </Tag>
+    </Component>
   );
 };
 

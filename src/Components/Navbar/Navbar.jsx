@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaBars, FaBriefcase, FaMoon, FaSun, FaTimes } from "react-icons/fa";
 import { useTheme } from "../../context/use-theme";
@@ -5,34 +6,20 @@ import { useFocusTrap } from "../../hooks/useFocusTrap";
 import { navLinks } from "./data";
 import "./Navbar.scss";
 
-/**
- * Navbar — framer-motion replaced with CSS transitions so the motion-vendor
- * chunk is not part of the initial JS bundle.
- *
- * Animations preserved:
- *  • Nav slides down on mount (CSS animation in .scss)
- *  • Theme / burger icon rotates in/out on toggle (CSS keyframes)
- *  • Mobile drawer slides in from the right (CSS transform transition)
- *  • Backdrop fades in (CSS transition)
- *  • Mobile links stagger in (CSS animation-delay per child)
- *  • Active nav indicator underline (CSS transition via layoutId removed;
- *    indicator is positioned via CSS and transitions with color change)
- */
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("header");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
+  // The panel we trap focus inside while the mobile menu is open. Focus is
+  // automatically restored to the burger (which had focus when tapped) on close.
   const mobileMenuRef = useRef(null);
+
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
-  // Trigger the nav entrance animation once after mount
-  useEffect(() => {
-    requestAnimationFrame(() => setIsMounted(true));
-  }, []);
-
+  // Navbar background toggle: reads only window.scrollY (no layout query), so
+  // it never forces a synchronous reflow on scroll.
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -40,6 +27,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Active-section highlighting via IntersectionObserver instead of reading
+  // getBoundingClientRect() for every section on each scroll event — the
+  // previous approach forced a layout reflow per frame (flagged by Lighthouse).
   useEffect(() => {
     const sectionIds = [
       "header",
@@ -53,42 +43,66 @@ const Navbar = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // Pick the entry closest to the top that is currently intersecting.
         const visible = entries
-          .filter((e) => e.isIntersecting)
+          .filter((entry) => entry.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible[0]) setActiveSection(visible[0].target.id);
       },
+      // Trigger the switch when a section crosses the upper region of the
+      // viewport, mirroring the old `rect.top <= 120` threshold.
       { rootMargin: "-120px 0px -70% 0px", threshold: 0 },
     );
 
-    observed.forEach((s) => observer.observe(s));
+    observed.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
-  useFocusTrap(isMenuOpen, { containerRef: mobileMenuRef, onClose: closeMenu });
+  // Mobile-menu a11y: trap Tab inside the panel, close on Escape, lock body
+  // scroll, and restore focus to the burger — all handled by the shared hook.
+  useFocusTrap(isMenuOpen, {
+    containerRef: mobileMenuRef,
+    onClose: closeMenu,
+  });
 
   const toggleMenu = () => setIsMenuOpen((open) => !open);
 
+  const menuItemVariants = {
+    closed: { x: 50, opacity: 0 },
+    open: (i) => ({
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.1 + i * 0.1,
+        type: "spring",
+        stiffness: 300,
+        damping: 24,
+      },
+    }),
+  };
+
   return (
-    <nav
-      className={[
-        "nav",
-        isScrolled ? "nav--scrolled" : "",
-        isMenuOpen ? "nav--open" : "",
-        isMounted ? "nav--mounted" : "",
-      ]
-        .filter(Boolean)
-        .join(" ")}
+    <motion.nav
+      className={`nav ${isScrolled ? "nav--scrolled" : ""} ${isMenuOpen ? "nav--open" : ""}`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
 
       <div className="container nav__container">
-        <a href="#header" className="nav__logo" aria-label="Home">
+        <motion.a
+          href="#header"
+          className="nav__logo"
+          aria-label="Home"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <FaBriefcase />
           <span className="nav__logo-text">AB</span>
-        </a>
+        </motion.a>
 
         <div className="nav__links">
           {navLinks.map((item) => {
@@ -101,96 +115,157 @@ const Navbar = () => {
                 className={`nav__link ${isActive ? "nav__link--active" : ""}`}
               >
                 {item.title}
-                {isActive && <span className="nav__link-indicator" />}
+                {isActive && (
+                  <motion.span
+                    className="nav__link-indicator"
+                    layoutId="navIndicator"
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
               </a>
             );
           })}
         </div>
 
         <div className="nav__actions">
-          <button
+          <motion.button
             type="button"
             className="nav__theme-toggle"
             onClick={toggleTheme}
             aria-label={
               isDarkMode ? "Switch to light mode" : "Switch to dark mode"
             }
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            {/* CSS rotation swap — no AnimatePresence needed */}
-            <span key={isDarkMode ? "sun" : "moon"} className="nav__icon-swap">
-              {isDarkMode ? <FaSun /> : <FaMoon />}
-            </span>
-          </button>
+            <AnimatePresence mode="wait">
+              {isDarkMode ? (
+                <motion.span
+                  key="sun"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FaSun />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="moon"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FaMoon />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
 
-          <button
+          <motion.button
             type="button"
             className="nav__burger"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
+            whileTap={{ scale: 0.9 }}
           >
-            <span
-              key={isMenuOpen ? "close" : "open"}
-              className="nav__icon-swap"
-            >
-              {isMenuOpen ? <FaTimes /> : <FaBars />}
-            </span>
-          </button>
+            <AnimatePresence mode="wait">
+              {isMenuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FaTimes />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="burger"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FaBars />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
 
-        {/* Mobile drawer — CSS transform transition */}
-        {isMenuOpen && (
-          <>
-            <div className="nav__backdrop" onClick={closeMenu} />
-
-            <div
-              ref={mobileMenuRef}
-              className="nav__mobile nav__mobile--open"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Navigation menu"
-            >
-              <button
-                type="button"
-                className="nav__mobile-close"
+        <AnimatePresence>
+          {isMenuOpen && (
+            <>
+              <motion.div
+                className="nav__backdrop"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 onClick={closeMenu}
-                aria-label="Close menu"
-              >
-                <FaTimes />
-              </button>
+              />
 
-              <div className="nav__mobile-links">
-                {navLinks.map((item, index) => {
-                  const sectionId = item.link.slice(1);
-                  const isActive = activeSection === sectionId;
-                  return (
-                    <a
-                      key={item.id}
-                      href={item.link}
-                      className={`nav__mobile-link nav__mobile-link--stagger ${isActive ? "nav__mobile-link--active" : ""}`}
-                      style={{ animationDelay: `${0.1 + index * 0.06}s` }}
-                      onClick={closeMenu}
-                    >
-                      {item.title}
-                    </a>
-                  );
-                })}
-              </div>
-
-              <button
-                type="button"
-                className="nav__mobile-theme nav__mobile-theme--stagger"
-                style={{ animationDelay: `${0.1 + navLinks.length * 0.06}s` }}
-                onClick={toggleTheme}
+              <motion.div
+                ref={mobileMenuRef}
+                className="nav__mobile"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Navigation menu"
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
               >
-                {isDarkMode ? <FaSun /> : <FaMoon />}
-                <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
-              </button>
-            </div>
-          </>
-        )}
+                <button
+                  type="button"
+                  className="nav__mobile-close"
+                  onClick={closeMenu}
+                  aria-label="Close menu"
+                >
+                  <FaTimes />
+                </button>
+
+                <div className="nav__mobile-links">
+                  {navLinks.map((item, index) => {
+                    const sectionId = item.link.slice(1);
+                    const isActive = activeSection === sectionId;
+                    return (
+                      <motion.a
+                        key={item.id}
+                        href={item.link}
+                        className={`nav__mobile-link ${isActive ? "nav__mobile-link--active" : ""}`}
+                        onClick={closeMenu}
+                        custom={index}
+                        variants={menuItemVariants}
+                        initial="closed"
+                        animate="open"
+                      >
+                        {item.title}
+                      </motion.a>
+                    );
+                  })}
+                </div>
+
+                <motion.button
+                  type="button"
+                  className="nav__mobile-theme"
+                  onClick={toggleTheme}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  {isDarkMode ? <FaSun /> : <FaMoon />}
+                  <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
+                </motion.button>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
