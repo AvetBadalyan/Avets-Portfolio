@@ -1,10 +1,10 @@
 {
-  "specVersion": "0.91",
+  "specVersion": "1.0",
   "entries": [
     {
       "identifier": "urn:air:avets-portfolio.web.app:portfolio:avet-badalyan",
       "displayName": "Avet Badalyan Portfolio",
-      "type": "text/html",
+      "type": "application/ai-catalog+json",
       "url": "https://avets-portfolio.web.app",
       "description": "Portfolio of Avet Badalyan, a Frontend and Full Stack Developer. 21 live projects across React, MERN, and Shopify.",
       "tags": ["portfolio", "frontend", "react", "mern", "shopify"],

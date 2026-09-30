@@ -85,6 +85,63 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://avets-portfolio.web.app/" />
+
+    <!-- Critical above-the-fold CSS inlined to eliminate render-blocking.
+         Covers: CSS custom properties, box-sizing reset, html/body baseline,
+         and the initial loader — everything needed to paint the first frame.
+         The full stylesheet (loaded by Vite's <script type="module">) will
+         override these once it arrives, with no visual flash. -->
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        min-height: 100vh;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        line-height: 1.7;
+        font-size: 1.6rem;
+        background: #0f0f14;
+      }
+      :root {
+        --primary-hue: 270;
+        --color-primary-saturation: 89%;
+        --color-primary-lightness: 36%;
+        --color-accent-saturation: 89%;
+        --color-accent-lightness: 36%;
+        --color-on-primary: #fff;
+        --color-accent: hsl(270, 89%, 36%);
+        --color-white: hsl(0, 5%, 100%);
+        --color-black: hsl(270, 5%, 15%);
+        --color-dark: hsl(270, 5%, 38%);
+        --color-light: hsl(270, 5%, 94%);
+        --font-family-body: "Roboto", sans-serif;
+        --font-family-display: "Inter", sans-serif;
+        --duration-slow: 500ms;
+        --easing-default: ease;
+        --shadow-strength: 1;
+      }
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0f0f14;
+        z-index: 9999;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
