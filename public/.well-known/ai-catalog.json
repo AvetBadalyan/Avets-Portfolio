@@ -1,0 +1,19 @@
+{
+  "specVersion": "0.91",
+  "entries": [
+    {
+      "identifier": "urn:air:avets-portfolio.web.app:portfolio:avet-badalyan",
+      "displayName": "Avet Badalyan Portfolio",
+      "type": "text/html",
+      "url": "https://avets-portfolio.web.app",
+      "description": "Portfolio of Avet Badalyan, a Frontend and Full Stack Developer. 21 live projects across React, MERN, and Shopify.",
+      "tags": ["portfolio", "frontend", "react", "mern", "shopify"],
+      "version": "1.0.0",
+      "representativeQueries": [
+        "find a frontend engineer who builds React apps",
+        "hire a full stack MERN developer",
+        "who can build a Shopify theme"
+      ]
+    }
+  ]
+}
