@@ -710,3 +710,149 @@ main.bg-2 {
     transform: translateY(0);
   }
 }
+
+/* CSS animations to replace Framer Motion - GPU composited, no reflow */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatBadge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes rotateRingOuter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateRingInner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Animation classes */
+.hero__image-wrapper--animate {
+  animation: fadeInScale 0.6s ease-out 0.3s both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.hero__badge--animate {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.hero__badge-inner--float {
+  animation: floatBadge 3s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.hero__stats--animate {
+  animation: fadeInUp 0.5s ease-out 0.9s both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.hero__stat--animate {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.hero__scroll--animate {
+  animation: fadeInUp 0.4s ease-out 1.8s both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.hero__scroll-icon {
+  animation: scrollBounce 1.5s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Update rings to use CSS rotation instead of Framer */
+.hero__ring--outer {
+  animation:
+    rotateRingOuter 25s linear infinite,
+    ringPulse 3s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.hero__ring--inner {
+  animation:
+    rotateRingInner 18s linear infinite,
+    ringPulse 3s ease-in-out infinite 0.5s;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}

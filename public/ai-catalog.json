@@ -1,0 +1,11 @@
+{
+  "specVersion": "1.0",
+  "name": "Avet Badalyan Portfolio",
+  "description": "Frontend Engineer portfolio showcasing 21 web applications",
+  "version": "1.0.0",
+  "provider": {
+    "name": "Avet Badalyan",
+    "url": "https://avets-portfolio.web.app"
+  },
+  "capabilities": []
+}

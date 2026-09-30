@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from "framer-motion";
 import {
   FaArrowDown,
   FaDownload,
@@ -11,16 +10,11 @@ import {
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { ReactTyped } from "react-typed";
 import CV from "../../assets/cv.pdf";
-import AnimatedCounter from "../../Components/AnimatedCounter/AnimatedCounter";
 import GradientBackground from "../../Components/GradientBackground/GradientBackground";
-import MagneticButton from "../../Components/MagneticButton/MagneticButton";
-import { floating } from "../../utils/animations";
-import HeaderImage from "./../../assets/IMG_0861.jpeg";
+import HeaderImage from "./../../assets/IMG_0861.webp";
 import "./header.scss";
 
 const Header = () => {
-  const reduceMotion = useReducedMotion();
-
   const stats = [
     { number: "3+", label: "Years Exp" },
     { number: "21", label: "Projects" },
@@ -61,9 +55,6 @@ const Header = () => {
       <GradientBackground />
 
       <div className="hero__container container">
-        {/* Above-the-fold content renders visible immediately (no opacity:0
-            gate) so the LCP text paints without waiting on JS hydration or a
-            framer-motion entrance. A lightweight CSS fade-up handles the reveal. */}
         <div className="hero__content hero__content--enter">
           <p className="hero__greeting">
             <span className="hero__wave" aria-hidden="true">
@@ -96,105 +87,53 @@ const Header = () => {
           </p>
 
           <div className="hero__cta">
-            <MagneticButton
-              as="a"
-              href="#portfolio"
-              className="btn btn--primary hero__btn"
-              strength={0.2}
-            >
+            <a href="#portfolio" className="btn btn--primary hero__btn">
               <span>View Projects</span>
               <HiOutlineArrowRight className="hero__btn-icon" />
-            </MagneticButton>
-            <MagneticButton
-              as="a"
-              href="#contact"
-              className="btn btn--outline hero__btn"
-              strength={0.2}
-            >
+            </a>
+            <a href="#contact" className="btn btn--outline hero__btn">
               Let's Talk
-            </MagneticButton>
-            <MagneticButton
-              as="a"
-              href={CV}
-              download
-              className="btn btn--outline hero__btn"
-              strength={0.15}
-            >
+            </a>
+            <a href={CV} download className="btn btn--outline hero__btn">
               <FaDownload />
               <span>Resume</span>
-            </MagneticButton>
+            </a>
           </div>
 
           <div className="hero__social">
-            <MagneticButton
-              as="a"
+            <a
               href="https://github.com/AvetBadalyan"
               target="_blank"
               rel="noopener noreferrer"
               className="hero__social-link"
               aria-label="GitHub Profile"
-              strength={0.4}
             >
               <FaGithub />
-            </MagneticButton>
-            <MagneticButton
-              as="a"
+            </a>
+            <a
               href="https://www.linkedin.com/in/avet-badalyan-17b767101/"
               target="_blank"
               rel="noopener noreferrer"
               className="hero__social-link"
               aria-label="LinkedIn Profile"
-              strength={0.4}
             >
               <FaLinkedin />
-            </MagneticButton>
+            </a>
           </div>
         </div>
 
         <div className="hero__visual">
-          <motion.div
-            className="hero__image-wrapper"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              delay: 0.3,
-            }}
-          >
-            <motion.div
-              className="hero__ring hero__ring--outer"
-              animate={reduceMotion ? undefined : { rotate: 360 }}
-              transition={
-                reduceMotion
-                  ? undefined
-                  : { duration: 25, repeat: Infinity, ease: "linear" }
-              }
-            />
-            <motion.div
-              className="hero__ring hero__ring--inner"
-              animate={reduceMotion ? undefined : { rotate: -360 }}
-              transition={
-                reduceMotion
-                  ? undefined
-                  : { duration: 18, repeat: Infinity, ease: "linear" }
-              }
-            />
+          <div className="hero__image-wrapper hero__image-wrapper--animate">
+            <div className="hero__ring hero__ring--outer" />
+            <div className="hero__ring hero__ring--inner" />
 
             {techBadges.map((badge, index) => (
-              <motion.div
+              <div
                 key={badge.name}
-                className={`hero__badge ${badge.position}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.15 }}
+                className={`hero__badge ${badge.position} hero__badge--animate`}
+                style={{ animationDelay: `${0.8 + index * 0.15}s` }}
               >
-                <motion.span
-                  className="hero__badge-inner"
-                  animate={reduceMotion ? undefined : floating.animate}
-                  transition={reduceMotion ? undefined : { delay: index * 0.5 }}
-                >
+                <span className="hero__badge-inner hero__badge-inner--float">
                   <span
                     className="hero__badge-icon"
                     aria-hidden="true"
@@ -203,8 +142,8 @@ const Header = () => {
                     {badge.icon}
                   </span>
                   {badge.name}
-                </motion.span>
-              </motion.div>
+                </span>
+              </div>
             ))}
 
             <div className="hero__image-container">
@@ -219,55 +158,33 @@ const Header = () => {
               />
               <div className="hero__image-glow" />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="hero__stats"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-          >
+          <div className="hero__stats hero__stats--animate">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={stat.label}
-                className="hero__stat"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1 + index * 0.1 }}
+                className="hero__stat hero__stat--animate"
+                style={{ animationDelay: `${1.1 + index * 0.1}s` }}
               >
-                <AnimatedCounter
-                  value={stat.number}
-                  className="hero__stat-number"
-                  duration={2}
-                />
+                <span className="hero__stat-number">{stat.number}</span>
                 <span className="hero__stat-label">{stat.label}</span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      <motion.a
+      <a
         href="#about"
-        className="hero__scroll"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
+        className="hero__scroll hero__scroll--animate"
         aria-label="Scroll to About section"
       >
         <span>Scroll</span>
-        <motion.div
-          className="hero__scroll-icon"
-          animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
-          transition={
-            reduceMotion
-              ? undefined
-              : { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
-          }
-        >
+        <div className="hero__scroll-icon">
           <FaArrowDown />
-        </motion.div>
-      </motion.a>
+        </div>
+      </a>
     </header>
   );
 };
