@@ -144,9 +144,31 @@
     position: absolute;
     background: hsla(var(--primary-hue), 80%, 70%, 0.6);
     border-radius: 50%;
-    box-shadow: 0 0 10px hsla(var(--primary-hue), 80%, 60%, 0.4);
+    /* box-shadow removed — it is NOT a compositor property. Putting box-shadow
+       on an element that also has will-change: transform forces Chrome to
+       include the shadow in the composited layer texture, causing a GPU repaint
+       on every animation frame (one of the two non-composited animated elements
+       flagged by Lighthouse). The glow effect is reproduced below via a
+       ::before pseudo-element whose opacity fades in/out with the particle, so
+       the visual result is identical but entirely compositor-friendly. */
     animation: particleFloat 15s ease-in-out infinite;
     will-change: transform, opacity;
+
+    /* Glow halo — rendered on a separate pseudo-element that is NOT included
+       in the composited layer, so it repaints only when visibility changes,
+       not on every transform tick. */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        hsla(var(--primary-hue), 80%, 65%, 0.35) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       animation: none;
@@ -369,19 +391,27 @@ main.bg-2 {
 
     &__particle {
       background: hsla(var(--primary-hue), 90%, 75%, 0.7);
-      box-shadow: 0 0 15px hsla(var(--primary-hue), 90%, 70%, 0.5);
+      /* box-shadow override removed — dark mode intensified the non-composited
+         shadow even further (0 0 15px). The ::before glow pseudo-element from
+         the base rule automatically inherits the CSS variable hue shift, so
+         no override is needed. */
+
+      &::before {
+        background: radial-gradient(
+          circle,
+          hsla(var(--primary-hue), 90%, 70%, 0.45) 0%,
+          transparent 70%
+        );
+      }
     }
 
     &__shimmer {
-      background: linear-gradient(
-        105deg,
-        transparent 40%,
-        hsla(var(--primary-hue), 100%, 85%, 0.04) 45%,
-        hsla(var(--primary-hue), 100%, 95%, 0.06) 50%,
-        hsla(var(--primary-hue), 100%, 85%, 0.04) 55%,
-        transparent 60%
-      );
-      background-size: 200% 100%;
+      /* Removed the stale background / background-size: 200% 100% override.
+         These properties were left over from an earlier background-position
+         animation approach. The current shimmer correctly uses a ::before
+         pseudo-element animated with translateX (compositor-friendly). Applying
+         a background-size on the wrapper element had no visible effect but
+         could confuse future tooling and interfere with CSS containment. */
     }
 
     &__grid {

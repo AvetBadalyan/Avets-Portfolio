@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import ReactCountryFlag from "react-country-flag";
 import { HiDownload } from "react-icons/hi";
+import CountryFlag from "../../Components/CountryFlag/CountryFlag";
 import CV from "../../assets/cv.pdf";
 import { fadeIn, staggerContainer } from "../../utils/animations";
 import "./About.scss";
@@ -43,10 +43,8 @@ const About = () => {
                   variants={fadeIn("up", 0)}
                 >
                   <div className="about__language-info">
-                    <ReactCountryFlag
+                    <CountryFlag
                       countryCode={lang.flagEmoji}
-                      svg
-                      alt={`${lang.language} flag`}
                       aria-hidden="true"
                       style={{ width: "2rem", height: "1.5rem" }}
                     />

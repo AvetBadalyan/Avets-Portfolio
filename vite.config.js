@@ -26,8 +26,49 @@ function lcpPreloadPlugin() {
   };
 }
 
+/**
+ * Converts Vite's injected render-blocking <link rel="stylesheet"> into a
+ * non-blocking preload+onload swap. The critical above-the-fold CSS is already
+ * inlined in index.html, so the full bundle can load asynchronously without
+ * blocking first paint. A <noscript> fallback keeps styles working with JS off.
+ *
+ * Runs at the very end (enforce: "post") so it sees the <link> tags after Vite
+ * has injected them for the built bundle.
+ */
+function nonBlockingCssPlugin() {
+  return {
+    name: "non-blocking-css",
+    enforce: "post",
+    transformIndexHtml(html, ctx) {
+      if (!ctx.bundle) return html; // build only
+
+      const noscriptLinks = [];
+
+      const out = html.replace(
+        /<link\s+rel="stylesheet"\s+([^>]*?)href="([^"]+\.css)"([^>]*)>/g,
+        (_match, before, href, after) => {
+          noscriptLinks.push(
+            `<link rel="stylesheet" href="${href}"${before ? " " + before.trim() : ""}${after ? " " + after.trim() : ""}>`,
+          );
+          const attrs = `${before}${after}`.trim();
+          const extra = attrs ? ` ${attrs}` : "";
+          return (
+            `<link rel="preload" as="style" href="${href}"${extra} ` +
+            `onload="this.onload=null;this.rel='stylesheet'">`
+          );
+        },
+      );
+
+      if (noscriptLinks.length === 0) return out;
+
+      const noscript = `    <noscript>${noscriptLinks.join("")}</noscript>\n`;
+      return out.replace("</head>", noscript + "  </head>");
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), lcpPreloadPlugin()],
+  plugins: [react(), lcpPreloadPlugin(), nonBlockingCssPlugin()],
   build: {
     outDir: "build",
     // Increase chunk size warning limit since framer-motion is large but needed
