@@ -63,6 +63,79 @@
     }
   }
 
+  /* Image wrapper — CSS replaces framer-motion spring (scale 0.8→1, opacity 0→1) */
+  &__image-wrapper--enter {
+    animation: imageWrapperEnter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s
+      both;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  /* Staggered badge entrance */
+  &__badge--enter {
+    animation: badgeEnter 0.4s var(--easing-default) both;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  /* Badge inner float — replaces floating framer-motion variant */
+  &__badge-inner--float {
+    animation: badgeFloat 4s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  /* Stats panel entrance */
+  &__stats--enter {
+    animation: statsEnter 0.5s var(--easing-default) 0.9s both;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  &__stat--enter {
+    animation: badgeEnter 0.4s var(--easing-default) both;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  /* Scroll indicator entrance + bounce */
+  &__scroll--enter {
+    animation: scrollEnter 0.5s var(--easing-default) 1.8s both;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  &__scroll-icon--bounce {
+    animation: scrollBounce 1.5s ease-in-out infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  /* Static ring (prefers-reduced-motion fallback) */
+  &__ring--static {
+    animation: none !important;
+  }
+
   &__greeting {
     display: flex;
     align-items: center;
@@ -708,5 +781,73 @@ main.bg-2 {
   }
   to {
     transform: translateY(0);
+  }
+}
+
+/* Image wrapper scale+fade — replaces framer-motion spring */
+@keyframes imageWrapperEnter {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Badge stagger — replaces motion initial/animate with delay */
+@keyframes badgeEnter {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Stats panel */
+@keyframes statsEnter {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scroll indicator */
+@keyframes scrollEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scroll bounce */
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* Badge float */
+@keyframes badgeFloat {
+  0%,
+  100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
   }
 }

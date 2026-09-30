@@ -30,6 +30,18 @@
   transition: all var(--duration-slow) var(--easing-emphasized);
   background: transparent;
 
+  /* Slide down on mount — replaces the framer-motion initial/animate */
+  transform: translateY(-100%);
+
+  &--mounted {
+    transform: translateY(0);
+    transition:
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      background var(--duration-slow) var(--easing-emphasized),
+      height var(--duration-slow) var(--easing-emphasized),
+      box-shadow var(--duration-slow) var(--easing-emphasized);
+  }
+
   &--scrolled {
     height: 7rem;
     background: var(--glass-bg-solid);
@@ -112,6 +124,14 @@
     border-radius: var(--border-radius-pill);
   }
 
+  /* Icon swap animation — replaces framer-motion AnimatePresence rotate */
+  &__icon-swap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: iconSwapIn 0.2s ease both;
+  }
+
   /* Actions (Theme + Burger) */
   &__actions {
     display: flex;
@@ -180,15 +200,6 @@
     }
   }
 
-  /* Mobile Menu */
-  &__backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: var(--z-modal-backdrop);
-  }
-
   &__mobile {
     position: fixed;
     top: 0;
@@ -203,6 +214,22 @@
     padding: var(--space-2xl);
     display: flex;
     flex-direction: column;
+    /* Slide in from right — replaces framer-motion x: "100%" → 0 */
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: var(--z-modal-backdrop);
+    animation: fadeIn 0.2s ease both;
   }
 
   &__mobile-close {
@@ -251,6 +278,14 @@
     border-left: 4px solid transparent;
     transition: all var(--duration-base) var(--easing-default);
 
+    &--stagger {
+      animation: slideInFromRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+
     &:hover,
     &--active {
       background: hsla(var(--primary-hue), 70%, 50%, 0.1);
@@ -278,6 +313,14 @@
     font-weight: var(--fw-semibold);
     cursor: pointer;
     transition: all var(--duration-base) var(--easing-default);
+
+    &--stagger {
+      animation: slideInFromRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
 
     svg {
       font-size: var(--icon-size-sm);
@@ -363,6 +406,55 @@ main.bg-2 {
       background: var(--glass-bg);
       border-color: var(--glass-border);
       color: var(--color-dark);
+    }
+  }
+}
+
+/* ============================================
+   KEYFRAMES (replaces framer-motion)
+   ============================================ */
+
+@keyframes iconSwapIn {
+  from {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    &--mounted {
+      transition: none;
+    }
+    &__icon-swap {
+      animation: none;
+    }
+    &__backdrop {
+      animation: none;
     }
   }
 }

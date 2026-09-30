@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from "framer-motion";
 import {
   FaArrowDown,
   FaDownload,
@@ -14,12 +13,30 @@ import CV from "../../assets/cv.pdf";
 import AnimatedCounter from "../../Components/AnimatedCounter/AnimatedCounter";
 import GradientBackground from "../../Components/GradientBackground/GradientBackground";
 import MagneticButton from "../../Components/MagneticButton/MagneticButton";
-import { floating } from "../../utils/animations";
 import HeaderImage from "./../../assets/IMG_0861.jpeg";
 import "./header.scss";
 
+/**
+ * Header / Hero section.
+ * All framer-motion usage removed — animations are handled by CSS keyframes
+ * already defined in header.scss, keeping the motion-vendor chunk out of the
+ * initial JS bundle.
+ *
+ * Animations preserved:
+ *  • heroContentEnter  — translateY fade-up for left column (CSS)
+ *  • imageWrapperEnter — scale + opacity for image wrapper (CSS)
+ *  • badgeEnter        — staggered opacity+translateY for tech badges (CSS)
+ *  • statsEnter        — opacity+translateY for stats panel (CSS)
+ *  • scrollEnter       — opacity for scroll indicator (CSS)
+ *  • borderGlow        — rotating conic ring (CSS, already present)
+ *  • ringPulse         — outer/inner rings (CSS, already present)
+ *  • floating          — badge hover float (CSS, already present)
+ */
 const Header = () => {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion =
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false;
 
   const stats = [
     { number: "3+", label: "Years Exp" },
@@ -61,9 +78,7 @@ const Header = () => {
       <GradientBackground />
 
       <div className="hero__container container">
-        {/* Above-the-fold content renders visible immediately (no opacity:0
-            gate) so the LCP text paints without waiting on JS hydration or a
-            framer-motion entrance. A lightweight CSS fade-up handles the reveal. */}
+        {/* CSS transform-only entrance — LCP text paints on first frame */}
         <div className="hero__content hero__content--enter">
           <p className="hero__greeting">
             <span className="hero__wave" aria-hidden="true">
@@ -92,7 +107,7 @@ const Header = () => {
             Building scalable, user-focused web applications across fintech,
             e-commerce, and enterprise platforms. Currently at{" "}
             <strong>EPAM Systems</strong>, previously at{" "}
-            <strong>Ashstone Studios</strong> & <strong>Cognaize</strong>.
+            <strong>Ashstone Studios</strong> &amp; <strong>Cognaize</strong>.
           </p>
 
           <div className="hero__cta">
@@ -152,48 +167,24 @@ const Header = () => {
         </div>
 
         <div className="hero__visual">
-          <motion.div
-            className="hero__image-wrapper"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              delay: 0.3,
-            }}
-          >
-            <motion.div
-              className="hero__ring hero__ring--outer"
-              animate={reduceMotion ? undefined : { rotate: 360 }}
-              transition={
-                reduceMotion
-                  ? undefined
-                  : { duration: 25, repeat: Infinity, ease: "linear" }
-              }
+          {/* CSS scale+opacity entrance — replaces motion spring */}
+          <div className="hero__image-wrapper hero__image-wrapper--enter">
+            {/* Rings use CSS ringPulse keyframes already in header.scss */}
+            <div
+              className={`hero__ring hero__ring--outer${reduceMotion ? " hero__ring--static" : ""}`}
             />
-            <motion.div
-              className="hero__ring hero__ring--inner"
-              animate={reduceMotion ? undefined : { rotate: -360 }}
-              transition={
-                reduceMotion
-                  ? undefined
-                  : { duration: 18, repeat: Infinity, ease: "linear" }
-              }
+            <div
+              className={`hero__ring hero__ring--inner${reduceMotion ? " hero__ring--static" : ""}`}
             />
 
             {techBadges.map((badge, index) => (
-              <motion.div
+              <div
                 key={badge.name}
-                className={`hero__badge ${badge.position}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.15 }}
+                className={`hero__badge ${badge.position} hero__badge--enter`}
+                style={{ animationDelay: `${0.8 + index * 0.15}s` }}
               >
-                <motion.span
-                  className="hero__badge-inner"
-                  animate={reduceMotion ? undefined : floating.animate}
-                  transition={reduceMotion ? undefined : { delay: index * 0.5 }}
+                <span
+                  className={`hero__badge-inner${reduceMotion ? "" : " hero__badge-inner--float"}`}
                 >
                   <span
                     className="hero__badge-icon"
@@ -203,8 +194,8 @@ const Header = () => {
                     {badge.icon}
                   </span>
                   {badge.name}
-                </motion.span>
-              </motion.div>
+                </span>
+              </div>
             ))}
 
             <div className="hero__image-container">
@@ -219,21 +210,15 @@ const Header = () => {
               />
               <div className="hero__image-glow" />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="hero__stats"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-          >
+          {/* Stats panel CSS entrance */}
+          <div className="hero__stats hero__stats--enter">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={stat.label}
-                className="hero__stat"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1 + index * 0.1 }}
+                className="hero__stat hero__stat--enter"
+                style={{ animationDelay: `${1.1 + index * 0.1}s` }}
               >
                 <AnimatedCounter
                   value={stat.number}
@@ -241,33 +226,24 @@ const Header = () => {
                   duration={2}
                 />
                 <span className="hero__stat-label">{stat.label}</span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      <motion.a
+      <a
         href="#about"
-        className="hero__scroll"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
+        className="hero__scroll hero__scroll--enter"
         aria-label="Scroll to About section"
       >
         <span>Scroll</span>
-        <motion.div
-          className="hero__scroll-icon"
-          animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
-          transition={
-            reduceMotion
-              ? undefined
-              : { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
-          }
+        <div
+          className={`hero__scroll-icon${reduceMotion ? "" : " hero__scroll-icon--bounce"}`}
         >
           <FaArrowDown />
-        </motion.div>
-      </motion.a>
+        </div>
+      </a>
     </header>
   );
 };
