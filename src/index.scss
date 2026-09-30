@@ -125,6 +125,9 @@
   --duration-fast: 200ms;
   --duration-base: 300ms;
   --duration-slow: 500ms;
+  /* Theme color swap — deliberately short so the toggle feels crisp and
+     resolves before the page's backdrop-filter surfaces saturate the GPU. */
+  --duration-theme: 200ms;
   --easing-default: ease;
   --easing-smooth: ease-in-out;
   /* "Emphasized" curve (fast-out, slow-in) for decisive movement — cards,
@@ -307,14 +310,36 @@ main {
 section {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
-  /* Only the background changes on theme toggle; scoping to background-color
-     (instead of `all`) avoids animating every property on every section. */
-  transition: background-color var(--duration-slow) var(--easing-default);
+  /* Theme toggle: only background-color transitions (scoped, not `all`), and
+     kept SHORT. A long 500ms transition here ran at the same time as ~10
+     backdrop-filter glass surfaces recompositing, which stutters on mid-range
+     mobile GPUs. A quick 200ms swap resolves before the GPU is saturated and
+     reads as crisp rather than sluggish. */
+  transition: background-color var(--duration-theme) var(--easing-smooth);
   scroll-snap-align: start;
 }
 
 section:nth-child(even) {
   background: var(--color-white);
+}
+
+/* During the ~200ms theme swap, drop backdrop-filter on all glass surfaces.
+   Recompositing ~10 blurred backdrops in the same frame as the color change is
+   what makes the toggle stutter on mobile GPUs. Suppressing blur for that brief
+   window lets the color swap run smoothly; the blur returns the instant the
+   window ends, which is imperceptible mid-toggle. */
+main.theme-changing,
+main.theme-changing * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Reduced-motion users get an instant theme swap — no color transition. */
+@media (prefers-reduced-motion: reduce) {
+  section,
+  a {
+    transition: none;
+  }
 }
 
 section > h2 {
@@ -328,9 +353,12 @@ section > p {
 }
 
 a {
+  /* Shorter than the old 500ms: on theme toggle every link recolored over half
+     a second, adding to the churn. A quick swap is crisper and still smooth on
+     hover. */
   transition:
-    color var(--duration-slow) var(--easing-default),
-    background-color var(--duration-slow) var(--easing-default);
+    color var(--duration-theme) var(--easing-default),
+    background-color var(--duration-theme) var(--easing-default);
 }
 
 .inline-link {
