@@ -32,7 +32,7 @@ const Header = () => {
     "Frontend Engineer",
     "React Developer",
     "Full Stack Developer",
-    "Shopify Expert",
+    "Shopify Developer",
   ];
 
   const techBadges = [
