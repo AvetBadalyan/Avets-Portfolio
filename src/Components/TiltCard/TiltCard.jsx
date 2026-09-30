@@ -6,10 +6,12 @@ import { useEffect, useRef, useState } from "react";
  * On mouse move we work out where the cursor is relative to the card centre
  * and store the resulting tilt angles in state; Framer Motion animates to them.
  *
- * Performance: getBoundingClientRect() is NOT called on every mousemove —
- * that would flush style recalculations and force a synchronous layout (reflow)
- * on every pointer event. Instead we cache the rect once on mount and refresh
- * it only when the element is resized, via ResizeObserver.
+ * Performance: getBoundingClientRect() is NOT called on every mousemove, nor
+ * on mount. Reading geometry during the initial render forces a synchronous
+ * layout (reflow) across every mounted card at once — flagged by Lighthouse.
+ * Instead the rect is measured lazily on the first hover, then refreshed only
+ * on resize/scroll. The hot mousemove path reads the cached value, never the
+ * DOM.
  */
 const TiltCard = ({
   children,
@@ -23,34 +25,53 @@ const TiltCard = ({
   const reduceMotion = useReducedMotion();
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
-  // Measure once on mount and re-measure on resize only — avoids forced reflow
-  // inside the hot mousemove path.
+  // Measure lazily on first hover and re-measure on resize/scroll only — avoids
+  // forced reflow on mount (a synchronous getBoundingClientRect during initial
+  // render causes Lighthouse's "forced reflow" warning). The rect is populated
+  // on mouseenter so we never block the paint path.
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
 
-    rectRef.current = el.getBoundingClientRect();
-
-    const ro = new ResizeObserver(() => {
+    // Lazy initial measurement — deferred until first interaction
+    const measureRect = () => {
       rectRef.current = el.getBoundingClientRect();
+    };
+
+    // Measure on first mouseenter if not already measured
+    const onMouseEnter = () => {
+      if (!rectRef.current) measureRect();
+    };
+    el.addEventListener("mouseenter", onMouseEnter, { once: true });
+
+    // Re-measure on resize (layout may have shifted)
+    const ro = new ResizeObserver(() => {
+      // Only update if we've measured at least once (user has interacted)
+      if (rectRef.current) measureRect();
     });
     ro.observe(el);
 
-    // Also refresh on scroll so the cached position stays accurate when the
-    // page has been scrolled since mount.
+    // Re-measure on scroll so cached position stays accurate
     const onScroll = () => {
-      rectRef.current = el.getBoundingClientRect();
+      if (rectRef.current) measureRect();
     };
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
+      el.removeEventListener("mouseenter", onMouseEnter);
       ro.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
   const handleMouseMove = (e) => {
-    if (!rectRef.current || reduceMotion) return;
+    if (reduceMotion) return;
+
+    // Lazy measure on first move if mouseenter didn't fire (edge case)
+    if (!rectRef.current) {
+      rectRef.current = cardRef.current?.getBoundingClientRect();
+    }
+    if (!rectRef.current) return;
 
     const rect = rectRef.current;
     // How far the cursor is from the card centre, as -0.5 .. 0.5 on each axis.
