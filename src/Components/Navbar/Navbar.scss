@@ -27,7 +27,14 @@
   width: 100%;
   height: 8rem;
   z-index: var(--z-navbar);
-  transition: all var(--duration-slow) var(--easing-emphasized);
+  /* Scoped to the scroll-state properties only (not `all`): the theme swap
+     should be instant, and `all` also animated backdrop-filter/color changes
+     over 500ms, making the toggle feel sluggish. */
+  transition:
+    height var(--duration-base) var(--easing-emphasized),
+    background var(--duration-base) var(--easing-emphasized),
+    border-color var(--duration-base) var(--easing-emphasized),
+    box-shadow var(--duration-base) var(--easing-emphasized);
   background: transparent;
 
   &--scrolled {
@@ -89,7 +96,9 @@
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
     border-radius: var(--border-radius-3);
-    transition: all var(--duration-base) var(--easing-default);
+    transition:
+      color var(--duration-base) var(--easing-default),
+      background var(--duration-base) var(--easing-default);
 
     &:hover {
       color: var(--color-accent);
@@ -132,7 +141,14 @@
     color: var(--color-accent);
     font-size: var(--icon-size-md);
     cursor: pointer;
-    transition: all var(--duration-base) var(--easing-default);
+    /* Full transition lives here (hover colours + press scale). Scoped to
+       specific props, not `all`, so a theme swap doesn't animate the control. */
+    transition:
+      transform var(--duration-fast) var(--easing-default),
+      background var(--duration-fast) var(--easing-default),
+      border-color var(--duration-fast) var(--easing-default),
+      color var(--duration-fast) var(--easing-default),
+      box-shadow var(--duration-fast) var(--easing-default);
 
     span {
       display: flex;
@@ -145,6 +161,11 @@
       border-color: var(--color-accent);
       color: var(--color-on-primary);
       box-shadow: var(--shadow-accent);
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.9);
     }
   }
 
@@ -161,7 +182,11 @@
     color: var(--color-dark);
     font-size: var(--icon-size-md);
     cursor: pointer;
-    transition: all var(--duration-base) var(--easing-default);
+    transition:
+      transform var(--duration-fast) var(--easing-default),
+      background var(--duration-fast) var(--easing-default),
+      border-color var(--duration-fast) var(--easing-default),
+      color var(--duration-fast) var(--easing-default);
 
     span {
       display: flex;
@@ -173,6 +198,11 @@
       background: var(--color-accent);
       border-color: var(--color-accent);
       color: var(--color-on-primary);
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.9);
     }
 
     @media (max-width: 1024px) {
@@ -249,7 +279,10 @@
     color: var(--color-dark);
     font-size: var(--icon-size-md);
     cursor: pointer;
-    transition: all var(--duration-base) var(--easing-default);
+    transition:
+      color var(--duration-base) var(--easing-default),
+      background var(--duration-base) var(--easing-default),
+      border-color var(--duration-base) var(--easing-default);
 
     &:hover {
       background: var(--color-accent);
@@ -277,7 +310,11 @@
     letter-spacing: var(--tracking-wide);
     border-radius: var(--border-radius-2);
     border-left: 4px solid transparent;
-    transition: all var(--duration-base) var(--easing-default);
+    transition:
+      color var(--duration-base) var(--easing-default),
+      background var(--duration-base) var(--easing-default),
+      border-color var(--duration-base) var(--easing-default),
+      transform var(--duration-base) var(--easing-default);
 
     &:hover,
     &--active {
@@ -305,7 +342,10 @@
     font-size: var(--font-size-base);
     font-weight: var(--fw-semibold);
     cursor: pointer;
-    transition: all var(--duration-base) var(--easing-default);
+    transition:
+      color var(--duration-base) var(--easing-default),
+      background var(--duration-base) var(--easing-default),
+      border-color var(--duration-base) var(--easing-default);
 
     svg {
       font-size: var(--icon-size-sm);
@@ -477,23 +517,8 @@ main.bg-2 {
   }
 }
 
-/* Theme toggle and burger hover/tap effects via CSS */
-.nav__theme-toggle,
-.nav__burger {
-  transition:
-    transform 0.2s ease,
-    background var(--duration-base) var(--easing-default),
-    color var(--duration-base) var(--easing-default);
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-}
-
+/* Logo press/hover scale. The theme-toggle and burger own their full
+   transitions (colours + scale) in their own blocks above. */
 .nav__logo {
   transition: transform var(--duration-fast) var(--easing-default);
 

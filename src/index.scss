@@ -310,36 +310,16 @@ main {
 section {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
-  /* Theme toggle: only background-color transitions (scoped, not `all`), and
-     kept SHORT. A long 500ms transition here ran at the same time as ~10
-     backdrop-filter glass surfaces recompositing, which stutters on mid-range
-     mobile GPUs. A quick 200ms swap resolves before the GPU is saturated and
-     reads as crisp rather than sluggish. */
-  transition: background-color var(--duration-theme) var(--easing-smooth);
+  /* Theme swap is INSTANT — no background-color transition. Animating the
+     background of every section (plus ~10 backdrop-filter glass surfaces
+     recompositing) over a few hundred ms is what made the toggle feel laggy on
+     mobile: the tap didn't feel connected to the change. An instant swap reads
+     as crisp and responsive, which is what polished sites (GitHub, Vercel) do. */
   scroll-snap-align: start;
 }
 
 section:nth-child(even) {
   background: var(--color-white);
-}
-
-/* During the ~200ms theme swap, drop backdrop-filter on all glass surfaces.
-   Recompositing ~10 blurred backdrops in the same frame as the color change is
-   what makes the toggle stutter on mobile GPUs. Suppressing blur for that brief
-   window lets the color swap run smoothly; the blur returns the instant the
-   window ends, which is imperceptible mid-toggle. */
-main.theme-changing,
-main.theme-changing * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-/* Reduced-motion users get an instant theme swap — no color transition. */
-@media (prefers-reduced-motion: reduce) {
-  section,
-  a {
-    transition: none;
-  }
 }
 
 section > h2 {
