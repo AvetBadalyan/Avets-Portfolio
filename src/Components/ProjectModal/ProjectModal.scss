@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: center;
     padding: var(--space-lg);
+    /* Dark scrim for modal — theme-independent since it dims the entire page */
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);

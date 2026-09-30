@@ -213,7 +213,7 @@
     height: 100vh;
     /* Opaque solid panel (no backdrop blur). Light surface by default;
        dark override lives in the main.bg-2 block below. */
-    background: #f4f2f8;
+    background: var(--surface-mobile-menu);
     border-left: 1px solid var(--glass-border);
     box-shadow: -10px 0 40px rgba(0, 0, 0, calc(0.25 * var(--shadow-strength)));
     z-index: var(--z-modal);
@@ -361,7 +361,7 @@ main.bg-2 {
     }
 
     &__mobile {
-      background: #16121f;
+      background: var(--surface-mobile-menu);
       border-left-color: var(--glass-border);
     }
 
@@ -495,7 +495,7 @@ main.bg-2 {
 }
 
 .nav__logo {
-  transition: transform 0.2s ease;
+  transition: transform var(--duration-fast) var(--easing-default);
 
   &:hover {
     transform: scale(1.05);

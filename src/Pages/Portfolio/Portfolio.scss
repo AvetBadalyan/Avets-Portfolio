@@ -195,7 +195,7 @@
     transition: transform var(--duration-slow) var(--easing-default);
   }
 
-  /* Hover/Focus Overlay */
+  /* Hover/Focus Overlay — gradient sits on images, always dark regardless of theme */
   &__overlay {
     position: absolute;
     inset: 0;
@@ -393,22 +393,26 @@
 
     &--primary {
       background: white;
-      color: var(--color-black);
+      /* Use literal dark color, not --color-black which flips to near-white
+         in dark mode. The overlay sits on a dark image gradient in both themes. */
+      color: #1a1a1a;
 
       &:hover {
-        background: var(--color-accent);
+        background: var(--color-primary);
         color: white;
       }
     }
 
     &--secondary {
+      /* Translucent white on dark image overlay — theme-independent */
       background: rgba(255, 255, 255, 0.15);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.3);
 
       &:hover {
         background: white;
-        color: var(--color-black);
+        /* Same fix: literal dark text for overlay buttons */
+        color: #1a1a1a;
         border-color: white;
       }
     }

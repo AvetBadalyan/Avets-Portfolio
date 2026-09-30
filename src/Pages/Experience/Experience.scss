@@ -362,6 +362,7 @@
   &__overlay {
     position: fixed;
     inset: 0;
+    /* Dark scrim for modal — theme-independent since it dims the entire page */
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(4px);
     z-index: var(--z-overlay);

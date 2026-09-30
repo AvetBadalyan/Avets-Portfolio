@@ -143,6 +143,10 @@
   --glass-border: hsla(var(--primary-hue), 20%, 30%, 0.18);
   --glass-blur: 20px;
 
+  /* Mobile menu panel — opaque surface (no blur) for performance.
+     Purple-tinted off-white in light mode; dark override in .bg-2. */
+  --surface-mobile-menu: hsl(var(--primary-hue), 15%, 97%);
+
   /* RGB channels for --color-black, used in rgba() where var() can't be
      passed directly (GradientBackground grid lines). Inverts in .bg-2. */
   --color-black-rgb: 39, 39, 42;
@@ -259,6 +263,9 @@ main.bg-2 {
   --glass-bg: rgba(0, 0, 0, 0.4);
   --glass-bg-solid: hsl(var(--primary-hue), 15%, 12%);
   --glass-border: rgba(255, 255, 255, 0.12);
+
+  /* Dark purple for mobile menu panel in dark mode */
+  --surface-mobile-menu: hsl(var(--primary-hue), 18%, 10%);
 
   /* Single dark-surface token for every section card. Previously each
      component hardcoded hsl(--primary-hue, 18%, X%) with X drifting between
