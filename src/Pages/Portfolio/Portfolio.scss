@@ -223,7 +223,9 @@
   &__overlay-category {
     display: inline-block;
     padding: var(--space-2xs) var(--space-sm);
-    background: var(--color-accent);
+    /* --color-primary (36% L both themes) keeps white text readable; accent
+       lightens to 72% in dark mode and fails AA with white. */
+    background: var(--color-primary);
     color: white;
     font-size: var(--font-size-xs);
     font-weight: var(--fw-bold);
@@ -354,8 +356,11 @@
       border: 1px solid var(--color-accent);
 
       &:hover {
-        background: var(--color-accent);
+        /* Fill with --color-primary, not --color-accent: accent is pale (72% L)
+           in dark mode and would drop white text below AA. */
+        background: var(--color-primary);
         color: var(--color-on-primary);
+        border-color: var(--color-primary);
       }
     }
     @media (max-width: 768px) {

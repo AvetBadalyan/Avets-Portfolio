@@ -180,13 +180,29 @@
     }
   }
 
-  /* Mobile Menu */
+  /* Mobile Menu
+     Perf note: neither the backdrop nor the sliding panel use backdrop-filter.
+     Animating the transform of a large element that also re-samples a blurred
+     backdrop every frame is fill-rate murder on mid-range mobile GPUs and was
+     the main cause of the janky menu open/close. A solid opaque panel slides
+     just as smoothly and reads fine. Open/close is driven by opacity/transform
+     transitions (compositor-only), not conditional mounting, so BOTH the open
+     and the close animate. */
   &__backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.55);
     z-index: var(--z-modal-backdrop);
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--easing-default);
+
+    &--open {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   &__mobile {
@@ -195,14 +211,26 @@
     right: 0;
     width: min(85vw, 400px);
     height: 100vh;
-    background: var(--glass-bg-solid);
-    backdrop-filter: blur(var(--glass-blur));
+    /* Opaque solid panel (no backdrop blur). Light surface by default;
+       dark override lives in the main.bg-2 block below. */
+    background: #f4f2f8;
     border-left: 1px solid var(--glass-border);
-    box-shadow: -10px 0 40px rgba(0, 0, 0, calc(0.15 * var(--shadow-strength)));
+    box-shadow: -10px 0 40px rgba(0, 0, 0, calc(0.25 * var(--shadow-strength)));
     z-index: var(--z-modal);
     padding: var(--space-2xl);
     display: flex;
     flex-direction: column;
+    transform: translateX(100%);
+    transition: transform var(--duration-base) var(--easing-emphasized);
+    will-change: transform;
+
+    &--open {
+      transform: translateX(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   &__mobile-close {
@@ -333,7 +361,7 @@ main.bg-2 {
     }
 
     &__mobile {
-      background: var(--glass-bg-solid);
+      background: #16121f;
       border-left-color: var(--glass-border);
     }
 
@@ -389,91 +417,73 @@ main.bg-2 {
   }
 }
 
-/* Mobile menu slide in from right */
-.nav__mobile--animate {
-  animation: slideInRight 0.3s ease-out both;
+/* Mobile menu open/close is handled by transitions on .nav__mobile /
+   .nav__backdrop (see the base rules above), so both directions animate. */
+
+/* Active desktop link underline — pops in with a quick grow so the active
+   section is obvious after clicking. */
+.nav__link-indicator {
+  animation: indicatorIn 0.25s var(--easing-emphasized) both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
 }
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* Backdrop fade in */
-.nav__backdrop--animate {
-  animation: fadeIn 0.3s ease-out both;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
+@keyframes indicatorIn {
   from {
     opacity: 0;
+    transform: translate(-50%, 4px) scaleX(0.4);
   }
   to {
     opacity: 1;
+    transform: translate(-50%, 0) scaleX(1);
   }
 }
 
-/* Mobile link staggered animation */
-.nav__mobile-link--animate {
-  opacity: 0;
-  animation: slideInFromRight 0.4s ease-out both;
+/* ── Icon crossfade/rotate swap (theme toggle + burger) ──
+   Two icons stacked; the outgoing one rotates + fades out while the incoming
+   one rotates + fades in. transform+opacity only, so it stays on the GPU. */
+.nav__icon-swap {
+  position: relative;
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition:
+    opacity 0.25s var(--easing-default),
+    transform 0.25s var(--easing-default);
+
+  &--in {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  &--out {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+    pointer-events: none;
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Mobile theme button animation */
-.nav__mobile-theme--animate {
-  opacity: 0;
-  animation: fadeInUp 0.4s ease-out 0.5s both;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    transition: none;
   }
 }
 
 /* Theme toggle and burger hover/tap effects via CSS */
 .nav__theme-toggle,
 .nav__burger {
-  transition: transform 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background var(--duration-base) var(--easing-default),
+    color var(--duration-base) var(--easing-default);
 
   &:hover {
     transform: scale(1.1);

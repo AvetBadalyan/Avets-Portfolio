@@ -15,9 +15,11 @@
     filter: blur(80px);
     will-change: transform;
 
-    /* Large blur radii are fill-rate heavy; ease off on phones. */
+    /* Large blur radii are fill-rate heavy; ease off hard on phones. Blur is
+       the dominant per-frame GPU cost here, so a smaller radius on mobile is
+       the single biggest lever for smooth theme-toggle / menu interactions. */
     @media (max-width: 768px) {
-      filter: blur(60px);
+      filter: blur(45px);
     }
 
     &--1 {
@@ -152,7 +154,10 @@
        ::before pseudo-element whose opacity fades in/out with the particle, so
        the visual result is identical but entirely compositor-friendly. */
     animation: particleFloat 15s ease-in-out infinite;
-    will-change: transform, opacity;
+    /* No will-change here: 8-20 particles each permanently promoting a GPU
+       layer reserves a lot of GPU memory on mobile for very little visual gain.
+       particleFloat only animates transform/opacity, which the compositor
+       already handles cheaply without an explicit hint. */
 
     /* Glow halo — rendered on a separate pseudo-element that is NOT included
        in the composited layer, so it repaints only when visibility changes,
@@ -238,6 +243,20 @@
     z-index: 3;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+}
+
+/* ============================================
+   PAUSE WHILE MOBILE MENU IS OPEN
+   ============================================
+   The mobile menu slide competes with the hero's continuously-animating
+   blurred orbs/particles/shimmer for GPU fill-rate. While the menu is open,
+   freeze those background animations so the slide (and everything behind the
+   backdrop, which the user can't see anyway) has the GPU to itself. Nav is a
+   sibling of <header>, so target the header that follows an open nav. */
+.nav--open ~ header .gradient-bg__orb,
+.nav--open ~ header .gradient-bg__particle,
+.nav--open ~ header .gradient-bg__shimmer::before {
+  animation-play-state: paused;
 }
 
 /* ============================================

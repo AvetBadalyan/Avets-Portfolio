@@ -5,14 +5,42 @@ import { useFocusTrap } from "../../hooks/useFocusTrap";
 import { navLinks } from "./data";
 import "./Navbar.scss";
 
+const MENU_ANIM_MS = 300; // keep in sync with $menu-anim in Navbar.scss
+
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme();
+  // isMenuMounted keeps the panel in the DOM through the close animation.
+  // isMenuOpen drives the open/close CSS state.
+  const [isMenuMounted, setIsMenuMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("header");
   const [isScrolled, setIsScrolled] = useState(false);
 
   const mobileMenuRef = useRef(null);
-  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+  const closeTimer = useRef(null);
+
+  const openMenu = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setIsMenuMounted(true);
+    // Next frame: flip to open so the enter transition runs from the start state.
+    requestAnimationFrame(() => setIsMenuOpen(true));
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+    // Unmount only after the exit animation has finished.
+    closeTimer.current = setTimeout(
+      () => setIsMenuMounted(false),
+      MENU_ANIM_MS,
+    );
+  }, []);
+
+  const toggleMenu = useCallback(() => {
+    if (isMenuOpen) closeMenu();
+    else openMenu();
+  }, [isMenuOpen, openMenu, closeMenu]);
+
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -46,12 +74,11 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Only trap focus while the menu is actually open.
   useFocusTrap(isMenuOpen, {
     containerRef: mobileMenuRef,
     onClose: closeMenu,
   });
-
-  const toggleMenu = () => setIsMenuOpen((open) => !open);
 
   return (
     <nav
@@ -76,6 +103,7 @@ const Navbar = () => {
                 key={item.id}
                 href={item.link}
                 className={`nav__link ${isActive ? "nav__link--active" : ""}`}
+                aria-current={isActive ? "page" : undefined}
               >
                 {item.title}
                 {isActive && <span className="nav__link-indicator" />}
@@ -93,7 +121,16 @@ const Navbar = () => {
               isDarkMode ? "Switch to light mode" : "Switch to dark mode"
             }
           >
-            {isDarkMode ? <FaSun /> : <FaMoon />}
+            <span className="nav__icon-swap">
+              <FaSun
+                className={`nav__icon ${isDarkMode ? "nav__icon--in" : "nav__icon--out"}`}
+                aria-hidden={!isDarkMode}
+              />
+              <FaMoon
+                className={`nav__icon ${isDarkMode ? "nav__icon--out" : "nav__icon--in"}`}
+                aria-hidden={isDarkMode}
+              />
+            </span>
           </button>
 
           <button
@@ -103,20 +140,29 @@ const Navbar = () => {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            {isMenuOpen ? <FaTimes /> : <FaBars />}
+            <span className="nav__icon-swap">
+              <FaBars
+                className={`nav__icon ${isMenuOpen ? "nav__icon--out" : "nav__icon--in"}`}
+                aria-hidden={isMenuOpen}
+              />
+              <FaTimes
+                className={`nav__icon ${isMenuOpen ? "nav__icon--in" : "nav__icon--out"}`}
+                aria-hidden={!isMenuOpen}
+              />
+            </span>
           </button>
         </div>
 
-        {isMenuOpen && (
+        {isMenuMounted && (
           <>
             <div
-              className="nav__backdrop nav__backdrop--animate"
+              className={`nav__backdrop ${isMenuOpen ? "nav__backdrop--open" : ""}`}
               onClick={closeMenu}
             />
 
             <div
               ref={mobileMenuRef}
-              className="nav__mobile nav__mobile--animate"
+              className={`nav__mobile ${isMenuOpen ? "nav__mobile--open" : ""}`}
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
@@ -131,15 +177,15 @@ const Navbar = () => {
               </button>
 
               <div className="nav__mobile-links">
-                {navLinks.map((item, index) => {
+                {navLinks.map((item) => {
                   const sectionId = item.link.slice(1);
                   const isActive = activeSection === sectionId;
                   return (
                     <a
                       key={item.id}
                       href={item.link}
-                      className={`nav__mobile-link nav__mobile-link--animate ${isActive ? "nav__mobile-link--active" : ""}`}
-                      style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+                      className={`nav__mobile-link ${isActive ? "nav__mobile-link--active" : ""}`}
+                      aria-current={isActive ? "page" : undefined}
                       onClick={closeMenu}
                     >
                       {item.title}
@@ -150,7 +196,7 @@ const Navbar = () => {
 
               <button
                 type="button"
-                className="nav__mobile-theme nav__mobile-theme--animate"
+                className="nav__mobile-theme"
                 onClick={toggleTheme}
               >
                 {isDarkMode ? <FaSun /> : <FaMoon />}

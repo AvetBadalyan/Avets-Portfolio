@@ -10,6 +10,7 @@ import {
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { ReactTyped } from "react-typed";
 import CV from "../../assets/cv.pdf";
+import AnimatedCounter from "../../Components/AnimatedCounter/AnimatedCounter";
 import GradientBackground from "../../Components/GradientBackground/GradientBackground";
 import HeaderImage from "./../../assets/IMG_0861.webp";
 import "./header.scss";
@@ -167,7 +168,10 @@ const Header = () => {
                 className="hero__stat hero__stat--animate"
                 style={{ animationDelay: `${1.1 + index * 0.1}s` }}
               >
-                <span className="hero__stat-number">{stat.number}</span>
+                <AnimatedCounter
+                  value={stat.number}
+                  className="hero__stat-number"
+                />
                 <span className="hero__stat-label">{stat.label}</span>
               </div>
             ))}

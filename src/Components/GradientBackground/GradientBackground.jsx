@@ -7,9 +7,11 @@ import "./GradientBackground.scss";
  * Respects prefers-reduced-motion via CSS media query.
  */
 const GradientBackground = ({ className = "" }) => {
-  // Fewer floating particles on small screens
+  // Fewer floating particles on small screens — mid-range mobile GPUs are
+  // fill-rate limited, so a lighter particle field keeps interactions (menu
+  // slide, theme toggle) smooth without a noticeable visual difference.
   const particleCount =
-    typeof window !== "undefined" && window.innerWidth <= 768 ? 8 : 20;
+    typeof window !== "undefined" && window.innerWidth <= 768 ? 6 : 20;
 
   const particles = useMemo(
     () =>

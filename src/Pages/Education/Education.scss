@@ -186,12 +186,16 @@
   }
 
   &__card-degree {
+    /* Center the pill in the card and its label inside the pill so it lines up
+       with the Diploma/Certificate button below (which is align-self: center). */
+    align-self: center;
     display: inline-block;
-    padding: var(--space-2xs) var(--space-sm);
-    background: hsla(var(--primary-hue), 70%, 50%, 0.1);
+    padding: var(--space-2xs) var(--space-md);
+    background: hsla(var(--primary-hue), 70%, 50%, 0.12);
     color: var(--color-accent);
     font-size: var(--font-size-xs);
     font-weight: var(--fw-semibold);
+    text-align: center;
     border-radius: var(--border-radius-pill);
     margin-top: var(--space-sm);
   }
@@ -250,7 +254,10 @@ main.bg-2 {
     }
 
     &__card-degree {
-      background: hsla(var(--primary-hue), 70%, 50%, 0.2);
+      /* Brighter label + stronger wash so the degree pill is legible on the
+         dark card (accent text alone was too dim at 72% L). */
+      background: hsla(var(--primary-hue), 60%, 55%, 0.24);
+      color: hsl(var(--primary-hue), 85%, 88%);
     }
   }
 }
