@@ -18,12 +18,12 @@ design system, optimized for **desktop, tablet, and mobile devices**.
 
 It features:
 
-- 🌙 **Dark/Light Theme Toggle** — Switch between dark and light modes with smooth transitions.
+- 🌙 **Dark/Light Theme Toggle** — Instant, flicker-free theme switch with system-preference detection and `localStorage` persistence.
 - 🧭 **Smooth Navigation** — Explore sections including _About Me_, _Education_,
   _Skills_, _Currently Learning_, _Experience_, _Portfolio_, and _Contact_.
 - 💼 **Project Showcase** — Browse 21 web apps with category filters, detailed modals, and live demos.
-- ✨ **Modern Interactions** — Magnetic buttons, tilt cards, animated counters, and subtle micro-animations.
-- ♿ **Accessible** — Focus traps, keyboard navigation, reduced-motion support, and proper ARIA labels.
+- ✨ **Modern Interactions** — Tilt cards, animated counters, scroll-reveal, and subtle micro-animations.
+- ♿ **Accessible** — Focus traps with focus restoration, keyboard navigation, reduced-motion support, and proper ARIA labels.
 - ⚙️ **Clean Architecture** — Component-based design with a consistent token-based design system.
 
 ---
@@ -72,7 +72,7 @@ Every component was thoughtfully crafted with a consistent design system:
 
 - **Token-based styling** — Colors, spacing, typography, shadows, and transitions as CSS variables
 - **Glassmorphism effects** — Subtle blur and transparency for depth
-- **Responsive breakpoints** — Optimized layouts at 1200px, 1024px, 768px, 600px, and 480px
+- **Responsive breakpoints** — Optimized layouts across a documented breakpoint scale (375 / 480 / 600 / 768 / 900 / 1024 / 1200px)
 - **Accessibility-first** — Focus indicators, keyboard navigation, and motion preferences
 
 ---

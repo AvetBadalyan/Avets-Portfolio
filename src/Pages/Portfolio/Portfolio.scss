@@ -147,7 +147,7 @@
   overflow: hidden;
   background: var(--color-white);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--duration-slow) var(--easing-emphasized);
+  transition: box-shadow var(--duration-base) var(--easing-emphasized);
   cursor: pointer;
 
   &:hover {
@@ -186,7 +186,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--duration-slow) var(--easing-default);
+    transition: transform var(--duration-base) var(--easing-default);
   }
 
   /* Hover/Focus Overlay — gradient sits on images, always dark regardless of
@@ -271,10 +271,9 @@
     color: var(--color-dark);
     line-height: var(--line-height-tight);
     margin: 0 0 var(--space-md);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    /* Full text — no line-clamp. Descriptions are normalized to a tight length
+       band (~160–205 chars) in portfolioData.json so cards read uniformly
+       without truncating; a portfolio should let people actually read it. */
   }
 
   /* Caption techs - mobile only (desktop shows them on the hover overlay) */

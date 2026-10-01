@@ -58,7 +58,8 @@
      opacity stays at 1 — so the LCP text paints on the very first frame instead
      of waiting for JS/framer-motion. Skipped for reduced-motion users. */
   &__content--enter {
-    animation: heroContentEnter 0.7s var(--easing-default) both;
+    animation: heroContentEnter var(--duration-base) var(--easing-emphasized)
+      both;
 
     @media (prefers-reduced-motion: reduce) {
       animation: none;
@@ -189,7 +190,7 @@
         rgba(255, 255, 255, 0.2),
         transparent
       );
-      transition: left var(--duration-slow) var(--easing-default);
+      transition: left var(--duration-base) var(--easing-default);
     }
 
     &:hover::after {
@@ -431,7 +432,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center 15%;
-    transition: transform var(--duration-slow) var(--easing-default);
+    transition: transform var(--duration-base) var(--easing-default);
   }
 
   &__image-glow {
@@ -603,15 +604,17 @@
   }
 }
 
+/* Opacity-only pulse. Previously also animated transform: scale() on these
+   bordered rings, which forced a border repaint every frame — Lighthouse
+   flagged it as a non-composited animation. The 1.0→1.02 scale was visually
+   imperceptible, so dropping it keeps the pulse fully on the compositor. */
 @keyframes ringPulse {
   0%,
   100% {
     opacity: 0.2;
-    transform: scale(1);
   }
   50% {
     opacity: 0.35;
-    transform: scale(1.02);
   }
 }
 
@@ -779,7 +782,7 @@ main.bg-2 {
 
 /* Animation classes */
 .hero__image-wrapper--animate {
-  animation: fadeInScale 0.6s ease-out 0.3s both;
+  animation: fadeInScale var(--duration-base) var(--easing-emphasized) 0.3s both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -789,7 +792,7 @@ main.bg-2 {
 
 .hero__badge--animate {
   opacity: 0;
-  animation: fadeInUp 0.5s ease-out both;
+  animation: fadeInUp var(--duration-base) var(--easing-emphasized) both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -806,7 +809,7 @@ main.bg-2 {
 }
 
 .hero__stats--animate {
-  animation: fadeInUp 0.5s ease-out 0.9s both;
+  animation: fadeInUp var(--duration-base) var(--easing-emphasized) 0.9s both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -816,7 +819,7 @@ main.bg-2 {
 
 .hero__stat--animate {
   opacity: 0;
-  animation: fadeInUp 0.4s ease-out both;
+  animation: fadeInUp var(--duration-base) var(--easing-emphasized) both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -825,7 +828,7 @@ main.bg-2 {
 }
 
 .hero__scroll--animate {
-  animation: fadeInUp 0.4s ease-out 1.8s both;
+  animation: fadeInUp var(--duration-base) var(--easing-emphasized) 1.8s both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;

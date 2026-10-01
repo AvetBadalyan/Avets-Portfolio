@@ -13,7 +13,7 @@
   border-radius: var(--border-radius-2);
   font-weight: var(--fw-semibold);
   z-index: calc(var(--z-navbar) + 10);
-  transition: top var(--duration-fast) var(--easing-default);
+  transition: top var(--duration-base) var(--easing-default);
 
   &:focus {
     top: var(--space-sm);
@@ -32,8 +32,8 @@
      over 500ms, making the toggle feel sluggish. */
   transition:
     height var(--duration-base) var(--easing-emphasized),
-    background var(--duration-base) var(--easing-emphasized),
-    border-color var(--duration-base) var(--easing-emphasized),
+    background var(--duration-theme) var(--easing-emphasized),
+    border-color var(--duration-theme) var(--easing-emphasized),
     box-shadow var(--duration-base) var(--easing-emphasized);
   background: transparent;
 
@@ -60,7 +60,7 @@
     color: var(--color-accent);
     font-size: var(--icon-size-lg);
     text-decoration: none;
-    transition: color var(--duration-base) var(--easing-default);
+    transition: color var(--duration-theme) var(--easing-default);
 
     svg {
       font-size: var(--icon-size-xl);
@@ -97,8 +97,8 @@
     letter-spacing: var(--tracking-wide);
     border-radius: var(--border-radius-3);
     transition:
-      color var(--duration-base) var(--easing-default),
-      background var(--duration-base) var(--easing-default);
+      color var(--duration-theme) var(--easing-default),
+      background var(--duration-theme) var(--easing-default);
 
     &:hover {
       color: var(--color-accent);
@@ -147,11 +147,11 @@
     /* Full transition lives here (hover colours + press scale). Scoped to
        specific props, not `all`, so a theme swap doesn't animate the control. */
     transition:
-      transform var(--duration-fast) var(--easing-default),
-      background var(--duration-fast) var(--easing-default),
-      border-color var(--duration-fast) var(--easing-default),
-      color var(--duration-fast) var(--easing-default),
-      box-shadow var(--duration-fast) var(--easing-default);
+      transform var(--duration-base) var(--easing-default),
+      background var(--duration-theme) var(--easing-default),
+      border-color var(--duration-theme) var(--easing-default),
+      color var(--duration-theme) var(--easing-default),
+      box-shadow var(--duration-base) var(--easing-default);
 
     span {
       display: flex;
@@ -185,10 +185,10 @@
     font-size: var(--icon-size-md);
     cursor: pointer;
     transition:
-      transform var(--duration-fast) var(--easing-default),
-      background var(--duration-fast) var(--easing-default),
-      border-color var(--duration-fast) var(--easing-default),
-      color var(--duration-fast) var(--easing-default);
+      transform var(--duration-base) var(--easing-default),
+      background var(--duration-theme) var(--easing-default),
+      border-color var(--duration-theme) var(--easing-default),
+      color var(--duration-theme) var(--easing-default);
 
     span {
       display: flex;
@@ -288,9 +288,9 @@
     font-size: var(--icon-size-md);
     cursor: pointer;
     transition:
-      color var(--duration-base) var(--easing-default),
-      background var(--duration-base) var(--easing-default),
-      border-color var(--duration-base) var(--easing-default);
+      color var(--duration-theme) var(--easing-default),
+      background var(--duration-theme) var(--easing-default),
+      border-color var(--duration-theme) var(--easing-default);
 
     &:hover {
       background: var(--color-accent);
@@ -322,9 +322,9 @@
     border-radius: var(--border-radius-2);
     border-left: 4px solid transparent;
     transition:
-      color var(--duration-base) var(--easing-default),
-      background var(--duration-base) var(--easing-default),
-      border-color var(--duration-base) var(--easing-default),
+      color var(--duration-theme) var(--easing-default),
+      background var(--duration-theme) var(--easing-default),
+      border-color var(--duration-theme) var(--easing-default),
       transform var(--duration-base) var(--easing-default);
 
     &:hover,
@@ -359,9 +359,9 @@
     font-weight: var(--fw-semibold);
     cursor: pointer;
     transition:
-      color var(--duration-base) var(--easing-default),
-      background var(--duration-base) var(--easing-default),
-      border-color var(--duration-base) var(--easing-default);
+      color var(--duration-theme) var(--easing-default),
+      background var(--duration-theme) var(--easing-default),
+      border-color var(--duration-theme) var(--easing-default);
 
     svg {
       font-size: var(--icon-size-sm);
@@ -457,7 +457,7 @@ main.bg-2 {
 
 /* Navbar slide in from top */
 .nav--animate {
-  animation: navSlideIn 0.6s ease-out both;
+  animation: navSlideIn var(--duration-base) var(--easing-emphasized) both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -479,7 +479,7 @@ main.bg-2 {
 /* Active desktop link underline — pops in with a quick grow so the active
    section is obvious after clicking. */
 .nav__link-indicator {
-  animation: indicatorIn 0.25s var(--easing-emphasized) both;
+  animation: indicatorIn var(--duration-base) var(--easing-emphasized) both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -504,7 +504,8 @@ main.bg-2 {
 .nav__mobile-link--animate {
   /* backwards fill (not both): applies the start state during the delay, but
      releases the transform once finished so the hover translateX still works. */
-  animation: mobileLinkIn 0.35s var(--easing-emphasized) backwards;
+  animation: mobileLinkIn var(--duration-base) var(--easing-emphasized)
+    backwards;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -539,8 +540,8 @@ main.bg-2 {
   inset: 0;
   margin: auto;
   transition:
-    opacity 0.25s var(--easing-default),
-    transform 0.25s var(--easing-default);
+    opacity var(--duration-base) var(--easing-default),
+    transform var(--duration-base) var(--easing-default);
 
   &--in {
     opacity: 1;
@@ -561,7 +562,7 @@ main.bg-2 {
 /* Logo press/hover scale. The theme-toggle and burger own their full
    transitions (colours + scale) in their own blocks above. */
 .nav__logo {
-  transition: transform var(--duration-fast) var(--easing-default);
+  transition: transform var(--duration-base) var(--easing-default);
 
   &:hover {
     transform: scale(1.05);

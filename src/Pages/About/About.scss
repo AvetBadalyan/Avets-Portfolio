@@ -3,55 +3,7 @@
    ============================================ */
 
 /* ── Scroll Reveal Animations ──
-   CSS-based reveal system that replaces framer-motion for simple animations.
-   This keeps the ~40KB framer-motion bundle out of the About chunk. */
-.about {
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition:
-      opacity 0.6s cubic-bezier(0.25, 0.25, 0.25, 0.75),
-      transform 0.6s cubic-bezier(0.25, 0.25, 0.25, 0.75);
-
-    &--visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    &--delay-1 {
-      transition-delay: 0.2s;
-    }
-
-    &--delay-2 {
-      transition-delay: 0.3s;
-    }
-  }
-
-  /* Staggered reveal for language items */
-  .reveal-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.5s ease,
-      transform 0.5s ease;
-    transition-delay: var(--reveal-delay, 0s);
-  }
-
-  .reveal--visible .reveal-item {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal-item {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-  }
-}
-
+   Scroll-reveal (.reveal / .reveal-item) is defined globally in index.scss. */
 .about {
   padding: var(--section-padding-block) 0;
   background: var(--color-white);
@@ -152,7 +104,8 @@
     border-radius: var(--border-radius-pill);
     /* CSS-based width animation - replaces framer-motion whileInView */
     width: 0;
-    transition: width 1s ease-out 0.5s;
+    transition: width var(--duration-base) var(--easing-emphasized)
+      var(--duration-base);
   }
 
   /* Animate language bars when parent container is revealed */

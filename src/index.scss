@@ -118,37 +118,60 @@
   --z-modal: 210;
   --z-overlay: 300;
 
-  /* BREAKPOINTS — reference only; var() doesn't work in media queries
-     sm: 480px  |  md: 600px  |  lg: 768px  |  xl: 1024px  |  2xl: 1200px */
+  /* BREAKPOINTS — reference only; var() doesn't work in media queries, so these
+     are documented here and used as literals in @media rules.
+       xs:  375px  — smallest supported phone (iPhone SE): final layout tightening
+       sm:  480px  — large phone
+       md:  600px  — phablet
+       lg:  768px  — tablet portrait (grids collapse to 1 col, overlays off)
+       tab: 900px  — tablet landscape (bento 2-wide → 1-wide, multi-col grids reduce)
+       xl:  1024px — small laptop (desktop nav appears)
+       2xl: 1200px — desktop */
 
-  /* TRANSITION TIMING */
-  --duration-fast: 200ms;
+  /* MOTION SYSTEM
+     --duration-base: the single duration for UI interactions (hover, press,
+       focus, entrances). One value so nothing feels out of step.
+     --duration-theme: duration for theme-reactive properties (color/background/
+       border) ONLY. Kept as its own token so a light↔dark toggle always lands
+       in one synchronized sweep regardless of what --duration-base is — this is
+       what fixes the "one element recolors at 0.3s, another at 0.5s" problem.
+       Large surfaces (sections, hero) swap INSTANTLY (no transition); the small
+       controls that do transition color all share this one value, so they move
+       together.
+     (Ambient infinite loops — orb drift, shimmer, float — keep their own long
+     durations; they are decorative, not part of the interaction system.) */
   --duration-base: 300ms;
-  --duration-slow: 500ms;
-  /* Theme color swap — deliberately short so the toggle feels crisp and
-     resolves before the page's backdrop-filter surfaces saturate the GPU. */
-  --duration-theme: 200ms;
+  --duration-theme: 300ms;
   --easing-default: ease;
   --easing-smooth: ease-in-out;
   /* "Emphasized" curve (fast-out, slow-in) for decisive movement — cards,
-     navbar. Previously an inline cubic-bezier copied in multiple places. */
+     navbar, reveals. Previously an inline cubic-bezier copied in many places. */
   --easing-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Standard scroll-reveal entrance — shared by every section's .reveal /
+     .reveal-item so they animate identically instead of 0.5s here, 0.6s there. */
+  --reveal-transition:
+    opacity var(--duration-base) var(--easing-emphasized),
+    transform var(--duration-base) var(--easing-emphasized);
 
   /* TRANSITIONS
      Scoped to the properties actually animated on hover across the app
      (background, border, colour, shadow, transform) rather than `all`. `all`
      is an anti-pattern: it animates unintended properties (layout/size) and
      made theme-toggle colour changes animate on these elements too. */
+  /* Theme-reactive props (background/border/color) use --duration-theme so they
+     stay in sync on a light↔dark toggle; interaction props (box-shadow/
+     transform) use --duration-base. Both are 300ms today, but they're separate
+     knobs: change hover feel without ever desyncing the toggle. */
   --transition-fast:
-    background var(--duration-fast) var(--easing-default),
-    border-color var(--duration-fast) var(--easing-default),
-    color var(--duration-fast) var(--easing-default),
-    box-shadow var(--duration-fast) var(--easing-default),
-    transform var(--duration-fast) var(--easing-default);
+    background var(--duration-theme) var(--easing-default),
+    border-color var(--duration-theme) var(--easing-default),
+    color var(--duration-theme) var(--easing-default),
+    box-shadow var(--duration-base) var(--easing-default),
+    transform var(--duration-base) var(--easing-default);
   --transition-base:
-    background var(--duration-base) var(--easing-smooth),
-    border-color var(--duration-base) var(--easing-smooth),
-    color var(--duration-base) var(--easing-smooth),
+    background var(--duration-theme) var(--easing-smooth),
+    border-color var(--duration-theme) var(--easing-smooth),
+    color var(--duration-theme) var(--easing-smooth),
     box-shadow var(--duration-base) var(--easing-smooth),
     transform var(--duration-base) var(--easing-smooth);
 
@@ -307,6 +330,12 @@ main.bg-2 {
      12/14/16. Light mode uses --glass-bg-solid / --color-white per component. */
   --surface-card-dark: hsl(var(--primary-hue), 18%, 12%);
 
+  /* Raised dark surface — one tier lighter than the card, for chips/controls
+     that must stand out ON a dark card (logo tiles, modal close button).
+     Deliberately NOT merged into --surface-card-dark: it needs the contrast
+     against the card, so sharing a value would make the chip vanish. */
+  --surface-raised-dark: hsl(var(--primary-hue), 18%, 19%);
+
   /* Inverts in dark mode — used by GradientBackground grid lines */
   --color-black-rgb: 247, 247, 250;
 
@@ -365,9 +394,9 @@ section > p {
 }
 
 a {
-  /* Shorter than the old 500ms: on theme toggle every link recolored over half
-     a second, adding to the churn. A quick swap is crisper and still smooth on
-     hover. */
+  /* --duration-theme: this transition serves link hover AND the color recolor
+     on theme toggle. Using the theme token keeps every recoloring element in
+     sync when you switch light↔dark. */
   transition:
     color var(--duration-theme) var(--easing-default),
     background-color var(--duration-theme) var(--easing-default);
@@ -418,6 +447,57 @@ a {
     &::after {
       background: var(--color-primary);
     }
+  }
+}
+
+/* ============================================
+   SCROLL REVEAL
+   Shared, app-wide entrance for elements revealed on scroll (driven by the
+   useScrollReveal / useStaggerReveal hooks, which add .reveal--visible and set
+   --reveal-delay). Defined once here so every section animates identically —
+   previously each section's SCSS duplicated this with drifting durations
+   (0.5s / 0.6s). All reveals now share --reveal-transition.
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--reveal-transition);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered sibling delays for grouped reveals (header → body → aside). */
+  &--delay-1 {
+    transition-delay: var(--duration-base);
+  }
+
+  &--delay-2 {
+    transition-delay: var(--duration-base);
+  }
+}
+
+/* Child items inside a staggered container; --reveal-delay is set per-item by
+   the useStaggerReveal hook. */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--reveal-transition);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal--visible .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -692,7 +772,7 @@ main.bg-2 {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
   border-radius: var(--border-radius-3);
-  transition: outline-offset var(--duration-fast) var(--easing-default);
+  transition: outline-offset var(--duration-base) var(--easing-default);
 }
 
 /* Buttons and links get a glow on top of the outline */

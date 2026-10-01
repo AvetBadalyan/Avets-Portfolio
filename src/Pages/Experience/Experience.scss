@@ -499,7 +499,7 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 480px) {
       grid-template-columns: 1fr;
     }
   }
@@ -581,7 +581,7 @@ main.bg-2 {
     }
 
     &__logo {
-      background: hsl(var(--primary-hue), 18%, 18%);
+      background: var(--surface-raised-dark);
     }
 
     &__company,
@@ -619,7 +619,7 @@ main.bg-2 {
     background: var(--surface-card-dark);
 
     &__close {
-      background: hsl(var(--primary-hue), 18%, 20%);
+      background: var(--surface-raised-dark);
       color: var(--color-dark);
 
       &:hover {
@@ -633,7 +633,7 @@ main.bg-2 {
     }
 
     &__logo {
-      background: hsl(var(--primary-hue), 18%, 18%);
+      background: var(--surface-raised-dark);
     }
 
     &__company,

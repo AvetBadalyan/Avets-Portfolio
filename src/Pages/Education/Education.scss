@@ -115,7 +115,7 @@
     box-shadow: var(--shadow-sm);
     transition:
       box-shadow var(--duration-base) var(--easing-default),
-      border-color var(--duration-base) var(--easing-default);
+      border-color var(--duration-theme) var(--easing-default);
 
     &:hover {
       box-shadow:
@@ -124,7 +124,7 @@
       border-color: hsla(var(--primary-hue), 70%, 50%, 0.25);
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 600px) {
       padding: var(--space-lg);
     }
   }
@@ -146,7 +146,7 @@
       object-fit: contain;
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 600px) {
       width: 120px;
       height: 120px;
     }
