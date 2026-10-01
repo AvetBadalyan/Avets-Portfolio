@@ -177,14 +177,15 @@ const Navbar = () => {
               </button>
 
               <div className="nav__mobile-links">
-                {navLinks.map((item) => {
+                {navLinks.map((item, index) => {
                   const sectionId = item.link.slice(1);
                   const isActive = activeSection === sectionId;
                   return (
                     <a
                       key={item.id}
                       href={item.link}
-                      className={`nav__mobile-link ${isActive ? "nav__mobile-link--active" : ""}`}
+                      className={`nav__mobile-link nav__mobile-link--animate ${isActive ? "nav__mobile-link--active" : ""}`}
+                      style={{ animationDelay: `${0.08 + index * 0.05}s` }}
                       aria-current={isActive ? "page" : undefined}
                       onClick={closeMenu}
                     >

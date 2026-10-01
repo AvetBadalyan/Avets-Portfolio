@@ -363,76 +363,19 @@
 
 main.bg-2 {
   .gradient-bg {
-    &__orb {
-      &--1 {
-        background: radial-gradient(
-          circle,
-          hsla(var(--primary-hue), 95%, 60%, 0.5) 0%,
-          hsla(var(--primary-hue), 90%, 50%, 0.25) 40%,
-          transparent 70%
-        );
-      }
+    /* IMPORTANT (perf): the orbs and particles deliberately do NOT get
+       per-element gradient overrides in dark mode. The orbs are large,
+       heavily-blurred (45-100px) and animate continuously; overriding their
+       background colour here meant a theme toggle forced a full blurred repaint
+       of the single most GPU-expensive elements on the page, which made the
+       toggle stutter on mid-range phones.
 
-      &--2 {
-        background: radial-gradient(
-          circle,
-          hsla(calc(var(--primary-hue) + 40), 85%, 55%, 0.4) 0%,
-          hsla(calc(var(--primary-hue) + 40), 80%, 45%, 0.2) 40%,
-          transparent 70%
-        );
-      }
+       They use the SAME purple-hue gradients in both themes (hue doesn't change
+       on toggle, only lightness tokens do). The base orb alphas (0.4/0.2) read
+       well against the dark page, so no override is needed — and crucially the
+       orbs no longer repaint on toggle. */
 
-      &--3 {
-        background: radial-gradient(
-          circle,
-          hsla(calc(var(--primary-hue) - 30), 75%, 60%, 0.35) 0%,
-          hsla(calc(var(--primary-hue) - 30), 70%, 50%, 0.15) 40%,
-          transparent 70%
-        );
-      }
-
-      &--4 {
-        background: radial-gradient(
-          circle,
-          hsla(calc(var(--primary-hue) + 80), 80%, 60%, 0.3) 0%,
-          transparent 70%
-        );
-      }
-
-      &--5 {
-        background: radial-gradient(
-          circle,
-          hsla(calc(var(--primary-hue) - 60), 70%, 55%, 0.25) 0%,
-          transparent 70%
-        );
-      }
-    }
-
-    &__particle {
-      background: hsla(var(--primary-hue), 90%, 75%, 0.7);
-      /* box-shadow override removed — dark mode intensified the non-composited
-         shadow even further (0 0 15px). The ::before glow pseudo-element from
-         the base rule automatically inherits the CSS variable hue shift, so
-         no override is needed. */
-
-      &::before {
-        background: radial-gradient(
-          circle,
-          hsla(var(--primary-hue), 90%, 70%, 0.45) 0%,
-          transparent 70%
-        );
-      }
-    }
-
-    &__shimmer {
-      /* Removed the stale background / background-size: 200% 100% override.
-         These properties were left over from an earlier background-position
-         animation approach. The current shimmer correctly uses a ::before
-         pseudo-element animated with translateX (compositor-friendly). Applying
-         a background-size on the wrapper element had no visible effect but
-         could confuse future tooling and interfere with CSS containment. */
-    }
-
+    /* Grid lines flip colour via --color-black-rgb (cheap: thin 1px lines). */
     &__grid {
       background-image:
         linear-gradient(

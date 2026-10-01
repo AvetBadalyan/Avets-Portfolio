@@ -481,6 +481,31 @@ main.bg-2 {
   }
 }
 
+/* Mobile menu links stagger in as the panel opens. transform + opacity only
+   (compositor-friendly), so it doesn't add repaint cost. The per-link delay is
+   set inline in Navbar.jsx; because the panel unmounts on close, the animation
+   replays on each open. */
+.nav__mobile-link--animate {
+  /* backwards fill (not both): applies the start state during the delay, but
+     releases the transform once finished so the hover translateX still works. */
+  animation: mobileLinkIn 0.35s var(--easing-emphasized) backwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes mobileLinkIn {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* ── Icon crossfade/rotate swap (theme toggle + burger) ──
    Two icons stacked; the outgoing one rotates + fades out while the incoming
    one rotates + fades in. transform+opacity only, so it stays on the GPU. */

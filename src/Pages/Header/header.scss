@@ -11,7 +11,9 @@
   padding: 12rem 0 6rem;
   background: var(--color-white);
   overflow: hidden;
-  transition: background var(--duration-slow) var(--easing-default);
+  /* No background transition: the theme swap is instant everywhere else, so a
+     500ms fade here made the hero lag behind the already-swapped sections — a
+     visible "blink" on toggle. Snap it with the rest. */
 
   @media (max-width: 1024px) {
     padding: 12rem 0 8rem;
@@ -664,6 +666,9 @@ main.bg-2 {
     }
 
     &__image-container {
+      /* Only the final drop shadow deepens for the dark page; the accent
+         rings/glow use --color-accent and --primary-hue (unchanged on toggle),
+         so this override is a single cheap shadow swap, not an accent repaint. */
       box-shadow:
         0 0 0 4px var(--color-accent),
         0 0 0 8px hsla(var(--primary-hue), 70%, 50%, 0.2),
@@ -671,9 +676,9 @@ main.bg-2 {
         0 25px 80px rgba(0, 0, 0, 0.5);
     }
 
-    &__name-gradient {
-      filter: drop-shadow(0 0 40px hsla(var(--primary-hue), 80%, 60%, 0.3));
-    }
+    /* No &__name-gradient drop-shadow override: the glow is the same purple
+       hue in both themes and the light-mode value reads fine on dark. Dropping
+       it avoids repainting a large text element's drop-shadow on every toggle. */
   }
 }
 
