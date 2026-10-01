@@ -244,7 +244,7 @@
   }
 
   &__duration {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     color: var(--color-dark);
     font-weight: var(--fw-medium);
   }
@@ -322,7 +322,7 @@
     padding-top: var(--space-sm);
 
     .btn {
-      font-size: var(--font-size-xs);
+      font-size: var(--font-size-sm);
       padding: var(--space-xs) var(--space-sm);
     }
 
@@ -539,7 +539,7 @@
     padding: 0;
     margin: 0;
     text-align: left;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     line-height: var(--line-height-body);
 
     li {

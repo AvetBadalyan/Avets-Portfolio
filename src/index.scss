@@ -65,8 +65,8 @@
        - h3 (24px)                        → --font-size-xl
      Two responsive-only sizes stay named for their role (used only in @media
      overrides): --font-size-h2-mobile and --font-size-h1-responsive. */
-  --font-size-xs: 1.2rem; /* 12px - badges, small labels, meta text */
-  --font-size-sm: 1.4rem; /* 14px - secondary/fine text */
+  --font-size-xs: 1.2rem; /* 12px - uppercase pills/badges & micro-labels only (short, glanced) */
+  --font-size-sm: 1.4rem; /* 14px - readability floor for any text that is actually read */
   --font-size-base: 1.6rem; /* 16px - body text, nav links */
   --font-size-md: 1.8rem; /* 18px - subtitles, card titles, small headings (h4) */
   --font-size-lg: 2rem; /* 20px */
