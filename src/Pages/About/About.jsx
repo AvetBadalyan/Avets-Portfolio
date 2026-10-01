@@ -1,46 +1,43 @@
-import { motion } from "framer-motion";
 import { HiDownload } from "react-icons/hi";
 import CountryFlag from "../../Components/CountryFlag/CountryFlag";
 import CV from "../../assets/cv.pdf";
-import { fadeIn, staggerContainer } from "../../utils/animations";
+import { useScrollReveal, useStaggerReveal } from "../../hooks/useScrollReveal";
 import "./About.scss";
 import { languageSkills } from "./languages";
 
+/**
+ * About section - uses CSS-based scroll reveal instead of framer-motion.
+ * This keeps framer-motion out of the initial lazy-load chain, deferring
+ * its ~40KB bundle until sections that actually need complex animations
+ * (Portfolio filters, Experience accordion, etc.).
+ */
 const About = () => {
+  const headerRef = useScrollReveal();
+  const sidebarRef = useScrollReveal({ rootMargin: "-50px" });
+  const textRef = useScrollReveal({ rootMargin: "-50px" });
+  const languagesRef = useStaggerReveal({
+    stagger: 0.1,
+    itemSelector: ".about__language",
+  });
+
   return (
     <section id="about" className="about">
       <div className="container">
-        <motion.div
-          className="about__header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div ref={headerRef} className="about__header reveal">
           <h2 className="section-heading">About Me</h2>
-        </motion.div>
+        </div>
 
         <div className="about__content">
-          <motion.div
-            className="about__sidebar"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <div
+            ref={sidebarRef}
+            className="about__sidebar reveal reveal--delay-1"
           >
-            <motion.div
-              className="about__languages"
-              variants={staggerContainer(0.1, 0.4)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
+            <div ref={languagesRef} className="about__languages">
               <h3 className="about__languages-title">Languages</h3>
               {languageSkills.map((lang) => (
-                <motion.div
+                <div
                   key={lang.language}
-                  className="about__language"
-                  variants={fadeIn("up", 0)}
+                  className="about__language reveal-item"
                 >
                   <div className="about__language-info">
                     <CountryFlag
@@ -54,26 +51,17 @@ const About = () => {
                     <span className="about__language-level">{lang.level}</span>
                   </div>
                   <div className="about__language-bar">
-                    <motion.div
+                    <div
                       className="about__language-fill"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${lang.proficiency}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                      style={{ "--proficiency": `${lang.proficiency}%` }}
                     />
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            className="about__text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <div ref={textRef} className="about__text reveal reveal--delay-2">
             <h3 className="about__role">Frontend Engineer → Full Stack</h3>
 
             <p>
@@ -127,17 +115,11 @@ const About = () => {
               I'm told.
             </p>
 
-            <motion.a
-              href={CV}
-              download
-              className="btn btn--primary about__cta"
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <a href={CV} download className="btn btn--primary about__cta">
               <HiDownload />
               <span>Download CV</span>
-            </motion.a>
-          </motion.div>
+            </a>
+          </div>
         </div>
       </div>
     </section>

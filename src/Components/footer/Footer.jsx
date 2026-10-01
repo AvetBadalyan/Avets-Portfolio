@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa";
 import "./Footer.scss";
 
@@ -10,15 +9,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer__container">
-        <motion.button
+        <button
           className="footer__back-to-top"
           onClick={scrollToTop}
-          whileHover={{ y: -5 }}
-          whileTap={{ scale: 0.95 }}
           aria-label="Back to top"
         >
           <FaArrowUp />
-        </motion.button>
+        </button>
 
         <div className="footer__copyright">
           <small>

@@ -182,12 +182,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
-
-    .tech-tag {
-      --tag-bg: var(--tag-solid);
-      --tag-color: var(--color-on-primary);
-      font-weight: var(--fw-semibold);
-    }
+    /* .tech-tag renders solid brand bg + white text by default (TechTag.scss) */
   }
 
   /* Action Buttons */

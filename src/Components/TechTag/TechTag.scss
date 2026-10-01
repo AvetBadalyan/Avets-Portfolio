@@ -1,7 +1,20 @@
 /* ============================================
    TECH TAG COMPONENT
-   Reusable technology badge. Colors come from
-   CSS custom properties set by TechTag.jsx.
+   Reusable technology badge.
+
+   Colors arrive as custom properties set inline by TechTag.jsx:
+     --tag-solid       solid brand bg (WCAG AA >= 4.5:1 with white text)
+     --tag-tint        low-alpha brand tint (for dark surfaces only)
+     --tag-tint-color  bright brand text (pairs with --tag-tint)
+
+   DEFAULT = solid brand background + white text. This reads well on BOTH the
+   light caption cards and the dark hover overlay, so every current context
+   uses it. The tint variant (bright text on a transparent tint) is only
+   legible on a near-black surface, so it is opt-in via `.tech-tag--on-dark`.
+
+   NOTE: we must NOT read inline-set --tag-bg/--tag-color here. Inline custom
+   properties outrank stylesheet ones, which is exactly what broke readability
+   before — the transparent tint always won over the intended solid color.
    ============================================ */
 
 .tech-tag {
@@ -10,8 +23,12 @@
   font-weight: var(--fw-semibold);
   border-radius: var(--border-radius-3);
   white-space: nowrap;
-  background: var(--tag-bg);
-  color: var(--tag-color);
+
+  /* Solid, high-contrast default */
+  background: var(--tag-solid);
+  color: var(--color-on-primary);
+  /* Subtle inner border keeps edges crisp against similar-hued surfaces */
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
 
   &--md {
     padding: var(--space-2xs) var(--space-xs);
@@ -21,5 +38,13 @@
   &--sm {
     padding: var(--space-2xs);
     font-size: var(--font-size-xs);
+  }
+
+  /* Opt-in tint variant: bright brand text on a low-alpha tint. Only use on a
+     dark/near-black surface where the bright text has enough contrast. */
+  &--on-dark {
+    background: var(--tag-tint);
+    color: var(--tag-tint-color);
+    border-color: transparent;
   }
 }

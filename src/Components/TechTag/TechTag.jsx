@@ -22,10 +22,13 @@ const TechTag = ({ name, color, size = "md", className = "" }) => {
     <span
       className={classes}
       style={{
-        // CSS custom properties allow parent contexts to override colors
-        // without !important. Portfolio.scss uses --tag-solid for solid-bg tags.
-        "--tag-bg": style.bg,
-        "--tag-color": style.color,
+        // Expose the raw brand values as custom properties. We deliberately do
+        // NOT set --tag-bg / --tag-color inline, because inline styles beat
+        // stylesheet rules — doing so would stop context styles (and the solid
+        // default below) from ever winning. The .tech-tag rule in TechTag.scss
+        // decides which of these to actually paint.
+        "--tag-tint": style.bg,
+        "--tag-tint-color": style.color,
         "--tag-solid": style.solid,
       }}
     >

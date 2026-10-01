@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   FaEnvelope,
   FaGithub,
@@ -6,7 +5,7 @@ import {
   FaMapMarkerAlt,
   FaPhone,
 } from "react-icons/fa";
-import { fadeIn, staggerContainer } from "../../utils/animations";
+import { useScrollReveal, useStaggerReveal } from "../../hooks/useScrollReveal";
 import "./Contact.scss";
 
 const contactItems = [
@@ -36,30 +35,29 @@ const contactItems = [
   },
 ];
 
+/**
+ * Contact section - uses CSS-based scroll reveal.
+ * Keeps framer-motion out of this chunk for better code splitting.
+ */
 const Contact = () => {
+  const headerRef = useScrollReveal();
+  const cardRef = useScrollReveal({ rootMargin: "-50px" });
+  const gridRef = useStaggerReveal({
+    stagger: 0.1,
+    itemSelector: ".contact__item",
+  });
+
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <motion.div
-          className="contact__header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div ref={headerRef} className="contact__header reveal">
           <h2 className="section-heading">Get In Touch</h2>
           <p className="contact__subtitle">
             Let's build something great together
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="contact__card"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div ref={cardRef} className="contact__card reveal reveal--delay-1">
           <div className="contact__status">
             <span className="contact__status-dot" />
             <span>Open to opportunities</span>
@@ -70,15 +68,9 @@ const Contact = () => {
             <span>Yerevan, Armenia • Open to remote</span>
           </div>
 
-          <motion.div
-            className="contact__grid"
-            variants={staggerContainer(0.1, 0.3)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
+          <div ref={gridRef} className="contact__grid">
             {contactItems.map((item) => (
-              <motion.a
+              <a
                 key={item.label}
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
@@ -87,31 +79,22 @@ const Contact = () => {
                     ? "noopener noreferrer"
                     : undefined
                 }
-                className="contact__item"
-                variants={fadeIn("up", 0)}
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
+                className="contact__item reveal-item"
               >
                 <div className="contact__item-icon">{item.icon}</div>
                 <div className="contact__item-content">
                   <span className="contact__item-label">{item.label}</span>
                   <span className="contact__item-value">{item.value}</span>
                 </div>
-              </motion.a>
+              </a>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.p
-            className="contact__message"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-          >
+          <p className="contact__message">
             Whether you have a project in mind, want to discuss opportunities,
             or just say hi — I'd love to hear from you.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
       </div>
     </section>
   );

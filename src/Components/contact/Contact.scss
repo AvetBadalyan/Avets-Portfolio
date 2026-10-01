@@ -2,6 +2,49 @@
    CONTACT SECTION - Centered Card Design
    ============================================ */
 
+/* ── Scroll Reveal Animations ── */
+.contact {
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s cubic-bezier(0.25, 0.25, 0.25, 0.75),
+      transform 0.6s cubic-bezier(0.25, 0.25, 0.25, 0.75);
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &--delay-1 {
+      transition-delay: 0.2s;
+    }
+  }
+
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+    transition-delay: var(--reveal-delay, 0s);
+  }
+
+  .reveal--visible .reveal-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-item {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
 .contact {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
@@ -92,9 +135,13 @@
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-2);
     text-decoration: none;
-    transition: var(--transition-base);
+    transition:
+      transform var(--duration-base) var(--easing-default),
+      border-color var(--duration-base) var(--easing-default),
+      box-shadow var(--duration-base) var(--easing-default);
 
     &:hover {
+      transform: translateY(-8px);
       border-color: var(--color-accent);
       box-shadow: 0 12px 30px hsla(var(--primary-hue), 70%, 50%, 0.18);
 

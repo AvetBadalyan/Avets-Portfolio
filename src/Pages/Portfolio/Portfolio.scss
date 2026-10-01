@@ -249,12 +249,7 @@
     flex-wrap: wrap;
     gap: var(--space-xs);
     margin-bottom: var(--space-md);
-
-    .tech-tag {
-      --tag-bg: var(--tag-solid);
-      --tag-color: var(--color-on-primary);
-      font-weight: var(--fw-semibold);
-    }
+    /* .tech-tag renders solid brand bg + white text by default (TechTag.scss) */
   }
 
   &__overlay-actions {
@@ -310,12 +305,7 @@
     flex-wrap: wrap;
     gap: var(--space-xs);
     margin-bottom: var(--space-sm);
-
-    .tech-tag {
-      --tag-bg: var(--tag-solid);
-      --tag-color: var(--color-on-primary);
-      font-weight: var(--fw-semibold);
-    }
+    /* .tech-tag renders solid brand bg + white text by default (TechTag.scss) */
 
     @media (max-width: 768px) {
       display: flex;

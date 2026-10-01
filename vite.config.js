@@ -27,6 +27,41 @@ function lcpPreloadPlugin() {
 }
 
 /**
+ * Adds fetchpriority="high" to the main entry script to tell the browser this
+ * is a critical resource. This helps the browser prioritize downloading the
+ * main JS bundle over less important resources, improving FCP/LCP on slow
+ * connections.
+ */
+function prioritizeEntryScriptPlugin() {
+  return {
+    name: "prioritize-entry-script",
+    enforce: "post",
+    transformIndexHtml(html, ctx) {
+      if (!ctx.bundle) return html; // build only
+
+      // Find the main entry chunk (index-*.js that's the entry point)
+      const entryChunk = Object.keys(ctx.bundle).find(
+        (k) =>
+          k.startsWith("assets/index-") &&
+          k.endsWith(".js") &&
+          ctx.bundle[k].isEntry,
+      );
+
+      if (!entryChunk) return html;
+
+      // Add fetchpriority="high" to the module script
+      return html.replace(
+        new RegExp(
+          `<script type="module"([^>]*?)src="/${entryChunk.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`,
+          "g",
+        ),
+        `<script type="module" fetchpriority="high"$1src="/${entryChunk}"`,
+      );
+    },
+  };
+}
+
+/**
  * Converts Vite's injected render-blocking <link rel="stylesheet"> into a
  * non-blocking preload+onload swap. The critical above-the-fold CSS is already
  * inlined in index.html, so the full bundle can load asynchronously without
@@ -68,7 +103,12 @@ function nonBlockingCssPlugin() {
 }
 
 export default defineConfig({
-  plugins: [react(), lcpPreloadPlugin(), nonBlockingCssPlugin()],
+  plugins: [
+    react(),
+    lcpPreloadPlugin(),
+    prioritizeEntryScriptPlugin(),
+    nonBlockingCssPlugin(),
+  ],
   build: {
     outDir: "build",
     // Increase chunk size warning limit since framer-motion is large but needed
