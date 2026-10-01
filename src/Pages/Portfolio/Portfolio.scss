@@ -92,22 +92,16 @@
     }
   }
 
-  /* Featured items span 2 columns */
+  /* Featured items span 2 columns. Image height matches --normal cards so a
+     featured (2-wide) and a normal (1-wide) tile sharing a row line up —
+     equal image height means their captions start at the same y. */
   &__item--featured {
     grid-column: span 2;
 
     .project-card__image-wrapper {
-      height: 36rem;
-
-      @media (max-width: 1200px) {
-        height: 32rem;
-      }
+      height: 26rem;
 
       @media (max-width: 900px) {
-        height: 24rem;
-      }
-
-      @media (max-width: 768px) {
         height: 22rem;
       }
 
@@ -195,7 +189,9 @@
     transition: transform var(--duration-slow) var(--easing-default);
   }
 
-  /* Hover/Focus Overlay — gradient sits on images, always dark regardless of theme */
+  /* Hover/Focus Overlay — gradient sits on images, always dark regardless of
+     theme. Reveals the tech tags + action buttons on hover; title, category
+     and description live in the always-visible caption below (not repeated). */
   &__overlay {
     position: absolute;
     inset: 0;
@@ -218,30 +214,6 @@
 
   &__overlay-content {
     width: 100%;
-  }
-
-  &__overlay-category {
-    display: inline-block;
-    padding: var(--space-2xs) var(--space-sm);
-    /* --color-primary (36% L both themes) keeps white text readable; accent
-       lightens to 72% in dark mode and fails AA with white. */
-    background: var(--color-primary);
-    color: white;
-    font-size: var(--font-size-xs);
-    font-weight: var(--fw-bold);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    border-radius: var(--border-radius-pill);
-    margin-bottom: var(--space-xs);
-  }
-
-  &__overlay-title {
-    color: white;
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-md);
-    font-weight: var(--fw-bold);
-    margin: 0 0 var(--space-sm);
-    line-height: 1.2;
   }
 
   &__overlay-techs {
@@ -267,7 +239,7 @@
 
   &__info-head {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: var(--space-sm);
     margin-bottom: var(--space-sm);
@@ -279,13 +251,19 @@
     margin: 0;
   }
 
+  /* Pill badge — same look the hover overlay used. --color-primary stays dark
+     (36% L) in both themes so white text keeps strong contrast. */
   &__category-static {
     flex-shrink: 0;
-    color: var(--color-accent);
+    display: inline-block;
+    padding: var(--space-2xs) var(--space-sm);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
     font-size: var(--font-size-xs);
-    font-weight: var(--fw-semibold);
+    font-weight: var(--fw-bold);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
+    border-radius: var(--border-radius-pill);
   }
 
   &__description {
@@ -299,7 +277,7 @@
     overflow: hidden;
   }
 
-  /* Caption techs - mobile only */
+  /* Caption techs - mobile only (desktop shows them on the hover overlay) */
   &__caption-techs {
     display: none;
     flex-wrap: wrap;

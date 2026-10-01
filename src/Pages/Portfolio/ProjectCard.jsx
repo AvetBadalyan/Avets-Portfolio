@@ -37,13 +37,12 @@ const ProjectCard = ({ project, onSelect }) => {
           height={400}
         />
 
-        {/* Overlay: gradient + category + title + buttons — desktop only */}
+        {/* Hover overlay (desktop only): dark gradient + tech tags + buttons */}
         <div className="project-card__overlay">
           <div className="project-card__overlay-content">
-            <span className="project-card__overlay-category">
-              {project.category}
-            </span>
-            <h3 className="project-card__overlay-title">{project.siteName}</h3>
+            {/* Title, category and description live in the always-visible
+                caption below — not repeated here. The overlay reveals the tech
+                tags + action buttons on hover (desktop only). */}
             {techs.length > 0 && (
               <div className="project-card__overlay-techs">
                 {techs.map((tech) => (
