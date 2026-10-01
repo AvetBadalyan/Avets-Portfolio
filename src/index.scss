@@ -134,9 +134,23 @@
      navbar. Previously an inline cubic-bezier copied in multiple places. */
   --easing-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* TRANSITIONS */
-  --transition-fast: all var(--duration-fast) var(--easing-default);
-  --transition-base: all var(--duration-base) var(--easing-smooth);
+  /* TRANSITIONS
+     Scoped to the properties actually animated on hover across the app
+     (background, border, colour, shadow, transform) rather than `all`. `all`
+     is an anti-pattern: it animates unintended properties (layout/size) and
+     made theme-toggle colour changes animate on these elements too. */
+  --transition-fast:
+    background var(--duration-fast) var(--easing-default),
+    border-color var(--duration-fast) var(--easing-default),
+    color var(--duration-fast) var(--easing-default),
+    box-shadow var(--duration-fast) var(--easing-default),
+    transform var(--duration-fast) var(--easing-default);
+  --transition-base:
+    background var(--duration-base) var(--easing-smooth),
+    border-color var(--duration-base) var(--easing-smooth),
+    color var(--duration-base) var(--easing-smooth),
+    box-shadow var(--duration-base) var(--easing-smooth),
+    transform var(--duration-base) var(--easing-smooth);
 
   /* GLASSMORPHISM
      Light-mode border uses a dark-ink tint (a white-based border

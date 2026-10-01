@@ -240,7 +240,14 @@
     top: 0;
     right: 0;
     width: min(85vw, 400px);
+    /* 100dvh (dynamic viewport) so the panel matches the visible area with the
+       mobile browser bars shown/hidden — 100vh overshoots and pushed the bottom
+       button under the chrome. Fallback to 100vh for older browsers. */
     height: 100vh;
+    height: 100dvh;
+    /* Scroll if the links + theme button don't fit a short viewport, so nothing
+       (e.g. the Dark Mode button) gets clipped. */
+    overflow-y: auto;
     /* Opaque solid panel (no backdrop blur). Light surface by default;
        dark override lives in the main.bg-2 block below. */
     background: var(--surface-mobile-menu);
@@ -295,7 +302,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    margin-top: var(--space-5xl);
+    /* Clears the absolutely-positioned close button without wasting vertical
+       space — the old 5xl pushed the links down far enough that the bottom
+       theme button overflowed short viewports. */
+    margin-top: var(--space-4xl);
   }
 
   &__mobile-link {
@@ -333,7 +343,12 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
+    /* Pin to the bottom, keep a gap from the links above (margin-top:auto), a
+       small bottom gap, and never shrink so it stays fully visible (with
+       scroll) on short viewports. */
     margin-top: auto;
+    margin-bottom: var(--space-sm);
+    flex-shrink: 0;
     padding: var(--space-lg) var(--space-xl);
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
