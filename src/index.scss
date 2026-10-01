@@ -159,6 +159,14 @@
   --glass-bg-solid: rgba(255, 255, 255, 0.85);
   --glass-border: hsla(var(--primary-hue), 20%, 30%, 0.18);
   --glass-blur: 20px;
+  /* Single source of truth for the frosted-glass backdrop. On mobile this is
+     switched to `none` (see media query below): backdrop-filter: blur() is the
+     single most GPU-expensive effect on the page, and with ~8 glass surfaces
+     down a long page, every theme toggle forced them all to re-blur in one
+     frame — the real cause of the sluggish toggle on mid-range phones. The
+     --glass-bg-solid fallback (0.85 alpha light / opaque dark) reads virtually
+     identical at phone size, so dropping the blur costs nothing visually. */
+  --glass-filter: blur(var(--glass-blur));
 
   /* Mobile menu panel — opaque surface (no blur) for performance.
      Purple-tinted off-white in light mode; dark override in .bg-2. */
@@ -194,6 +202,16 @@
     var(--color-accent) 22%,
     transparent
   );
+}
+
+/* Drop the frosted-glass blur on phones. This is the single biggest lever for a
+   smooth theme toggle on mid-range mobile GPUs — see --glass-filter note above.
+   Any surface that uses `backdrop-filter: var(--glass-filter)` picks this up
+   automatically, so new glass surfaces stay fast by default. */
+@media (max-width: 768px) {
+  :root {
+    --glass-filter: none;
+  }
 }
 
 *,

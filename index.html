@@ -4,6 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Pre-paint theme resolution. Runs before first paint so the loader and
+         body background match the user's theme immediately (no flash of the
+         wrong background). Precedence mirrors ThemeProvider: saved choice ->
+         OS prefers-color-scheme -> dark default. Sets data-theme on <html>;
+         the loader/body background below is driven off that attribute. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("darkMode");
+          var isDark =
+            saved !== null
+              ? JSON.parse(saved)
+              : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = isDark ? "dark" : "light";
+        } catch (e) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+
     <!-- Theme Color - Purple accent -->
     <meta name="theme-color" content="#8B5CF6" />
     <meta name="msapplication-TileColor" content="#8B5CF6" />
@@ -114,7 +134,12 @@
         font-weight: 400;
         line-height: 1.7;
         font-size: 1.6rem;
+        /* Theme-aware so a first-time light-preferring visitor doesn't flash a
+           dark background. data-theme is set by the pre-paint script above. */
         background: #0f0f14;
+      }
+      html[data-theme="light"] body {
+        background: #f9f9fa;
       }
       :root {
         --primary-hue: 270;
@@ -326,7 +351,7 @@
         margin: 0 auto;
         padding: 0 3.2rem;
       }
-      /* ── Initial loader ── */
+      /* ── Initial loader ── (background follows data-theme) */
       #initial-loader {
         position: fixed;
         inset: 0;
@@ -335,6 +360,15 @@
         justify-content: center;
         background: #0f0f14;
         z-index: 9999;
+      }
+      html[data-theme="light"] #initial-loader {
+        background: #f9f9fa;
+      }
+      /* Hero first-paint background follows the theme too, so the above-fold
+         frame doesn't flash dark-then-light (or vice versa) before the main
+         bundle's CSS applies the real tokens. */
+      html[data-theme="dark"] .hero {
+        background: #0f0f14;
       }
     </style>
   </head>
@@ -351,7 +385,6 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #0f0f14;
           z-index: 9999;
         "
       >

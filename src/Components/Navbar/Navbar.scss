@@ -40,7 +40,7 @@
   &--scrolled {
     height: 7rem;
     background: var(--glass-bg-solid);
-    backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: var(--glass-filter);
     border-bottom: 1px solid var(--glass-border);
     box-shadow: 0 4px 30px rgba(0, 0, 0, calc(0.1 * var(--shadow-strength)));
   }
@@ -134,8 +134,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
+    /* Solid semi-transparent surface — no backdrop-filter. A blurred button
+       forces its own compositing layer which adds GPU pressure on every tap,
+       making the theme toggle feel sluggish on mid-range phones. A crisp
+       solid tint is visually indistinguishable at this size. */
+    background: hsla(var(--primary-hue), 10%, 50%, 0.15);
     border: 1px solid var(--glass-border);
     border-radius: 50%;
     color: var(--color-accent);
@@ -175,8 +178,7 @@
     height: 4.4rem;
     align-items: center;
     justify-content: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
+    background: hsla(var(--primary-hue), 10%, 50%, 0.15);
     border: 1px solid var(--glass-border);
     border-radius: 50%;
     color: var(--color-dark);
@@ -279,8 +281,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
+    background: hsla(var(--primary-hue), 10%, 50%, 0.15);
     border: 1px solid var(--glass-border);
     border-radius: 50%;
     color: var(--color-dark);

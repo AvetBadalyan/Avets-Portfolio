@@ -304,7 +304,7 @@
     position: absolute;
     padding: var(--space-xs) var(--space-md);
     background: var(--glass-bg-solid);
-    backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: var(--glass-filter);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-pill);
     font-size: var(--font-size-sm);
@@ -451,7 +451,7 @@
     gap: var(--space-lg);
     padding: var(--space-xl) var(--space-2xl);
     background: var(--glass-bg-solid);
-    backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: var(--glass-filter);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-1);
     box-shadow: var(--shadow-md);

@@ -137,7 +137,7 @@
     flex-direction: column;
     gap: var(--space-md);
     background: var(--glass-bg-solid);
-    backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: var(--glass-filter);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-1);
     padding: var(--space-xl);
