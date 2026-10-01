@@ -7,7 +7,9 @@
   top: -100%;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-accent);
+  /* Primary (dark both themes) keeps white text readable; accent goes pale in
+     dark mode. This is a keyboard-focus a11y control, so legibility matters. */
+  background: var(--color-primary);
   color: var(--color-on-primary);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--border-radius-2);
@@ -160,8 +162,10 @@
     }
 
     &:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
+      /* Primary fill (dark both themes) so the white icon stays readable on
+         hover in dark mode; identical to accent in light mode. */
+      background: var(--color-primary);
+      border-color: var(--color-primary);
       color: var(--color-on-primary);
       box-shadow: var(--shadow-accent);
       transform: scale(1.1);
@@ -197,8 +201,10 @@
     }
 
     &:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
+      /* Primary fill (dark both themes) keeps the white icon readable in dark
+         mode; identical to accent in light mode. */
+      background: var(--color-primary);
+      border-color: var(--color-primary);
       color: var(--color-on-primary);
       transform: scale(1.1);
     }
@@ -293,8 +299,9 @@
       border-color var(--duration-theme) var(--easing-default);
 
     &:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
+      /* Primary fill (dark both themes) keeps white icon readable in dark mode. */
+      background: var(--color-primary);
+      border-color: var(--color-primary);
       color: var(--color-on-primary);
     }
   }
@@ -369,8 +376,8 @@
     }
 
     &:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
+      background: var(--color-primary);
+      border-color: var(--color-primary);
       color: var(--color-on-primary);
 
       svg {
@@ -427,8 +434,8 @@ main.bg-2 {
       color: var(--color-dark);
 
       &:hover {
-        background: var(--color-accent);
-        border-color: var(--color-accent);
+        background: var(--color-primary);
+        border-color: var(--color-primary);
         color: var(--color-on-primary);
       }
     }

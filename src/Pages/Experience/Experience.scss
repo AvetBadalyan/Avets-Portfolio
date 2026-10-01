@@ -395,7 +395,8 @@
     z-index: var(--z-elevated);
 
     &:hover {
-      background: var(--color-accent);
+      /* Primary (dark both themes) keeps the white icon readable in dark mode. */
+      background: var(--color-primary);
       color: var(--color-on-primary);
     }
   }
@@ -510,7 +511,10 @@
    ============================================ */
 
 .contribution-card {
-  background: var(--color-accent);
+  /* --color-primary stays dark (36% L) in BOTH themes, so white text keeps
+     strong contrast. --color-accent lightens to 72% L in dark mode — using it
+     as a background here put white text on pale purple and failed contrast. */
+  background: var(--color-primary);
   color: var(--color-on-primary);
   border-radius: var(--border-radius-2);
   padding: var(--space-lg);
@@ -532,6 +536,10 @@
     font-size: var(--font-size-sm);
     font-weight: var(--fw-bold);
     margin: 0;
+    /* Explicit white: this is an <h4>, and the global `h1..h6 { color:
+       --color-black }` rule would otherwise override the card's inherited
+       white and render a dark title on the purple card (fails contrast). */
+    color: var(--color-on-primary);
   }
 
   &__points {
@@ -623,7 +631,7 @@ main.bg-2 {
       color: var(--color-dark);
 
       &:hover {
-        background: var(--color-accent);
+        background: var(--color-primary);
         color: var(--color-on-primary);
       }
     }

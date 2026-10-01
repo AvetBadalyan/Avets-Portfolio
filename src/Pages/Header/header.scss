@@ -232,8 +232,10 @@
     transition: var(--transition-base);
 
     &:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
+      /* Primary (dark both themes) keeps white icon readable on hover in dark
+         mode; same as accent in light mode. */
+      background: var(--color-primary);
+      border-color: var(--color-primary);
       color: var(--color-on-primary);
       transform: translateY(-4px) scale(1.1);
       box-shadow: var(--shadow-accent);
@@ -662,8 +664,8 @@ main.bg-2 {
       color: var(--color-black);
 
       &:hover {
-        background: var(--color-accent);
-        border-color: var(--color-accent);
+        background: var(--color-primary);
+        border-color: var(--color-primary);
         color: var(--color-on-primary);
       }
     }

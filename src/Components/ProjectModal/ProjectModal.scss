@@ -69,7 +69,9 @@
     transition: var(--transition-fast);
 
     &:hover {
-      background: var(--color-accent);
+      /* Primary (dark both themes) keeps the white × readable on hover; accent
+         goes pale in dark mode. */
+      background: var(--color-primary);
       transform: scale(1.1);
     }
 
@@ -100,7 +102,9 @@
     bottom: var(--space-md);
     left: var(--space-md);
     padding: var(--space-xs) var(--space-md);
-    background: var(--color-accent);
+    /* --color-primary stays dark in both themes; --color-accent goes pale in
+       dark mode and fails contrast with white. */
+    background: var(--color-primary);
     color: white;
     font-size: var(--font-size-xs);
     font-weight: var(--fw-bold);
@@ -220,11 +224,14 @@
     }
 
     &--primary {
-      background: var(--color-accent);
+      /* Primary (dark in both themes) keeps white text readable; accent would
+         go pale in dark mode. */
+      background: var(--color-primary);
       color: white;
 
       &:hover {
         background: var(--color-primary);
+        filter: brightness(1.12);
         transform: translateY(-2px);
       }
     }
@@ -235,8 +242,11 @@
       border: 2px solid var(--color-accent);
 
       &:hover {
-        background: var(--color-accent);
+        /* Fill with primary (dark both themes), not accent, so white text stays
+           readable on hover in dark mode. */
+        background: var(--color-primary);
         color: white;
+        border-color: var(--color-primary);
         transform: translateY(-2px);
       }
     }
@@ -282,8 +292,9 @@ main.bg-2 {
       border-color: var(--color-accent);
 
       &:hover {
-        background: var(--color-accent);
+        background: var(--color-primary);
         color: white;
+        border-color: var(--color-primary);
       }
     }
   }
