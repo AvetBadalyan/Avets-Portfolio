@@ -12,7 +12,7 @@ import jobTestPrepScreenshot from "../../assets/portfolio/jobTestPrep.webp";
 import jokeTellerScreenshot from "../../assets/portfolio/joke-teller.webp";
 import monochromeThemeScreenshot from "../../assets/portfolio/monochrome-theme.webp";
 import mottoThemeScreenshot from "../../assets/portfolio/motto-theme.webp";
-import musicAppScreenshot from "../../assets/portfolio/music app.webp";
+import musicAppScreenshot from "../../assets/portfolio/music-app.webp";
 import petutyunScreenshot from "../../assets/portfolio/petutyun.webp";
 import realEstateScreenshot from "../../assets/portfolio/screenshot1.webp";
 import techshopScreenshot from "../../assets/portfolio/techshop.webp";
@@ -22,7 +22,7 @@ import wanderArmeniaScreenshot from "../../assets/portfolio/wanderarmenia.webp";
 
 // Keys match the `imageFile` values in portfolioData.json.
 const projectImages = {
-  "music app.webp": musicAppScreenshot,
+  "music-app.webp": musicAppScreenshot,
   "edu-scheduler.webp": eduSchedulerScreenshot,
   "chat-app-new.webp": chatAppNewScreenshot,
   "screenshot1.webp": realEstateScreenshot,

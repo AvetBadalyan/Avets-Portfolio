@@ -1,0 +1,36 @@
+/* ============================================
+   CATEGORY GROUP — Desktop category sections
+   ============================================ */
+
+/* Desktop category sections. Rendered by Portfolio.jsx above 768px (the same
+   breakpoint that switches off the mobile slider), so style from 769px up to
+   match — a min-width:1024px here left 769–1024px unstyled. */
+@media (min-width: 769px) {
+  /* Each category is its own panel — a surface card on the section's grey bg —
+     so groups read as deliberate blocks instead of floating on empty grey. */
+  .category-group {
+    background: var(--color-white);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-1);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    box-shadow: var(--shadow-sm);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &__header {
+      font-size: var(--font-size-xl);
+      font-family: var(--font-family-display);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--space-xl);
+      color: var(--color-black);
+      /* Accent-anchored label. */
+      padding-left: var(--space-md);
+      border-left: 3px solid var(--color-accent);
+    }
+
+    /* &__grid inherits .portfolio__grid (bento layout) via the shared class. */
+  }
+}

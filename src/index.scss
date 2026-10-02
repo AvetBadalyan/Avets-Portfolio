@@ -104,10 +104,14 @@
   --border-radius-pill: 100px;
 
   /* SEMANTIC LAYOUT TOKENS */
-  --section-padding-block: var(--space-6xl);
+  /* Per-side section padding. Adjacent sections each contribute this, so the
+     visible gap between two sections is 2× this value. 48px/side → ~96px
+     between sections: generous but not cavernous. (Was --space-6xl/80px, which
+     stacked to 160px between sections — too much dead space.) */
+  --section-padding-block: var(--space-4xl);
   --section-copy-margin-top: var(--space-xs);
-  --section-copy-margin-bottom: var(--space-5xl);
-  --section-copy-margin-bottom-tablet: var(--space-4xl);
+  --section-copy-margin-bottom: var(--space-4xl);
+  --section-copy-margin-bottom-tablet: var(--space-3xl);
 
   /* Z-INDEX SCALE
      --z-modal-backdrop/--z-modal: mobile nav drawer (scrim + panel).
@@ -274,6 +278,11 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
   -webkit-text-size-adjust: 100%;
+  /* Guard against horizontal page scroll. A single off-viewport element (e.g.
+     the mobile category slider's full-bleed track, or any decorative overflow)
+     must never make the whole page scroll sideways. Vertical scroll is
+     unaffected. */
+  overflow-x: hidden;
 }
 
 body {
@@ -283,6 +292,7 @@ body {
   line-height: var(--line-height-body);
   font-size: var(--font-size-base);
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 p {

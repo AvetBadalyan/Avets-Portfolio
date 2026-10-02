@@ -1,0 +1,116 @@
+/* Mobile-only horizontal carousel (desktop renders CategoryGroup instead).
+   Scoped to <=768px. Each card shows at ~85% width with a peek of the next card
+   (~15%) to signal swipeability. Swipe snaps to each card; dots below show
+   position. Sits directly on the section background.
+
+   UNIFORMITY: All cards in the slider have identical height — fixed image
+   height, clamped description (3 lines), and flexbox pushes buttons to the
+   bottom. This creates visual consistency when swiping (Netflix/App Store
+   pattern). */
+@media (max-width: 768px) {
+  .category-slider {
+    margin-bottom: var(--space-2xl);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &__header {
+      font-size: var(--font-size-lg);
+      font-family: var(--font-family-display);
+      font-weight: var(--fw-bold);
+      color: var(--color-black);
+      margin-bottom: var(--space-md);
+      /* Accent-anchored label, aligned to the content margin. */
+      padding-left: var(--space-sm);
+      border-left: 3px solid var(--color-accent);
+    }
+
+    &__track {
+      display: flex;
+      align-items: stretch; /* All items same height — tallest card wins */
+      gap: var(--space-md);
+      /* Small vertical padding so card shadows aren't clipped by overflow. No
+         horizontal bleed — the track stays within the content margin. */
+      padding-block: var(--space-xs);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      -webkit-overflow-scrolling: touch;
+
+      /* Element handles horizontal panning — keeps vertical page scroll free
+         and stops taps triggering the browser's swipe-to-navigate gesture. */
+      touch-action: pan-x;
+
+      &:focus-visible {
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: calc(-1 * var(--focus-ring-width));
+        border-radius: var(--border-radius-3);
+      }
+    }
+
+    &__item {
+      /* Show ~85% of the card width, leaving a peek of the next card (~15%) to
+         signal swipeability. The partial card is a stronger affordance than
+         dots alone. */
+      flex: 0 0 85%;
+      min-width: 0;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+
+      /* If only one card in category, show it full-width (no peek needed) */
+      &--single {
+        flex-basis: 100%;
+      }
+
+      /* ─────────────────────────────────────────────────────────────────────
+         UNIFORM CARD SIZING — All cards match so swiping feels consistent.
+         ───────────────────────────────────────────────────────────────────── */
+
+      /* Stretch card to fill the item height (flexbox alignment) */
+      .project-card {
+        height: 100%;
+      }
+
+      /* Fixed image height — creates consistent visual rhythm */
+      .project-card__image-wrapper {
+        height: 20rem; /* 200px — balanced for mobile viewports */
+      }
+
+      /* Descriptions are normalized to ~160-180 chars in portfolioData.json,
+         so no truncation needed — full text is always visible. */
+
+      /* Buttons always at the bottom — flexbox distributes remaining space */
+      .project-card__mobile-actions {
+        margin-top: auto;
+      }
+    }
+  }
+}
+
+/* Visually hidden but available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reduced motion: disable animated scrolling, snap instantly */
+@media (prefers-reduced-motion: reduce) {
+  .category-slider__track {
+    scroll-behavior: auto;
+  }
+}

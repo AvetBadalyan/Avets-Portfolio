@@ -1,0 +1,98 @@
+/* ============================================
+   NAVIGATION INDICATORS COMPONENT
+   Dot indicators + optional arrow buttons for
+   the CategorySlider's position display.
+   ============================================ */
+
+.nav-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding-inline: var(--container-padding);
+
+  /* ---- Dot buttons ---- */
+  &__dots {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  &__dot {
+    /* Visible dot is rendered via ::after so the larger tap target
+       (44×44 px minimum per WCAG 2.5.5) doesn't affect visual sizing */
+    width: 8px;
+    height: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    /* Allow focus ring on ::after pseudo-element to escape the clipped tap area */
+    overflow: visible;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-dark);
+      opacity: 0.5;
+      transition:
+        opacity var(--duration-base),
+        background var(--duration-base);
+    }
+
+    &[aria-selected="true"]::after {
+      /* Active dot: full opacity, accent color */
+      opacity: 1;
+      background: var(--color-primary);
+    }
+
+    /* Focus ring targets the visible 8×8 dot via outline on ::after */
+    &:focus-visible {
+      /* Override the default outline (which lands on the 44×44 hit area)
+         with a ring that hugs the visible 8px dot via the ::after element */
+      outline: none;
+
+      &::after {
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: 0 0 0 var(--focus-ring-glow) var(--focus-ring-glow-color);
+      }
+    }
+  }
+
+  /* ---- Arrow buttons ---- */
+  &__arrow {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--color-dark);
+    cursor: pointer;
+    transition: opacity var(--duration-base);
+    border-radius: var(--border-radius-3);
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Explicit focus ring so the arrow button gets the same treatment
+       as other interactive controls (outline + glow). The global
+       button:focus-visible rule covers this, but being explicit here
+       ensures it is never overridden by a more-specific rule. */
+    &:focus-visible {
+      outline: var(--focus-ring-width) solid var(--focus-ring-color);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: 0 0 0 var(--focus-ring-glow) var(--focus-ring-glow-color);
+    }
+  }
+}

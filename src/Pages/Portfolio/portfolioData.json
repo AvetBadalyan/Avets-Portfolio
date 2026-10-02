@@ -2,7 +2,7 @@
   "websites": [
     {
       "category": "Shopify",
-      "description": "Premium theme ($320) on the official Shopify Theme Store. A dark, high-contrast design with vibrant accents and conversion-focused tools. 100% positive (6 reviews). Built with Liquid, JavaScript, and SCSS.",
+      "description": "Premium Shopify theme ($320). Dark, high-contrast design with vibrant accents and conversion tools. 100% positive reviews. Liquid, JavaScript, SCSS.",
       "id": "WS18",
       "imageFile": "force-theme.webp",
       "siteName": "Force Theme",
@@ -13,7 +13,7 @@
     },
     {
       "category": "Shopify",
-      "description": "Premium theme ($320) on the official Shopify Theme Store. A minimal, refined design for visual storytelling with 30+ sections, scroll animations, and bold typography. 96% positive (27 reviews).",
+      "description": "Premium Shopify theme ($320). Minimal design for visual storytelling with 30+ sections, scroll animations, and bold typography. 96% positive reviews.",
       "id": "WS19",
       "imageFile": "monochrome-theme.webp",
       "siteName": "Monochrome Theme",
@@ -24,7 +24,7 @@
     },
     {
       "category": "Shopify",
-      "description": "Premium theme ($320) on the official Shopify Theme Store. A clean, modern design focused on full-width product presentation with conversion tools. 93% positive (27 reviews).",
+      "description": "Premium Shopify theme ($320). Clean, modern design with full-width product layouts and conversion tools. 93% positive reviews. Built with Liquid and SCSS.",
       "id": "WS20",
       "imageFile": "motto-theme.webp",
       "siteName": "Motto Theme",
@@ -35,7 +35,7 @@
     },
     {
       "category": "Full Stack",
-      "description": "Two-sided job marketplace for Armenia: candidates apply and track applications while employers post and manage openings. React 18, Redux Toolkit, and Supabase with role-based auth and Row Level Security.",
+      "description": "Job marketplace for Armenia: candidates apply and track applications, employers post openings. React 18, Redux Toolkit, Supabase with role-based auth.",
       "githubUrl": "https://github.com/AvetBadalyan/joblist-am",
       "id": "WS22",
       "imageFile": "joblist-am.webp",
@@ -47,7 +47,7 @@
     },
     {
       "category": "Full Stack",
-      "description": "University timetable generator powered by a backtracking CSP algorithm that auto-builds conflict-free schedules. React 19, TypeScript, Redux Toolkit, Express, TypeORM, and Supabase.",
+      "description": "University timetable generator with a backtracking CSP algorithm that auto-builds conflict-free schedules. React 19, TypeScript, Redux, Express, Supabase.",
       "githubUrl": "https://github.com/AvetBadalyan/Edu-Scheduler",
       "id": "WS15",
       "imageFile": "edu-scheduler.webp",
@@ -59,7 +59,7 @@
     },
     {
       "category": "React.JS",
-      "description": "All-in-one pet care app with a symptom checker, adoption browser, dosage calculator, and wellness box builder — including drug-interaction warnings. Built with React 19, TypeScript, Zustand, and Tailwind.",
+      "description": "Pet care app: symptom checker, adoption browser, dosage calculator, and wellness box builder with drug-interaction warnings. React 19, TypeScript, Zustand.",
       "githubUrl": "https://github.com/AvetBadalyan/petutyun",
       "id": "WS21",
       "imageFile": "petutyun.webp",
@@ -71,10 +71,10 @@
     },
     {
       "category": "Full Stack",
-      "description": "Full-stack music library with React, Node.js, Express, PostgreSQL, and Supabase. Browse songs, artists, and albums with a global audio player. Deployed on Vercel.",
+      "description": "Full-stack music library: browse songs, artists, albums with a persistent audio player. React, Node.js, Express, PostgreSQL, Supabase. Deployed on Vercel.",
       "githubUrl": "https://github.com/AvetBadalyan/Music-app-fullstack-practice.git",
       "id": "WS00",
-      "imageFile": "music app.webp",
+      "imageFile": "music-app.webp",
       "siteName": "Music App",
       "webUrl": "https://musicavet.vercel.app/",
       "featured": true,
@@ -83,7 +83,7 @@
     },
     {
       "category": "MERN",
-      "description": "MERN real estate app with property search across 10 countries, price-history charts, a mortgage calculator, and Google Maps. JWT + Google auth, Cloudinary uploads, and a fully responsive UI.",
+      "description": "Real estate app with property search across 10 countries, price-history charts, mortgage calculator, and Google Maps. JWT + Google auth, Cloudinary uploads.",
       "githubUrl": "https://github.com/AvetBadalyan/MERN-Real-Estate-Project.git",
       "id": "WS02",
       "imageFile": "screenshot1.webp",
@@ -95,7 +95,7 @@
     },
     {
       "category": "MERN",
-      "description": "MERN e-commerce store with product search, cart, reviews, and server-verified PayPal checkout. React 19 + RTK Query front end, Express 5 API with JWT auth and Zod validation.",
+      "description": "E-commerce store with product search, cart, reviews, and server-verified PayPal checkout. React 19 + RTK Query frontend, Express 5 with JWT auth and MongoDB.",
       "githubUrl": "https://github.com/AvetBadalyan/TechShop-MERN-practice.git",
       "id": "WS03",
       "imageFile": "techshop.webp",
@@ -106,7 +106,7 @@
     },
     {
       "category": "MERN",
-      "description": "Real-time MERN chat with Socket.io, typing indicators, emoji reactions, unread badges, and online presence. React 19 + Zustand frontend, Express 5 backend with JWT auth and Cloudinary uploads.",
+      "description": "Real-time chat app with Socket.io: typing indicators, emoji reactions, unread badges, online presence. React 19 + Zustand, Express 5 with JWT and Cloudinary.",
       "githubUrl": "https://github.com/AvetBadalyan/Chat-app",
       "id": "WS01",
       "imageFile": "chat-app-new.webp",
@@ -118,7 +118,7 @@
     },
     {
       "category": "MERN",
-      "description": "Travel atlas of Armenia: 461 monasteries, fortresses and mountains from Wikidata. Search by region, find what's nearby, and plan a day on the map. MERN, serverless.",
+      "description": "Travel atlas of Armenia: 461 monasteries, fortresses, mountains from Wikidata. Search by region, find nearby sites, plan day trips on a map. MERN, serverless.",
       "githubUrl": "https://github.com/AvetBadalyan/wander-armenia",
       "id": "WS04",
       "imageFile": "wanderarmenia.webp",
@@ -129,7 +129,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Fashion e-commerce with size/color variants, faceted filters, wishlist, quick-view modals, a checkout flow, auth, and order history. React 19, Redux Toolkit, and Framer Motion.",
+      "description": "Fashion e-commerce: size/color variants, faceted filters, wishlist, quick-view modals, checkout flow, auth, order history. React 19, Redux Toolkit, Framer Motion.",
       "githubUrl": "https://github.com/AvetBadalyan/modern-fashion-store",
       "id": "WS16",
       "imageFile": "fashion-store.webp",
@@ -140,7 +140,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Classic Battleship vs. an AI opponent using a Hunt/Target algorithm. Drag-and-drop ship placement, sound effects, hit/miss animations, and game stats. React 19, TypeScript, Zustand, and Framer Motion.",
+      "description": "Classic Battleship vs. AI using Hunt/Target algorithm. Drag-and-drop ship placement, sound effects, hit/miss animations, game stats. React 19, TypeScript, Zustand.",
       "githubUrl": "https://github.com/AvetBadalyan/ACA-BATTLESHIP-with-React.js",
       "id": "WS17",
       "imageFile": "battleship.webp",
@@ -151,7 +151,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Cocktail encyclopedia to browse 160+ recipes, filter by category or A–Z, save favorites, and discover with Surprise Me. Lazy loading and skeleton states. React 19, Redux Toolkit, and Vite.",
+      "description": "Cocktail encyclopedia: 160+ recipes, filter by category or A–Z, save favorites, recently viewed, Surprise Me. Lazy loading, skeleton states. React 19, Redux.",
       "githubUrl": "https://github.com/AvetBadalyan/Tales-of-Cocktails-Redux-Toolkit",
       "id": "WS09",
       "imageFile": "cocktails-new.webp",
@@ -162,7 +162,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Day planner that turns plain text like \"90m next tuesday\" into a task, then warns when the day is overbooked against its set capacity. Built with React, Redux Toolkit.",
+      "description": "Day planner that parses \"90m next tuesday\" into a task with duration and date, warns when a day is overbooked past its capacity. React 19 and Redux Toolkit.",
       "githubUrl": "https://github.com/AvetBadalyan/Avetime_Day_Planner",
       "id": "WS07",
       "imageFile": "todo-task-page.webp",
@@ -173,7 +173,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Frontend interview quiz with 250+ questions across HTML, CSS, JavaScript, and React. Timed questions, difficulty levels, high-score tracking, and syntax-highlighted code blocks. Built with React 19.",
+      "description": "Frontend quiz with 250+ questions on HTML, CSS, JavaScript, React. Timed questions, difficulty levels, high-score tracking, syntax-highlighted code blocks. React 19.",
       "githubUrl": "https://github.com/AvetBadalyan/Frontend-Interview-Quiz",
       "id": "WS14",
       "imageFile": "frontend-quiz.webp",
@@ -184,7 +184,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Music search app built with React 19 and Vite. Browse Apple's top 25 chart, search with debounce, paginate results, and preview 30-second clips. Custom hooks, skeleton loaders, and SCSS design tokens.",
+      "description": "Music search app: Apple's top 25 chart, debounced search, paginated results, 30-second previews. Custom hooks, skeleton loaders, SCSS tokens. React 19, Vite.",
       "githubUrl": "https://github.com/AvetBadalyan/iTunes-music-Searcher",
       "id": "WS08",
       "imageFile": "itunes-new.webp",
@@ -195,7 +195,7 @@
     },
     {
       "category": "React.JS",
-      "description": "React + TypeScript demo built with React Hook Form, Yup, styled-components, TanStack Query, and Axios. Submit a validated registration form and fetch live API data with caching.",
+      "description": "React + TypeScript demo: React Hook Form, Yup validation, styled-components, TanStack Query, Axios. Validated registration form and cached API data fetching.",
       "githubUrl": "https://github.com/AvetBadalyan/React-hook-form-demo",
       "id": "WS13",
       "imageFile": "jobTestPrep.webp",
@@ -206,7 +206,7 @@
     },
     {
       "category": "React.JS",
-      "description": "Food delivery app with React 19, Context API, Framer Motion, and Firebase Auth. Features 32+ meals, category filters, a slide-out cart, and 3-step checkout — no Redux or custom backend.",
+      "description": "Food delivery app: 32+ meals, category filters, slide-out cart, 3-step checkout with Firebase Auth. React 19, Context API, Framer Motion — no Redux needed.",
       "githubUrl": "https://github.com/AvetBadalyan/Online-Food-Store",
       "id": "WS05",
       "imageFile": "foodStoreScreen2.webp",
@@ -217,7 +217,7 @@
     },
     {
       "category": "Pure JS",
-      "description": "Joke app with text-to-speech, voice selector, 6 categories, saved jokes collection, and dark/light mode. PWA-installable, works offline. Built with pure HTML, CSS, and JavaScript — no frameworks.",
+      "description": "Joke app: text-to-speech, voice selector, 6 categories, saved jokes, dark/light mode. PWA-installable, works offline. Pure HTML, CSS, JavaScript — no frameworks.",
       "githubUrl": "https://github.com/AvetBadalyan/Joke-Teller-with-Text-to-Speech",
       "id": "WS10",
       "imageFile": "joke-teller.webp",
@@ -228,7 +228,7 @@
     },
     {
       "category": "Pure JS",
-      "description": "Static travel site showcasing tours, customer stories, and contact info. Built with HTML, CSS, and JS for a responsive design with smooth, engaging animations.",
+      "description": "Static travel site: tours, customer stories, contact info. Fully responsive design with smooth scroll-triggered animations. Built with pure HTML, CSS, and JavaScript.",
       "githubUrl": "https://github.com/AvetBadalyan/The-Road-Tour-aggency-website-Pure-JS",
       "id": "WS12",
       "imageFile": "travel-screenshot2.webp",
