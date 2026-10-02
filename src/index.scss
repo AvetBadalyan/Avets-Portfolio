@@ -278,11 +278,6 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
   -webkit-text-size-adjust: 100%;
-  /* Guard against horizontal page scroll. A single off-viewport element (e.g.
-     the mobile category slider's full-bleed track, or any decorative overflow)
-     must never make the whole page scroll sideways. Vertical scroll is
-     unaffected. */
-  overflow-x: hidden;
 }
 
 body {
@@ -292,7 +287,6 @@ body {
   line-height: var(--line-height-body);
   font-size: var(--font-size-base);
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
 
 p {
