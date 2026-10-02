@@ -33,12 +33,3 @@ export const staggerContainer = (staggerChildren = 0.1, delayChildren = 0) => ({
     },
   },
 });
-
-// Gentle vertical float for decorative elements (looping).
-// Callers must skip this when prefers-reduced-motion is set.
-export const floating = {
-  animate: {
-    y: [-10, 10, -10],
-    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-  },
-};

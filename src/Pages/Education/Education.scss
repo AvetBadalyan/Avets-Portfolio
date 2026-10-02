@@ -230,10 +230,6 @@ main.bg-2 {
       }
     }
 
-    &__card-logo {
-      background: rgba(255, 255, 255, 0.95);
-    }
-
     .education__card:hover .education__card-logo {
       box-shadow:
         var(--shadow-md),

@@ -96,6 +96,22 @@ export const techColors = {
   HTML: { bg: "rgba(228, 77, 38, 0.18)", color: "#F06A4D", solid: "#C1401C" },
   CSS: { bg: "rgba(21, 114, 182, 0.2)", color: "#4F9BD9", solid: "#1E6BA8" },
   PWA: { bg: "rgba(93, 95, 239, 0.2)", color: "#8B8DF5", solid: "#4143C4" },
+  Shopify: {
+    bg: "rgba(149, 191, 71, 0.18)",
+    color: "#95BF47",
+    solid: "#4A7C10",
+  },
+  // Liquid is Shopify's templating language — uses the same brand green family.
+  Liquid: {
+    bg: "rgba(149, 191, 71, 0.15)",
+    color: "#7FAD35",
+    solid: "#3D6A0C",
+  },
+  SCSS: {
+    bg: "rgba(204, 102, 153, 0.18)",
+    color: "#E06FA0",
+    solid: "#A63470",
+  },
 };
 
 export const defaultTechStyle = {

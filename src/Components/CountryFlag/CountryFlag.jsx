@@ -55,10 +55,14 @@ const flagPaths = {
 /**
  * @param {object} props
  * @param {"AM"|"FR"|"RU"|"GB"} props.countryCode
+ * @param {string} [props.title] - Accessible name for the flag when it is not
+ *   hidden from assistive technology. When omitted (or when the parent passes
+ *   aria-hidden="true") the SVG carries no accessible name, which is correct
+ *   for purely decorative usage.
  * @param {object} [props.style]
  * @param {string} [props.className]
  */
-const CountryFlag = ({ countryCode, style, className, ...rest }) => {
+const CountryFlag = ({ countryCode, title, style, className, ...rest }) => {
   const paths = flagPaths[countryCode];
   if (!paths) return null;
 
@@ -67,10 +71,12 @@ const CountryFlag = ({ countryCode, style, className, ...rest }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 640 480"
       role="img"
+      aria-label={title || undefined}
       className={className}
       style={style}
       {...rest}
     >
+      {title && <title>{title}</title>}
       {paths}
     </svg>
   );
