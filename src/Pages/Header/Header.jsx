@@ -18,7 +18,7 @@ import "./header.scss";
 const Header = () => {
   const stats = [
     { number: "3+", label: "Years Exp" },
-    { number: "21", label: "Projects" },
+    { number: "20", label: "Projects" },
     { number: "4", label: "MERN Apps" },
     { number: "3", label: "Shopify Themes" },
   ];

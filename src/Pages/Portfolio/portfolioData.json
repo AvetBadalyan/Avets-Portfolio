@@ -193,17 +193,7 @@
       "tech": ["React", "Vite", "JavaScript"],
       "challenge": "Made search wait until you stop typing before calling the API, so it doesn't fire a request on every keystroke or show results from an old search. Added loading placeholders shaped like the real content so the page doesn't jump when data arrives."
     },
-    {
-      "category": "React.JS",
-      "description": "React + TypeScript demo: React Hook Form, Yup validation, styled-components, TanStack Query, Axios. Validated registration form and cached API data fetching.",
-      "githubUrl": "https://github.com/AvetBadalyan/React-hook-form-demo",
-      "id": "WS13",
-      "imageFile": "jobTestPrep.webp",
-      "siteName": "React Hook Form Demo",
-      "webUrl": "https://jobtestprep-demo.web.app",
-      "tech": ["React", "TypeScript", "React Hook Form", "TanStack Query"],
-      "challenge": "Built a registration form with full validation (required fields, formats, matching passwords) using React Hook Form, and fetched live data from an API with caching so it doesn't refetch the same data repeatedly."
-    },
+
     {
       "category": "React.JS",
       "description": "Food delivery app: 32+ meals, category filters, slide-out cart, 3-step checkout with Firebase Auth. React 19, Context API, Framer Motion — no Redux needed.",

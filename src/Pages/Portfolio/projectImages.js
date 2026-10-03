@@ -8,7 +8,7 @@ import forceThemeScreenshot from "../../assets/portfolio/force-theme.webp";
 import frontendQuizScreenshot from "../../assets/portfolio/frontend-quiz.webp";
 import itunesNewScreenshot from "../../assets/portfolio/itunes-new.webp";
 import joblistAmScreenshot from "../../assets/portfolio/joblist-am.webp";
-import jobTestPrepScreenshot from "../../assets/portfolio/jobTestPrep.webp";
+
 import jokeTellerScreenshot from "../../assets/portfolio/joke-teller.webp";
 import monochromeThemeScreenshot from "../../assets/portfolio/monochrome-theme.webp";
 import mottoThemeScreenshot from "../../assets/portfolio/motto-theme.webp";
@@ -36,7 +36,7 @@ const projectImages = {
   "cocktails-new.webp": cocktailsNewScreenshot,
   "joke-teller.webp": jokeTellerScreenshot,
   "travel-screenshot2.webp": travelScreenshot,
-  "jobTestPrep.webp": jobTestPrepScreenshot,
+
   "battleship.webp": battleshipScreenshot,
   "force-theme.webp": forceThemeScreenshot,
   "monochrome-theme.webp": monochromeThemeScreenshot,
