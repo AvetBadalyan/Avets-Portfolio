@@ -48,15 +48,15 @@ It features:
 
 Some of the web apps featured in my portfolio include:
 
-| Category   | Project                                                            | Description                                                                            |
-| ---------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| Full Stack | [**Music App**](https://musicavet.vercel.app/)                     | Full-stack music library with React, Node.js, PostgreSQL, and persistent audio player. |
-| Full Stack | [**EduScheduler**](https://edu-scheduler-aca.vercel.app)           | University timetable generator with backtracking CSP algorithm.                        |
-| MERN       | [**Avetbook Chat App**](https://avetbook-chat-app.onrender.com)    | Real-time chat with Socket.io, typing indicators, and online presence.                 |
-| MERN       | [**Real Estate App**](https://avets-real-estate.vercel.app)        | Property search across 10 countries with Google Maps integration.                      |
-| MERN       | [**TechShop**](https://avets-techshop.vercel.app/)                 | E-commerce with server-verified PayPal checkout — React 19, Express 5, RTK Query.      |
-| React.js   | [**Battleship Game**](https://aca-battleship.vercel.app/)          | Classic Battleship vs AI with Hunt/Target algorithm, drag-and-drop, and sound effects. |
-| React.js   | [**Fashion Store**](https://modern-fashion-store-theta.vercel.app) | E-commerce with size/color variants, faceted filters, wishlist, and checkout flow.     |
+| Category   | Project                                                              | Description                                                                            |
+| ---------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Shopify    | [**Force Theme**](https://themes.shopify.com/themes/force)           | Premium Shopify theme ($320) — dark, high-contrast design with 100% positive reviews.  |
+| Shopify    | [**Monochrome Theme**](https://themes.shopify.com/themes/monochrome) | Premium Shopify theme ($320) — minimal design with 30+ sections and scroll animations. |
+| Full Stack | [**JobList.am**](https://joblist-am.vercel.app)                      | Job marketplace with role-based auth — React, Redux, Supabase with Row Level Security. |
+| Full Stack | [**EduScheduler**](https://edu-scheduler-aca.vercel.app)             | University timetable generator with backtracking CSP algorithm.                        |
+| MERN       | [**Avetbook Chat App**](https://avetbook-chat-app.onrender.com)      | Real-time chat with Socket.io, typing indicators, and online presence.                 |
+| MERN       | [**Real Estate App**](https://avets-real-estate.vercel.app)          | Property search across 10 countries with Google Maps integration.                      |
+| React.js   | [**Battleship Game**](https://aca-battleship.vercel.app/)            | Classic Battleship vs AI with Hunt/Target algorithm, drag-and-drop, and sound effects. |
 
 _(20 projects total — see the live site for the complete list!)_
 
