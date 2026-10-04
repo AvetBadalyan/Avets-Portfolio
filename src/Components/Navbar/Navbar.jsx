@@ -180,6 +180,10 @@ const Navbar = () => {
                 {navLinks.map((item, index) => {
                   const sectionId = item.link.slice(1);
                   const isActive = activeSection === sectionId;
+                  const handleMobileLinkClick = () => {
+                    setActiveSection(sectionId);
+                    closeMenu();
+                  };
                   return (
                     <a
                       key={item.id}
@@ -187,7 +191,7 @@ const Navbar = () => {
                       className={`nav__mobile-link nav__mobile-link--animate ${isActive ? "nav__mobile-link--active" : ""}`}
                       style={{ animationDelay: `${0.08 + index * 0.05}s` }}
                       aria-current={isActive ? "page" : undefined}
-                      onClick={closeMenu}
+                      onClick={handleMobileLinkClick}
                     >
                       {item.title}
                     </a>
