@@ -63,8 +63,8 @@ function prioritizeEntryScriptPlugin() {
 
 /**
  * Converts Vite's injected render-blocking <link rel="stylesheet"> into a
- * non-blocking preload+onload swap. The critical above-the-fold CSS is already
- * inlined in index.html, so the full bundle can load asynchronously without
+ * non-blocking preload+onload swap. Before React mounts only the static loader
+ * in index.html paints, so the full bundle can load asynchronously without
  * blocking first paint. A <noscript> fallback keeps styles working with JS off.
  *
  * Runs at the very end (enforce: "post") so it sees the <link> tags after Vite
