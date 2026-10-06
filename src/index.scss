@@ -758,11 +758,6 @@ button {
   transition: outline-offset var(--duration-base) var(--easing-default);
 }
 
-/* Skip-link target: focused by script, so no ring around the whole page. */
-#main-content:focus-visible {
-  outline: none;
-}
-
 /* Buttons and links get a glow on top of the outline */
 button:focus-visible,
 a:focus-visible,

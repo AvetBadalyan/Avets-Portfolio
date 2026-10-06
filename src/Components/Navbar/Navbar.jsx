@@ -118,10 +118,6 @@ const Navbar = () => {
       <nav
         className={`nav nav--animate ${isScrolled ? "nav--scrolled" : ""} ${isMenuOpen ? "nav--open" : ""}`}
       >
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-
         <div className="container nav__container">
           <a href="#header" className="nav__logo" aria-label="AB - Home">
             <FaBriefcase />

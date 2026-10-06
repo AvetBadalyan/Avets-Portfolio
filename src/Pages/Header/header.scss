@@ -543,42 +543,6 @@
     white-space: nowrap;
   }
 
-  /* Scroll Indicator */
-  &__scroll {
-    position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    /* `translate`, not `transform`: the fadeInUp entrance animates transform
-       and would otherwise wipe out the centering. */
-    translate: -50% 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-    color: var(--color-dark);
-    text-decoration: none;
-    font-size: var(--font-size-sm);
-    font-weight: var(--fw-medium);
-    transition: var(--transition-base);
-    z-index: var(--z-elevated);
-
-    &:hover {
-      opacity: 1;
-      color: var(--color-accent);
-    }
-
-    @media (max-width: 1024px) {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      translate: none;
-      margin-top: var(--space-2xl);
-    }
-  }
-
-  &__scroll-icon {
-    font-size: var(--font-size-base);
-  }
 }
 
 /* ============================================
@@ -756,16 +720,6 @@
   }
 }
 
-@keyframes scrollBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
 @keyframes rotateRingOuter {
   from {
     transform: rotate(0deg);
@@ -823,23 +777,6 @@
 
 .hero__stat--animate {
   animation: fadeInUp var(--duration-base) var(--easing-emphasized) backwards;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-}
-
-.hero__scroll--animate {
-  animation: fadeInUp var(--duration-base) var(--easing-emphasized) 1.8s both;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.hero__scroll-icon {
-  animation: scrollBounce 1.5s ease-in-out infinite;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;

@@ -2,26 +2,6 @@
    NAVBAR - Glassmorphism + Active Section
    ============================================ */
 
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-  /* Primary (dark both themes) keeps white text readable; accent goes pale in
-     dark mode. This is a keyboard-focus a11y control, so legibility matters. */
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--border-radius-2);
-  font-weight: var(--fw-semibold);
-  z-index: calc(var(--z-navbar) + 10);
-  transition: top var(--duration-base) var(--easing-default);
-
-  &:focus {
-    top: var(--space-sm);
-  }
-}
-
 .nav {
   position: fixed;
   top: 0;

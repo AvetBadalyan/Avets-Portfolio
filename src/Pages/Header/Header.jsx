@@ -1,5 +1,4 @@
 import {
-  FaArrowDown,
   FaDownload,
   FaGithub,
   FaJs,
@@ -194,16 +193,6 @@ const Header = () => {
         </div>
       </div>
 
-      <a
-        href="#about"
-        className="hero__scroll hero__scroll--animate"
-        aria-label="Scroll to About section"
-      >
-        <span>Scroll</span>
-        <div className="hero__scroll-icon">
-          <FaArrowDown />
-        </div>
-      </a>
     </header>
   );
 };

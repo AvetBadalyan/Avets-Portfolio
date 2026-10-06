@@ -3,8 +3,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import { useTheme } from "./context/use-theme";
 import Header from "./Pages/Header/Header";
 
-// Above-the-fold (Navbar + Header) loads eagerly. Everything below the fold is
-// code-split and loads when the user scrolls past the hero or follows an anchor.
+// Above-the-fold (Navbar + Header) loads eagerly. Below-the-fold sections are
+// code-split and mounted when the user approaches them or follows an anchor.
 const About = lazy(() => import("./Pages/About/About"));
 const Education = lazy(() => import("./Pages/Education/Education"));
 const Skills = lazy(() => import("./Pages/Skills/Skills"));
