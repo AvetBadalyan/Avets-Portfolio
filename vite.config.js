@@ -123,7 +123,7 @@ export default defineConfig({
         // handle it naturally means only the motion APIs actually imported
         // by lazy sections end up in the bundle.
         manualChunks: {
-          "react-vendor": ["react", "react-dom"],
+          "react-vendor": ["react", "react-dom", "react-dom/client"],
         },
       },
     },
