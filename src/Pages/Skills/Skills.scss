@@ -53,8 +53,13 @@
     }
 
     @media (max-width: 480px) {
-      grid-template-columns: repeat(3, 1fr);
+      /* minmax(0, …) so a long name can't force a column wider than 1/3. */
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: var(--space-sm);
+    }
+
+    @media (max-width: 360px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 }
@@ -125,6 +130,7 @@
     text-align: center;
     line-height: 1.3;
     min-height: calc(2 * 1.3em);
+    overflow-wrap: anywhere;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -158,7 +164,7 @@
    DARK MODE
    ============================================ */
 
-main.bg-2 {
+.portfolio-app.bg-2 {
   .skills {
     background: var(--color-white);
   }

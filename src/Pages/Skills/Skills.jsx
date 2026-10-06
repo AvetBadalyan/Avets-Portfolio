@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { MotionConfig, motion } from "framer-motion";
 import TiltCard from "../../Components/TiltCard/TiltCard";
 import { fadeIn, staggerContainer } from "../../utils/animations";
 import "./Skills.scss";
@@ -44,47 +44,53 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="skills">
-      <div className="container">
-        <motion.div
-          className="skills__header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="section-heading">My Skills</h2>
-          <p className="skills__subtitle">
-            Technologies and tools I work with daily
-          </p>
-        </motion.div>
-
-        {skillCategories.map((category) => (
+    <MotionConfig reducedMotion="user">
+      <section id="skills" className="skills">
+        <div className="container">
           <motion.div
-            key={category.title}
-            className="skills__category"
-            variants={staggerContainer(0.05, 0.2)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
+            className="skills__header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <motion.h3
-              className="skills__category-title"
-              variants={fadeIn("up", 0)}
-            >
-              <span aria-hidden="true">{category.icon}</span>
-              {category.title}
-            </motion.h3>
-
-            <div className="skills__grid">
-              {category.skills.map((skill, index) => (
-                <SkillCard key={skill.skillName} skill={skill} index={index} />
-              ))}
-            </div>
+            <h2 className="section-heading">My Skills</h2>
+            <p className="skills__subtitle">
+              Technologies and tools I work with daily
+            </p>
           </motion.div>
-        ))}
-      </div>
-    </section>
+
+          {skillCategories.map((category) => (
+            <motion.div
+              key={category.title}
+              className="skills__category"
+              variants={staggerContainer(0.05, 0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <motion.h3
+                className="skills__category-title"
+                variants={fadeIn("up", 0)}
+              >
+                <span aria-hidden="true">{category.icon}</span>
+                {category.title}
+              </motion.h3>
+
+              <div className="skills__grid">
+                {category.skills.map((skill, index) => (
+                  <SkillCard
+                    key={skill.skillName}
+                    skill={skill}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </MotionConfig>
   );
 };
 

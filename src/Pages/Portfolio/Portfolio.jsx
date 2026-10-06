@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { MotionConfig, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import CategoryGroup from "../../Components/CategoryGroup/CategoryGroup";
 import CategorySlider from "../../Components/CategorySlider/CategorySlider";
@@ -43,74 +43,77 @@ const Portfolio = () => {
       : groupedProjects.filter((g) => g.category === activeCategory);
 
   return (
-    <section id="portfolio" className="portfolio">
-      <div className="container">
-        <motion.div
-          className="portfolio__header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="section-heading">Recent Projects</h2>
-          <p className="portfolio__subtitle">
-            A collection of apps I've built — from full-stack platforms to
-            interactive experiences
-          </p>
-        </motion.div>
+    <MotionConfig reducedMotion="user">
+      <section id="portfolio" className="portfolio">
+        <div className="container">
+          <motion.div
+            className="portfolio__header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="section-heading">Recent Projects</h2>
+            <p className="portfolio__subtitle">
+              A collection of apps I've built — from full-stack platforms to
+              interactive experiences
+            </p>
+          </motion.div>
 
-        {isMobile ? (
-          /* Mobile: one horizontal slider per category, no filter buttons —
+          {isMobile ? (
+            /* Mobile: one horizontal slider per category, no filter buttons —
              the grouping itself is the navigation. */
-          groupedProjects.map(({ category, projects: categoryProjects }) => (
-            <CategorySlider
-              key={category}
-              category={category}
-              projects={categoryProjects}
-              onSelectProject={setSelectedProject}
-            />
-          ))
-        ) : (
-          /* Desktop: filter buttons + category-grouped bento grids. "All"
-             shows every group; a filter narrows to one. */
-          <>
-            <motion.div
-              className="portfolio__filters"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              {categories.map((category) => (
-                <motion.button
-                  key={category}
-                  className={`portfolio__filter ${activeCategory === category ? "portfolio__filter--active" : ""}`}
-                  onClick={() => setActiveCategory(category)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {category}
-                </motion.button>
-              ))}
-            </motion.div>
-
-            {visibleGroups.map(({ category, projects: categoryProjects }) => (
-              <CategoryGroup
+            groupedProjects.map(({ category, projects: categoryProjects }) => (
+              <CategorySlider
                 key={category}
                 category={category}
                 projects={categoryProjects}
                 onSelectProject={setSelectedProject}
               />
-            ))}
-          </>
-        )}
+            ))
+          ) : (
+            /* Desktop: filter buttons + category-grouped bento grids. "All"
+             shows every group; a filter narrows to one. */
+            <>
+              <motion.div
+                className="portfolio__filters"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {categories.map((category) => (
+                  <motion.button
+                    key={category}
+                    className={`portfolio__filter ${activeCategory === category ? "portfolio__filter--active" : ""}`}
+                    aria-pressed={activeCategory === category}
+                    onClick={() => setActiveCategory(category)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {category}
+                  </motion.button>
+                ))}
+              </motion.div>
 
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      </div>
-    </section>
+              {visibleGroups.map(({ category, projects: categoryProjects }) => (
+                <CategoryGroup
+                  key={category}
+                  category={category}
+                  projects={categoryProjects}
+                  onSelectProject={setSelectedProject}
+                />
+              ))}
+            </>
+          )}
+
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        </div>
+      </section>
+    </MotionConfig>
   );
 };
 

@@ -3,7 +3,8 @@ import "./Footer.scss";
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // CSS scroll-behavior decides: smooth, or instant for reduced motion.
+    window.scrollTo({ top: 0 });
   };
 
   return (

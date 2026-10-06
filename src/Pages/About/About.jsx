@@ -115,7 +115,11 @@ const About = () => {
               I'm told.
             </p>
 
-            <a href={CV} download className="btn btn--primary about__cta">
+            <a
+              href={CV}
+              download="Avet-Badalyan-CV.pdf"
+              className="btn btn--primary about__cta"
+            >
               <HiDownload />
               <span>Download CV</span>
             </a>

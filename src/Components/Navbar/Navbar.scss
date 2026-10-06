@@ -218,14 +218,7 @@
     }
   }
 
-  /* Mobile Menu
-     Perf note: neither the backdrop nor the sliding panel use backdrop-filter.
-     Animating the transform of a large element that also re-samples a blurred
-     backdrop every frame is fill-rate murder on mid-range mobile GPUs and was
-     the main cause of the janky menu open/close. A solid opaque panel slides
-     just as smoothly and reads fine. Open/close is driven by opacity/transform
-     transitions (compositor-only), not conditional mounting, so BOTH the open
-     and the close animate. */
+  /* Mobile menu uses a solid surface and compositor-friendly transitions. */
   &__backdrop {
     position: fixed;
     inset: 0;
@@ -257,7 +250,7 @@
        (e.g. the Dark Mode button) gets clipped. */
     overflow-y: auto;
     /* Opaque solid panel (no backdrop blur). Light surface by default;
-       dark override lives in the main.bg-2 block below. */
+       dark override lives in the .portfolio-app.bg-2 block below. */
     background: var(--surface-mobile-menu);
     border-left: 1px solid var(--glass-border);
     box-shadow: -10px 0 40px rgba(0, 0, 0, calc(0.25 * var(--shadow-strength)));
@@ -392,7 +385,7 @@
    DARK MODE
    ============================================ */
 
-main.bg-2 {
+.portfolio-app.bg-2 {
   .nav {
     &--scrolled {
       background: var(--glass-bg-solid);
@@ -445,6 +438,7 @@ main.bg-2 {
       color: var(--color-dark);
 
       &:hover,
+      &:focus-visible,
       &--active {
         color: var(--color-accent);
         background: hsla(var(--primary-hue), 70%, 50%, 0.2);
@@ -465,7 +459,7 @@ main.bg-2 {
 
 /* Navbar slide in from top */
 .nav--animate {
-  animation: navSlideIn var(--duration-base) var(--easing-emphasized) both;
+  animation: navSlideIn var(--duration-base) var(--easing-emphasized) backwards;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -494,14 +488,16 @@ main.bg-2 {
   }
 }
 
+/* Centering lives in the `translate` property on .nav__link-indicator, so the
+   keyframes must not repeat translate(-50%) in `transform` (they'd stack). */
 @keyframes indicatorIn {
   from {
     opacity: 0;
-    transform: translate(-50%, 4px) scaleX(0.4);
+    transform: translateY(4px) scaleX(0.4);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, 0) scaleX(1);
+    transform: none;
   }
 }
 

@@ -10,11 +10,11 @@ import "./NavigationIndicators.scss";
  */
 const NavigationIndicators = ({ total, current }) => {
   return (
-    <nav className="nav-indicators" aria-label="Slide navigation">
+    <div className="nav-indicators">
       <span className="nav-indicators__counter" aria-live="polite">
         {current + 1} / {total}
       </span>
-    </nav>
+    </div>
   );
 };
 

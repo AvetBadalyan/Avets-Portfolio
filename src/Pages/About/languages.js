@@ -1,5 +1,5 @@
 export const languageSkills = [
-  { language: "Armenian", level: "native", proficiency: 95, flagEmoji: "AM" },
+  { language: "Armenian", level: "Native", proficiency: 95, flagEmoji: "AM" },
   {
     language: "English",
     level: "B2 upper intermediate",

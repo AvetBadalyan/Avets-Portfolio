@@ -226,6 +226,16 @@
     var(--color-accent) 22%,
     transparent
   );
+
+  /* The page scrollbar belongs to <html>, which sits outside .portfolio-app.bg-2, so it
+     is themed from data-theme (set pre-paint and by ThemeProvider). */
+  --scrollbar-track: hsl(var(--primary-hue), 5%, 94%);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --scrollbar-track: hsl(var(--primary-hue), 10%, 14%);
+  color-scheme: dark;
 }
 
 /* Drop the frosted-glass blur on phones. This is the single biggest lever for a
@@ -295,14 +305,23 @@ p {
   font-weight: var(--fw-bold);
 }
 
-/* THEME: bg-1 = light, bg-2 = dark, applied to <main> by theme-context. */
-main.bg-1 {
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* THEME: bg-1 = light, bg-2 = dark, applied to .portfolio-app in App.jsx. */
+.portfolio-app.bg-1 {
   --color-accent: var(--color-primary);
   --color-accent-saturation: var(--color-primary-saturation);
   --color-accent-lightness: var(--color-primary-lightness);
 }
 
-main.bg-2 {
+.portfolio-app.bg-2 {
   --black-lightness: 97%;
   --dark-lightness: 85%;
   --light-lightness: 14%;
@@ -345,7 +364,7 @@ main.bg-2 {
   --shadow-strength: 3.2;
 }
 
-main {
+.portfolio-app {
   color: var(--color-dark);
   --color-primary: hsl(
     var(--primary-hue),
@@ -357,8 +376,6 @@ main {
     var(--color-accent-saturation),
     var(--color-accent-lightness)
   );
-  /* proximity snapping guides the user between sections without forcing it */
-  scroll-snap-type: y proximity;
 }
 
 /* CONTAINER */
@@ -372,7 +389,6 @@ main {
 section {
   padding: var(--section-padding-block) 0;
   background: var(--color-light);
-  scroll-snap-align: start;
 }
 
 section:nth-child(even) {
@@ -614,7 +630,7 @@ img {
    dark card, so the label read as a dim, muddy purple. Give the resting state
    a stronger wash and a brighter, near-white-tinted label so it's clearly
    legible at rest — the hover state (solid primary + white) is unchanged. */
-main.bg-2 .btn--outline {
+.portfolio-app.bg-2 .btn--outline {
   background: hsla(var(--primary-hue), 60%, 55%, 0.22);
   color: hsl(var(--primary-hue), 85%, 88%);
   border-color: hsla(var(--primary-hue), 70%, 65%, 0.55);
@@ -706,35 +722,24 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-light);
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsla(var(--primary-hue), 50%, 50%, 0.4);
   border-radius: var(--border-radius-pill);
-  border: 2px solid var(--color-light);
+  border: 2px solid var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsla(var(--primary-hue), 50%, 50%, 0.6);
 }
 
-main.bg-2 {
-  &::-webkit-scrollbar-track,
-  ::-webkit-scrollbar-track {
-    background: var(--color-light);
-  }
-
-  &::-webkit-scrollbar-thumb,
-  ::-webkit-scrollbar-thumb {
-    border-color: var(--color-light);
-  }
-}
-
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: hsla(var(--primary-hue), 50%, 50%, 0.4) var(--color-light);
+  scrollbar-color: hsla(var(--primary-hue), 50%, 50%, 0.4)
+    var(--scrollbar-track);
 }
 
 /* ============================================
@@ -751,6 +756,11 @@ main.bg-2 {
   outline-offset: var(--focus-ring-offset);
   border-radius: var(--border-radius-3);
   transition: outline-offset var(--duration-base) var(--easing-default);
+}
+
+/* Skip-link target: focused by script, so no ring around the whole page. */
+#main-content:focus-visible {
+  outline: none;
 }
 
 /* Buttons and links get a glow on top of the outline */

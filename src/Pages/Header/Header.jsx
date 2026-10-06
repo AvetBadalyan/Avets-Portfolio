@@ -16,6 +16,10 @@ import HeaderImage from "./../../assets/IMG_0861.webp";
 import "./header.scss";
 
 const Header = () => {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
   const stats = [
     { number: "3+", label: "Years Exp" },
     { number: "20", label: "Projects" },
@@ -69,15 +73,22 @@ const Header = () => {
           </h1>
 
           <div className="hero__role">
-            <span className="hero__role-static">I'm a </span>
-            <ReactTyped
-              strings={roles}
-              typeSpeed={50}
-              backSpeed={30}
-              backDelay={2500}
-              loop
-              className="hero__role-typed"
-            />
+            <span className="visually-hidden">I'm a {roles.join(", ")}</span>
+            <span aria-hidden="true">
+              <span className="hero__role-static">I'm a </span>
+              {prefersReducedMotion ? (
+                <span className="hero__role-typed">{roles[0]}</span>
+              ) : (
+                <ReactTyped
+                  strings={roles}
+                  typeSpeed={50}
+                  backSpeed={30}
+                  backDelay={2500}
+                  loop
+                  className="hero__role-typed"
+                />
+              )}
+            </span>
           </div>
 
           <p className="hero__bio">
@@ -95,7 +106,11 @@ const Header = () => {
             <a href="#contact" className="btn btn--outline hero__btn">
               Let's Talk
             </a>
-            <a href={CV} download className="btn btn--outline hero__btn">
+            <a
+              href={CV}
+              download="Avet-Badalyan-CV.pdf"
+              className="btn btn--outline hero__btn"
+            >
               <FaDownload />
               <span>Resume</span>
             </a>

@@ -37,7 +37,7 @@ export const frontendSkills = [
     percentage: 60,
   },
   {
-    skillName: "React.JS",
+    skillName: "React",
     logo: reactLogo,
     percentage: 80,
   },
@@ -57,7 +57,7 @@ export const frontendSkills = [
     percentage: 80,
   },
   {
-    skillName: "SASS",
+    skillName: "Sass",
     logo: sassLogo,
     percentage: 80,
   },
@@ -67,7 +67,7 @@ export const frontendSkills = [
     percentage: 60,
   },
   {
-    skillName: "Responsive WD",
+    skillName: "Responsive Design",
     logo: responsiveLogo,
     percentage: 70,
   },
@@ -77,7 +77,7 @@ export const frontendSkills = [
     percentage: 60,
   },
   {
-    skillName: "Styled-Components",
+    skillName: "styled-components",
     logo: styledComponentsLogo,
     percentage: 40,
   },
@@ -85,12 +85,12 @@ export const frontendSkills = [
 
 export const backendSkills = [
   {
-    skillName: "Node.JS",
+    skillName: "Node.js",
     logo: nodeLogo,
     percentage: 65,
   },
   {
-    skillName: "Express JS",
+    skillName: "Express",
     logo: expressLogo,
     percentage: 65,
   },

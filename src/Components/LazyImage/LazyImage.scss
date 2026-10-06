@@ -15,7 +15,7 @@
   overflow: hidden;
   background: hsla(var(--primary-hue), 20%, 25%, 0.3);
 
-  main.bg-1 & {
+  .portfolio-app.bg-1 & {
     background: hsla(var(--primary-hue), 20%, 92%, 0.5);
   }
 
@@ -41,7 +41,7 @@
     }
   }
 
-  main.bg-1 &::after {
+  .portfolio-app.bg-1 &::after {
     background: linear-gradient(
       90deg,
       transparent 0%,

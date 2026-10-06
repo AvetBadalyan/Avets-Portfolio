@@ -548,7 +548,9 @@
     position: absolute;
     bottom: 3rem;
     left: 50%;
-    transform: translateX(-50%);
+    /* `translate`, not `transform`: the fadeInUp entrance animates transform
+       and would otherwise wipe out the centering. */
+    translate: -50% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -569,7 +571,7 @@
       position: relative;
       bottom: auto;
       left: auto;
-      transform: none;
+      translate: none;
       margin-top: var(--space-2xl);
     }
   }
@@ -643,7 +645,7 @@
    DARK MODE
    ============================================ */
 
-main.bg-2 {
+.portfolio-app.bg-2 {
   .hero {
     background: var(--color-white);
 
@@ -792,13 +794,13 @@ main.bg-2 {
   }
 }
 
+/* `backwards` (not `both`) applies the hidden start state during the delay but
+   releases transform afterwards, so the badge hover scale can take effect. */
 .hero__badge--animate {
-  opacity: 0;
-  animation: fadeInUp var(--duration-base) var(--easing-emphasized) both;
+  animation: fadeInUp var(--duration-base) var(--easing-emphasized) backwards;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
-    opacity: 1;
   }
 }
 
@@ -820,12 +822,10 @@ main.bg-2 {
 }
 
 .hero__stat--animate {
-  opacity: 0;
-  animation: fadeInUp var(--duration-base) var(--easing-emphasized) both;
+  animation: fadeInUp var(--duration-base) var(--easing-emphasized) backwards;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
-    opacity: 1;
   }
 }
 

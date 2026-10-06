@@ -103,7 +103,8 @@ const TiltCard = ({
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       style={{
         transformStyle: "preserve-3d",
-        perspective: "1000px",
+        // CSS `perspective` only affects children; the card itself needs this.
+        transformPerspective: 1000,
         height: "100%",
         display: "flex",
         flexDirection: "column",

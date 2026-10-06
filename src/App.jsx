@@ -26,25 +26,30 @@ const App = () => {
     if (loader) {
       loader.style.transition = "opacity 0.3s ease";
       loader.style.opacity = "0";
-      setTimeout(() => loader.remove(), 300);
+      const timer = setTimeout(() => loader.remove(), 300);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   return (
-    <main id="main-content" className={themeClass}>
+    <div className={`portfolio-app ${themeClass}`}>
       <Navbar />
-      <Header />
+      <main id="main-content" tabIndex={-1}>
+        <Header />
+        <Suspense fallback={null}>
+          <About />
+          <Education />
+          <Skills />
+          <CurrentlyLearning />
+          <Experience />
+          <Portfolio />
+          <Contact />
+        </Suspense>
+      </main>
       <Suspense fallback={null}>
-        <About />
-        <Education />
-        <Skills />
-        <CurrentlyLearning />
-        <Experience />
-        <Portfolio />
-        <Contact />
         <Footer />
       </Suspense>
-    </main>
+    </div>
   );
 };
 
