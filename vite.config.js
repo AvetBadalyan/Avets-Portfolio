@@ -27,10 +27,11 @@ function lcpPreloadPlugin() {
 }
 
 /**
- * Adds fetchpriority="high" to the main entry script to tell the browser this
- * is a critical resource. This helps the browser prioritize downloading the
- * main JS bundle over less important resources, improving FCP/LCP on slow
- * connections.
+ * Keep the main entry script out of the head so the browser can parse and paint
+ * the page before it has to execute the app bootstrap. In a client-rendered SPA,
+ * the critical dependency chain is the JS entry itself, so moving it to the end
+ * of the document is the safest, lowest-risk way to reduce the blocking chain
+ * without breaking the app.
  */
 function prioritizeEntryScriptPlugin() {
   return {
@@ -39,7 +40,6 @@ function prioritizeEntryScriptPlugin() {
     transformIndexHtml(html, ctx) {
       if (!ctx.bundle) return html; // build only
 
-      // Find the main entry chunk (index-*.js that's the entry point)
       const entryChunk = Object.keys(ctx.bundle).find(
         (k) =>
           k.startsWith("assets/index-") &&
@@ -49,14 +49,15 @@ function prioritizeEntryScriptPlugin() {
 
       if (!entryChunk) return html;
 
-      // Add fetchpriority="high" to the module script
-      return html.replace(
-        new RegExp(
-          `<script type="module"([^>]*?)src="/${entryChunk.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`,
-          "g",
-        ),
-        `<script type="module" fetchpriority="high"$1src="/${entryChunk}"`,
+      const scriptTag = `    <script type="module" defer src="/${entryChunk}"></script>\n`;
+
+      const replaced = html.replace(
+        /<script type="module"[^>]*src="(?:\/src\/main\.jsx|\/assets\/index-[^"]+\.js)"[^>]*><\/script>/,
+        scriptTag.trim(),
       );
+
+      if (replaced !== html) return replaced;
+      return html.replace("</body>", `${scriptTag}  </body>`);
     },
   };
 }
