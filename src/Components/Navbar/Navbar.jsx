@@ -100,8 +100,11 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", updateActiveSection, { passive: true });
-    updateActiveSection();
-    return () => window.removeEventListener("scroll", updateActiveSection);
+    const raf = requestAnimationFrame(updateActiveSection);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", updateActiveSection);
+    };
   }, []);
 
   // Only trap focus while the menu is actually open.
@@ -120,7 +123,7 @@ const Navbar = () => {
         </a>
 
         <div className="container nav__container">
-          <a href="#header" className="nav__logo" aria-label="Home">
+          <a href="#header" className="nav__logo" aria-label="AB - Home">
             <FaBriefcase />
             <span className="nav__logo-text">AB</span>
           </a>
