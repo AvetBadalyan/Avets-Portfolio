@@ -10,25 +10,25 @@ import "./Contact.scss";
 
 const contactItems = [
   {
-    icon: <FaEnvelope />,
+    icon: <FaEnvelope aria-hidden="true" />,
     label: "Email",
     value: "avetbadalyan@gmail.com",
     href: "mailto:avetbadalyan@gmail.com?subject=Let's%20Connect",
   },
   {
-    icon: <FaPhone />,
+    icon: <FaPhone aria-hidden="true" />,
     label: "Phone",
     value: "+374-55-280-444",
     href: "tel:+374-55-280-444",
   },
   {
-    icon: <FaLinkedin />,
+    icon: <FaLinkedin aria-hidden="true" />,
     label: "LinkedIn",
     value: "avet-badalyan",
     href: "https://www.linkedin.com/in/avet-badalyan-17b767101/",
   },
   {
-    icon: <FaGithub />,
+    icon: <FaGithub aria-hidden="true" />,
     label: "GitHub",
     value: "AvetBadalyan",
     href: "https://github.com/AvetBadalyan",
@@ -64,7 +64,7 @@ const Contact = () => {
           </div>
 
           <div className="contact__location">
-            <FaMapMarkerAlt />
+            <FaMapMarkerAlt aria-hidden="true" />
             <span>Yerevan, Armenia • Open to remote</span>
           </div>
 

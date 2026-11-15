@@ -2,6 +2,31 @@
    NAVBAR - Glassmorphism + Active Section
    ============================================ */
 
+/* Skip-navigation link — WCAG 2.4.1 Bypass Blocks.
+   Visually hidden at rest; slides into view when focused by keyboard. */
+.skip-link {
+  position: fixed;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: calc(var(--z-navbar) + 10);
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  /* Hidden off-screen until focused */
+  transform: translateY(calc(-100% - var(--space-xl)));
+  transition: transform var(--duration-base) var(--easing-emphasized);
+
+  &:focus-visible {
+    transform: translateY(0);
+    outline: var(--focus-ring-width) solid var(--color-on-primary);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
 .nav {
   position: fixed;
   top: 0;

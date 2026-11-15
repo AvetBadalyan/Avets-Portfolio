@@ -32,10 +32,10 @@ function BelowFold() {
   return (
     <>
       <About />
+      <Experience />
       <Education />
       <Skills />
       <CurrentlyLearning />
-      <Experience />
       <Portfolio />
       <Contact />
     </>

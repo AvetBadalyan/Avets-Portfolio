@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./GradientBackground.scss";
 
 /**
@@ -7,11 +7,21 @@ import "./GradientBackground.scss";
  * Respects prefers-reduced-motion via CSS media query.
  */
 const GradientBackground = ({ className = "" }) => {
-  // Fewer floating particles on small screens — mid-range mobile GPUs are
-  // fill-rate limited, so a lighter particle field keeps interactions (menu
-  // slide, theme toggle) smooth without a noticeable visual difference.
-  const particleCount =
-    typeof window !== "undefined" && window.innerWidth <= 768 ? 6 : 20;
+  // Fewer particles on small screens — mid-range mobile GPUs are fill-rate
+  // limited. Using a media query (not window.innerWidth) keeps JS and CSS
+  // in sync and responds to window resize / device rotation.
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia("(max-width: 768px)").matches,
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 768px)");
+    const handleChange = (e) => setIsMobile(e.matches);
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
+
+  const particleCount = isMobile ? 6 : 20;
 
   const particles = useMemo(
     () =>

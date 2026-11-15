@@ -6,6 +6,7 @@ import {
   FaNodeJs,
   FaReact,
 } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { ReactTyped } from "react-typed";
 import CV from "../../assets/cv.pdf";
@@ -15,9 +16,18 @@ import HeaderImage from "./../../assets/IMG_0861.webp";
 import "./header.scss";
 
 const Header = () => {
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
+  // Track prefers-reduced-motion reactively so the typed animation
+  // responds if the user changes the OS setting mid-session.
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleChange = (e) => setPrefersReducedMotion(e.matches);
+    query.addEventListener("change", handleChange);
+    return () => query.removeEventListener("change", handleChange);
+  }, []);
 
   const stats = [
     { number: "3+", label: "Years Exp" },

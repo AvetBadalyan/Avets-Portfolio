@@ -85,7 +85,7 @@ const Experience = () => {
                     )}
 
                     <div className="experience__highlights-section">
-                      <ul className="experience__highlights">
+                      <ul className="experience__highlights" role="list">
                         {job.highlights.map((item, i) => (
                           <li key={i}>{item}</li>
                         ))}
@@ -272,7 +272,7 @@ const Experience = () => {
                           <h4 className="contribution-card__title">
                             {contrib.title}
                           </h4>
-                          <ul className="contribution-card__points">
+                          <ul className="contribution-card__points" role="list">
                             {contrib.points.map((point, j) => (
                               <li key={j}>{point}</li>
                             ))}

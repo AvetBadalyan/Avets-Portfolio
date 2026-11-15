@@ -115,6 +115,12 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Skip link — first tab stop in the document. Visually hidden until
+          focused so keyboard users can bypass the navbar on every page. */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <nav
         className={`nav nav--animate ${isScrolled ? "nav--scrolled" : ""} ${isMenuOpen ? "nav--open" : ""}`}
       >

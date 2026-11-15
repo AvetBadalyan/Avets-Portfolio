@@ -106,7 +106,15 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://avets-portfolio.web.app/" />
 
-    <!-- Critical CSS: only the themed background paints before the app mounts. -->
+    <!-- Tells browsers to style native controls (scrollbars, form inputs) for
+         both light and dark before CSS loads. Avoids a flash of OS-default
+         styling on the initial paint. -->
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Critical CSS: only the themed background and loader spinner paint before
+         the app mounts. Keeping the @keyframes here (rather than in a <style>
+         inside the loader <div> in <body>) is valid and avoids style blocks in
+         unusual positions. -->
     <style>
       body,
       #initial-loader {
@@ -115,6 +123,11 @@
       html[data-theme="light"] body,
       html[data-theme="light"] #initial-loader {
         background: #f9f9fa;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
@@ -152,13 +165,6 @@
         "
       ></div>
       <span>Avet Badalyan</span>
-      <style>
-        @keyframes spin {
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      </style>
     </div>
     <!-- Vite entry point -->
     <script type="module" src="/src/main.jsx"></script>
